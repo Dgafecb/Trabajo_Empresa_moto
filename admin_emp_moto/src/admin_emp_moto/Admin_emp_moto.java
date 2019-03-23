@@ -5,6 +5,10 @@
  */
 package admin_emp_moto;
 
+import controlador.Controlador_log;
+import modelo.Modelo_log;
+import vista.Vista_log;
+
 /**
  *
  * @author Usuario
@@ -15,7 +19,14 @@ public class Admin_emp_moto {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Modelo_log mod = new Modelo_log();
+        Vista_log view = new Vista_log();
+        Controlador_log ctrl = new Controlador_log(view,mod);
+        ctrl.iniciar();
+        view.setVisible(true);
+             
+        
+        
     }
     
 }

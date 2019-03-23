@@ -31,7 +31,14 @@ public class Controlador_log implements ActionListener {
         view.setLocationRelativeTo(null);
     }
     public void actionPerformed(ActionEvent e){
-        
+        if(e.getSource()==view.btnIngresar){
+        model.setLogUsuario(view.txtUsuario.getText());
+        model.setLogContr(view.txtContr.getText());
+        model.CheckAdmin();
+        }
+        if(e.getSource()== view.btnSalir){
+            System.exit(0);
+        }
     
     }   
        
