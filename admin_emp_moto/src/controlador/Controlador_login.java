@@ -4,17 +4,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.Modelo_user;
 import modelo.Modelo_Consultas_Login;
-import vista.Vista_login;
+import vista.Vista_Ventana_Login;
 
 
 public class Controlador_login implements ActionListener {
 
-    private Vista_login view;
+    private Vista_Ventana_Login view;
     private Modelo_user model;
     private Modelo_Consultas_Login consultas;
             
     
-    public Controlador_login(Vista_login view, Modelo_user model, Modelo_Consultas_Login consultas){
+    public Controlador_login(Vista_Ventana_Login view, Modelo_user model, Modelo_Consultas_Login consultas){
         this.view = view;
         this.model = model;
         this.consultas = consultas;
@@ -22,7 +22,7 @@ public class Controlador_login implements ActionListener {
     }
     
     private void callComp(){
-        this.view.btnIngresar.addActionListener(this);
+        this.view.panel.btnIngresar.addActionListener(this);
     }
     
     public void init(){
@@ -30,11 +30,11 @@ public class Controlador_login implements ActionListener {
         view.setLocationRelativeTo(null);
     }
     public void actionPerformed(ActionEvent e){
-        if(e.getSource()== view.btnIngresar){
-        model.setEmail(view.txtUsuario.getText());
+        if(e.getSource()== view.panel.btnIngresar){
+        model.setEmail(view.panel.txtUsuario.getText());
         if(consultas.read(model)== true){
             System.out.println("Usuario existe");
-            if(view.txtContr.getText().equals(model.getPassword())){
+            if(view.panel.txtContr.getText().equals(model.getPassword())){
                 System.out.println("Contraseña Correcta");
                 if(model.getPrivilege()==2){
                     System.out.println("Admin");

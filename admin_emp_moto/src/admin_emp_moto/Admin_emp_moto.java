@@ -7,7 +7,7 @@ import javax.swing.UIManager;
 import modelo.Modelo_Consultas_Login;
 import modelo.Modelo_log;
 import modelo.Modelo_user;
-import vista.Vista_login;
+import vista.Vista_Ventana_Login;
 
 public class Admin_emp_moto {
 
@@ -27,7 +27,7 @@ public class Admin_emp_moto {
         
         Modelo_user user = new Modelo_user();
         Modelo_Consultas_Login consultas = new Modelo_Consultas_Login();
-        Vista_login view = new Vista_login();
+        Vista_Ventana_Login view = new Vista_Ventana_Login();
         Controlador_login ctrl = new Controlador_login(view,user,consultas);
         view.setVisible(true);
            
