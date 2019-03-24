@@ -32,15 +32,25 @@ public class Controlador_login implements ActionListener {
     public void actionPerformed(ActionEvent e){
         if(e.getSource()== view.btnIngresar){
         model.setEmail(view.txtUsuario.getText());
-        model.setPassword(view.txtContr.getText());
         if(consultas.read(model)== true){
-            if(model.getPrivilege()==2){
-                view.setVisible(false);
-                view.dispose();
+            System.out.println("Usuario existe");
+            if(view.txtContr.getText().equals(model.getPassword())){
+                System.out.println("Contraseña Correcta");
+                if(model.getPrivilege()==2){
+                    System.out.println("Admin");
+                }else if(model.getPrivilege()==1){
+                    System.out.println("Recepcionista");
+                }else if(model.getPrivilege()==0){
+                    System.out.println("Trabajador");
                 }
+            }else{
+                System.out.println("Contraseña Incorrecta");
             }
-        }
+        }else{
+            System.out.println("Usuario no existe");
+            }
     
-    }   
+        }
+    }
     
 }
