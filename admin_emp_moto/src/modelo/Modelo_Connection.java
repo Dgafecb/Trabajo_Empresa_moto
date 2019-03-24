@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class Modelo_Connection {
    
     public static final String DRIVER="com.mysql.cj.jdbc.Driver";
-    public static final String URL="jdbc:mysql://localhost:3306/Empresa?autoReconnect=true&useSSL=false";
+    public static final String URL="jdbc:mysql://localhost:3306/empresa?autoReconnect=true&useSSL=false";
     public static final String USERNAME="root";
     public static final String PASSWORD="root";
     
