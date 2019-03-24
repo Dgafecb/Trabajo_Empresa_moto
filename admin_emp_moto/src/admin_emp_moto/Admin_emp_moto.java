@@ -5,7 +5,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import modelo.Modelo_log;
-import vista.Vista_log;
+import vista.Vista_login;
 
 public class Admin_emp_moto {
 
@@ -24,12 +24,11 @@ public class Admin_emp_moto {
         }
         
         Modelo_log mod = new Modelo_log();
-        Vista_log view = new Vista_log();
+        Vista_login view = new Vista_login();
         Controlador_log ctrl = new Controlador_log(view,mod);
         ctrl.iniciar();
         view.setVisible(true);
-        view.setVisible(true);
-             
+           
         
         
         

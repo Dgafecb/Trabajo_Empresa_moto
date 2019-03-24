@@ -8,7 +8,7 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.Modelo_log;
-import vista.Vista_log;
+import vista.Vista_login;
 
 /**
  *
@@ -16,11 +16,11 @@ import vista.Vista_log;
  */
 public class Controlador_log implements ActionListener {
 
-    private Vista_log view;
+    private Vista_login view;
     private Modelo_log model;
             
     
-    public Controlador_log(Vista_log view, Modelo_log model){
+    public Controlador_log(Vista_login view, Modelo_log model){
         this.view = view;
         this.model = model;
         this.view.btnIngresar.addActionListener(this);
