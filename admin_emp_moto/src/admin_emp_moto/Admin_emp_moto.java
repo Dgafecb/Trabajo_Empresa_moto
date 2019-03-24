@@ -28,7 +28,9 @@ public class Admin_emp_moto {
         Controlador_log ctrl = new Controlador_log(view,mod);
         ctrl.iniciar();
         view.setVisible(true);
+        view.setVisible(true);
              
+        
         
         
     }
