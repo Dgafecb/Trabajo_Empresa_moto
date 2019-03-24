@@ -2,15 +2,21 @@
 package vista;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
 
 
 public class Vista_Panel_Login extends javax.swing.JPanel {
 
-
+    //private PlaceHolder emailPH,passwordPH;
+    private final String DEFAULT_EMAIL = "Ingrese correo";
+    private final String DEFAULT_PASS = "Ingrese password";
+    
     public Vista_Panel_Login() {
         initComponents();
+        this.txtContr.setEchoChar('•');
+        
     }
     
     @Override
@@ -31,7 +37,7 @@ public class Vista_Panel_Login extends javax.swing.JPanel {
         btnIngresar = new javax.swing.JButton();
 
         txtUsuario.setBackground(new java.awt.Color(229, 229, 229));
-        txtUsuario.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        txtUsuario.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         txtUsuario.setBorder(null);
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -40,7 +46,7 @@ public class Vista_Panel_Login extends javax.swing.JPanel {
         });
 
         txtContr.setBackground(new java.awt.Color(229, 229, 229));
-        txtContr.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        txtContr.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         txtContr.setBorder(null);
         txtContr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,16 +71,16 @@ public class Vista_Panel_Login extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtContr, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(25, 25, 25))
+                .addGap(134, 134, 134))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(326, Short.MAX_VALUE)
+                .addContainerGap(320, Short.MAX_VALUE)
                 .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addGap(52, 52, 52)
                 .addComponent(txtContr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(87, 87, 87)
+                .addGap(92, 92, 92)
                 .addComponent(btnIngresar)
                 .addGap(55, 55, 55))
         );
