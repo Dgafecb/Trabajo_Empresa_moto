@@ -4,10 +4,11 @@ package vista;
 import java.awt.Color;
 import java.awt.Dimension;
 
-public class Vista_admin extends javax.swing.JFrame {
+public class Vista_Ventana_Admin extends javax.swing.JFrame {
 
-    public Vista_admin() {
+    public Vista_Ventana_Admin() {
         initComponents();
+        configFrame();
     }
     
     private void configFrame(){    
