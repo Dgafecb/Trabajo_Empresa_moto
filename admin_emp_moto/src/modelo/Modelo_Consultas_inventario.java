@@ -25,7 +25,7 @@ public class Modelo_Consultas_inventario extends Modelo_Connection {
 
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, user.getID_Prod());
+            ps.setInt(1, user.getIDProd());
             ps.setString(2, user.getNombreProducto());
             ps.setInt(3, user.getCantidad());
             ps.setInt(4, user.getLimiteAdvertencia());
@@ -55,7 +55,7 @@ public class Modelo_Consultas_inventario extends Modelo_Connection {
 
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, user.getID_Prod());
+            ps.setInt(1, user.getIDProd());
             ps.setString(2, user.getNombreProducto());
             ps.setInt(3, user.getCantidad());
             ps.setInt(4, user.getLimiteAdvertencia());
