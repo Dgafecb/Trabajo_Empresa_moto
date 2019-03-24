@@ -12,8 +12,13 @@ package modelo;
 public class Modelo_log {
     private String logUsuario;
     private String logContr;
-    private int checkAdmin=0; // Valor que cambiara si es que es o no admin, default 0, si es admin cambia a 1
+    // Valor que cambiara si es que es o no admin, default 0, si es admin cambia a 1
+    private int checkAdmin; 
     private String defaultContr="admin";
+
+    public Modelo_log() {
+        this.checkAdmin = 0;
+    }
     public String getLogUsuario() {
         return logUsuario;
     }
