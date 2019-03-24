@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-class Modelo_Consultas_Login extends Modelo_Connection {
+public class Modelo_Consultas_Login extends Modelo_Connection {
 
     public boolean create(Modelo_user user) {
         PreparedStatement ps = null;
@@ -41,9 +41,7 @@ class Modelo_Consultas_Login extends Modelo_Connection {
         ResultSet rs = null;
         Connection con = getConnection();
 
-        String query = "SELECT * FROM user WHERE email=?"
-                + "( email, password, privilege)"
-                + "values ( ?, ?, ?)";
+        String query = "SELECT * FROM user WHERE email=?";
 
         try {
             ps = con.prepareStatement(query);

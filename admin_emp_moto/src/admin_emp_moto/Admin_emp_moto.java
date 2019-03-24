@@ -1,10 +1,12 @@
 package admin_emp_moto;
 
-import controlador.Controlador_log;
+import controlador.Controlador_login;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
+import modelo.Modelo_Consultas_Login;
 import modelo.Modelo_log;
+import modelo.Modelo_user;
 import vista.Vista_login;
 
 public class Admin_emp_moto {
@@ -23,10 +25,10 @@ public class Admin_emp_moto {
         e.printStackTrace();
         }
         
-        Modelo_log mod = new Modelo_log();
+        Modelo_user user = new Modelo_user();
+        Modelo_Consultas_Login consultas = new Modelo_Consultas_Login();
         Vista_login view = new Vista_login();
-        Controlador_log ctrl = new Controlador_log(view,mod);
-        ctrl.iniciar();
+        Controlador_login ctrl = new Controlador_login(view,user,consultas);
         view.setVisible(true);
            
         
