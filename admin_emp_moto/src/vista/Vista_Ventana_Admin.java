@@ -1,4 +1,3 @@
-
 package vista;
 
 import java.awt.Color;
@@ -6,6 +5,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.SystemColor;
 import java.util.Locale;
 import javax.swing.JScrollPane;
@@ -20,9 +20,9 @@ public class Vista_Ventana_Admin extends javax.swing.JFrame {
     public Vista_Ventana_Admin() {
         configFrame();
         initPaneles();
-        
+        this.setVisible(true);
             //PRUEBA DE SLIDER
-          /*SlidingPanel slideMenuUser = new SlidingPanel(menuBar.btnMenu,menuBar);
+            /*SlidingPanel slideMenuUser = new SlidingPanel(menuBar.btnMenu,menuBar);
             slideMenuUser.animacion(0);
             SlidingPanel slideUserSlide = new SlidingPanel(menuBar.btnMenu,userSlider);
             slideUserSlide.animacion(-userSlider.getWidth());
@@ -41,6 +41,7 @@ public class Vista_Ventana_Admin extends javax.swing.JFrame {
         setResizable(false);
         setBackground(SystemColor.window);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setBackground(new Color(245,245,245));
         getContentPane().setLayout (new GridBagLayout());
         
     }
@@ -81,6 +82,7 @@ public class Vista_Ventana_Admin extends javax.swing.JFrame {
         constraints.weighty = 1.0; 
         constraints.fill = GridBagConstraints.BOTH;
         constraints.anchor = GridBagConstraints.CENTER;
+        constraints.insets= new Insets(10,10,10,10);
         getContentPane().add (jsContent, constraints);
         
     }
