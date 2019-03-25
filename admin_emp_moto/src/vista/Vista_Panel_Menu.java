@@ -21,6 +21,7 @@ public class Vista_Panel_Menu extends javax.swing.JPanel {
         setBackground(new java.awt.Color(21, 21, 21));
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.Y_AXIS));
 
+        jButton1.setBackground(new java.awt.Color(240, 240, 241));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnBase.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
