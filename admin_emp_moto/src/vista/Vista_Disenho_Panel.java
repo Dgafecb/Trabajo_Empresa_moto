@@ -46,6 +46,7 @@ public class Vista_Disenho_Panel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 5);
         add(btnCerrarPanel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -55,7 +56,7 @@ public class Vista_Disenho_Panel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
         add(jSeparator1, gridBagConstraints);
 
-        lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(60, 60, 60));
         lblTitulo.setText("TITUTLO DEL PANEL");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -63,6 +64,7 @@ public class Vista_Disenho_Panel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 5);
         add(lblTitulo, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
