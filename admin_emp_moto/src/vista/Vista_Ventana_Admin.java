@@ -9,11 +9,14 @@ import javax.swing.JScrollPane;
 public class Vista_Ventana_Admin extends javax.swing.JFrame {
 
     private Vista_Panel_Menu menu;
+    private Vista_Panel_UserBar userBar;
     
     public Vista_Ventana_Admin() {
         initComponents();
         menu =new Vista_Panel_Menu();
+        userBar = new Vista_Panel_UserBar();
         administrarPanel(jsMenuBar,menu);
+        administrarPanel(jsUserBar,userBar);
         configFrame();
         
     }
@@ -43,26 +46,33 @@ public class Vista_Ventana_Admin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
+
+        jsUserBar.setBorder(null);
+        jsUserBar.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 1280;
-        gridBagConstraints.ipady = 100;
+        gridBagConstraints.ipady = 40;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         getContentPane().add(jsUserBar, gridBagConstraints);
+
+        jsMenuBar.setBorder(null);
+        jsMenuBar.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 50;
-        gridBagConstraints.ipady = 620;
+        gridBagConstraints.ipadx = 300;
+        gridBagConstraints.ipady = 655;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         getContentPane().add(jsMenuBar, gridBagConstraints);
+
+        jsContent.setBorder(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
