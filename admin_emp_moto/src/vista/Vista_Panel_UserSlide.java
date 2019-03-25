@@ -141,15 +141,15 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private vista.Vista_Panel_UserSlide_User Paneluser;
-    private modelo.Modelo_JButton btnAlmacen;
-    private modelo.Modelo_JButton btnAyuda;
-    private modelo.Modelo_JButton btnCompras;
-    private modelo.Modelo_JButton btnConfig;
-    private modelo.Modelo_JButton btnEstadisticas;
-    private modelo.Modelo_JButton btnMantenimiento;
-    private modelo.Modelo_JButton btnSalir;
-    private modelo.Modelo_JButton btnTrabajadores;
-    private modelo.Modelo_JButton btnVentas;
+    public vista.Vista_Panel_UserSlide_User Paneluser;
+    public modelo.Modelo_JButton btnAlmacen;
+    public modelo.Modelo_JButton btnAyuda;
+    public modelo.Modelo_JButton btnCompras;
+    public modelo.Modelo_JButton btnConfig;
+    public modelo.Modelo_JButton btnEstadisticas;
+    public modelo.Modelo_JButton btnMantenimiento;
+    public modelo.Modelo_JButton btnSalir;
+    public modelo.Modelo_JButton btnTrabajadores;
+    public modelo.Modelo_JButton btnVentas;
     // End of variables declaration//GEN-END:variables
 }
