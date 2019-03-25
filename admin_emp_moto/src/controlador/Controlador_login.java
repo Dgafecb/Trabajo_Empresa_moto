@@ -47,10 +47,10 @@ public class Controlador_login implements ActionListener {
             privilege = this.verificacion(model, view.panel.txtContr.getText());
             if (privilege == 2) {
                 message("Bienvenido Admin");
-
                 view.setVisible(false);
                 view.dispose();
                 viewAdmin = new Vista_Ventana_Admin();
+                viewAdmin.setVisible(true);
             } else if (privilege == 1) {
                 message("Bienvenido Recpecionista");
                 mostrarVentanaTrabajador();

@@ -1,10 +1,10 @@
 
 package vista;
 
-public class Vista_Panel_UserBar extends javax.swing.JPanel {
+public class Vista_Panel_MenuBar extends javax.swing.JPanel {
 
 
-    public Vista_Panel_UserBar() {
+    public Vista_Panel_MenuBar() {
         initComponents();
     }
 
