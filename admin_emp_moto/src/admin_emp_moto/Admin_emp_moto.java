@@ -35,7 +35,7 @@ public class Admin_emp_moto {
         Vista_Ventana_Login view = new Vista_Ventana_Login();
         Controlador_login ctrl = new Controlador_login(view, user, consultas);
 
-        Vista_Ventana_Admin view_admin = new Vista_Ventana_Admin(); // tendria que eliminar esto
+        /*Vista_Ventana_Admin view_admin = new Vista_Ventana_Admin(); // tendria que eliminar esto
         Modelo_trabajadores model_tr = new Modelo_trabajadores();
         Modelo_Consultas_trabajadores consultas_tr = new Modelo_Consultas_trabajadores();
         Modelo_inventario model_inventario = new Modelo_inventario();
@@ -44,7 +44,7 @@ public class Admin_emp_moto {
         Modelo_user model_user = new Modelo_user();
         Controlador_admin ctrl_admin = new Controlador_admin(view_admin, model_tr,
                 consultas_tr, model_inventario, consultas_inventario, consultas_login,
-                model_user);
+                model_user);*/
         view.setVisible(true);
 
     }

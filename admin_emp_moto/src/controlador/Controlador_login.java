@@ -17,6 +17,7 @@ public class Controlador_login implements ActionListener {
     private Modelo_Consultas_Login consultas;
     private Vista_Ventana_Admin viewAdmin;
     private Vista_Ventana_Trabajador viewTrabajador;
+    private Controlador_admin controladorAdmin;
 
     public Controlador_login(Vista_Ventana_Login view, Modelo_user model, Modelo_Consultas_Login consultas) {
         this.view = view;
@@ -50,6 +51,7 @@ public class Controlador_login implements ActionListener {
                 view.setVisible(false);
                 view.dispose();
                 viewAdmin = new Vista_Ventana_Admin();
+                controladorAdmin = new Controlador_admin(viewAdmin);
                 viewAdmin.setVisible(true);
             } else if (privilege == 1) {
                 message("Bienvenido Recpecionista");
