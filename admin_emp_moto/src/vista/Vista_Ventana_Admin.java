@@ -7,18 +7,33 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.SystemColor;
+import java.util.Locale;
 import javax.swing.JScrollPane;
+import modelo.SlidingPanel;
 
 public class Vista_Ventana_Admin extends javax.swing.JFrame {
 
-    private Vista_Panel_UserSlide UserSlider;
+    private Vista_Panel_UserSlide userSlider;
     private Vista_Panel_MenuBar menuBar;
     public JScrollPane jsContent;
     
     public Vista_Ventana_Admin() {
-        //initComponents();
         configFrame();
         initPaneles();
+        setVisible(true);
+        
+            //PRUEBA DE SLIDER
+            SlidingPanel slideMenuUser = new SlidingPanel(menuBar.btnMenu,menuBar);
+            slideMenuUser.animacion(0);
+            SlidingPanel slideUserSlide = new SlidingPanel(menuBar.btnMenu,userSlider);
+            slideUserSlide.animacion(-userSlider.getWidth());/*
+        
+            SlidingPanel slideMenuUser = new SlidingPanel(menuBar.btnMenu,menuBar);
+            slideMenuUser.animacion(userSlider.getWidth());
+            SlidingPanel slideUserSlide = new SlidingPanel(menuBar.btnMenu,userSlider);
+            slideUserSlide.animacion(0);*/
+           
+       
         
     }
     
@@ -31,10 +46,11 @@ public class Vista_Ventana_Admin extends javax.swing.JFrame {
         setBackground(SystemColor.window);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout (new GridBagLayout());
+        
     }
     
     private void initPaneles(){
-        UserSlider = new Vista_Panel_UserSlide();
+        userSlider = new Vista_Panel_UserSlide();
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0; // El área de texto empieza en la columna cero
         constraints.gridy = 0; // El área de texto empieza en la fila cero
@@ -44,7 +60,7 @@ public class Vista_Ventana_Admin extends javax.swing.JFrame {
         constraints.weighty = 1.0; // La fila se estira
         constraints.fill = GridBagConstraints.VERTICAL;//Estirar los componentes
         constraints.anchor = GridBagConstraints.CENTER;//Poscion que ocupa el componente
-        getContentPane().add (UserSlider, constraints);
+        getContentPane().add (userSlider, constraints);
         
         menuBar = new Vista_Panel_MenuBar();
         constraints.gridx = 1;

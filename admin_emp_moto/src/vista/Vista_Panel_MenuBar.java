@@ -28,6 +28,6 @@ public class Vista_Panel_MenuBar extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnMenu;
+    public javax.swing.JButton btnMenu;
     // End of variables declaration//GEN-END:variables
 }

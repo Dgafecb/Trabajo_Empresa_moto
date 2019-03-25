@@ -16,8 +16,8 @@ public class Vista_Panel_UserSlide_User extends javax.swing.JPanel {
         lblImagen = new javax.swing.JLabel();
         lblUser = new javax.swing.JLabel();
         lblStatus = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblEditUser = new javax.swing.JLabel();
+        lblEditStatus = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(60, 60, 60));
         setLayout(new java.awt.GridBagLayout());
@@ -50,33 +50,33 @@ public class Vista_Panel_UserSlide_User extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
         add(lblStatus, gridBagConstraints);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("NAME DEFAULT");
+        lblEditUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblEditUser.setForeground(new java.awt.Color(255, 255, 255));
+        lblEditUser.setText("NAME DEFAULT");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
-        add(jLabel1, gridBagConstraints);
+        add(lblEditUser, gridBagConstraints);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("PRIVILEGE DEFAULT");
+        lblEditStatus.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblEditStatus.setForeground(new java.awt.Color(255, 255, 255));
+        lblEditStatus.setText("PRIVILEGE DEFAULT");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
-        add(jLabel2, gridBagConstraints);
+        add(lblEditStatus, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblEditStatus;
+    private javax.swing.JLabel lblEditUser;
     private javax.swing.JLabel lblImagen;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblUser;
