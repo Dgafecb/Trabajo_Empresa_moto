@@ -37,7 +37,7 @@ public class Vista_Panel_Login extends javax.swing.JPanel {
         btnIngresar = new javax.swing.JButton();
 
         txtUsuario.setBackground(new java.awt.Color(229, 229, 229));
-        txtUsuario.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        txtUsuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtUsuario.setBorder(null);
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,7 +46,7 @@ public class Vista_Panel_Login extends javax.swing.JPanel {
         });
 
         txtContr.setBackground(new java.awt.Color(229, 229, 229));
-        txtContr.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        txtContr.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtContr.setBorder(null);
         txtContr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +76,7 @@ public class Vista_Panel_Login extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(320, Short.MAX_VALUE)
+                .addContainerGap(328, Short.MAX_VALUE)
                 .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
                 .addComponent(txtContr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

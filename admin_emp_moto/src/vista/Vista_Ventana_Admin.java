@@ -11,7 +11,7 @@ import javax.swing.JScrollPane;
 
 public class Vista_Ventana_Admin extends javax.swing.JFrame {
 
-    private Vista_Panel_UserSlider UserSlider;
+    private Vista_Panel_UserSlide UserSlider;
     private Vista_Panel_MenuBar menuBar;
     public JScrollPane jsContent;
     
@@ -34,7 +34,7 @@ public class Vista_Ventana_Admin extends javax.swing.JFrame {
     }
     
     private void initPaneles(){
-        UserSlider = new Vista_Panel_UserSlider();
+        UserSlider = new Vista_Panel_UserSlide();
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0; // El área de texto empieza en la columna cero
         constraints.gridy = 0; // El área de texto empieza en la fila cero

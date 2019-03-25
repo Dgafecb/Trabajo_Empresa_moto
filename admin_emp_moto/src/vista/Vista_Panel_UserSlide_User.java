@@ -2,9 +2,9 @@
 package vista;
 
 
-public class Vista_Panel_UserSlider_User extends javax.swing.JPanel {
+public class Vista_Panel_UserSlide_User extends javax.swing.JPanel {
 
-    public Vista_Panel_UserSlider_User() {
+    public Vista_Panel_UserSlide_User() {
         initComponents();
     }
 
@@ -26,7 +26,7 @@ public class Vista_Panel_UserSlider_User extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 2;
         add(lblImagen, gridBagConstraints);
 
@@ -52,22 +52,24 @@ public class Vista_Panel_UserSlider_User extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("DEFAULT");
+        jLabel1.setText("NAME DEFAULT");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         add(jLabel1, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("DEFAULT");
+        jLabel2.setText("PRIVILEGE DEFAULT");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         add(jLabel2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
