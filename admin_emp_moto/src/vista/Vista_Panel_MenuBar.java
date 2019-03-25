@@ -13,27 +13,21 @@ public class Vista_Panel_MenuBar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        fotoPerfil = new javax.swing.JLabel();
-        btnUsuario = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
-        setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT, 5, 0));
+        setBackground(new java.awt.Color(21, 166, 231));
+        setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 0));
 
-        fotoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/imagenPerfilDefault.png"))); // NOI18N
-        add(fotoPerfil);
-
-        btnUsuario.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        btnUsuario.setForeground(new java.awt.Color(51, 51, 51));
-        btnUsuario.setText("Username@Default");
-        btnUsuario.setBorder(null);
-        btnUsuario.setBorderPainted(false);
-        btnUsuario.setContentAreaFilled(false);
-        add(btnUsuario);
+        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnMenu.png"))); // NOI18N
+        btnMenu.setBorder(null);
+        btnMenu.setBorderPainted(false);
+        btnMenu.setContentAreaFilled(false);
+        btnMenu.setFocusPainted(false);
+        add(btnMenu);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnUsuario;
-    private javax.swing.JLabel fotoPerfil;
+    private javax.swing.JButton btnMenu;
     // End of variables declaration//GEN-END:variables
 }

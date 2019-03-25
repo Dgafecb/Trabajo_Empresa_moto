@@ -59,7 +59,7 @@ public class Vista_Ventana_Admin extends javax.swing.JFrame {
         
         jsContent = new JScrollPane();
         jsContent.setBorder(null);
-        jsContent.getViewport().setBackground(new Color(230,230,230));
+        jsContent.getViewport().setBackground(new Color(255,255,255));
         constraints.gridx = 1;
         constraints.gridy = 1;
         constraints.gridwidth = 2;
