@@ -20,21 +20,17 @@ public class Vista_Ventana_Admin extends javax.swing.JFrame {
     public Vista_Ventana_Admin() {
         configFrame();
         initPaneles();
-        setVisible(true);
         
             //PRUEBA DE SLIDER
-            SlidingPanel slideMenuUser = new SlidingPanel(menuBar.btnMenu,menuBar);
+          /*SlidingPanel slideMenuUser = new SlidingPanel(menuBar.btnMenu,menuBar);
             slideMenuUser.animacion(0);
             SlidingPanel slideUserSlide = new SlidingPanel(menuBar.btnMenu,userSlider);
-            slideUserSlide.animacion(-userSlider.getWidth());/*
+            slideUserSlide.animacion(-userSlider.getWidth());
         
             SlidingPanel slideMenuUser = new SlidingPanel(menuBar.btnMenu,menuBar);
             slideMenuUser.animacion(userSlider.getWidth());
             SlidingPanel slideUserSlide = new SlidingPanel(menuBar.btnMenu,userSlider);
             slideUserSlide.animacion(0);*/
-           
-       
-        
     }
     
     private void configFrame(){    
@@ -63,6 +59,7 @@ public class Vista_Ventana_Admin extends javax.swing.JFrame {
         getContentPane().add (userSlider, constraints);
         
         menuBar = new Vista_Panel_MenuBar();
+        menuBar.setPreferredSize(new Dimension(1280,50));
         constraints.gridx = 1;
         constraints.gridy = 0;
         constraints.gridwidth = 2;
