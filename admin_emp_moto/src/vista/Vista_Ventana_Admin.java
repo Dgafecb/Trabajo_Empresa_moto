@@ -13,8 +13,8 @@ import modelo.SlidingPanel;
 
 public class Vista_Ventana_Admin extends javax.swing.JFrame {
 
-    private Vista_Panel_UserSlide userSlider;
-    private Vista_Panel_MenuBar menuBar;
+    public Vista_Panel_UserSlide userSlider;
+    public Vista_Panel_MenuBar menuBar;
     public JScrollPane jsContent;
     
     public Vista_Ventana_Admin() {
@@ -89,6 +89,8 @@ public class Vista_Ventana_Admin extends javax.swing.JFrame {
     
     public void administrarPanel(JScrollPane contenedor,Component compt){
         contenedor.setViewportView(compt);
+        
+        
     }
 
 

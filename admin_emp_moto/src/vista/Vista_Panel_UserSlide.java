@@ -97,6 +97,11 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
         btnTrabajadores.setColorHover(new java.awt.Color(21, 166, 231));
         btnTrabajadores.setColorNormal(new java.awt.Color(60, 60, 60));
         btnTrabajadores.setColorPressed(new java.awt.Color(0, 152, 215));
+        btnTrabajadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTrabajadoresActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -138,6 +143,10 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         add(btnSalir, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnTrabajadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrabajadoresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTrabajadoresActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -13,6 +13,7 @@ import modelo.Modelo_Consultas_trabajadores;
 import modelo.Modelo_inventario;
 import modelo.Modelo_trabajadores;
 import modelo.Modelo_user;
+import vista.Vista_Panel_Trabajadores;
 import vista.Vista_Ventana_Admin;
 
 /**
@@ -20,7 +21,7 @@ import vista.Vista_Ventana_Admin;
  * @author Dgafecb
  */
 public class Controlador_admin implements ActionListener {
-    
+
     private Vista_Ventana_Admin view;
     private Modelo_trabajadores model_tr;
     private Modelo_Consultas_trabajadores consultas_tr;
@@ -28,9 +29,10 @@ public class Controlador_admin implements ActionListener {
     private Modelo_Consultas_inventario consultas_inventario;
     private Modelo_Consultas_Login consultas_login;
     private Modelo_user model_user;
+    private Vista_Panel_Trabajadores panel_tr;
 
-    public Controlador_admin(Vista_Ventana_Admin view, Modelo_trabajadores model_tr, 
-            Modelo_Consultas_trabajadores consultas_tr, Modelo_inventario model_inventario, 
+    public Controlador_admin(Vista_Ventana_Admin view, Modelo_trabajadores model_tr,
+            Modelo_Consultas_trabajadores consultas_tr, Modelo_inventario model_inventario,
             Modelo_Consultas_inventario consultas_inventario, Modelo_Consultas_Login consultas_login,
             Modelo_user model_user) {
         this.view = view;
@@ -42,25 +44,27 @@ public class Controlador_admin implements ActionListener {
         this.model_user = model_user;
         this.callComp();
     }
-   
 
     private void callComp() { // Falta agregar los Action Listeners  a los botones
-        
-    
+        view.userSlider.btnTrabajadores.addActionListener(this);
+
     }
 
     public void init() {
-        
+
         view.setTitle("Administrador");
-        
-    
+
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) { // falta nombre de los botones
-        //if(e.getSource()== "Nombre del boton"){  }
-        
+    public void actionPerformed(ActionEvent e) { // falta nombre de los botones abra panel trabajadores y el panel abre vista panel trabajadores
+        if (e.getSource() == view.userSlider.btnTrabajadores) {
+            panel_tr = new Vista_Panel_Trabajadores();
+            view.administrarPanel(view.jsContent, panel_tr);
+            //panel_tr.setVisible(true);
+
+        }
+
     }
-   
-    
+
 }
