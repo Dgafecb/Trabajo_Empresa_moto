@@ -49,7 +49,7 @@ public class Modelo_Consultas_inventario extends Modelo_Connection {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
-        String query = "INSERT inventario SET"
+        String query = "UPDATE inventario SET"
                 + "ID_Prod = ? , nombre_producto = ?, cantidad = ?, limite_advertencia"
                 + "WHERE id = ? ";
 

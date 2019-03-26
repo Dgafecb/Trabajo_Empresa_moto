@@ -38,6 +38,7 @@ public class Controlador_admin implements ActionListener {
         this.view_admin = view_admin;
         this.model_user = model_user;
         view_admin.userSlider.Paneluser.lblEditUser.setText(model_user.getEmail());
+        view_admin.userSlider.Paneluser.lblEditStatus.setText("Administrador");
         this.callComp();
     }
 
@@ -45,7 +46,7 @@ public class Controlador_admin implements ActionListener {
        
     }
 
-    private void callComp() { // Falta agregar los Action Listeners  a los botones
+    private void callComp() { 
         view_admin.userSlider.btnTrabajadores.addActionListener(this);
         view_admin.userSlider.btnSalir.addActionListener(this);
 
@@ -58,7 +59,7 @@ public class Controlador_admin implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) { // falta nombre de los botones abra panel trabajadores y el panel abre vista panel trabajadores
+    public void actionPerformed(ActionEvent e) { 
         if (e.getSource() == view_admin.userSlider.btnTrabajadores) {
             panel_tr = new Vista_Panel_Trabajadores();
             view_admin.administrarPanel(view_admin.jsContent, panel_tr);

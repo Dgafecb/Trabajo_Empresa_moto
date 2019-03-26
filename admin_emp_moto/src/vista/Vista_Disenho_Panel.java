@@ -29,26 +29,11 @@ public class Vista_Disenho_Panel extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        btnCerrarPanel = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         lblTitulo = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.GridBagLayout());
-
-        btnCerrarPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnExitPanel.png"))); // NOI18N
-        btnCerrarPanel.setToolTipText("");
-        btnCerrarPanel.setBorder(null);
-        btnCerrarPanel.setBorderPainted(false);
-        btnCerrarPanel.setContentAreaFilled(false);
-        btnCerrarPanel.setFocusPainted(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 5);
-        add(btnCerrarPanel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -71,7 +56,6 @@ public class Vista_Disenho_Panel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnCerrarPanel;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
