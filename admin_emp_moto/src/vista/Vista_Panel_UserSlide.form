@@ -234,10 +234,10 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="modelo.JButtonEditable" name="btnSalir">
+    <Component class="modelo.JButtonEditable" name="btnCerrarSesion">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/recursos/btnSalir.png"/>
+          <Image iconType="3" name="/recursos/btnCerrarSesion.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cerrar Sesion"/>
         <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

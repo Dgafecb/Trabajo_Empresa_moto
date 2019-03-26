@@ -26,7 +26,7 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
         btnTrabajadores = new modelo.JButtonEditable();
         btnConfig = new modelo.JButtonEditable();
         btnAyuda = new modelo.JButtonEditable();
-        btnSalir = new modelo.JButtonEditable();
+        btnCerrarSesion = new modelo.JButtonEditable();
 
         setBackground(new java.awt.Color(60, 60, 60));
         setLayout(new java.awt.GridBagLayout());
@@ -130,18 +130,18 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(btnAyuda, gridBagConstraints);
 
-        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnSalir.png"))); // NOI18N
-        btnSalir.setText("Cerrar Sesion");
-        btnSalir.setColorHover(new java.awt.Color(21, 166, 231));
-        btnSalir.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnSalir.setColorPressed(new java.awt.Color(0, 152, 215));
+        btnCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnCerrarSesion.png"))); // NOI18N
+        btnCerrarSesion.setText("Cerrar Sesion");
+        btnCerrarSesion.setColorHover(new java.awt.Color(21, 166, 231));
+        btnCerrarSesion.setColorNormal(new java.awt.Color(60, 60, 60));
+        btnCerrarSesion.setColorPressed(new java.awt.Color(0, 152, 215));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.weighty = 1.0;
-        add(btnSalir, gridBagConstraints);
+        add(btnCerrarSesion, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTrabajadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrabajadoresActionPerformed
@@ -153,11 +153,11 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
     public vista.Vista_Panel_UserSlide_User Paneluser;
     public modelo.JButtonEditable btnAlmacen;
     public modelo.JButtonEditable btnAyuda;
+    public modelo.JButtonEditable btnCerrarSesion;
     public modelo.JButtonEditable btnCompras;
     public modelo.JButtonEditable btnConfig;
     public modelo.JButtonEditable btnEstadisticas;
     public modelo.JButtonEditable btnMantenimiento;
-    public modelo.JButtonEditable btnSalir;
     public modelo.JButtonEditable btnTrabajadores;
     public modelo.JButtonEditable btnVentas;
     // End of variables declaration//GEN-END:variables

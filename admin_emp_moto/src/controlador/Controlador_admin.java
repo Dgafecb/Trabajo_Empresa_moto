@@ -48,7 +48,7 @@ public class Controlador_admin implements ActionListener {
 
     private void callComp() { 
         view_admin.userSlider.btnTrabajadores.addActionListener(this);
-        view_admin.userSlider.btnSalir.addActionListener(this);
+        view_admin.userSlider.btnCerrarSesion.addActionListener(this);
 
     }
 
@@ -66,7 +66,7 @@ public class Controlador_admin implements ActionListener {
             
 
         }
-        if(e.getSource() == view_admin.userSlider.btnSalir){ // Reinstancia la ventana de login, permitiendo otro inicio de sesion
+        if(e.getSource() == view_admin.userSlider.btnCerrarSesion){ // Reinstancia la ventana de login, permitiendo otro inicio de sesion
             view_admin.setVisible(false);
             view_admin.dispose();
             view_login = new Vista_Ventana_Login();
