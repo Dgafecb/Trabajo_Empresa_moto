@@ -15,7 +15,7 @@ import javax.swing.border.Border;
 /**
 * @author Rojeru San
  */
-public class Modelo_JButton extends JButton implements MouseListener, MouseMotionListener {
+public class JButtonEditable extends JButton implements MouseListener, MouseMotionListener {
     /**
      * Color para el fondo del boton
      */
@@ -37,7 +37,7 @@ public class Modelo_JButton extends JButton implements MouseListener, MouseMotio
      * Constructor de clase
      */
     @SuppressWarnings("LeakingThisInConstructor")
-    public Modelo_JButton() {
+    public JButtonEditable() {
         this.setFont(f);
         this.setPreferredSize(new Dimension(150, 35));
         this.setSize(new Dimension(150, 35));

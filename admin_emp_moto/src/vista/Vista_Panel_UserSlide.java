@@ -18,15 +18,15 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         Paneluser = new vista.Vista_Panel_UserSlide_User();
-        btnEstadisticas = new modelo.Modelo_JButton();
-        btnMantenimiento = new modelo.Modelo_JButton();
-        btnAlmacen = new modelo.Modelo_JButton();
-        btnCompras = new modelo.Modelo_JButton();
-        btnVentas = new modelo.Modelo_JButton();
-        btnTrabajadores = new modelo.Modelo_JButton();
-        btnConfig = new modelo.Modelo_JButton();
-        btnAyuda = new modelo.Modelo_JButton();
-        btnSalir = new modelo.Modelo_JButton();
+        btnEstadisticas = new modelo.JButtonEditable();
+        btnMantenimiento = new modelo.JButtonEditable();
+        btnAlmacen = new modelo.JButtonEditable();
+        btnCompras = new modelo.JButtonEditable();
+        btnVentas = new modelo.JButtonEditable();
+        btnTrabajadores = new modelo.JButtonEditable();
+        btnConfig = new modelo.JButtonEditable();
+        btnAyuda = new modelo.JButtonEditable();
+        btnSalir = new modelo.JButtonEditable();
 
         setBackground(new java.awt.Color(60, 60, 60));
         setLayout(new java.awt.GridBagLayout());
@@ -151,14 +151,14 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public vista.Vista_Panel_UserSlide_User Paneluser;
-    public modelo.Modelo_JButton btnAlmacen;
-    public modelo.Modelo_JButton btnAyuda;
-    public modelo.Modelo_JButton btnCompras;
-    public modelo.Modelo_JButton btnConfig;
-    public modelo.Modelo_JButton btnEstadisticas;
-    public modelo.Modelo_JButton btnMantenimiento;
-    public modelo.Modelo_JButton btnSalir;
-    public modelo.Modelo_JButton btnTrabajadores;
-    public modelo.Modelo_JButton btnVentas;
+    public modelo.JButtonEditable btnAlmacen;
+    public modelo.JButtonEditable btnAyuda;
+    public modelo.JButtonEditable btnCompras;
+    public modelo.JButtonEditable btnConfig;
+    public modelo.JButtonEditable btnEstadisticas;
+    public modelo.JButtonEditable btnMantenimiento;
+    public modelo.JButtonEditable btnSalir;
+    public modelo.JButtonEditable btnTrabajadores;
+    public modelo.JButtonEditable btnVentas;
     // End of variables declaration//GEN-END:variables
 }

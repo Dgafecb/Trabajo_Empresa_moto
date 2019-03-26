@@ -31,7 +31,8 @@ public class Controlador_login implements ActionListener, KeyListener {
 
     private void callComp() {
         this.view.panel.btnIngresar.addActionListener(this);
-        this.view.panel.addKeyListener(this);
+        this.view.panel.txtContr.addKeyListener(this);
+        this.view.panel.txtUsuario.addKeyListener(this);
     }
 
 //    public void init() {
@@ -118,5 +119,6 @@ public class Controlador_login implements ActionListener, KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 }
