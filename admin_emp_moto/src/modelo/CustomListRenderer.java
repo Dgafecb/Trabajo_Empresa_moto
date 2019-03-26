@@ -13,7 +13,7 @@ import javax.swing.SwingUtilities;
 
 public class CustomListRenderer extends DefaultListCellRenderer{
     
-    private static final ImageIcon crossIcon = new ImageIcon ( CustomListRenderer.class.getResource ( "back.png" ) );
+    private static final ImageIcon crossIcon = new ImageIcon ( CustomListRenderer.class.getResource ( "/recursos/btnExitPanel.png" ) );
 
 
     private CustomLabel renderer;

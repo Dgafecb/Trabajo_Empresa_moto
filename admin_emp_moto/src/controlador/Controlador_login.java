@@ -44,7 +44,6 @@ public class Controlador_login implements ActionListener, KeyListener {
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             accionBtnIngresar();
-            System.out.println("NICE");
         }
 
     }
@@ -113,12 +112,12 @@ public class Controlador_login implements ActionListener, KeyListener {
     // Metodos abstractos obligatorios
     @Override
     public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
         
     }
 }

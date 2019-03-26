@@ -18,8 +18,8 @@ public class CustomLabel extends JLabel{
 
     
     private String path ;
-    private static final ImageIcon crossIcon = new ImageIcon ( CustomListRenderer.class.getResource ( "back.png" ) );
-    private static final ImageIcon profileIcon = new ImageIcon ( CustomListRenderer.class.getResource ( "back.png" ) );
+    private static final ImageIcon crossIcon = new ImageIcon ( CustomListRenderer.class.getResource ( "/recursos/btnExitPanel.png" ) );
+    private static final ImageIcon profileIcon = new ImageIcon ( CustomListRenderer.class.getResource ( "/recursos/btnVentas.png" ) );
     private static final Color selectionColor = new Color ( 82, 158, 202 );
 
     private boolean selected;

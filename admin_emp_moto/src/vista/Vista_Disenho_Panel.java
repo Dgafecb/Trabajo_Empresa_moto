@@ -70,8 +70,8 @@ public class Vista_Disenho_Panel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCerrarPanel;
+    public javax.swing.JButton btnCerrarPanel;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel lblTitulo;
+    public javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
 }

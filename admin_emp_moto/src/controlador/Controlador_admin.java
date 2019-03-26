@@ -42,7 +42,7 @@ public class Controlador_admin implements ActionListener {
     }
 
     Controlador_admin(Vista_Ventana_Admin viewAdmin, String user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
     }
 
     private void callComp() { // Falta agregar los Action Listeners  a los botones
