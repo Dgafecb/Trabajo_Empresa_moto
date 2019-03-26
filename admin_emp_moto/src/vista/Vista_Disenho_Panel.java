@@ -16,7 +16,7 @@ public class Vista_Disenho_Panel extends javax.swing.JPanel {
      */
     public Vista_Disenho_Panel() {
         initComponents();
-        this.btnCerrarPanel.setVisible(false);
+        
     }
 
     /**
