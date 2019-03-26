@@ -6,13 +6,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import modelo.Modelo_Consultas_Login;
-import modelo.Modelo_Consultas_inventario;
-import modelo.Modelo_Consultas_trabajadores;
-import modelo.Modelo_inventario;
-import modelo.Modelo_log;
-import modelo.Modelo_trabajadores;
 import modelo.Modelo_user;
-import vista.Vista_Ventana_Admin;
 import vista.Vista_Ventana_Login;
 
 public class Admin_emp_moto {

@@ -2,6 +2,8 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import modelo.Modelo_user;
 import modelo.Modelo_Consultas_Login;
@@ -10,7 +12,7 @@ import vista.Vista_Ventana_Admin;
 import vista.Vista_Ventana_Login;
 import vista.Vista_Ventana_Trabajador;
 
-public class Controlador_login implements ActionListener {
+public class Controlador_login implements ActionListener, KeyListener {
 
     private Vista_Ventana_Login view;
     private Modelo_user model;
@@ -24,51 +26,64 @@ public class Controlador_login implements ActionListener {
         this.model = model;
         this.consultas = consultas;
         this.callComp();
+
     }
 
     private void callComp() {
         this.view.panel.btnIngresar.addActionListener(this);
+        this.view.panel.addKeyListener(this);
     }
 
-    public void init() {
-        
-        view.setTitle("Login");
-        view.setLocationRelativeTo(null);
+//    public void init() {
+//        
+//        view.setTitle("Login");
+//        view.setLocationRelativeTo(null);
+//    }
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            accionBtnIngresar();
+            System.out.println("NICE");
+        }
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        //view.panel.btnIngresar.setMnemonic(KeyEvent.VK_ENTER);
-        //view.panel.btnIngresar.setActionCommand("EnterPresionado");
-        // ||"EnterPresionado".equals(e.getActionCommand())
+
         if (e.getSource() == view.panel.btnIngresar) {
-            int privilege;
-            String user;
-            model.setEmail(view.panel.txtUsuario.getText());
-            privilege = this.verificacion(model, view.panel.txtContr.getText());
-            if (privilege == 2) {
-                message("Bienvenido Admin");
-                view.setVisible(false);
-                view.dispose();
-                viewAdmin = new Vista_Ventana_Admin();
-                controladorAdmin = new Controlador_admin(viewAdmin);
-                viewAdmin.setVisible(true);
-            } else if (privilege == 1) {
-                message("Bienvenido Recpecionista");
-                mostrarVentanaTrabajador();
-            } else if (privilege == 0) {
-                message("Bienvenido Trabajador");
-                mostrarVentanaTrabajador();
-            }
+            accionBtnIngresar(); // llama al metodo para hacer la verificacion de privilegios, la cree para poder implementar tambien el boton Enter y no escribir el codigo 2 veces
+
         }
     }
-    public void mostrarVentanaTrabajador(){
+
+    public void accionBtnIngresar() {
+        int privilege;
+        String user;
+        model.setEmail(view.panel.txtUsuario.getText());
+        privilege = this.verificacion(model, view.panel.txtContr.getText());
+        if (privilege == 2) {
+            message("Bienvenido Admin");
+            view.setVisible(false);
+            view.dispose();
+            viewAdmin = new Vista_Ventana_Admin();
+            controladorAdmin = new Controlador_admin(viewAdmin, model);
+            viewAdmin.setVisible(true);
+        } else if (privilege == 1) {
+            message("Bienvenido Recpecionista");
+            mostrarVentanaTrabajador();
+        } else if (privilege == 0) {
+            message("Bienvenido Trabajador");
+            mostrarVentanaTrabajador();
+        }
+    }
+
+    public void mostrarVentanaTrabajador() {
         view.setVisible(false);
         view.dispose();
         viewTrabajador = new Vista_Ventana_Trabajador();
-    
+
     }
-    
 
     private int verificacion(Modelo_user model, String password) {
         if (model != null) {
@@ -92,5 +107,16 @@ public class Controlador_login implements ActionListener {
 
     private void message(String msg) {
         System.out.println("- " + msg);
+    }
+
+    // Metodos abstractos obligatorios
+    @Override
+    public void keyTyped(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
