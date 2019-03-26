@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Modelo_Consultas_Login extends Modelo_Connection {
+public class Consultas_Login extends ConexionSQL {
 
     public boolean create(Modelo_user user) {
         PreparedStatement ps = null;

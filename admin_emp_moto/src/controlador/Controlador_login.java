@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import modelo.Modelo_user;
-import modelo.Modelo_Consultas_Login;
+import modelo.Consultas_Login;
 import vista.Vista_Panel_Login;
 import vista.Vista_Ventana_Admin;
 import vista.Vista_Ventana_Login;
@@ -16,12 +16,12 @@ public class Controlador_login implements ActionListener, KeyListener {
 
     private Vista_Ventana_Login view;
     private Modelo_user model;
-    private Modelo_Consultas_Login consultas;
+    private Consultas_Login consultas;
     private Vista_Ventana_Admin viewAdmin;
     private Vista_Ventana_Trabajador viewTrabajador;
     private Controlador_admin controladorAdmin;
 
-    public Controlador_login(Vista_Ventana_Login view, Modelo_user model, Modelo_Consultas_Login consultas) {
+    public Controlador_login(Vista_Ventana_Login view, Modelo_user model, Consultas_Login consultas) {
         this.view = view;
         this.model = model;
         this.consultas = consultas;

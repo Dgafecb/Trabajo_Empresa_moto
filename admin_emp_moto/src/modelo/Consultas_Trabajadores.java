@@ -18,7 +18,7 @@ import java.sql.SQLException;
  *
  * @author Dgafecb
  */
-public class Modelo_Consultas_trabajadores extends Modelo_Connection {
+public class Consultas_Trabajadores extends ConexionSQL {
 
     public boolean create(Modelo_trabajadores user) {
         PreparedStatement ps = null;

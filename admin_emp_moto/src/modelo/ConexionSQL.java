@@ -4,14 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Modelo_Connection {
+public class ConexionSQL {
    
     public static final String DRIVER="com.microsoft.sqlserver.jdbc";
     public static final String URL="jdbc:sqlserver://sistemagestion.database.windows.net:1433";
     public static final String USERNAME="myadmin";
     public static final String PASSWORD="Support2019";
     
-    public Modelo_Connection(){
+    public ConexionSQL(){
         super();
     }
     

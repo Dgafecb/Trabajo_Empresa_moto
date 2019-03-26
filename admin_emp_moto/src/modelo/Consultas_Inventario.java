@@ -13,7 +13,7 @@ import java.sql.SQLException;
  *
  * @author Dgafecb
  */
-public class Modelo_Consultas_inventario extends Modelo_Connection {
+public class Consultas_Inventario extends ConexionSQL {
 
     public boolean create(Modelo_inventario user) {
         PreparedStatement ps = null;
