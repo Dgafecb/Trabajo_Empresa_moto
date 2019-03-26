@@ -76,7 +76,7 @@ public class Modelo_Consultas_Login extends Modelo_Connection {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
-        String query = "INSERT user SET"
+        String query = "UPDATE user SET"
                 + "email = ? , password = ?, privilege = ?"
                 + "WHERE id = ? ";
 

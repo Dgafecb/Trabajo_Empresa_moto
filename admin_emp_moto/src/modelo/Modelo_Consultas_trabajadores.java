@@ -11,6 +11,7 @@ package modelo;
  */
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -48,7 +49,8 @@ public class Modelo_Consultas_trabajadores extends Modelo_Connection {
             }
         }
     }
-
+    
+    
     public boolean update(Modelo_trabajadores user) {
         PreparedStatement ps = null;
         Connection con = getConnection();
@@ -104,5 +106,6 @@ public class Modelo_Consultas_trabajadores extends Modelo_Connection {
             }
         }
     }
+    
 
 }

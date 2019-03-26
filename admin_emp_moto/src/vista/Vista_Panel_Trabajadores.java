@@ -1,4 +1,3 @@
-
 package vista;
 
 import java.awt.Color;
@@ -10,24 +9,24 @@ import modelo.CustomListRenderer;
 
 public class Vista_Panel_Trabajadores extends javax.swing.JPanel {
 
-
     public Vista_Panel_Trabajadores() {
         initComponents();
         disenhoPanel.lblTitulo.setText("PANEL DE TRABAJADORES");
         testList();
     }
-    
-    private void testList(){
-        DefaultListModel model = new DefaultListModel ();
-        model.addElement ( new CustomData ( new Color ( 209, 52, 23 ), 1, "Lorem ipsum dolor sit amet" ) );
-        model.addElement ( new CustomData ( new Color ( 209, 52, 23 ), 2, "consectetur adipiscing elit" ) );
-        model.addElement ( new CustomData ( new Color ( 209, 52, 23 ), 3, "Aliquam condimentum" ) );
-        model.addElement ( new CustomData ( new Color ( 209, 52, 23 ), 0, "imperdiet justo, vel volutpat " ) );
-        model.addElement ( new CustomData ( new Color ( 209, 52, 23 ), 1, "mauris maximus quis" ) );
-        model.addElement ( new CustomData ( new Color ( 209, 52, 23 ), 2, "Quisque quis ultricies turpis" ) );
+
+    private void testList() {
+        DefaultListModel model = new DefaultListModel();
+        
+            model.addElement(new CustomData(new Color(209, 52, 23), 2, "consectetur adipiscing elit"));
+            model.addElement(new CustomData(new Color(209, 52, 23), 3, "Aliquam condimentum"));
+            model.addElement(new CustomData(new Color(209, 52, 23), 0, "imperdiet justo, vel volutpat "));
+            model.addElement(new CustomData(new Color(209, 52, 23), 1, "mauris maximus quis"));
+            model.addElement(new CustomData(new Color(209, 52, 23), 2, "Quisque quis ultricies turpis"));
+            
         jListTrabajadores.setModel(model);
-        jListTrabajadores.setCellRenderer (new CustomListRenderer ( jListTrabajadores ) );
-        jListTrabajadores.setBorder ( BorderFactory.createEmptyBorder ( 5, 5, 5, 5 ) );
+        jListTrabajadores.setCellRenderer(new CustomListRenderer(jListTrabajadores));
+        jListTrabajadores.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
     }
 
     @SuppressWarnings("unchecked")
