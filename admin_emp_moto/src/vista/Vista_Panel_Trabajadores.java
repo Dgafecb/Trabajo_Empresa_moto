@@ -50,6 +50,8 @@ public class Vista_Panel_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         add(disenhoPanel, gridBagConstraints);
 
+        jsListTrabajadores.setBorder(null);
+
         jListTrabajadores.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -66,6 +68,7 @@ public class Vista_Panel_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
         add(jsListTrabajadores, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 

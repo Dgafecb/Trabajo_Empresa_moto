@@ -131,7 +131,7 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
         add(btnAyuda, gridBagConstraints);
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnSalir.png"))); // NOI18N
-        btnSalir.setText("Salir");
+        btnSalir.setText("Cerrar Sesion");
         btnSalir.setColorHover(new java.awt.Color(21, 166, 231));
         btnSalir.setColorNormal(new java.awt.Color(60, 60, 60));
         btnSalir.setColorPressed(new java.awt.Color(0, 152, 215));
