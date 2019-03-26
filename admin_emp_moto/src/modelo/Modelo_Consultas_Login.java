@@ -11,7 +11,7 @@ public class Modelo_Consultas_Login extends Modelo_Connection {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
-        String query = "INSERT INTO user "
+        String query = "INSERT INTO login "
                 + "( email, password, privilege)"
                 + "values ( ?, ?, ?)";
 
@@ -41,7 +41,7 @@ public class Modelo_Consultas_Login extends Modelo_Connection {
         ResultSet rs = null;
         Connection con = getConnection();
 
-        String query = "SELECT * FROM user WHERE email=?";
+        String query = "SELECT * FROM login WHERE email=?";
 
         try {
             ps = con.prepareStatement(query);
@@ -76,7 +76,7 @@ public class Modelo_Consultas_Login extends Modelo_Connection {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
-        String query = "INSERT user SET"
+        String query = "INSERT login SET"
                 + "email = ? , password = ?, privilege = ?"
                 + "WHERE id = ? ";
 
@@ -106,7 +106,7 @@ public class Modelo_Consultas_Login extends Modelo_Connection {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
-        String query = "DELETE FROM user WHERE ID = ?"; 
+        String query = "DELETE FROM login WHERE ID = ?"; 
 
         try {
             ps = con.prepareStatement(query);

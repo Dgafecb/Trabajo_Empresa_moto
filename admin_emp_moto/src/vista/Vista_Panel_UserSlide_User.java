@@ -2,11 +2,16 @@
 package vista;
 
 
+
 public class Vista_Panel_UserSlide_User extends javax.swing.JPanel {
 
+
+    
     public Vista_Panel_UserSlide_User() {
         initComponents();
     }
+
+   
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

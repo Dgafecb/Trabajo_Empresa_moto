@@ -30,6 +30,8 @@ public class Vista_Panel_Trabajadores extends javax.swing.JPanel {
         jListTrabajadores.setBorder ( BorderFactory.createEmptyBorder ( 5, 5, 5, 5 ) );
     }
 
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

@@ -43,7 +43,7 @@ public class Controlador_login implements ActionListener, KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-            accionBtnIngresar();
+            this.view.panel.btnIngresar.doClick();
         }
 
     }
