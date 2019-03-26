@@ -21,27 +21,17 @@ public class Vista_Ventana_Admin extends javax.swing.JFrame {
         configFrame();
         initPaneles();
         this.setVisible(true);
-            //PRUEBA DE SLIDER
-            /*SlidingPanel slideMenuUser = new SlidingPanel(menuBar.btnMenu,menuBar);
-            slideMenuUser.animacion(0);
-            SlidingPanel slideUserSlide = new SlidingPanel(menuBar.btnMenu,userSlider);
-            slideUserSlide.animacion(-userSlider.getWidth());
-        
-            SlidingPanel slideMenuUser = new SlidingPanel(menuBar.btnMenu,menuBar);
-            slideMenuUser.animacion(userSlider.getWidth());
-            SlidingPanel slideUserSlide = new SlidingPanel(menuBar.btnMenu,userSlider);
-            slideUserSlide.animacion(0);*/
     }
     
     private void configFrame(){    
-        setMinimumSize(new Dimension(400, 300));
-        setMaximumSize(new Dimension(1200, 900));
+        setMinimumSize(new Dimension(800, 600));
+        setMaximumSize(new Dimension(1920, 1080));
         setSize(new Dimension(1280, 720));
         setLocationRelativeTo(null);
-        setResizable(false);
+        //setResizable(false);
         setBackground(SystemColor.window);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setBackground(new Color(245,245,245));
+        getContentPane().setBackground(new Color(235,235,235));
         getContentPane().setLayout (new GridBagLayout());
         
     }
