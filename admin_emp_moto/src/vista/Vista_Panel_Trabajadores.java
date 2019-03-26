@@ -19,10 +19,12 @@ public class Vista_Panel_Trabajadores extends javax.swing.JPanel {
     
     private void testList(){
         DefaultListModel model = new DefaultListModel ();
-        model.addElement ( new CustomData ( new Color ( 209, 52, 23 ), 1, "PAPA" ) );
-        model.addElement ( new CustomData ( new Color ( 135, 163, 14 ), 0, "MAMA" ) );
-        model.addElement ( new CustomData ( new Color ( 204, 204, 204 ), 2, "ABUELITA" ) );
-        model.addElement ( new CustomData ( new Color ( 90, 90, 90 ), 3, "NOVIA IMAGINARIA" ) );
+        model.addElement ( new CustomData ( new Color ( 209, 52, 23 ), 1, "Lorem ipsum dolor sit amet" ) );
+        model.addElement ( new CustomData ( new Color ( 209, 52, 23 ), 2, "consectetur adipiscing elit" ) );
+        model.addElement ( new CustomData ( new Color ( 209, 52, 23 ), 3, "Aliquam condimentum" ) );
+        model.addElement ( new CustomData ( new Color ( 209, 52, 23 ), 0, "imperdiet justo, vel volutpat " ) );
+        model.addElement ( new CustomData ( new Color ( 209, 52, 23 ), 1, "mauris maximus quis" ) );
+        model.addElement ( new CustomData ( new Color ( 209, 52, 23 ), 2, "Quisque quis ultricies turpis" ) );
         jListTrabajadores.setModel(model);
         jListTrabajadores.setCellRenderer (new CustomListRenderer ( jListTrabajadores ) );
         jListTrabajadores.setBorder ( BorderFactory.createEmptyBorder ( 5, 5, 5, 5 ) );
