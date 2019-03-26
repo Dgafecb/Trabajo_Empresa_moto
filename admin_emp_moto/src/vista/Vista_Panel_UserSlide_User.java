@@ -75,9 +75,9 @@ public class Vista_Panel_UserSlide_User extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblEditStatus;
-    private javax.swing.JLabel lblEditUser;
-    private javax.swing.JLabel lblImagen;
+    public javax.swing.JLabel lblEditStatus;
+    public javax.swing.JLabel lblEditUser;
+    public javax.swing.JLabel lblImagen;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblUser;
     // End of variables declaration//GEN-END:variables
