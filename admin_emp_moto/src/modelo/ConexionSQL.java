@@ -23,6 +23,6 @@ public class ConexionSQL {
        }catch(ClassNotFoundException | SQLException e){
             e.printStackTrace();
        }
-       return conn;
+       return conn; 
     }
 }
