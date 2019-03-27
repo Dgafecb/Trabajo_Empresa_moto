@@ -15,7 +15,7 @@ import modelo.SlidingPanel;
 
 public class Vista_Ventana_Admin extends javax.swing.JFrame {
 
-    public Vista_Panel_UserSlide userSlider;
+    public Vista_Panel_MenuAdmin MenuAdmin;
     public Vista_Panel_MenuBar menuBar;
     public JScrollPane jsContent;
     
@@ -39,7 +39,7 @@ public class Vista_Ventana_Admin extends javax.swing.JFrame {
     }
     
     private void initPaneles(){
-        userSlider = new Vista_Panel_UserSlide();
+        MenuAdmin = new Vista_Panel_MenuAdmin();
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0; // El área de texto empieza en la columna cero
         constraints.gridy = 0; // El área de texto empieza en la fila cero
@@ -49,7 +49,7 @@ public class Vista_Ventana_Admin extends javax.swing.JFrame {
         constraints.weighty = 1.0; // La fila se estira
         constraints.fill = GridBagConstraints.VERTICAL;//Estirar los componentes
         constraints.anchor = GridBagConstraints.CENTER;//Poscion que ocupa el componente
-        getContentPane().add (userSlider, constraints);
+        getContentPane().add (MenuAdmin, constraints);
         
         menuBar = new Vista_Panel_MenuBar();
         menuBar.setPreferredSize(new Dimension(1280,50));

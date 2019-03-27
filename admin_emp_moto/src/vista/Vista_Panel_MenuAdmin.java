@@ -3,11 +3,11 @@ package vista;
 
 import java.awt.GridBagConstraints;
 
-public class Vista_Panel_UserSlide extends javax.swing.JPanel {
+public class Vista_Panel_MenuAdmin extends javax.swing.JPanel {
 
-    public Vista_Panel_UserSlide_User user;
+    public Vista_Panel_ProfileUser user;
 
-    public Vista_Panel_UserSlide() {
+    public Vista_Panel_MenuAdmin() {
         initComponents();
     }
     
@@ -17,7 +17,7 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        Paneluser = new vista.Vista_Panel_UserSlide_User();
+        profileUser = new vista.Vista_Panel_ProfileUser();
         btnEstadisticas = new modelo.JButtonEditable();
         btnMantenimiento = new modelo.JButtonEditable();
         btnAlmacen = new modelo.JButtonEditable();
@@ -31,11 +31,8 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
         setBackground(new java.awt.Color(60, 60, 60));
         setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(25, 10, 25, 10);
-        add(Paneluser, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(20, 10, 20, 10);
+        add(profileUser, gridBagConstraints);
 
         btnEstadisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnEstadisticas.png"))); // NOI18N
         btnEstadisticas.setText("Estadisticas");
@@ -157,7 +154,6 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public vista.Vista_Panel_UserSlide_User Paneluser;
     public modelo.JButtonEditable btnAlmacen;
     public modelo.JButtonEditable btnAyuda;
     public modelo.JButtonEditable btnCerrarSesion;
@@ -167,5 +163,6 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
     public modelo.JButtonEditable btnMantenimiento;
     public modelo.JButtonEditable btnTrabajadores;
     public modelo.JButtonEditable btnVentas;
+    public vista.Vista_Panel_ProfileUser profileUser;
     // End of variables declaration//GEN-END:variables
 }

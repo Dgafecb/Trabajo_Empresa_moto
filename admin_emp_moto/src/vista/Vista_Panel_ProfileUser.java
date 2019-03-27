@@ -2,9 +2,9 @@
 package vista;
 
 
-public class Vista_Panel_UserSlide_User extends javax.swing.JPanel {
+public class Vista_Panel_ProfileUser extends javax.swing.JPanel {
 
-    public Vista_Panel_UserSlide_User() {
+    public Vista_Panel_ProfileUser() {
         initComponents();
     }
 

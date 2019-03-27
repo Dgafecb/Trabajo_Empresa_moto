@@ -37,8 +37,8 @@ public class Controlador_admin implements ActionListener {
     public Controlador_admin(Vista_Ventana_Admin view_admin,  Modelo_user model_user) {// Falta instanciar las demas variables a usar
         this.view_admin = view_admin;
         this.model_user = model_user;
-        view_admin.userSlider.Paneluser.lblEditUser.setText(model_user.getEmail());
-        view_admin.userSlider.Paneluser.lblEditStatus.setText("Administrador");
+        view_admin.MenuAdmin.profileUser.lblEditUser.setText(model_user.getEmail());
+        view_admin.MenuAdmin.profileUser.lblEditStatus.setText("Administrador");
         this.callComp();
     }
 
@@ -47,8 +47,8 @@ public class Controlador_admin implements ActionListener {
     }
 
     private void callComp() { 
-        view_admin.userSlider.btnTrabajadores.addActionListener(this);
-        view_admin.userSlider.btnCerrarSesion.addActionListener(this);
+        view_admin.MenuAdmin.btnTrabajadores.addActionListener(this);
+        view_admin.MenuAdmin.btnCerrarSesion.addActionListener(this);
 
     }
 
@@ -60,13 +60,13 @@ public class Controlador_admin implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) { 
-        if (e.getSource() == view_admin.userSlider.btnTrabajadores) {
+        if (e.getSource() == view_admin.MenuAdmin.btnTrabajadores) {
             panel_tr = new Vista_Panel_Trabajadores();
             view_admin.administrarPanel(view_admin.jsContent, panel_tr);
             
 
         }
-        if(e.getSource() == view_admin.userSlider.btnCerrarSesion){ // Reinstancia la ventana de login, permitiendo otro inicio de sesion
+        if(e.getSource() == view_admin.MenuAdmin.btnCerrarSesion){ // Reinstancia la ventana de login, permitiendo otro inicio de sesion
             view_admin.setVisible(false);
             view_admin.dispose();
             view_login = new Vista_Ventana_Login();
