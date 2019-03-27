@@ -39,9 +39,9 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
 
         btnEstadisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnEstadisticas.png"))); // NOI18N
         btnEstadisticas.setText("Estadisticas");
-        btnEstadisticas.setColorHover(new java.awt.Color(21, 166, 231));
+        btnEstadisticas.setColorHover(new java.awt.Color(82, 158, 202));
         btnEstadisticas.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnEstadisticas.setColorPressed(new java.awt.Color(0, 152, 215));
+        btnEstadisticas.setColorPressed(new java.awt.Color(72, 148, 182));
         btnEstadisticas.setFocusable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -51,9 +51,9 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
 
         btnMantenimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnMantenimiento.png"))); // NOI18N
         btnMantenimiento.setText("Mantenimiento");
-        btnMantenimiento.setColorHover(new java.awt.Color(21, 166, 231));
+        btnMantenimiento.setColorHover(new java.awt.Color(82, 158, 202));
         btnMantenimiento.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnMantenimiento.setColorPressed(new java.awt.Color(0, 152, 215));
+        btnMantenimiento.setColorPressed(new java.awt.Color(72, 148, 182));
         btnMantenimiento.setFocusable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -63,9 +63,9 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
 
         btnAlmacen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnAlmacen.png"))); // NOI18N
         btnAlmacen.setText("Almacen");
-        btnAlmacen.setColorHover(new java.awt.Color(21, 166, 231));
+        btnAlmacen.setColorHover(new java.awt.Color(82, 158, 202));
         btnAlmacen.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnAlmacen.setColorPressed(new java.awt.Color(0, 152, 215));
+        btnAlmacen.setColorPressed(new java.awt.Color(72, 148, 182));
         btnAlmacen.setFocusable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -75,9 +75,9 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
 
         btnCompras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnCompras.png"))); // NOI18N
         btnCompras.setText("Compras");
-        btnCompras.setColorHover(new java.awt.Color(21, 166, 231));
+        btnCompras.setColorHover(new java.awt.Color(82, 158, 202));
         btnCompras.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnCompras.setColorPressed(new java.awt.Color(0, 152, 215));
+        btnCompras.setColorPressed(new java.awt.Color(72, 148, 182));
         btnCompras.setFocusable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -87,9 +87,9 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
 
         btnVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnVentas.png"))); // NOI18N
         btnVentas.setText("Ventas");
-        btnVentas.setColorHover(new java.awt.Color(21, 166, 231));
+        btnVentas.setColorHover(new java.awt.Color(82, 158, 202));
         btnVentas.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnVentas.setColorPressed(new java.awt.Color(0, 152, 215));
+        btnVentas.setColorPressed(new java.awt.Color(72, 148, 182));
         btnVentas.setFocusable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -99,9 +99,9 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
 
         btnTrabajadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnTrabajadores.png"))); // NOI18N
         btnTrabajadores.setText("Trabajadores");
-        btnTrabajadores.setColorHover(new java.awt.Color(21, 166, 231));
+        btnTrabajadores.setColorHover(new java.awt.Color(82, 158, 202));
         btnTrabajadores.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnTrabajadores.setColorPressed(new java.awt.Color(0, 152, 215));
+        btnTrabajadores.setColorPressed(new java.awt.Color(72, 148, 182));
         btnTrabajadores.setFocusable(false);
         btnTrabajadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,9 +116,9 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
 
         btnConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnAjustes.png"))); // NOI18N
         btnConfig.setText("Configuracion");
-        btnConfig.setColorHover(new java.awt.Color(21, 166, 231));
+        btnConfig.setColorHover(new java.awt.Color(82, 158, 202));
         btnConfig.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnConfig.setColorPressed(new java.awt.Color(0, 152, 215));
+        btnConfig.setColorPressed(new java.awt.Color(72, 148, 182));
         btnConfig.setFocusable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -128,9 +128,9 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
 
         btnAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnAyuda.png"))); // NOI18N
         btnAyuda.setText("Ayuda");
-        btnAyuda.setColorHover(new java.awt.Color(21, 166, 231));
+        btnAyuda.setColorHover(new java.awt.Color(82, 158, 202));
         btnAyuda.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnAyuda.setColorPressed(new java.awt.Color(0, 152, 215));
+        btnAyuda.setColorPressed(new java.awt.Color(72, 148, 182));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
@@ -139,9 +139,9 @@ public class Vista_Panel_UserSlide extends javax.swing.JPanel {
 
         btnCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnCerrarSesion.png"))); // NOI18N
         btnCerrarSesion.setText("Cerrar Sesion");
-        btnCerrarSesion.setColorHover(new java.awt.Color(21, 166, 231));
+        btnCerrarSesion.setColorHover(new java.awt.Color(82, 158, 202));
         btnCerrarSesion.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnCerrarSesion.setColorPressed(new java.awt.Color(0, 152, 215));
+        btnCerrarSesion.setColorPressed(new java.awt.Color(72, 148, 182));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;

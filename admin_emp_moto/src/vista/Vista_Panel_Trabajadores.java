@@ -1,10 +1,13 @@
 package vista;
 
 import java.awt.Color;
+import java.util.LinkedList;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
+import modelo.Consultas_Trabajadores;
 import modelo.CustomData;
 import modelo.CustomListRenderer;
+import modelo.Modelo_Trabajadores;
 
 
 public class Vista_Panel_Trabajadores extends javax.swing.JPanel {
@@ -15,14 +18,16 @@ public class Vista_Panel_Trabajadores extends javax.swing.JPanel {
     }
 
     private void testList() {
-        DefaultListModel model = new DefaultListModel();
         
-            model.addElement(new CustomData(new Color(209, 52, 23), 2, "consectetur adipiscing elit"));
-            model.addElement(new CustomData(new Color(209, 52, 23), 3, "Aliquam condimentum"));
-            model.addElement(new CustomData(new Color(209, 52, 23), 0, "imperdiet justo, vel volutpat "));
-            model.addElement(new CustomData(new Color(209, 52, 23), 1, "mauris maximus quis"));
-            model.addElement(new CustomData(new Color(209, 52, 23), 2, "Quisque quis ultricies turpis"));
-            
+        Consultas_Trabajadores consulta = new Consultas_Trabajadores();
+        LinkedList<Modelo_Trabajadores> lista = consulta.readAll();
+        
+        DefaultListModel model = new DefaultListModel();
+        for(int i=0;i<lista.size();i++){
+                model.addElement(new CustomData(new Color(209, 52, 23),i,lista.get(i).getNombre()+" "
+                        +lista.get(i).getApellido_paterno()+" "+lista.get(i).getApellido_materno()+" : "
+                        +lista.get(i).getEmail()));
+            }      
         jListTrabajadores.setModel(model);
         jListTrabajadores.setCellRenderer(new CustomListRenderer(jListTrabajadores));
         jListTrabajadores.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));

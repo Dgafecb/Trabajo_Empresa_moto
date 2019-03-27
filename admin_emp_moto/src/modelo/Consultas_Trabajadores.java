@@ -144,20 +144,19 @@ public class Consultas_Trabajadores extends ConexionSQL {
         ResultSet rs = null;
         Connection con = getConnection();
 
-        String query = "SELECT * FROM trabajadores WHERE dni=?";
+        String query = "SELECT * FROM trabajadores";
 
         try {
             ps = con.prepareStatement(query);
-            ps.setString(1, trabajador.getEmail());
             rs = ps.executeQuery();
-
+ 
             while(rs.next())
             {
               trabajador = new  Modelo_Trabajadores();
               trabajador.setDni(rs.getInt("dni"));
               trabajador.setNombre(rs.getString("nombre"));
               trabajador.setApellido_paterno(rs.getString("apellido_paterno"));
-              trabajador.setApellido_paterno(rs.getString("apellido_materno"));
+              trabajador.setApellido_materno(rs.getString("apellido_materno"));
               trabajador.setFechanac(rs.getString("fecha_nac"));
               trabajador.setEmail(rs.getString("email"));
               listaTrabajadores.add(trabajador);

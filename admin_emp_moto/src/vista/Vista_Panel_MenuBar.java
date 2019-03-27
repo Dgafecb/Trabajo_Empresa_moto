@@ -15,7 +15,7 @@ public class Vista_Panel_MenuBar extends javax.swing.JPanel {
 
         btnMenu = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(21, 166, 231));
+        setBackground(new java.awt.Color(82, 158, 202));
         setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnMenu.png"))); // NOI18N
