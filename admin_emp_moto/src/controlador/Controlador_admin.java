@@ -41,10 +41,10 @@ public class Controlador_admin implements ActionListener {
         view_admin.MenuAdmin.profileUser.lblEditStatus.setText("Administrador");
         this.callComp();
     }
-
-    Controlador_admin(Vista_Ventana_Admin viewAdmin, String user) {
-       
-    }
+//
+//    Controlador_admin(Vista_Ventana_Admin viewAdmin, String user) {
+//       
+//    }
 
     private void callComp() { 
         view_admin.MenuAdmin.btnTrabajadores.addActionListener(this);

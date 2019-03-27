@@ -17,10 +17,11 @@ public class Controlador_login implements ActionListener, KeyListener {
     private Vista_Ventana_Login view;
     private Modelo_user model;
     private Consultas_Login consultas;
-    private Vista_Ventana_Admin viewAdmin;
+    private Vista_Ventana_Admin view_admin;
     private Vista_Ventana_Trabajador viewTrabajador;
-    private Controlador_admin controladorAdmin;
-
+    private Controlador_admin controlador_admin;
+    private Vista_Ventana_Trabajador view_trabajador;
+    private Controlador_trabajador ctrl_trabajador;
     public Controlador_login(Vista_Ventana_Login view, Modelo_user model, Consultas_Login consultas) {
         this.view = view;
         this.model = model;
@@ -66,15 +67,23 @@ public class Controlador_login implements ActionListener, KeyListener {
             message("Bienvenido Admin");
             view.setVisible(false);
             view.dispose();
-            viewAdmin = new Vista_Ventana_Admin();
-            controladorAdmin = new Controlador_admin(viewAdmin, model);
-            viewAdmin.setVisible(true);
+            view_admin = new Vista_Ventana_Admin();
+            controlador_admin = new Controlador_admin(view_admin, model);
+            view_admin.setVisible(true);
         } else if (privilege == 1) {
-            message("Bienvenido Recpecionista");
-            mostrarVentanaTrabajador();
+            message("Bienvenido Recepcionista");
+            view.setVisible(false);
+            view.dispose();
+            view_trabajador = new Vista_Ventana_Trabajador();
+            ctrl_trabajador = new Controlador_trabajador(view_trabajador,model);
+            view_trabajador.setVisible(true);
         } else if (privilege == 0) {
             message("Bienvenido Trabajador");
-            mostrarVentanaTrabajador();
+            view.setVisible(false);
+            view.dispose();
+            view_trabajador = new Vista_Ventana_Trabajador();
+            ctrl_trabajador = new Controlador_trabajador(view_trabajador,model);
+            view_trabajador.setVisible(true);
         }
     }
 
