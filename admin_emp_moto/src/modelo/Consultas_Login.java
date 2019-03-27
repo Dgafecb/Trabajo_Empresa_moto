@@ -35,7 +35,7 @@ public class Consultas_Login extends ConexionSQL {
             }
         }
     }
-    
+
     public boolean read(Modelo_user user){
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -47,7 +47,7 @@ public class Consultas_Login extends ConexionSQL {
             ps = con.prepareStatement(query);
             ps.setString(1, user.getEmail());
             rs = ps.executeQuery();
-            
+
             if(rs.next())
             {
               user.setID(rs.getInt("ID"));
@@ -56,7 +56,7 @@ public class Consultas_Login extends ConexionSQL {
               user.setPrivilege(rs.getInt("privilege"));
               return true;
             }
-            
+
             ps.close();
             return false;
 
@@ -71,8 +71,7 @@ public class Consultas_Login extends ConexionSQL {
             }
         }
     }
-
-    public boolean update(Modelo_user user) {
+public boolean update(Modelo_user user) {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
@@ -126,6 +125,6 @@ public class Consultas_Login extends ConexionSQL {
             }
         }
     }
-    
+
 
 }

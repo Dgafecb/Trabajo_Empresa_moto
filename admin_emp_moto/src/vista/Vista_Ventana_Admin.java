@@ -3,6 +3,8 @@ package vista;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -24,9 +26,9 @@ public class Vista_Ventana_Admin extends javax.swing.JFrame {
     }
     
     private void configFrame(){    
-        setMinimumSize(new Dimension(800, 600));
+        setMinimumSize(new Dimension(864, 540));
         setMaximumSize(new Dimension(1920, 1080));
-        setSize(new Dimension(1280, 720));
+        setSize(new Dimension(1600, 900));
         setLocationRelativeTo(null);
         //setResizable(false);
         setBackground(SystemColor.window);

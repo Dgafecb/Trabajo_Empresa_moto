@@ -11,7 +11,7 @@ import modelo.Consultas_Login;
 import modelo.Consultas_Inventario;
 import modelo.Consultas_Trabajadores;
 import modelo.Modelo_inventario;
-import modelo.Modelo_trabajadores;
+import modelo.Modelo_Trabajadores;
 import modelo.Modelo_user;
 import vista.Vista_Panel_Trabajadores;
 import vista.Vista_Ventana_Admin;
@@ -24,7 +24,7 @@ import vista.Vista_Ventana_Login;
 public class Controlador_admin implements ActionListener {
     private Vista_Ventana_Login view_login;
     private Vista_Ventana_Admin view_admin;
-    private Modelo_trabajadores model_tr;
+    private Modelo_Trabajadores model_tr;
     private Consultas_Trabajadores consultas_tr;
     private Modelo_inventario model_inventario;
     private Consultas_Inventario consultas_inventario;

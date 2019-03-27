@@ -6,6 +6,8 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import modelo.Consultas_Login;
+import modelo.Consultas_Trabajadores;
+import modelo.Modelo_Trabajadores;
 import modelo.Modelo_user;
 import vista.Vista_Ventana_Login;
 
@@ -29,18 +31,8 @@ public class Admin_emp_moto {
         Vista_Ventana_Login view = new Vista_Ventana_Login();
         Controlador_login ctrl = new Controlador_login(view, user, consultas);
 
-        /*Vista_Ventana_Admin view_admin = new Vista_Ventana_Admin(); // tendria que eliminar esto
-        Modelo_trabajadores model_tr = new Modelo_trabajadores();
-        Modelo_Consultas_trabajadores consultas_tr = new Modelo_Consultas_trabajadores();
-        Modelo_inventario model_inventario = new Modelo_inventario();
-        Modelo_Consultas_inventario consultas_inventario = new Modelo_Consultas_inventario();
-        Consultas_Login consultas_login = new Consultas_Login();
-        Modelo_user model_user = new Modelo_user();
-        Controlador_admin ctrl_admin = new Controlador_admin(view_admin, model_tr,
-                consultas_tr, model_inventario, consultas_inventario, consultas_login,
-                model_user);*/
         view.setVisible(true);
-
+        
     }
 
 }

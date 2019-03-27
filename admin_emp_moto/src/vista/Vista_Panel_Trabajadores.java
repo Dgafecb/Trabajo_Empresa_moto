@@ -11,7 +11,6 @@ public class Vista_Panel_Trabajadores extends javax.swing.JPanel {
 
     public Vista_Panel_Trabajadores() {
         initComponents();
-        disenhoPanel.lblTitulo.setText("PANEL DE TRABAJADORES");
         testList();
     }
 
@@ -34,20 +33,11 @@ public class Vista_Panel_Trabajadores extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        disenhoPanel = new vista.Vista_Disenho_Panel();
         jsListTrabajadores = new javax.swing.JScrollPane();
         jListTrabajadores = new javax.swing.JList<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.GridBagLayout());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.weightx = 1.0;
-        add(disenhoPanel, gridBagConstraints);
 
         jsListTrabajadores.setBorder(null);
 
@@ -73,7 +63,6 @@ public class Vista_Panel_Trabajadores extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private vista.Vista_Disenho_Panel disenhoPanel;
     public javax.swing.JList<String> jListTrabajadores;
     public javax.swing.JScrollPane jsListTrabajadores;
     // End of variables declaration//GEN-END:variables
