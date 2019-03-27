@@ -24,7 +24,7 @@ public class Vista_Panel_Trabajadores extends javax.swing.JPanel {
         
         DefaultListModel model = new DefaultListModel();
         for(int i=0;i<lista.size();i++){
-                model.addElement(new CustomData(new Color(209, 52, 23),i,lista.get(i).getNombre()+" "
+                model.addElement(new CustomData(new Color(82, 158, 202),i,lista.get(i).getNombre()+" "
                         +lista.get(i).getApellido_paterno()+" "+lista.get(i).getApellido_materno()+" : "
                         +lista.get(i).getEmail()));
             }      

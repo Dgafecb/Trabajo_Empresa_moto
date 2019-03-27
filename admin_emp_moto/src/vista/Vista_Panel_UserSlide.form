@@ -44,7 +44,7 @@
           <Color blue="3c" green="3c" red="3c" type="rgb"/>
         </Property>
         <Property name="colorPressed" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="b6" green="94" red="48" type="rgb"/>
+          <Color blue="d4" green="a8" red="5c" type="rgb"/>
         </Property>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
@@ -70,7 +70,7 @@
           <Color blue="3c" green="3c" red="3c" type="rgb"/>
         </Property>
         <Property name="colorPressed" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="b6" green="94" red="48" type="rgb"/>
+          <Color blue="d4" green="a8" red="5c" type="rgb"/>
         </Property>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
@@ -96,7 +96,7 @@
           <Color blue="3c" green="3c" red="3c" type="rgb"/>
         </Property>
         <Property name="colorPressed" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="b6" green="94" red="48" type="rgb"/>
+          <Color blue="d4" green="a8" red="5c" type="rgb"/>
         </Property>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
@@ -122,7 +122,7 @@
           <Color blue="3c" green="3c" red="3c" type="rgb"/>
         </Property>
         <Property name="colorPressed" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="b6" green="94" red="48" type="rgb"/>
+          <Color blue="d4" green="a8" red="5c" type="rgb"/>
         </Property>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
@@ -148,7 +148,7 @@
           <Color blue="3c" green="3c" red="3c" type="rgb"/>
         </Property>
         <Property name="colorPressed" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="b6" green="94" red="48" type="rgb"/>
+          <Color blue="d4" green="a8" red="5c" type="rgb"/>
         </Property>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
@@ -174,7 +174,7 @@
           <Color blue="3c" green="3c" red="3c" type="rgb"/>
         </Property>
         <Property name="colorPressed" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="b6" green="94" red="48" type="rgb"/>
+          <Color blue="d4" green="a8" red="5c" type="rgb"/>
         </Property>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
@@ -203,7 +203,7 @@
           <Color blue="3c" green="3c" red="3c" type="rgb"/>
         </Property>
         <Property name="colorPressed" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="b6" green="94" red="48" type="rgb"/>
+          <Color blue="d4" green="a8" red="5c" type="rgb"/>
         </Property>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
@@ -229,7 +229,7 @@
           <Color blue="3c" green="3c" red="3c" type="rgb"/>
         </Property>
         <Property name="colorPressed" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="b6" green="94" red="48" type="rgb"/>
+          <Color blue="d4" green="a8" red="5c" type="rgb"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -254,7 +254,7 @@
           <Color blue="3c" green="3c" red="3c" type="rgb"/>
         </Property>
         <Property name="colorPressed" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="b6" green="94" red="48" type="rgb"/>
+          <Color blue="d4" green="a8" red="5c" type="rgb"/>
         </Property>
       </Properties>
       <AuxValues>
