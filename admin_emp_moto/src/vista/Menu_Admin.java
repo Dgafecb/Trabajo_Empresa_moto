@@ -39,6 +39,7 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnEstadisticas.setColorHover(new java.awt.Color(82, 158, 202));
         btnEstadisticas.setColorNormal(new java.awt.Color(60, 60, 60));
         btnEstadisticas.setColorPressed(new java.awt.Color(92, 168, 212));
+        btnEstadisticas.setFocusPainted(false);
         btnEstadisticas.setFocusable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -51,6 +52,7 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnMantenimiento.setColorHover(new java.awt.Color(82, 158, 202));
         btnMantenimiento.setColorNormal(new java.awt.Color(60, 60, 60));
         btnMantenimiento.setColorPressed(new java.awt.Color(92, 168, 212));
+        btnMantenimiento.setFocusPainted(false);
         btnMantenimiento.setFocusable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -63,6 +65,7 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnAlmacen.setColorHover(new java.awt.Color(82, 158, 202));
         btnAlmacen.setColorNormal(new java.awt.Color(60, 60, 60));
         btnAlmacen.setColorPressed(new java.awt.Color(92, 168, 212));
+        btnAlmacen.setFocusPainted(false);
         btnAlmacen.setFocusable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -75,6 +78,7 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnCompras.setColorHover(new java.awt.Color(82, 158, 202));
         btnCompras.setColorNormal(new java.awt.Color(60, 60, 60));
         btnCompras.setColorPressed(new java.awt.Color(92, 168, 212));
+        btnCompras.setFocusPainted(false);
         btnCompras.setFocusable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -87,6 +91,7 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnVentas.setColorHover(new java.awt.Color(82, 158, 202));
         btnVentas.setColorNormal(new java.awt.Color(60, 60, 60));
         btnVentas.setColorPressed(new java.awt.Color(92, 168, 212));
+        btnVentas.setFocusPainted(false);
         btnVentas.setFocusable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -99,6 +104,7 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnTrabajadores.setColorHover(new java.awt.Color(82, 158, 202));
         btnTrabajadores.setColorNormal(new java.awt.Color(60, 60, 60));
         btnTrabajadores.setColorPressed(new java.awt.Color(92, 168, 212));
+        btnTrabajadores.setFocusPainted(false);
         btnTrabajadores.setFocusable(false);
         btnTrabajadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,6 +122,7 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnConfig.setColorHover(new java.awt.Color(82, 158, 202));
         btnConfig.setColorNormal(new java.awt.Color(60, 60, 60));
         btnConfig.setColorPressed(new java.awt.Color(92, 168, 212));
+        btnConfig.setFocusPainted(false);
         btnConfig.setFocusable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -128,6 +135,7 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnAyuda.setColorHover(new java.awt.Color(82, 158, 202));
         btnAyuda.setColorNormal(new java.awt.Color(60, 60, 60));
         btnAyuda.setColorPressed(new java.awt.Color(92, 168, 212));
+        btnAyuda.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
@@ -139,6 +147,7 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnCerrarSesion.setColorHover(new java.awt.Color(82, 158, 202));
         btnCerrarSesion.setColorNormal(new java.awt.Color(60, 60, 60));
         btnCerrarSesion.setColorPressed(new java.awt.Color(92, 168, 212));
+        btnCerrarSesion.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;

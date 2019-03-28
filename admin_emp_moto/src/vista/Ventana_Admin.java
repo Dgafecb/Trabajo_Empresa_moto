@@ -28,13 +28,14 @@ public class Ventana_Admin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setBackground(SystemColor.window);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setBackground(new Color(235,235,235));
         getContentPane().setLayout (new GridBagLayout());
         
     }
     
     private void initPaneles(){
-        bordeVentana = new Borde_Ventana();
+        bordeVentana = new Borde_Ventana(this);
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0; // El área de texto empieza en la columna cero
         constraints.gridy = 0; // El área de texto empieza en la fila cero
