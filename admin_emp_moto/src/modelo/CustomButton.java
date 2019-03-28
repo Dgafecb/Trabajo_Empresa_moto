@@ -12,10 +12,8 @@ import java.awt.event.MouseMotionListener;
 import javax.swing.JButton;
 import javax.swing.border.Border;
 
-/**
-* @author Rojeru San
- */
-public class JButtonEditable extends JButton implements MouseListener, MouseMotionListener {
+
+public class CustomButton extends JButton implements MouseListener, MouseMotionListener {
     /**
      * Color para el fondo del boton
      */
@@ -37,7 +35,7 @@ public class JButtonEditable extends JButton implements MouseListener, MouseMoti
      * Constructor de clase
      */
     @SuppressWarnings("LeakingThisInConstructor")
-    public JButtonEditable() {
+    public CustomButton() {
         this.setFont(f);
         this.setPreferredSize(new Dimension(150, 35));
         this.setSize(new Dimension(150, 35));
@@ -64,6 +62,7 @@ public class JButtonEditable extends JButton implements MouseListener, MouseMoti
         super.paintComponent(g);
     }
     public void mouseClicked(MouseEvent e) {
+        this.setBackground(this.colorHover);
     }
 
     /**
@@ -78,7 +77,7 @@ public class JButtonEditable extends JButton implements MouseListener, MouseMoti
      * Cuando se leventa el mouse del jbutton se retoman los colores originales
      */
     public void mouseReleased(MouseEvent e) {       
-        this.setBackground(this.colorHover);
+        this.setBackground(this.colorNormal);
         this.setForeground(this.colorTextNormal);
     }
 

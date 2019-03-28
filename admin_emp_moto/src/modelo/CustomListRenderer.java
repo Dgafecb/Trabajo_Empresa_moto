@@ -16,13 +16,13 @@ public class CustomListRenderer extends DefaultListCellRenderer{
     private static final ImageIcon crossIcon = new ImageIcon ( CustomListRenderer.class.getResource ( "/recursos/btnExitPanel.png" ) );
 
 
-    private CustomLabel renderer;
+    private CustomListLabel renderer;
 
 
     public CustomListRenderer ( final JList list )
     {
         super();
-        renderer = new CustomLabel ();
+        renderer = new CustomListLabel ();
 
         list.addMouseListener ( new MouseAdapter ()
         {
@@ -53,7 +53,7 @@ public class CustomListRenderer extends DefaultListCellRenderer{
      * Returns custom renderer for each cell of the list.
      *
      * @param list         list to process
-     * @param value        cell value (CustomData object in our case)
+     * @param value        cell value (CustomListData object in our case)
      * @param index        cell index
      * @param isSelected   whether cell is selected or not
      * @param cellHasFocus whether cell has focus or not
@@ -63,7 +63,7 @@ public class CustomListRenderer extends DefaultListCellRenderer{
     public Component getListCellRendererComponent ( JList list, Object value, int index, boolean isSelected, boolean cellHasFocus )
     {
         renderer.setSelected ( isSelected );
-        renderer.setData ( ( CustomData ) value );
+        renderer.setData (( CustomListData ) value );
         return renderer;
     }
 

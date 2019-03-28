@@ -9,12 +9,12 @@ import javax.swing.ImageIcon;
 
 public class Vista_Ventana_Login extends javax.swing.JFrame {
 
-    public Vista_Panel_Login panel;
+    public Panel_Login panel;
 
     public Vista_Ventana_Login() {
         initComponents();
         configFrame();
-        panel = new Vista_Panel_Login();
+        panel = new Panel_Login();
         this.getContentPane().add(panel, BorderLayout.CENTER);
     }
 

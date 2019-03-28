@@ -7,13 +7,13 @@ import java.awt.Graphics;
 import javax.swing.ImageIcon;
 
 
-public class Vista_Panel_Login extends javax.swing.JPanel {
+public class Panel_Login extends javax.swing.JPanel {
 
     //private PlaceHolder emailPH,passwordPH;
     private final String DEFAULT_EMAIL = "Ingrese correo";
     private final String DEFAULT_PASS = "Ingrese password";
     
-    public Vista_Panel_Login() {
+    public Panel_Login() {
         initComponents();
         this.txtContr.setEchoChar('•');
         

@@ -7,7 +7,7 @@ import java.awt.event.KeyListener;
 
 import modelo.Modelo_user;
 import modelo.Consultas_Login;
-import vista.Vista_Panel_Login;
+import vista.Panel_Login;
 import vista.Vista_Ventana_Admin;
 import vista.Vista_Ventana_Login;
 import vista.Vista_Ventana_Trabajador;

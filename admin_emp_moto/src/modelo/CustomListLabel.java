@@ -14,7 +14,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class CustomLabel extends JLabel{
+public class CustomListLabel extends JLabel{
 
     
     private String path ;
@@ -23,9 +23,9 @@ public class CustomLabel extends JLabel{
     private static final Color selectionColor = new Color ( 82, 158, 202 );
 
     private boolean selected;
-    private CustomData data;
+    private CustomListData data;
 
-        public CustomLabel ()
+        public CustomListLabel ()
         {
             super ();
             setOpaque ( false );
@@ -38,7 +38,7 @@ public class CustomLabel extends JLabel{
             setForeground ( selected ? Color.WHITE : Color.BLACK );
         }
 
-        public void setData ( CustomData data )
+        public void setData ( CustomListData data )
         {
             this.data = data;
             setText ( data.getName () );

@@ -2,13 +2,13 @@ package modelo;
 
 import java.awt.Color;
 
-public class CustomData
+public class CustomListData
     {
         private Color circleColor;
         private int newMessages;
         private String name;
 
-        public CustomData ( Color circleColor, int newMessages, String name )
+        public CustomListData ( Color circleColor, int newMessages, String name )
         {
             super ();
             this.circleColor = circleColor;

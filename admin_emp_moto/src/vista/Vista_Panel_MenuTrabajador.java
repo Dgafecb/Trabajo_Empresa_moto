@@ -18,12 +18,12 @@ public class Vista_Panel_MenuTrabajador extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         profileUser = new vista.Vista_Panel_ProfileUser();
-        btnMantenimiento = new modelo.JButtonEditable();
-        btnAlmacen = new modelo.JButtonEditable();
-        btnCompras = new modelo.JButtonEditable();
-        btnVentas = new modelo.JButtonEditable();
-        btnAyuda = new modelo.JButtonEditable();
-        btnCerrarSesion = new modelo.JButtonEditable();
+        btnMantenimiento = new modelo.CustomButton();
+        btnAlmacen = new modelo.CustomButton();
+        btnCompras = new modelo.CustomButton();
+        btnVentas = new modelo.CustomButton();
+        btnAyuda = new modelo.CustomButton();
+        btnCerrarSesion = new modelo.CustomButton();
 
         setBackground(new java.awt.Color(60, 60, 60));
         setLayout(new java.awt.GridBagLayout());
@@ -115,12 +115,12 @@ public class Vista_Panel_MenuTrabajador extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public modelo.JButtonEditable btnAlmacen;
-    public modelo.JButtonEditable btnAyuda;
-    public modelo.JButtonEditable btnCerrarSesion;
-    public modelo.JButtonEditable btnCompras;
-    private modelo.JButtonEditable btnMantenimiento;
-    public modelo.JButtonEditable btnVentas;
+    public modelo.CustomButton btnAlmacen;
+    public modelo.CustomButton btnAyuda;
+    public modelo.CustomButton btnCerrarSesion;
+    public modelo.CustomButton btnCompras;
+    private modelo.CustomButton btnMantenimiento;
+    public modelo.CustomButton btnVentas;
     public vista.Vista_Panel_ProfileUser profileUser;
     // End of variables declaration//GEN-END:variables
 }

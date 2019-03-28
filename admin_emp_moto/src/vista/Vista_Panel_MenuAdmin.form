@@ -31,7 +31,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="modelo.JButtonEditable" name="btnEstadisticas">
+    <Component class="modelo.CustomButton" name="btnEstadisticas">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/recursos/btnEstadisticas.png"/>
@@ -57,7 +57,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="modelo.JButtonEditable" name="btnMantenimiento">
+    <Component class="modelo.CustomButton" name="btnMantenimiento">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/recursos/btnMantenimiento.png"/>
@@ -83,7 +83,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="modelo.JButtonEditable" name="btnAlmacen">
+    <Component class="modelo.CustomButton" name="btnAlmacen">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/recursos/btnAlmacen.png"/>
@@ -109,7 +109,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="modelo.JButtonEditable" name="btnCompras">
+    <Component class="modelo.CustomButton" name="btnCompras">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/recursos/btnCompras.png"/>
@@ -135,7 +135,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="modelo.JButtonEditable" name="btnVentas">
+    <Component class="modelo.CustomButton" name="btnVentas">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/recursos/btnVentas.png"/>
@@ -161,7 +161,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="modelo.JButtonEditable" name="btnTrabajadores">
+    <Component class="modelo.CustomButton" name="btnTrabajadores">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/recursos/btnTrabajadores.png"/>
@@ -190,7 +190,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="modelo.JButtonEditable" name="btnConfig">
+    <Component class="modelo.CustomButton" name="btnConfig">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/recursos/btnAjustes.png"/>
@@ -216,7 +216,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="modelo.JButtonEditable" name="btnAyuda">
+    <Component class="modelo.CustomButton" name="btnAyuda">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/recursos/btnAyuda.png"/>
@@ -241,7 +241,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="modelo.JButtonEditable" name="btnCerrarSesion">
+    <Component class="modelo.CustomButton" name="btnCerrarSesion">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/recursos/btnCerrarSesion.png"/>
