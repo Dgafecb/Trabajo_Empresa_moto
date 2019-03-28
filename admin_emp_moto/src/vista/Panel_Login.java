@@ -35,6 +35,7 @@ public class Panel_Login extends javax.swing.JPanel {
         lblUser = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.GridBagLayout());
 
         txtUsuario.setBackground(new java.awt.Color(229, 229, 229));
