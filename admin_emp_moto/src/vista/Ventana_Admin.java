@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package vista;
 
 import java.awt.Color;
@@ -14,28 +9,23 @@ import java.awt.Insets;
 import java.awt.SystemColor;
 import javax.swing.JScrollPane;
 
-/**
- *
- * @author Dgafecb
- */
-public class Vista_Ventana_Trabajador extends javax.swing.JFrame {
+public class Ventana_Admin extends javax.swing.JFrame {
 
-    public Vista_Panel_MenuTrabajador MenuTrabajador;
-    public Vista_Panel_MenuBar menuBar;
+    public Borde_Ventana bordeVentana;
+    public Menu_Admin menuAdmin;
+    public Menu_Notificaciones menuNotificaciones;
     public JScrollPane jsContent;
     
-    public Vista_Ventana_Trabajador() {
+    public Ventana_Admin() {
         configFrame();
         initPaneles();
-        this.setVisible(true);
     }
     
     private void configFrame(){    
-        setMinimumSize(new Dimension(864, 540));
-        setMaximumSize(new Dimension(1920, 1080));
-        setSize(new Dimension(1600, 900));
+        setMinimumSize(new Dimension(864, 540));//16:9
+        setMaximumSize(new Dimension(1920, 1080));//16:9
+        setSize(new Dimension(1600, 900));//16:9
         setLocationRelativeTo(null);
-        //setResizable(false);
         setBackground(SystemColor.window);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setBackground(new Color(235,235,235));
@@ -44,37 +34,47 @@ public class Vista_Ventana_Trabajador extends javax.swing.JFrame {
     }
     
     private void initPaneles(){
-        MenuTrabajador = new Vista_Panel_MenuTrabajador();
+        bordeVentana = new Borde_Ventana();
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0; // El área de texto empieza en la columna cero
         constraints.gridy = 0; // El área de texto empieza en la fila cero
-        constraints.gridwidth = 1; // El área de texto ocupa dos columnas
-        constraints.gridheight = 3; // El área de texto ocupa 2 filas
-        constraints.weightx = 0.0; // La columna se estira
-        constraints.weighty = 1.0; // La fila se estira
-        constraints.fill = GridBagConstraints.VERTICAL;//Estirar los componentes
+        constraints.gridwidth = 2; // El área de texto ocupa dos columnas
+        constraints.gridheight = 1; // El área de texto ocupa una fila
+        constraints.weightx = 1.0; // La columna se estira
+        constraints.weighty = 0.0; // La fila no se estira
+        constraints.fill = GridBagConstraints.HORIZONTAL;//Estirar los componentes
         constraints.anchor = GridBagConstraints.CENTER;//Poscion que ocupa el componente
-        getContentPane().add (MenuTrabajador, constraints);
+        getContentPane().add (bordeVentana, constraints);
         
-        menuBar = new Vista_Panel_MenuBar();
-        menuBar.setPreferredSize(new Dimension(1280,50));
+        menuAdmin = new Menu_Admin();
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 2;
+        constraints.weightx = 0.0; 
+        constraints.weighty = 1.0;
+        constraints.fill = GridBagConstraints.VERTICAL;
+        constraints.anchor = GridBagConstraints.CENTER;
+        getContentPane().add (menuAdmin, constraints);
+        
+        menuNotificaciones = new Menu_Notificaciones();
         constraints.gridx = 1;
-        constraints.gridy = 0;
-        constraints.gridwidth = 2;
+        constraints.gridy = 1;
+        constraints.gridwidth = 1;
         constraints.gridheight = 1;
         constraints.weightx = 1.0; 
         constraints.weighty = 0.0; 
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.anchor = GridBagConstraints.CENTER;
-        getContentPane().add (menuBar, constraints);
+        getContentPane().add (menuNotificaciones, constraints);
         
         jsContent = new JScrollPane();
         jsContent.setBorder(null);
         jsContent.getViewport().setBackground(new Color(255,255,255));
         constraints.gridx = 1;
-        constraints.gridy = 1;
-        constraints.gridwidth = 2;
-        constraints.gridheight = 2;
+        constraints.gridy = 2;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
         constraints.weightx = 1.0; 
         constraints.weighty = 1.0; 
         constraints.fill = GridBagConstraints.BOTH;
@@ -89,32 +89,17 @@ public class Vista_Ventana_Trabajador extends javax.swing.JFrame {
         
         
     }
-    
+
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        getContentPane().setLayout(null);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    /**
-     * @param args the command line arguments
-     */
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

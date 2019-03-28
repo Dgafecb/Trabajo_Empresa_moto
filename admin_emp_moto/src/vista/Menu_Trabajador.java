@@ -3,11 +3,11 @@ package vista;
 
 import java.awt.GridBagConstraints;
 
-public class Vista_Panel_MenuTrabajador extends javax.swing.JPanel {
+public class Menu_Trabajador extends javax.swing.JPanel {
 
-    public Vista_Panel_ProfileUser user;
+    public Perfil_Usuario user;
 
-    public Vista_Panel_MenuTrabajador() {
+    public Menu_Trabajador() {
         initComponents();
     }
     
@@ -17,7 +17,7 @@ public class Vista_Panel_MenuTrabajador extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        profileUser = new vista.Vista_Panel_ProfileUser();
+        profileUser = new vista.Perfil_Usuario();
         btnMantenimiento = new modelo.CustomButton();
         btnAlmacen = new modelo.CustomButton();
         btnCompras = new modelo.CustomButton();
@@ -119,8 +119,8 @@ public class Vista_Panel_MenuTrabajador extends javax.swing.JPanel {
     public modelo.CustomButton btnAyuda;
     public modelo.CustomButton btnCerrarSesion;
     public modelo.CustomButton btnCompras;
-    private modelo.CustomButton btnMantenimiento;
+    public modelo.CustomButton btnMantenimiento;
     public modelo.CustomButton btnVentas;
-    public vista.Vista_Panel_ProfileUser profileUser;
+    public vista.Perfil_Usuario profileUser;
     // End of variables declaration//GEN-END:variables
 }

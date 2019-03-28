@@ -8,21 +8,21 @@ import java.awt.event.KeyListener;
 import modelo.Modelo_user;
 import modelo.Consultas_Login;
 import vista.Panel_Login;
-import vista.Vista_Ventana_Admin;
-import vista.Vista_Ventana_Login;
-import vista.Vista_Ventana_Trabajador;
+import vista.Ventana_Admin;
+import vista.Ventana_Login;
+import vista.Ventana_Trabajador;
 
 public class Controlador_login implements ActionListener, KeyListener {
 
-    private Vista_Ventana_Login view;
+    private Ventana_Login view;
     private Modelo_user model;
     private Consultas_Login consultas;
-    private Vista_Ventana_Admin view_admin;
-    private Vista_Ventana_Trabajador viewTrabajador;
+    private Ventana_Admin view_admin;
+    private Ventana_Trabajador viewTrabajador;
     private Controlador_admin controlador_admin;
-    private Vista_Ventana_Trabajador view_trabajador;
+    private Ventana_Trabajador view_trabajador;
     private Controlador_trabajador ctrl_trabajador;
-    public Controlador_login(Vista_Ventana_Login view, Modelo_user model, Consultas_Login consultas) {
+    public Controlador_login(Ventana_Login view, Modelo_user model, Consultas_Login consultas) {
         this.view = view;
         this.model = model;
         this.consultas = consultas;
@@ -67,21 +67,21 @@ public class Controlador_login implements ActionListener, KeyListener {
             message("Bienvenido Admin");
             view.setVisible(false);
             view.dispose();
-            view_admin = new Vista_Ventana_Admin();
+            view_admin = new Ventana_Admin();
             controlador_admin = new Controlador_admin(view_admin, model);
             view_admin.setVisible(true);
         } else if (privilege == 1) {
             message("Bienvenido Recepcionista");
             view.setVisible(false);
             view.dispose();
-            view_trabajador = new Vista_Ventana_Trabajador();
+            view_trabajador = new Ventana_Trabajador();
             ctrl_trabajador = new Controlador_trabajador(view_trabajador,model);
             view_trabajador.setVisible(true);
         } else if (privilege == 0) {
             message("Bienvenido Trabajador");
             view.setVisible(false);
             view.dispose();
-            view_trabajador = new Vista_Ventana_Trabajador();
+            view_trabajador = new Ventana_Trabajador();
             ctrl_trabajador = new Controlador_trabajador(view_trabajador,model);
             view_trabajador.setVisible(true);
         }
@@ -90,7 +90,7 @@ public class Controlador_login implements ActionListener, KeyListener {
     public void mostrarVentanaTrabajador() {
         view.setVisible(false);
         view.dispose();
-        viewTrabajador = new Vista_Ventana_Trabajador();
+        viewTrabajador = new Ventana_Trabajador();
 
     }
 

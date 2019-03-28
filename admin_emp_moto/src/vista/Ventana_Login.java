@@ -7,11 +7,11 @@ import java.awt.Graphics;
 import javax.swing.ImageIcon;
 
 
-public class Vista_Ventana_Login extends javax.swing.JFrame {
+public class Ventana_Login extends javax.swing.JFrame {
 
     public Panel_Login panel;
 
-    public Vista_Ventana_Login() {
+    public Ventana_Login() {
         initComponents();
         configFrame();
         panel = new Panel_Login();
@@ -30,7 +30,6 @@ public class Vista_Ventana_Login extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 

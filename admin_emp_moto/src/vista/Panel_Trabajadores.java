@@ -10,9 +10,9 @@ import modelo.CustomListRenderer;
 import modelo.Modelo_Trabajadores;
 
 
-public class Vista_Panel_Trabajadores extends javax.swing.JPanel {
+public class Panel_Trabajadores extends javax.swing.JPanel {
 
-    public Vista_Panel_Trabajadores() {
+    public Panel_Trabajadores() {
         initComponents();
         testList();
     }

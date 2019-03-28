@@ -1,25 +1,30 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package vista;
 
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.SystemColor;
-import java.util.Locale;
 import javax.swing.JScrollPane;
-import modelo.SlidingPanel;
 
-public class Vista_Ventana_Admin extends javax.swing.JFrame {
+/**
+ *
+ * @author Dgafecb
+ */
+public class Ventana_Trabajador extends javax.swing.JFrame {
 
-    public Vista_Panel_MenuAdmin MenuAdmin;
-    public Vista_Panel_MenuBar menuBar;
+    public Menu_Trabajador MenuTrabajador;
+    public Menu_Notificaciones menuBar;
     public JScrollPane jsContent;
     
-    public Vista_Ventana_Admin() {
+    public Ventana_Trabajador() {
         configFrame();
         initPaneles();
         this.setVisible(true);
@@ -39,7 +44,7 @@ public class Vista_Ventana_Admin extends javax.swing.JFrame {
     }
     
     private void initPaneles(){
-        MenuAdmin = new Vista_Panel_MenuAdmin();
+        MenuTrabajador = new Menu_Trabajador();
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0; // El área de texto empieza en la columna cero
         constraints.gridy = 0; // El área de texto empieza en la fila cero
@@ -49,9 +54,9 @@ public class Vista_Ventana_Admin extends javax.swing.JFrame {
         constraints.weighty = 1.0; // La fila se estira
         constraints.fill = GridBagConstraints.VERTICAL;//Estirar los componentes
         constraints.anchor = GridBagConstraints.CENTER;//Poscion que ocupa el componente
-        getContentPane().add (MenuAdmin, constraints);
+        getContentPane().add (MenuTrabajador, constraints);
         
-        menuBar = new Vista_Panel_MenuBar();
+        menuBar = new Menu_Notificaciones();
         menuBar.setPreferredSize(new Dimension(1280,50));
         constraints.gridx = 1;
         constraints.gridy = 0;
@@ -84,17 +89,32 @@ public class Vista_Ventana_Admin extends javax.swing.JFrame {
         
         
     }
-
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    /**
+     * @param args the command line arguments
+     */
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
