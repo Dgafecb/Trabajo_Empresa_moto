@@ -14,7 +14,7 @@ public class Panel_Trabajadores extends javax.swing.JPanel {
 
     public Panel_Trabajadores() {
         initComponents();
-        testList();
+        //testList();
     }
 
     private void testList() {
@@ -40,6 +40,9 @@ public class Panel_Trabajadores extends javax.swing.JPanel {
 
         jsListTrabajadores = new javax.swing.JScrollPane();
         jListTrabajadores = new javax.swing.JList<>();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.GridBagLayout());
@@ -54,20 +57,36 @@ public class Panel_Trabajadores extends javax.swing.JPanel {
         jsListTrabajadores.setViewportView(jListTrabajadores);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
         add(jsListTrabajadores, gridBagConstraints);
+
+        jButton1.setText("jButton1");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        add(jButton1, gridBagConstraints);
+
+        jButton2.setText("jButton2");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        add(jButton2, gridBagConstraints);
+
+        jButton3.setText("jButton3");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        add(jButton3, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     public javax.swing.JList<String> jListTrabajadores;
     public javax.swing.JScrollPane jsListTrabajadores;
     // End of variables declaration//GEN-END:variables

@@ -1,7 +1,10 @@
 
 package vista;
 
+import java.awt.Container;
 import java.awt.GridBagConstraints;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 public class Menu_Admin extends javax.swing.JPanel {
 
@@ -27,6 +30,8 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnConfig = new modelo.CustomButton();
         btnAyuda = new modelo.CustomButton();
         btnCerrarSesion = new modelo.CustomButton();
+        jPanel1 = new javax.swing.JPanel();
+        btnTHistorial = new modelo.CustomButton();
 
         setBackground(new java.awt.Color(60, 60, 60));
         setLayout(new java.awt.GridBagLayout());
@@ -126,7 +131,7 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnConfig.setFocusable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(btnConfig, gridBagConstraints);
 
@@ -138,7 +143,7 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnAyuda.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(btnAyuda, gridBagConstraints);
 
@@ -150,17 +155,26 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnCerrarSesion.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.weighty = 1.0;
         add(btnCerrarSesion, gridBagConstraints);
+
+        btnTHistorial.setBackground(new java.awt.Color(90, 90, 90));
+        btnTHistorial.setText("Historial");
+        jPanel1.add(btnTHistorial);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        add(jPanel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTrabajadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTrabajadoresActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTrabajadoresActionPerformed
 
+    }//GEN-LAST:event_btnTrabajadoresActionPerformed
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public modelo.CustomButton btnAlmacen;
@@ -170,8 +184,10 @@ public class Menu_Admin extends javax.swing.JPanel {
     public modelo.CustomButton btnConfig;
     public modelo.CustomButton btnEstadisticas;
     public modelo.CustomButton btnMantenimiento;
+    private modelo.CustomButton btnTHistorial;
     public modelo.CustomButton btnTrabajadores;
     public modelo.CustomButton btnVentas;
+    private javax.swing.JPanel jPanel1;
     public vista.Perfil_Usuario profileUser;
     // End of variables declaration//GEN-END:variables
 }

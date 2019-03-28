@@ -31,9 +31,9 @@ public class Controlador_login implements ActionListener, KeyListener {
     }
 
     private void callComp() {
-        this.view.panel.btnIngresar.addActionListener(this);
-        this.view.panel.txtContr.addKeyListener(this);
-        this.view.panel.txtUsuario.addKeyListener(this);
+        this.view.panelLogin.btnIngresar.addActionListener(this);
+        this.view.panelLogin.txtContr.addKeyListener(this);
+        this.view.panelLogin.txtUsuario.addKeyListener(this);
     }
 
 //    public void init() {
@@ -52,7 +52,7 @@ public class Controlador_login implements ActionListener, KeyListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getSource() == view.panel.btnIngresar) {
+        if (e.getSource() == view.panelLogin.btnIngresar) {
             accionBtnIngresar(); // llama al metodo para hacer la verificacion de privilegios, la cree para poder implementar tambien el boton Enter y no escribir el codigo 2 veces
 
         }
@@ -61,8 +61,8 @@ public class Controlador_login implements ActionListener, KeyListener {
     public void accionBtnIngresar() {
         int privilege;
         String user;
-        model.setEmail(view.panel.txtUsuario.getText());
-        privilege = this.verificacion(model, view.panel.txtContr.getText());
+        model.setEmail(view.panelLogin.txtUsuario.getText());
+        privilege = this.verificacion(model, view.panelLogin.txtContr.getText());
         if (privilege == 2) {
             message("Bienvenido Admin");
             view.setVisible(false);
