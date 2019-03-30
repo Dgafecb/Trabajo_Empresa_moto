@@ -19,7 +19,7 @@ public class CustomListLabel extends JLabel{
     
     private String path ;
     private static final ImageIcon crossIcon = new ImageIcon ( CustomListRenderer.class.getResource ( "/recursos/btnExitPanel.png" ) );
-    private static final ImageIcon profileIcon = new ImageIcon ( CustomListRenderer.class.getResource ( "/recursos/btnAyuda.png" ) );
+    private static final ImageIcon profileIcon = new ImageIcon ( CustomListRenderer.class.getResource ( "/recursos/btnMenu.png" ) );
     private static final Color selectionColor = new Color ( 82, 158, 202 );
 
     private boolean selected;

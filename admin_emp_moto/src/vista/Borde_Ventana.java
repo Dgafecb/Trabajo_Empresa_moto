@@ -63,6 +63,7 @@ public class Borde_Ventana extends javax.swing.JPanel {
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         ventana.setVisible(false); 
         ventana.dispose(); 
+        System.exit(0);
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void moverPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moverPanelMousePressed

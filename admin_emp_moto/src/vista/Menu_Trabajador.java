@@ -18,7 +18,6 @@ public class Menu_Trabajador extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         profileUser = new vista.Perfil_Usuario();
-        btnMantenimiento = new modelo.CustomButton();
         btnAlmacen = new modelo.CustomButton();
         btnCompras = new modelo.CustomButton();
         btnVentas = new modelo.CustomButton();
@@ -31,25 +30,9 @@ public class Menu_Trabajador extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(20, 10, 20, 10);
         add(profileUser, gridBagConstraints);
 
-        btnMantenimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnMantenimiento.png"))); // NOI18N
-        btnMantenimiento.setText("Temporal");
-        btnMantenimiento.setColorHover(new java.awt.Color(82, 158, 202));
-        btnMantenimiento.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnMantenimiento.setColorPressed(new java.awt.Color(92, 168, 212));
-        btnMantenimiento.setFocusable(false);
-        btnMantenimiento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMantenimientoActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        add(btnMantenimiento, gridBagConstraints);
-
-        btnAlmacen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnAlmacen.png"))); // NOI18N
+        btnAlmacen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnAlmacen36x36px.png"))); // NOI18N
         btnAlmacen.setText("Almacen");
+        btnAlmacen.setToolTipText("");
         btnAlmacen.setColorHover(new java.awt.Color(82, 158, 202));
         btnAlmacen.setColorNormal(new java.awt.Color(60, 60, 60));
         btnAlmacen.setColorPressed(new java.awt.Color(92, 168, 212));
@@ -60,7 +43,7 @@ public class Menu_Trabajador extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(btnAlmacen, gridBagConstraints);
 
-        btnCompras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnCompras.png"))); // NOI18N
+        btnCompras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnCompras36x36px.png"))); // NOI18N
         btnCompras.setText("Compras");
         btnCompras.setColorHover(new java.awt.Color(82, 158, 202));
         btnCompras.setColorNormal(new java.awt.Color(60, 60, 60));
@@ -72,7 +55,7 @@ public class Menu_Trabajador extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(btnCompras, gridBagConstraints);
 
-        btnVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnVentas.png"))); // NOI18N
+        btnVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnVentas36x36px.png"))); // NOI18N
         btnVentas.setText("Ventas");
         btnVentas.setColorHover(new java.awt.Color(82, 158, 202));
         btnVentas.setColorNormal(new java.awt.Color(60, 60, 60));
@@ -84,7 +67,7 @@ public class Menu_Trabajador extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(btnVentas, gridBagConstraints);
 
-        btnAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnAyuda.png"))); // NOI18N
+        btnAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnAyuda36x36px.png"))); // NOI18N
         btnAyuda.setText("Ayuda");
         btnAyuda.setColorHover(new java.awt.Color(82, 158, 202));
         btnAyuda.setColorNormal(new java.awt.Color(60, 60, 60));
@@ -95,7 +78,7 @@ public class Menu_Trabajador extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(btnAyuda, gridBagConstraints);
 
-        btnCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnCerrarSesion.png"))); // NOI18N
+        btnCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnCerrarSesion36x36px.png"))); // NOI18N
         btnCerrarSesion.setText("Cerrar Sesion");
         btnCerrarSesion.setColorHover(new java.awt.Color(82, 158, 202));
         btnCerrarSesion.setColorNormal(new java.awt.Color(60, 60, 60));
@@ -109,17 +92,12 @@ public class Menu_Trabajador extends javax.swing.JPanel {
         add(btnCerrarSesion, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnMantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMantenimientoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMantenimientoActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public modelo.CustomButton btnAlmacen;
     public modelo.CustomButton btnAyuda;
     public modelo.CustomButton btnCerrarSesion;
     public modelo.CustomButton btnCompras;
-    public modelo.CustomButton btnMantenimiento;
     public modelo.CustomButton btnVentas;
     public vista.Perfil_Usuario profileUser;
     // End of variables declaration//GEN-END:variables

@@ -47,7 +47,7 @@ public class Controlador_admin implements ActionListener {
 //    }
 
     private void callComp() { 
-        view_admin.menuAdmin.btnTrabajadores.addActionListener(this);
+        view_admin.menuAdmin.btnConsultas.addActionListener(this);
         view_admin.menuAdmin.btnCerrarSesion.addActionListener(this);
 
     }
@@ -60,9 +60,7 @@ public class Controlador_admin implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) { 
-        if (e.getSource() == view_admin.menuAdmin.btnTrabajadores) {
-            panel_tr = new Panel_Trabajadores();
-            view_admin.administrarPanel(view_admin.jsContent, panel_tr);
+        if (e.getSource() == view_admin.menuAdmin.btnConsultas) {
             
 
         }
