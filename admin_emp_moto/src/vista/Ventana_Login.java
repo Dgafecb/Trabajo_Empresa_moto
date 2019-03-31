@@ -23,7 +23,7 @@ public class Ventana_Login extends javax.swing.JFrame {
     private void configFrame(){    
         setMinimumSize(new Dimension(400, 300));
         setMaximumSize(new Dimension(1200, 900));
-        setSize(new Dimension(300, 250));
+        setSize(new Dimension(300, 400));
         setLocationRelativeTo(null);
         setBackground(SystemColor.window);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);

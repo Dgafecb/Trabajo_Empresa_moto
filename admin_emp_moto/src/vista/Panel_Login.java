@@ -15,15 +15,6 @@ public class Panel_Login extends javax.swing.JPanel {
         
     }
     
-    /*@Override
-    public void paintComponent(Graphics g){
-    Dimension sizeLogin = getSize();
-    ImageIcon imagenFondo = new ImageIcon(getClass().getResource("/recursos/background_login.png"));
-    g.drawImage(imagenFondo.getImage(), 0, 0, sizeLogin.width,sizeLogin.height,null);
-    this.setOpaque(false);
-    super.paintComponents(g);
-    }*/
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -34,6 +25,8 @@ public class Panel_Login extends javax.swing.JPanel {
         btnIngresar = new javax.swing.JButton();
         lblUser = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
+        pbLogin = new javax.swing.JProgressBar();
+        lblTitulo = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.GridBagLayout());
@@ -48,7 +41,8 @@ public class Panel_Login extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 215;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -65,7 +59,8 @@ public class Panel_Login extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 215;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -81,8 +76,8 @@ public class Panel_Login extends javax.swing.JPanel {
         btnIngresar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnAccederPressed.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 20, 0);
@@ -91,7 +86,7 @@ public class Panel_Login extends javax.swing.JPanel {
         lblUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/lblUser46x40.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 0);
         add(lblUser, gridBagConstraints);
@@ -99,10 +94,26 @@ public class Panel_Login extends javax.swing.JPanel {
         lblPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/lblPassword46x40.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 0);
         add(lblPassword, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        add(pbLogin, gridBagConstraints);
+
+        lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(82, 158, 202));
+        lblTitulo.setText("Login");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        add(lblTitulo, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
@@ -117,7 +128,9 @@ public class Panel_Login extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnIngresar;
     private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblUser;
+    public javax.swing.JProgressBar pbLogin;
     public javax.swing.JPasswordField txtContr;
     public javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
