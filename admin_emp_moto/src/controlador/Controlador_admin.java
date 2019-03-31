@@ -47,7 +47,7 @@ public class Controlador_admin implements ActionListener {
 //    }
 
     private void callComp() { 
-        view_admin.menuAdmin.btnConsultas.addActionListener(this);
+        view_admin.menuAdmin.btnRegistros.addActionListener(this);
         view_admin.menuAdmin.btnCerrarSesion.addActionListener(this);
 
     }
@@ -60,7 +60,7 @@ public class Controlador_admin implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) { 
-        if (e.getSource() == view_admin.menuAdmin.btnConsultas) {
+        if (e.getSource() == view_admin.menuAdmin.btnRegistros) {
             
 
         }

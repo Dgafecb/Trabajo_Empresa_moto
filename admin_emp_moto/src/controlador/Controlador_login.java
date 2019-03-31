@@ -62,6 +62,7 @@ public class Controlador_login implements ActionListener, KeyListener {
         int privilege;
         String user;
         model.setEmail(view.panelLogin.txtUsuario.getText());
+        model.setPassword(view.panelLogin.txtContr.getText());
         privilege = this.verificacion(model, view.panelLogin.txtContr.getText());
         if (privilege == 2) {
             message("Bienvenido Admin");

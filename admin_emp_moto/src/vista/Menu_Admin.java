@@ -8,7 +8,7 @@ public class Menu_Admin extends javax.swing.JPanel {
 
     public Menu_Admin() {
         initComponents();
-        subConsultas.setVisible(false);
+        subRegistros.setVisible(false);
     }
     
 
@@ -23,13 +23,13 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnAlmacen = new modelo.CustomButton();
         btnCompras = new modelo.CustomButton();
         btnVentas = new modelo.CustomButton();
-        btnConsultas = new modelo.CustomButton();
+        btnRegistros = new modelo.CustomButton();
         btnConfig = new modelo.CustomButton();
         btnAyuda = new modelo.CustomButton();
         btnCerrarSesion = new modelo.CustomButton();
-        subConsultas = new javax.swing.JPanel();
+        subRegistros = new javax.swing.JPanel();
         btnTrabajadores = new modelo.CustomButton();
-        btnTrabajadores1 = new modelo.CustomButton();
+        btnAsistencia = new modelo.CustomButton();
 
         setBackground(new java.awt.Color(60, 60, 60));
         setLayout(new java.awt.GridBagLayout());
@@ -102,23 +102,23 @@ public class Menu_Admin extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(btnVentas, gridBagConstraints);
 
-        btnConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnConsultas36x36px.png"))); // NOI18N
-        btnConsultas.setText("Consultas");
-        btnConsultas.setColorHover(new java.awt.Color(82, 158, 202));
-        btnConsultas.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnConsultas.setColorPressed(new java.awt.Color(92, 168, 212));
-        btnConsultas.setFocusPainted(false);
-        btnConsultas.setFocusable(false);
-        btnConsultas.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnConsultas36x36px.png"))); // NOI18N
+        btnRegistros.setText("Registros");
+        btnRegistros.setColorHover(new java.awt.Color(82, 158, 202));
+        btnRegistros.setColorNormal(new java.awt.Color(60, 60, 60));
+        btnRegistros.setColorPressed(new java.awt.Color(92, 168, 212));
+        btnRegistros.setFocusPainted(false);
+        btnRegistros.setFocusable(false);
+        btnRegistros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultasActionPerformed(evt);
+                btnRegistrosActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        add(btnConsultas, gridBagConstraints);
+        add(btnRegistros, gridBagConstraints);
 
         btnConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnAjustes36x36px.png"))); // NOI18N
         btnConfig.setText("Configuracion");
@@ -159,7 +159,7 @@ public class Menu_Admin extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         add(btnCerrarSesion, gridBagConstraints);
 
-        subConsultas.setLayout(new java.awt.GridBagLayout());
+        subRegistros.setLayout(new java.awt.GridBagLayout());
 
         btnTrabajadores.setBackground(new java.awt.Color(90, 90, 90));
         btnTrabajadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnSubMenu52x36px.png"))); // NOI18N
@@ -172,52 +172,61 @@ public class Menu_Admin extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
-        subConsultas.add(btnTrabajadores, gridBagConstraints);
+        subRegistros.add(btnTrabajadores, gridBagConstraints);
 
-        btnTrabajadores1.setBackground(new java.awt.Color(90, 90, 90));
-        btnTrabajadores1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnSubMenu52x36px.png"))); // NOI18N
-        btnTrabajadores1.setText("Entrada");
-        btnTrabajadores1.setColorHover(new java.awt.Color(82, 158, 202));
-        btnTrabajadores1.setColorNormal(new java.awt.Color(90, 90, 90));
-        btnTrabajadores1.setColorPressed(new java.awt.Color(92, 168, 212));
-        btnTrabajadores1.setFocusPainted(false);
+        btnAsistencia.setBackground(new java.awt.Color(90, 90, 90));
+        btnAsistencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnSubMenu52x36px.png"))); // NOI18N
+        btnAsistencia.setText("Asistencia");
+        btnAsistencia.setColorHover(new java.awt.Color(82, 158, 202));
+        btnAsistencia.setColorNormal(new java.awt.Color(90, 90, 90));
+        btnAsistencia.setColorPressed(new java.awt.Color(92, 168, 212));
+        btnAsistencia.setFocusPainted(false);
+        btnAsistencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAsistenciaActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
-        subConsultas.add(btnTrabajadores1, gridBagConstraints);
+        subRegistros.add(btnAsistencia, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        add(subConsultas, gridBagConstraints);
+        add(subRegistros, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultasActionPerformed
-        if(subConsultas.isVisible()!=true){
-            subConsultas.setVisible(true);
+    private void btnRegistrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrosActionPerformed
+        if(subRegistros.isVisible()!=true){
+            subRegistros.setVisible(true);
         }else{
-            subConsultas.setVisible(false);
+            subRegistros.setVisible(false);
         }
-    }//GEN-LAST:event_btnConsultasActionPerformed
+    }//GEN-LAST:event_btnRegistrosActionPerformed
+
+    private void btnAsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsistenciaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAsistenciaActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public modelo.CustomButton btnAlmacen;
+    private modelo.CustomButton btnAsistencia;
     public modelo.CustomButton btnAyuda;
     public modelo.CustomButton btnCerrarSesion;
     public modelo.CustomButton btnCompras;
     public modelo.CustomButton btnConfig;
-    public modelo.CustomButton btnConsultas;
     public modelo.CustomButton btnEstadisticas;
     public modelo.CustomButton btnMantenimiento;
+    public modelo.CustomButton btnRegistros;
     private modelo.CustomButton btnTrabajadores;
-    private modelo.CustomButton btnTrabajadores1;
     public modelo.CustomButton btnVentas;
     public vista.Perfil_Usuario profileUser;
-    private javax.swing.JPanel subConsultas;
+    private javax.swing.JPanel subRegistros;
     // End of variables declaration//GEN-END:variables
 }

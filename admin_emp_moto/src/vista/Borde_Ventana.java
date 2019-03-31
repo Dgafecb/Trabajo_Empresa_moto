@@ -43,13 +43,14 @@ public class Borde_Ventana extends javax.swing.JPanel {
         add(moverPanel, gridBagConstraints);
 
         btnCerrar.setBackground(new java.awt.Color(255, 255, 255));
-        btnCerrar.setText("X");
+        btnCerrar.setText("×");
         btnCerrar.setColorHover(new java.awt.Color(255, 0, 0));
         btnCerrar.setColorNormal(new java.awt.Color(255, 255, 255));
         btnCerrar.setColorPressed(new java.awt.Color(255, 102, 102));
         btnCerrar.setColorTextNormal(new java.awt.Color(102, 102, 102));
         btnCerrar.setFocusPainted(false);
-        btnCerrar.setPreferredSize(new java.awt.Dimension(45, 30));
+        btnCerrar.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        btnCerrar.setPreferredSize(new java.awt.Dimension(48, 30));
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCerrarActionPerformed(evt);
