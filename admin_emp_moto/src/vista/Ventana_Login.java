@@ -30,11 +30,12 @@ public class Ventana_Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout (new GridBagLayout());
-        //pack();
+        pack();
     }
     
     private void initPaneles(){
         bordeVentana = new Borde_Ventana(this);
+        bordeVentana.moverVentana(true);
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0; // El área de texto empieza en la columna cero
         constraints.gridy = 0; // El área de texto empieza en la fila cero

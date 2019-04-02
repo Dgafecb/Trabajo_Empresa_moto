@@ -11,15 +11,27 @@ public class Borde_Ventana extends javax.swing.JPanel {
     public Borde_Ventana(JFrame ventana) {
         this.ventana = ventana;
         initComponents();
-        btnCerrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     }
 
+    public void moverVentana(boolean mover){
+        if(mover!=true){
+            moverPanel.setVisible(false);
+            noMoverPanel.setVisible(true);
+            updateUI();
+        }else{
+            moverPanel.setVisible(true);
+            noMoverPanel.setVisible(false);
+            updateUI();
+        }
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
         moverPanel = new javax.swing.JLabel();
+        noMoverPanel = new javax.swing.JLabel();
         btnCerrar = new modelo.CustomButton();
 
         setBackground(new java.awt.Color(82, 158, 202));
@@ -41,9 +53,14 @@ public class Borde_Ventana extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         add(moverPanel, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        add(noMoverPanel, gridBagConstraints);
 
         btnCerrar.setBackground(new java.awt.Color(82, 158, 202));
-        btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCerrar.setText("×");
         btnCerrar.setColorHover(new java.awt.Color(255, 0, 0));
         btnCerrar.setColorNormal(new java.awt.Color(82, 158, 202));
@@ -59,6 +76,8 @@ public class Borde_Ventana extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         add(btnCerrar, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
@@ -82,5 +101,6 @@ public class Borde_Ventana extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private modelo.CustomButton btnCerrar;
     private javax.swing.JLabel moverPanel;
+    private javax.swing.JLabel noMoverPanel;
     // End of variables declaration//GEN-END:variables
 }

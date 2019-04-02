@@ -34,6 +34,9 @@ public class Panel_Login extends javax.swing.JPanel {
         txtUsuario.setBackground(new java.awt.Color(229, 229, 229));
         txtUsuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtUsuario.setBorder(null);
+        txtUsuario.setMaximumSize(new java.awt.Dimension(400, 0));
+        txtUsuario.setMinimumSize(new java.awt.Dimension(0, 40));
+        txtUsuario.setPreferredSize(new java.awt.Dimension(0, 35));
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioActionPerformed(evt);
@@ -53,6 +56,9 @@ public class Panel_Login extends javax.swing.JPanel {
         txtContr.setBackground(new java.awt.Color(229, 229, 229));
         txtContr.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtContr.setBorder(null);
+        txtContr.setMaximumSize(new java.awt.Dimension(400, 40));
+        txtContr.setMinimumSize(new java.awt.Dimension(0, 40));
+        txtContr.setPreferredSize(new java.awt.Dimension(0, 40));
         txtContr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContrActionPerformed(evt);

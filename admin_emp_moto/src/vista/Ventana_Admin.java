@@ -37,6 +37,7 @@ public class Ventana_Admin extends javax.swing.JFrame {
     
     private void initPaneles(){
         bordeVentana = new Borde_Ventana(this);
+        bordeVentana.moverVentana(false);
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0; // El área de texto empieza en la columna cero
         constraints.gridy = 0; // El área de texto empieza en la fila cero
