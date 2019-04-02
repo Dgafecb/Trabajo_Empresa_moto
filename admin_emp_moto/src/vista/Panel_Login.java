@@ -100,7 +100,7 @@ public class Panel_Login extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 30, 10, 30);
         add(pbLogin, gridBagConstraints);
 
-        lblTitulo.setBackground(new java.awt.Color(82, 158, 202));
+        lblTitulo.setBackground(new java.awt.Color(60, 60, 60));
         lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -120,11 +120,11 @@ public class Panel_Login extends javax.swing.JPanel {
 
         btnIngresar.setBackground(new java.awt.Color(82, 158, 202));
         btnIngresar.setText("Acceder");
+        btnIngresar.setColorHover(new java.awt.Color(60, 60, 60));
         btnIngresar.setColorNormal(new java.awt.Color(82, 158, 202));
         btnIngresar.setColorPressed(new java.awt.Color(92, 168, 212));
         btnIngresar.setFocusPainted(false);
         btnIngresar.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        btnIngresar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnIngresar.setMaximumSize(new java.awt.Dimension(200, 45));
         btnIngresar.setMinimumSize(new java.awt.Dimension(200, 45));
         btnIngresar.setPreferredSize(new java.awt.Dimension(200, 45));

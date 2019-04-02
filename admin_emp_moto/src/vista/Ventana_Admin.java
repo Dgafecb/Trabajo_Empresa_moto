@@ -7,9 +7,11 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.SystemColor;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JScrollPane;
 
-public class Ventana_Admin extends javax.swing.JFrame {
+public class Ventana_Admin extends javax.swing.JFrame{
 
     public Borde_Ventana bordeVentana;
     public Menu_Admin menuAdmin;
@@ -29,6 +31,7 @@ public class Ventana_Admin extends javax.swing.JFrame {
         setBackground(SystemColor.window);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH); 
+        addWindowListener(new VentanaListener());
         setUndecorated(true);
         getContentPane().setBackground(new Color(235,235,235));
         getContentPane().setLayout (new GridBagLayout());
@@ -93,7 +96,14 @@ public class Ventana_Admin extends javax.swing.JFrame {
         contenedor.setViewportView(compt);       
     }
 
+    private class VentanaListener extends WindowAdapter {
 
+    public void windowDeiconified(WindowEvent e) {
+    setExtendedState(MAXIMIZED_BOTH);
+        }
+    }
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -107,3 +117,4 @@ public class Ventana_Admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }
+

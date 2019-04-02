@@ -17,7 +17,7 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
         btnMenu = new javax.swing.JButton();
         perfil_Usuario1 = new vista.Perfil_Usuario();
 
-        setBackground(new java.awt.Color(82, 158, 202));
+        setBackground(new java.awt.Color(60, 60, 60));
         setLayout(new java.awt.GridBagLayout());
 
         btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnMenu.png"))); // NOI18N
@@ -27,6 +27,7 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
         btnMenu.setFocusPainted(false);
         add(btnMenu, new java.awt.GridBagConstraints());
 
+        perfil_Usuario1.setBackground(new java.awt.Color(60, 60, 60));
         perfil_Usuario1.setMaximumSize(new java.awt.Dimension(1000, 40));
         perfil_Usuario1.setMinimumSize(new java.awt.Dimension(150, 40));
         perfil_Usuario1.setPreferredSize(new java.awt.Dimension(200, 40));
