@@ -104,7 +104,7 @@ public class Panel_Login extends javax.swing.JPanel {
         lblTitulo.setMaximumSize(new java.awt.Dimension(115, 90));
         lblTitulo.setMinimumSize(new java.awt.Dimension(115, 90));
         lblTitulo.setOpaque(true);
-        lblTitulo.setPreferredSize(new java.awt.Dimension(115, 92));
+        lblTitulo.setPreferredSize(new java.awt.Dimension(115, 90));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -119,6 +119,8 @@ public class Panel_Login extends javax.swing.JPanel {
         btnIngresar.setFocusPainted(false);
         btnIngresar.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         btnIngresar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnIngresar.setMaximumSize(new java.awt.Dimension(200, 45));
+        btnIngresar.setMinimumSize(new java.awt.Dimension(200, 45));
         btnIngresar.setPreferredSize(new java.awt.Dimension(200, 45));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

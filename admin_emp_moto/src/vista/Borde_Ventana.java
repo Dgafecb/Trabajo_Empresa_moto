@@ -50,6 +50,8 @@ public class Borde_Ventana extends javax.swing.JPanel {
         btnCerrar.setColorPressed(new java.awt.Color(255, 102, 102));
         btnCerrar.setFocusPainted(false);
         btnCerrar.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        btnCerrar.setMaximumSize(new java.awt.Dimension(48, 30));
+        btnCerrar.setMinimumSize(new java.awt.Dimension(48, 30));
         btnCerrar.setPreferredSize(new java.awt.Dimension(48, 30));
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

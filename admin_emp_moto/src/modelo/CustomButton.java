@@ -40,9 +40,9 @@ public class CustomButton extends JButton implements MouseListener, MouseMotionL
         this.setPreferredSize(new Dimension(150, 35));
         this.setSize(new Dimension(150, 35));
         this.setBorder(null);
-//        this.setBorderPainted(false);
+         this.setBorderPainted(false);
         this.setContentAreaFilled(false);
-        this.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        this.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         this.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         this.setBackground(this.colorNormal);
         this.setForeground(this.colorTextNormal);

@@ -87,9 +87,7 @@ public class Ventana_Admin extends javax.swing.JFrame {
     }
     
     public void administrarPanel(JScrollPane contenedor,Component compt){
-        contenedor.setViewportView(compt);
-        
-        
+        contenedor.setViewportView(compt);       
     }
 
 
