@@ -22,7 +22,7 @@ public class Borde_Ventana extends javax.swing.JPanel {
         moverPanel = new javax.swing.JLabel();
         btnCerrar = new modelo.CustomButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(82, 158, 202));
         setLayout(new java.awt.GridBagLayout());
 
         moverPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -42,12 +42,12 @@ public class Borde_Ventana extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         add(moverPanel, gridBagConstraints);
 
-        btnCerrar.setBackground(new java.awt.Color(255, 255, 255));
+        btnCerrar.setBackground(new java.awt.Color(82, 158, 202));
+        btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCerrar.setText("×");
         btnCerrar.setColorHover(new java.awt.Color(255, 0, 0));
-        btnCerrar.setColorNormal(new java.awt.Color(255, 255, 255));
+        btnCerrar.setColorNormal(new java.awt.Color(82, 158, 202));
         btnCerrar.setColorPressed(new java.awt.Color(255, 102, 102));
-        btnCerrar.setColorTextNormal(new java.awt.Color(102, 102, 102));
         btnCerrar.setFocusPainted(false);
         btnCerrar.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         btnCerrar.setPreferredSize(new java.awt.Dimension(48, 30));

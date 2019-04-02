@@ -28,6 +28,7 @@ public class Ventana_Admin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setBackground(SystemColor.window);
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH); 
         setUndecorated(true);
         getContentPane().setBackground(new Color(235,235,235));
         getContentPane().setLayout (new GridBagLayout());

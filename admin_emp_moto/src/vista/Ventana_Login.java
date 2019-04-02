@@ -18,6 +18,7 @@ public class Ventana_Login extends javax.swing.JFrame {
     public Ventana_Login() {
         configFrame();
         initPaneles();
+        pack();
     }
 
     private void configFrame(){    

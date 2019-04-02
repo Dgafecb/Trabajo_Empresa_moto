@@ -28,7 +28,7 @@ public class Panel_Login extends javax.swing.JPanel {
         lblTitulo = new javax.swing.JLabel();
         btnIngresar = new modelo.CustomButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(250, 250, 250));
         setLayout(new java.awt.GridBagLayout());
 
         txtUsuario.setBackground(new java.awt.Color(229, 229, 229));
@@ -89,16 +89,27 @@ public class Panel_Login extends javax.swing.JPanel {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 30, 10, 30);
         add(pbLogin, gridBagConstraints);
 
-        lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        lblTitulo.setForeground(new java.awt.Color(82, 158, 202));
+        lblTitulo.setBackground(new java.awt.Color(82, 158, 202));
+        lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setText("Login");
+        lblTitulo.setToolTipText("");
+        lblTitulo.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lblTitulo.setMaximumSize(new java.awt.Dimension(115, 90));
+        lblTitulo.setMinimumSize(new java.awt.Dimension(115, 90));
+        lblTitulo.setOpaque(true);
+        lblTitulo.setPreferredSize(new java.awt.Dimension(115, 92));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(lblTitulo, gridBagConstraints);
 
         btnIngresar.setBackground(new java.awt.Color(82, 158, 202));
@@ -113,6 +124,9 @@ public class Panel_Login extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
         add(btnIngresar, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
