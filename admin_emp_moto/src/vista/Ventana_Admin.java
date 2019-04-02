@@ -49,27 +49,29 @@ public class Ventana_Admin extends javax.swing.JFrame {
         constraints.anchor = GridBagConstraints.CENTER;//Poscion que ocupa el componente
         getContentPane().add (bordeVentana, constraints);
         
-        menuAdmin = new Menu_Admin();
+        menuNotificaciones = new Menu_Notificaciones();
         constraints.gridx = 0;
         constraints.gridy = 1;
-        constraints.gridwidth = 1;
-        constraints.gridheight = 2;
-        constraints.weightx = 0.0; 
-        constraints.weighty = 1.0;
-        constraints.fill = GridBagConstraints.VERTICAL;
-        constraints.anchor = GridBagConstraints.CENTER;
-        getContentPane().add (menuAdmin, constraints);
-        
-        menuNotificaciones = new Menu_Notificaciones();
-        constraints.gridx = 1;
-        constraints.gridy = 1;
-        constraints.gridwidth = 1;
+        constraints.gridwidth = 2;
         constraints.gridheight = 1;
         constraints.weightx = 1.0; 
         constraints.weighty = 0.0; 
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.anchor = GridBagConstraints.CENTER;
         getContentPane().add (menuNotificaciones, constraints);
+        
+        menuAdmin = new Menu_Admin();
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.weightx = 0.0; 
+        constraints.weighty = 1.0;
+        constraints.fill = GridBagConstraints.VERTICAL;
+        constraints.anchor = GridBagConstraints.CENTER;
+        getContentPane().add (menuAdmin, constraints);
+        
+        
         
         jsContent = new JScrollPane();
         jsContent.setBorder(null);

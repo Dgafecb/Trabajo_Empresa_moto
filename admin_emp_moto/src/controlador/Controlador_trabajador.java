@@ -28,13 +28,6 @@ public class Controlador_trabajador implements ActionListener {
     public Controlador_trabajador(Ventana_Trabajador view_trabajador,  Modelo_user model_user) {// Falta instanciar las demas variables a usar
         this.view_trabajador = view_trabajador;
         this.model_user = model_user;
-        view_trabajador.MenuTrabajador.profileUser.lblEditUser.setText(model_user.getEmail());
-        if(model_user.getPrivilege()==0){
-        view_trabajador.MenuTrabajador.profileUser.lblEditStatus.setText("Trabajador");
-        }
-        else if(model_user.getPrivilege()==1){
-            view_trabajador.MenuTrabajador.profileUser.lblEditStatus.setText("Recepecionista");
-        }
         this.callComp();
     }
 

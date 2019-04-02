@@ -37,8 +37,6 @@ public class Controlador_admin implements ActionListener {
     public Controlador_admin(Ventana_Admin view_admin,  Modelo_user model_user) {// Falta instanciar las demas variables a usar
         this.view_admin = view_admin;
         this.model_user = model_user;
-        view_admin.menuAdmin.profileUser.lblEditUser.setText(model_user.getEmail());
-        view_admin.menuAdmin.profileUser.lblEditStatus.setText("Administrador");
         this.callComp();
     }
 //
