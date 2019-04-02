@@ -67,7 +67,7 @@ public class Perfil_Usuario extends javax.swing.JPanel {
                         
             //Redimensionar imagenes
             Image img= new ImageIcon(masked).getImage();
-            ImageIcon imgRedimensionada =new ImageIcon(img.getScaledInstance(40, 40, Image.SCALE_SMOOTH));        
+            ImageIcon imgRedimensionada =new ImageIcon(img.getScaledInstance(35, 35, Image.SCALE_SMOOTH));        
             lblImagenPerfil.setIcon(imgRedimensionada);
 
         } catch (IOException ex) {
@@ -95,7 +95,7 @@ public class Perfil_Usuario extends javax.swing.JPanel {
         lblEditUser = new javax.swing.JLabel();
         lblImagenPerfil = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(60, 60, 60));
+        setBackground(new java.awt.Color(82, 158, 202));
         setLayout(new java.awt.GridBagLayout());
 
         lblEditUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
