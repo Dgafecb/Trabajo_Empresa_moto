@@ -15,7 +15,7 @@ public class Modelo_Inventario {
     private int ID_Prod;
     private String nombre_producto;
     private int cantidad;
-    private int limite_advertencia; // luego veo como cambiar las consultas para considerar el caso de insertar una fila con el atributo limiteAdvertencia = null
+    private int limite_advertencia; 
 
     public Modelo_Inventario() {
         this.limite_advertencia = 0;

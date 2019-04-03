@@ -16,7 +16,7 @@ public class Panel_Trabajadores extends javax.swing.JPanel {
         initComponents();
         //testList();
     }
-
+/* Lo deshabilite hasta que cambie todas las consultas
     private void testList() {
         
         Consultas_Trabajadores_meta consulta = new Consultas_Trabajadores_meta();
@@ -32,7 +32,7 @@ public class Panel_Trabajadores extends javax.swing.JPanel {
         jListTrabajadores.setCellRenderer(new CustomListRenderer(jListTrabajadores));
         jListTrabajadores.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
     }
-
+*/
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

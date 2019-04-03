@@ -5,7 +5,7 @@ import controlador.Controlador_login;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
-import modelo.Consultas_Login;
+import modelo.Consultas_Trabajadores;
 import modelo.Consultas_Trabajadores_meta;
 import modelo.Modelo_Trabajadores_meta;
 import modelo.Modelo_Trabajadores;
@@ -27,7 +27,7 @@ public class Admin_emp_moto {
         }
 
         Modelo_Trabajadores user = new Modelo_Trabajadores();
-        Consultas_Login consultas = new Consultas_Login();
+        Consultas_Trabajadores consultas = new Consultas_Trabajadores();
         Ventana_Login view = new Ventana_Login();
         Controlador_login ctrl = new Controlador_login(view, user, consultas);
 
