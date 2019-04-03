@@ -8,7 +8,6 @@ public class Menu_Admin extends javax.swing.JPanel {
 
     public Menu_Admin() {
         initComponents();
-        subRegistros.setVisible(false);
     }
     
 
@@ -26,9 +25,6 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnConfig = new modelo.CustomButton();
         btnAyuda = new modelo.CustomButton();
         btnCerrarSesion = new modelo.CustomButton();
-        subRegistros = new javax.swing.JPanel();
-        btnTrabajadores = new modelo.CustomButton();
-        btnAsistencia = new modelo.CustomButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
 
@@ -131,11 +127,6 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnRegistros.setMaximumSize(new java.awt.Dimension(250, 45));
         btnRegistros.setMinimumSize(new java.awt.Dimension(250, 45));
         btnRegistros.setPreferredSize(new java.awt.Dimension(250, 45));
-        btnRegistros.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrosActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
@@ -192,55 +183,6 @@ public class Menu_Admin extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
         gridBagConstraints.weighty = 1.0;
         add(btnCerrarSesion, gridBagConstraints);
-
-        subRegistros.setLayout(new java.awt.GridBagLayout());
-
-        btnTrabajadores.setBackground(new java.awt.Color(60, 60, 60));
-        btnTrabajadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnSubMenu52x36px.png"))); // NOI18N
-        btnTrabajadores.setText("Trabajadores");
-        btnTrabajadores.setColorHover(new java.awt.Color(82, 158, 202));
-        btnTrabajadores.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnTrabajadores.setColorPressed(new java.awt.Color(92, 168, 212));
-        btnTrabajadores.setFocusPainted(false);
-        btnTrabajadores.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnTrabajadores.setMaximumSize(new java.awt.Dimension(250, 45));
-        btnTrabajadores.setMinimumSize(new java.awt.Dimension(250, 45));
-        btnTrabajadores.setPreferredSize(new java.awt.Dimension(250, 45));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        subRegistros.add(btnTrabajadores, gridBagConstraints);
-
-        btnAsistencia.setBackground(new java.awt.Color(60, 60, 60));
-        btnAsistencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnSubMenu52x36px.png"))); // NOI18N
-        btnAsistencia.setText("Asistencia");
-        btnAsistencia.setColorHover(new java.awt.Color(82, 158, 202));
-        btnAsistencia.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnAsistencia.setColorPressed(new java.awt.Color(92, 168, 212));
-        btnAsistencia.setFocusPainted(false);
-        btnAsistencia.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnAsistencia.setMaximumSize(new java.awt.Dimension(250, 45));
-        btnAsistencia.setMinimumSize(new java.awt.Dimension(250, 45));
-        btnAsistencia.setPreferredSize(new java.awt.Dimension(250, 45));
-        btnAsistencia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAsistenciaActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        subRegistros.add(btnAsistencia, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        add(subRegistros, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -254,23 +196,10 @@ public class Menu_Admin extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 5, 10, 5);
         add(jSeparator2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnRegistrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrosActionPerformed
-        if(subRegistros.isVisible()!=true){
-            subRegistros.setVisible(true);
-        }else{
-            subRegistros.setVisible(false);
-        }
-    }//GEN-LAST:event_btnRegistrosActionPerformed
-
-    private void btnAsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsistenciaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAsistenciaActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public modelo.CustomButton btnAlmacen;
-    private modelo.CustomButton btnAsistencia;
     public modelo.CustomButton btnAyuda;
     public modelo.CustomButton btnCerrarSesion;
     public modelo.CustomButton btnCompras;
@@ -278,10 +207,8 @@ public class Menu_Admin extends javax.swing.JPanel {
     public modelo.CustomButton btnEstadisticas;
     public modelo.CustomButton btnMantenimiento;
     public modelo.CustomButton btnRegistros;
-    private modelo.CustomButton btnTrabajadores;
     public modelo.CustomButton btnVentas;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JPanel subRegistros;
     // End of variables declaration//GEN-END:variables
 }
