@@ -6,9 +6,9 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import modelo.Consultas_Login;
-import modelo.Consultas_Trabajadores;
+import modelo.Consultas_Trabajadores_meta;
+import modelo.Modelo_Trabajadores_meta;
 import modelo.Modelo_Trabajadores;
-import modelo.Modelo_user;
 import vista.Ventana_Login;
 
 public class Admin_emp_moto {
@@ -26,7 +26,7 @@ public class Admin_emp_moto {
             e.printStackTrace();
         }
 
-        Modelo_user user = new Modelo_user();
+        Modelo_Trabajadores user = new Modelo_Trabajadores();
         Consultas_Login consultas = new Consultas_Login();
         Ventana_Login view = new Ventana_Login();
         Controlador_login ctrl = new Controlador_login(view, user, consultas);

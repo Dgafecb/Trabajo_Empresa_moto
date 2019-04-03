@@ -9,7 +9,7 @@ package modelo;
  *
  * @author Dgafecb
  */
-public class Modelo_inventario {
+public class Modelo_Inventario {
 
     public int ID;
     private int ID_Prod;
@@ -17,7 +17,7 @@ public class Modelo_inventario {
     private int cantidad;
     private int limite_advertencia; // luego veo como cambiar las consultas para considerar el caso de insertar una fila con el atributo limiteAdvertencia = null
 
-    public Modelo_inventario() {
+    public Modelo_Inventario() {
         this.limite_advertencia = 0;
     }
 

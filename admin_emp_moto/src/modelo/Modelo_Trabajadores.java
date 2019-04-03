@@ -1,70 +1,79 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
 
-/**
- *
- * @author Dgafecb
- */
 public class Modelo_Trabajadores {
-    private int Dni;
-    private String Nombre;
-    private String Apellido_paterno;
-    private String Apellido_materno;
-    private String Fechanac;
-    private String email;
+    
+ private int id;
+ private String dni;
+ private String password;
+ private String nombre;
+ private String apellido;
+ private int privilege;
+ private String fecha_creacion;
+ private int sueldo;
 
-    public int getDni() {
-        return Dni;
+    public int getId() {
+        return id;
     }
 
-    public void setDni(int Dni) {
-        this.Dni = Dni;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getApellido_paterno() {
-        return Apellido_paterno;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setApellido_paterno(String Apellido_paterno) {
-        this.Apellido_paterno = Apellido_paterno;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
-    public String getApellido_materno() {
-        return Apellido_materno;
+    public int getPrivilege() {
+        return privilege;
     }
 
-    public void setApellido_materno(String Apellido_materno) {
-        this.Apellido_materno = Apellido_materno;
+    public void setPrivilege(int privilege) {
+        this.privilege = privilege;
     }
 
-    public String getFechanac() {
-        return Fechanac;
+    public String getFecha_creacion() {
+        return fecha_creacion;
     }
 
-    public void setFechanac(String Fecha_nac) {
-        this.Fechanac = Fecha_nac;
+    public void setFecha_creacion(String fecha_creacion) {
+        this.fecha_creacion = fecha_creacion;
     }
 
-    public String getEmail() {
-        return email;
+    public int getSueldo() {
+        return sueldo;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setSueldo(int sueldo) {
+        this.sueldo = sueldo;
     }
-    
-    
-    
+
+     
 }

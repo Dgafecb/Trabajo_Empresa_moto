@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.SwingWorker;
 
-import modelo.Modelo_user;
+import modelo.Modelo_Trabajadores;
 import modelo.Consultas_Login;
 import vista.Panel_Login;
 import vista.Ventana_Admin;
@@ -16,14 +16,14 @@ import vista.Ventana_Trabajador;
 public class Controlador_login implements ActionListener, KeyListener {
 
     private Ventana_Login view;
-    private Modelo_user model;
+    private Modelo_Trabajadores model;
     private Consultas_Login consultas;
     private Ventana_Admin view_admin;
     private Ventana_Trabajador viewTrabajador;
     private Controlador_admin controlador_admin;
     private Ventana_Trabajador view_trabajador;
     private Controlador_trabajador ctrl_trabajador;
-    public Controlador_login(Ventana_Login view, Modelo_user model, Consultas_Login consultas) {
+    public Controlador_login(Ventana_Login view, Modelo_Trabajadores model, Consultas_Login consultas) {
         this.view = view;
         this.model = model;
         this.consultas = consultas;
@@ -80,7 +80,7 @@ public class Controlador_login implements ActionListener, KeyListener {
     public void accionBtnIngresar() {
         int privilege;
         String user;
-        model.setEmail(view.panelLogin.txtUsuario.getText());
+        model.setDni(view.panelLogin.txtUsuario.getText());
         model.setPassword(view.panelLogin.txtContr.getText());
         privilege = this.verificacion(model, view.panelLogin.txtContr.getText());
         if (privilege == 2) {
@@ -114,7 +114,7 @@ public class Controlador_login implements ActionListener, KeyListener {
 
     }
 
-    private int verificacion(Modelo_user model, String password) {
+    private int verificacion(Modelo_Trabajadores model, String password) {
         if (model != null) {
             if (consultas.read(model)) {
                 message("Usuario existe");

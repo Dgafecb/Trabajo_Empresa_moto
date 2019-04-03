@@ -15,7 +15,7 @@ import java.sql.SQLException;
  */
 public class Consultas_Inventario extends ConexionSQL {
 
-    public boolean create(Modelo_inventario user) {
+    public boolean create(Modelo_Inventario user) {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
@@ -45,7 +45,7 @@ public class Consultas_Inventario extends ConexionSQL {
         }
     }
 
-    public boolean update(Modelo_inventario user) {
+    public boolean update(Modelo_Inventario user) {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
@@ -76,7 +76,7 @@ public class Consultas_Inventario extends ConexionSQL {
         }
     }
 
-    public boolean delete(Modelo_inventario user) {
+    public boolean delete(Modelo_Inventario user) {
         PreparedStatement ps = null;
         Connection con = getConnection();
 

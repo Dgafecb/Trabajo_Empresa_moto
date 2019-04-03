@@ -4,10 +4,10 @@ import java.awt.Color;
 import java.util.LinkedList;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
-import modelo.Consultas_Trabajadores;
+import modelo.Consultas_Trabajadores_meta;
 import modelo.CustomListData;
 import modelo.CustomListRenderer;
-import modelo.Modelo_Trabajadores;
+import modelo.Modelo_Trabajadores_meta;
 
 
 public class Panel_Trabajadores extends javax.swing.JPanel {
@@ -19,8 +19,8 @@ public class Panel_Trabajadores extends javax.swing.JPanel {
 
     private void testList() {
         
-        Consultas_Trabajadores consulta = new Consultas_Trabajadores();
-        LinkedList<Modelo_Trabajadores> lista = consulta.readAll();
+        Consultas_Trabajadores_meta consulta = new Consultas_Trabajadores_meta();
+        LinkedList<Modelo_Trabajadores_meta> lista = consulta.readAll();
         
         DefaultListModel model = new DefaultListModel();
         for(int i=0;i<lista.size();i++){

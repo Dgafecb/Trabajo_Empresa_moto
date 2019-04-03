@@ -7,9 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 
-public class Consultas_Trabajadores extends ConexionSQL {
+public class Consultas_Trabajadores_meta extends ConexionSQL {
 
-    public boolean create(Modelo_Trabajadores trabajador) {
+    public boolean create(Modelo_Trabajadores_meta trabajador) {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
@@ -41,7 +41,7 @@ public class Consultas_Trabajadores extends ConexionSQL {
         }
     }
     
-    public boolean read(Modelo_Trabajadores trabajador){
+    public boolean read(Modelo_Trabajadores_meta trabajador){
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection con = getConnection();
@@ -80,7 +80,7 @@ public class Consultas_Trabajadores extends ConexionSQL {
     }
     
     
-    public boolean update(Modelo_Trabajadores trabajador) {
+    public boolean update(Modelo_Trabajadores_meta trabajador) {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
@@ -112,7 +112,7 @@ public class Consultas_Trabajadores extends ConexionSQL {
         }
     }
 
-    public boolean delete(Modelo_Trabajadores trabajador) {
+    public boolean delete(Modelo_Trabajadores_meta trabajador) {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
@@ -138,8 +138,8 @@ public class Consultas_Trabajadores extends ConexionSQL {
     }
     
     public LinkedList readAll(){
-        LinkedList<Modelo_Trabajadores> listaTrabajadores = new LinkedList<Modelo_Trabajadores>();
-        Modelo_Trabajadores trabajador = null;
+        LinkedList<Modelo_Trabajadores_meta> listaTrabajadores = new LinkedList<Modelo_Trabajadores_meta>();
+        Modelo_Trabajadores_meta trabajador = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection con = getConnection();
@@ -152,7 +152,7 @@ public class Consultas_Trabajadores extends ConexionSQL {
  
             while(rs.next())
             {
-              trabajador = new  Modelo_Trabajadores();
+              trabajador = new  Modelo_Trabajadores_meta();
               trabajador.setDni(rs.getInt("dni"));
               trabajador.setNombre(rs.getString("nombre"));
               trabajador.setApellido_paterno(rs.getString("apellido_paterno"));
@@ -168,7 +168,7 @@ public class Consultas_Trabajadores extends ConexionSQL {
 
         } catch (SQLException e) {
             System.err.println(e);
-            trabajador = new Modelo_Trabajadores();
+            trabajador = new Modelo_Trabajadores_meta();
             trabajador.setDni(0);
             trabajador.setNombre("Sin Datos");
             listaTrabajadores.add(trabajador);

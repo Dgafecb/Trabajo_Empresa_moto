@@ -9,10 +9,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.Consultas_Login;
 import modelo.Consultas_Inventario;
-import modelo.Consultas_Trabajadores;
-import modelo.Modelo_inventario;
+import modelo.Consultas_Trabajadores_meta;
+import modelo.Modelo_Inventario;
+import modelo.Modelo_Trabajadores_meta;
 import modelo.Modelo_Trabajadores;
-import modelo.Modelo_user;
 import vista.Panel_Trabajadores;
 import vista.Ventana_Admin;
 import vista.Ventana_Login;
@@ -24,17 +24,17 @@ import vista.Ventana_Login;
 public class Controlador_admin implements ActionListener {
     private Ventana_Login view_login;
     private Ventana_Admin view_admin;
-    private Modelo_Trabajadores model_tr;
-    private Consultas_Trabajadores consultas_tr;
-    private Modelo_inventario model_inventario;
+    private Modelo_Trabajadores_meta model_tr;
+    private Consultas_Trabajadores_meta consultas_tr;
+    private Modelo_Inventario model_inventario;
     private Consultas_Inventario consultas_inventario;
     private Consultas_Login consultas_login;
-    private Modelo_user model_user;
+    private Modelo_Trabajadores model_user;
     private Panel_Trabajadores panel_tr;
     private Controlador_login ctrl_login;
     
 
-    public Controlador_admin(Ventana_Admin view_admin,  Modelo_user model_user) {// Falta instanciar las demas variables a usar
+    public Controlador_admin(Ventana_Admin view_admin,  Modelo_Trabajadores model_user) {// Falta instanciar las demas variables a usar
         this.view_admin = view_admin;
         this.model_user = model_user;
         this.callComp();
@@ -67,7 +67,7 @@ public class Controlador_admin implements ActionListener {
             view_admin.dispose();
             view_login = new Ventana_Login();
             consultas_login = new Consultas_Login();
-            Modelo_user new_user = new Modelo_user();
+            Modelo_Trabajadores new_user = new Modelo_Trabajadores();
             view_login.setVisible(true);
             ctrl_login = new Controlador_login(view_login, new_user,consultas_login );            
         
