@@ -7,7 +7,7 @@ import java.awt.event.KeyListener;
 import javax.swing.SwingWorker;
 
 import modelo.Modelo_Trabajadores;
-import modelo.Consultas_Login;
+import modelo.Consultas_Trabajadores;
 import vista.Panel_Login;
 import vista.Ventana_Admin;
 import vista.Ventana_Login;
@@ -17,13 +17,13 @@ public class Controlador_login implements ActionListener, KeyListener {
 
     private Ventana_Login view;
     private Modelo_Trabajadores model;
-    private Consultas_Login consultas;
+    private Consultas_Trabajadores consultas;
     private Ventana_Admin view_admin;
     private Ventana_Trabajador viewTrabajador;
     private Controlador_admin controlador_admin;
     private Ventana_Trabajador view_trabajador;
     private Controlador_trabajador ctrl_trabajador;
-    public Controlador_login(Ventana_Login view, Modelo_Trabajadores model, Consultas_Login consultas) {
+    public Controlador_login(Ventana_Login view, Modelo_Trabajadores model, Consultas_Trabajadores consultas) {
         this.view = view;
         this.model = model;
         this.consultas = consultas;

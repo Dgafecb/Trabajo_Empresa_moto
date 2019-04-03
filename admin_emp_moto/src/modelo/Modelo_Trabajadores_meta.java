@@ -10,59 +10,50 @@ package modelo;
  * @author Dgafecb
  */
 public class Modelo_Trabajadores_meta {
-    private int dni;
-    private String Nombre;
-    private String Apellido_paterno;
-    private String Apellido_materno;
-    private String Fechanac;
-    private String email;
+    private int id;
+    private String correo;
+    private String telefono;
+    private String direccion;
+    private String ciudad;
 
-    public int getDni() {
-        return dni;
+    public int getId() {
+        return id;
     }
 
-    public void setDni(int Dni) {
-        this.dni = Dni;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getNombre() {
-        return Nombre;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
-    public String getApellido_paterno() {
-        return Apellido_paterno;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setApellido_paterno(String Apellido_paterno) {
-        this.Apellido_paterno = Apellido_paterno;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
-    public String getApellido_materno() {
-        return Apellido_materno;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setApellido_materno(String Apellido_materno) {
-        this.Apellido_materno = Apellido_materno;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public String getFechanac() {
-        return Fechanac;
+    public String getCiudad() {
+        return ciudad;
     }
 
-    public void setFechanac(String Fecha_nac) {
-        this.Fechanac = Fecha_nac;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
     
     

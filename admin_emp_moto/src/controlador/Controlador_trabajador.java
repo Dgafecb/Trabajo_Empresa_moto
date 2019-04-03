@@ -7,7 +7,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import modelo.Consultas_Login;
+import modelo.Consultas_Trabajadores;
 import modelo.Modelo_Trabajadores;
 import vista.Panel_Trabajadores;
 import vista.Ventana_Login;
@@ -21,7 +21,7 @@ public class Controlador_trabajador implements ActionListener {
     private Ventana_Trabajador view_trabajador;
     private Modelo_Trabajadores model_user;
     private Ventana_Login view_login;
-    private Consultas_Login consultas_login;
+    private Consultas_Trabajadores consultas_login;
     private Controlador_login ctrl_login;
     
     
@@ -53,7 +53,7 @@ public class Controlador_trabajador implements ActionListener {
             view_trabajador.setVisible(false);
             view_trabajador.dispose();
             view_login = new Ventana_Login();
-            consultas_login = new Consultas_Login();
+            consultas_login = new Consultas_Trabajadores();
             Modelo_Trabajadores new_user = new Modelo_Trabajadores();
             view_login.setVisible(true);
             ctrl_login = new Controlador_login(view_login, new_user,consultas_login );            
