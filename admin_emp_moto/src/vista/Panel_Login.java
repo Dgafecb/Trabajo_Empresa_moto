@@ -122,7 +122,7 @@ public class Panel_Login extends javax.swing.JPanel {
         btnIngresar.setText("Acceder");
         btnIngresar.setColorHover(new java.awt.Color(60, 60, 60));
         btnIngresar.setColorNormal(new java.awt.Color(82, 158, 202));
-        btnIngresar.setColorPressed(new java.awt.Color(92, 168, 212));
+        btnIngresar.setColorPressed(new java.awt.Color(90, 90, 90));
         btnIngresar.setFocusPainted(false);
         btnIngresar.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         btnIngresar.setMaximumSize(new java.awt.Dimension(200, 45));

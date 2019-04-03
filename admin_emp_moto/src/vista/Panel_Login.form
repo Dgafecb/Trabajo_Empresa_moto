@@ -166,7 +166,7 @@
           <Color blue="ca" green="9e" red="52" type="rgb"/>
         </Property>
         <Property name="colorPressed" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="d4" green="a8" red="5c" type="rgb"/>
+          <Color blue="5a" green="5a" red="5a" type="rgb"/>
         </Property>
         <Property name="focusPainted" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
