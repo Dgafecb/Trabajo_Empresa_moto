@@ -21,20 +21,10 @@
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
   <SubComponents>
-    <Component class="vista.Perfil_Usuario" name="profileUser">
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-          <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="20" insetsLeft="10" insetsBottom="20" insetsRight="10" anchor="10" weightX="0.0" weightY="0.0"/>
-        </Constraint>
-      </Constraints>
-    </Component>
     <Component class="modelo.CustomButton" name="btnAlmacen">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/recursos/btnAlmacen36x36px.png"/>
+          <Image iconType="3" name="/recursos/(40x40px)btnAlmacen.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Almacen"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -48,6 +38,7 @@
           <Color blue="d4" green="a8" red="5c" type="rgb"/>
         </Property>
         <Property name="focusable" type="boolean" value="false"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -61,7 +52,7 @@
     <Component class="modelo.CustomButton" name="btnCompras">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/recursos/btnCompras36x36px.png"/>
+          <Image iconType="3" name="/recursos/(40x40px)btnCompras.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Compras"/>
         <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -74,6 +65,7 @@
           <Color blue="d4" green="a8" red="5c" type="rgb"/>
         </Property>
         <Property name="focusable" type="boolean" value="false"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -87,7 +79,7 @@
     <Component class="modelo.CustomButton" name="btnVentas">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/recursos/btnVentas36x36px.png"/>
+          <Image iconType="3" name="/recursos/(40x40px)btnVentas.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Ventas"/>
         <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -100,6 +92,7 @@
           <Color blue="d4" green="a8" red="5c" type="rgb"/>
         </Property>
         <Property name="focusable" type="boolean" value="false"/>
+        <Property name="horizontalAlignment" type="int" value="2"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -113,7 +106,7 @@
     <Component class="modelo.CustomButton" name="btnAyuda">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/recursos/btnAyuda36x36px.png"/>
+          <Image iconType="3" name="/recursos/(40x40px)btnAyuda.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Ayuda"/>
         <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -125,6 +118,7 @@
         <Property name="colorPressed" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="d4" green="a8" red="5c" type="rgb"/>
         </Property>
+        <Property name="horizontalAlignment" type="int" value="2"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -138,7 +132,7 @@
     <Component class="modelo.CustomButton" name="btnCerrarSesion">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/recursos/btnCerrarSesion36x36px.png"/>
+          <Image iconType="3" name="/recursos/(40x40px)btnCerrarSesion.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cerrar Sesion"/>
         <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -150,6 +144,7 @@
         <Property name="colorPressed" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="d4" green="a8" red="5c" type="rgb"/>
         </Property>
+        <Property name="horizontalAlignment" type="int" value="2"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

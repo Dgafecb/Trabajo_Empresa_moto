@@ -41,7 +41,7 @@ public class Perfil_Usuario extends javax.swing.JPanel {
         try {
             BufferedImage master;
             if(getRutaImagen()==null){
-                master =ImageIO.read(Perfil_Usuario.class.getResourceAsStream("/recursos/defaultUser.png"));
+                master =ImageIO.read(Perfil_Usuario.class.getResourceAsStream("/recursos/(60x60px)defaultUser.png"));
             }else{             
                 master =ImageIO.read(Perfil_Usuario.class.getResourceAsStream(getRutaImagen()));
             }

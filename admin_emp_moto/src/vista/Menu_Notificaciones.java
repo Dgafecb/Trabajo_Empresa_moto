@@ -20,7 +20,7 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
         setBackground(new java.awt.Color(60, 60, 60));
         setLayout(new java.awt.GridBagLayout());
 
-        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/btnMenu.png"))); // NOI18N
+        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(40x40px)btnMenu.png"))); // NOI18N
         btnMenu.setBorder(null);
         btnMenu.setBorderPainted(false);
         btnMenu.setContentAreaFilled(false);
