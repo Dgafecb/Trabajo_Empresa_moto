@@ -16,7 +16,7 @@ public class Ventana_Admin extends javax.swing.JFrame{
     public Borde_Ventana bordeVentana;
     public Menu_Admin menuAdmin;
     public Menu_Notificaciones menuNotificaciones;
-    public JScrollPane jsContent;
+    public JScrollPane spContent;
     
     public Ventana_Admin() {
         configFrame();
@@ -76,9 +76,9 @@ public class Ventana_Admin extends javax.swing.JFrame{
         
         
         
-        jsContent = new JScrollPane();
-        jsContent.setBorder(null);
-        jsContent.getViewport().setBackground(new Color(255,255,255));
+        spContent = new JScrollPane();
+        spContent.setBorder(null);
+        spContent.getViewport().setBackground(new Color(255,255,255));
         constraints.gridx = 1;
         constraints.gridy = 2;
         constraints.gridwidth = 1;
@@ -87,8 +87,8 @@ public class Ventana_Admin extends javax.swing.JFrame{
         constraints.weighty = 1.0; 
         constraints.fill = GridBagConstraints.BOTH;
         constraints.anchor = GridBagConstraints.CENTER;
-        constraints.insets= new Insets(10,10,10,10);
-        getContentPane().add (jsContent, constraints);
+        constraints.insets= new Insets(0,0,0,0);
+        getContentPane().add (spContent, constraints);
         
     }
     
