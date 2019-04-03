@@ -13,7 +13,6 @@ import modelo.Consultas_Trabajadores_meta;
 import modelo.Modelo_Inventario;
 import modelo.Modelo_Trabajadores_meta;
 import modelo.Modelo_Trabajadores;
-import vista.Panel_Trabajadores;
 import vista.Ventana_Admin;
 import vista.Ventana_Login;
 
@@ -30,7 +29,6 @@ public class Controlador_admin implements ActionListener {
     private Consultas_Inventario consultas_inventario;
     private Consultas_Trabajadores consultas_login;
     private Modelo_Trabajadores model_user;
-    private Panel_Trabajadores panel_tr;
     private Controlador_login ctrl_login;
     
 

@@ -1,22 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.Consultas_Trabajadores;
 import modelo.Modelo_Trabajadores;
-import vista.Panel_Trabajadores;
 import vista.Ventana_Login;
 import vista.Ventana_Trabajador;
 
-/**
- *
- * @author Dgafecb
- */
+
 public class Controlador_trabajador implements ActionListener {
     private Ventana_Trabajador view_trabajador;
     private Modelo_Trabajadores model_user;

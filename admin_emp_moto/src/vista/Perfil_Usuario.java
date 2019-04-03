@@ -95,7 +95,7 @@ public class Perfil_Usuario extends javax.swing.JPanel {
         lblEditUser = new javax.swing.JLabel();
         lblImagenPerfil = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(82, 158, 202));
+        setBackground(new java.awt.Color(60, 60, 60));
         setLayout(new java.awt.GridBagLayout());
 
         lblEditUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
