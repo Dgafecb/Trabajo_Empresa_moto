@@ -11,7 +11,7 @@ public class Consultas_Login extends ConexionSQL {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
-        String query = "INSERT INTO Login "
+        String query = "INSERT INTO Trabajadores "
                 + "( dni, password, nombre,apellido,privilege,fecha_creacion,sueldo)"
                 + "values ( ?, ?, ?, ?, ?, ?, ?)";
 
