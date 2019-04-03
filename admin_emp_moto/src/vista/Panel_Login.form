@@ -90,7 +90,7 @@
     <Component class="javax.swing.JLabel" name="lblUser">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/recursos/lblUser46x40.png"/>
+          <Image iconType="3" name="/recursos/(46x40px)iconUsuario.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -102,7 +102,7 @@
     <Component class="javax.swing.JLabel" name="lblPassword">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/recursos/lblPassword46x40.png"/>
+          <Image iconType="3" name="/recursos/(46x40px)iconPassword.png"/>
         </Property>
       </Properties>
       <Constraints>

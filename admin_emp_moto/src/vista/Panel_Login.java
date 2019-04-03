@@ -75,7 +75,7 @@ public class Panel_Login extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 30);
         add(txtContr, gridBagConstraints);
 
-        lblUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/lblUser46x40.png"))); // NOI18N
+        lblUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(46x40px)iconUsuario.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -83,7 +83,7 @@ public class Panel_Login extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 30, 10, 0);
         add(lblUser, gridBagConstraints);
 
-        lblPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/lblPassword46x40.png"))); // NOI18N
+        lblPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(46x40px)iconPassword.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
