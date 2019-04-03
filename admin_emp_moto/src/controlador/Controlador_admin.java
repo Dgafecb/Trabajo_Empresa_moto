@@ -46,9 +46,7 @@ public class Controlador_admin implements ActionListener {
     }
 
     public void init() {
-
         view_admin.setTitle("Administrador");
-
     }
 
     @Override
@@ -62,13 +60,7 @@ public class Controlador_admin implements ActionListener {
             panelRegistros = new Panel_Registros();
             view_admin.administrarPanel(view_admin.spContent,panelRegistros );
         }else if(e.getSource() == view_admin.menuAdmin.btnCerrarSesion){ 
-            view_admin.setVisible(false);
-            view_admin.dispose();
-            view_login = new Ventana_Login();
-            consultas_login = new Consultas_Trabajadores();
-            Modelo_Trabajadores new_user = new Modelo_Trabajadores();
-            view_login.setVisible(true);
-            ctrl_login = new Controlador_login(view_login, new_user,consultas_login );            
+            cerrarSesion();
         }
 
     }
@@ -76,6 +68,15 @@ public class Controlador_admin implements ActionListener {
     private void limpiarSpContent(){
         panelVentas=null;
         panelRegistros=null;
+    }
+    private void cerrarSesion(){
+        view_admin.setVisible(false);
+            view_admin.dispose();
+            view_login = new Ventana_Login();
+            consultas_login = new Consultas_Trabajadores();
+            Modelo_Trabajadores new_user = new Modelo_Trabajadores();
+            view_login.setVisible(true);
+            ctrl_login = new Controlador_login(view_login, new_user,consultas_login ); 
     }
 
 }

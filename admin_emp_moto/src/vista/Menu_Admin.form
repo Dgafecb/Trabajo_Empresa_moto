@@ -40,13 +40,13 @@
         <Property name="focusable" type="boolean" value="false"/>
         <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -77,13 +77,13 @@
         <Property name="focusable" type="boolean" value="false"/>
         <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -114,13 +114,13 @@
         <Property name="focusable" type="boolean" value="false"/>
         <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -151,13 +151,13 @@
         <Property name="focusable" type="boolean" value="false"/>
         <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -188,13 +188,13 @@
         <Property name="focusable" type="boolean" value="false"/>
         <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -225,13 +225,13 @@
         <Property name="focusable" type="boolean" value="false"/>
         <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -261,13 +261,13 @@
         <Property name="focusPainted" type="boolean" value="false"/>
         <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -297,13 +297,13 @@
         <Property name="focusPainted" type="boolean" value="false"/>
         <Property name="horizontalAlignment" type="int" value="2"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 40]"/>
+          <Dimension value="[200, 40]"/>
         </Property>
       </Properties>
       <AuxValues>
