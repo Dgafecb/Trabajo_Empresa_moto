@@ -8,16 +8,15 @@ import javax.swing.SwingWorker;
 
 import modelo.Modelo_Trabajadores;
 import modelo.Consultas_Trabajadores;
-import vista.Panel_Login;
 import vista.Ventana_Admin;
 import vista.Ventana_Login;
 import vista.Ventana_Trabajador;
 
 public class Controlador_login implements ActionListener, KeyListener {
 
-    private Ventana_Login view;
-    private Modelo_Trabajadores model;
-    private Consultas_Trabajadores consultas;
+    private final Ventana_Login view;
+    private final Modelo_Trabajadores model;
+    private final Consultas_Trabajadores consultas;
     private Ventana_Admin view_admin;
     private Ventana_Trabajador viewTrabajador;
     private Controlador_admin controlador_admin;
