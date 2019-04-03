@@ -62,13 +62,13 @@ public class Panel_Ventas extends javax.swing.JPanel {
         pDatosInventario = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
-        spInventario = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         pBuscarPor = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
+        spInventario = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         pDatosInventarioAdicional = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -93,9 +93,15 @@ public class Panel_Ventas extends javax.swing.JPanel {
         pDatosAdicionales = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(250, 250, 250));
+        setMaximumSize(new java.awt.Dimension(933, 632));
+        setMinimumSize(new java.awt.Dimension(933, 632));
+        setLayout(new java.awt.GridBagLayout());
 
         pDatosFactura.setBackground(new java.awt.Color(250, 250, 250));
         pDatosFactura.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pDatosFactura.setMaximumSize(new java.awt.Dimension(450, 75));
+        pDatosFactura.setMinimumSize(new java.awt.Dimension(250, 55));
+        pDatosFactura.setPreferredSize(new java.awt.Dimension(350, 65));
         pDatosFactura.setLayout(new java.awt.GridBagLayout());
 
         lblFactura.setText("Nro. Factura :");
@@ -117,8 +123,18 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         pDatosFactura.add(numeroFactura, gridBagConstraints);
 
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(pDatosFactura, gridBagConstraints);
+
         pDatosCliente.setBackground(new java.awt.Color(250, 250, 250));
         pDatosCliente.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)), "Datos Clientes", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(60, 60, 60))); // NOI18N
+        pDatosCliente.setMaximumSize(new java.awt.Dimension(450, 450));
+        pDatosCliente.setMinimumSize(new java.awt.Dimension(250, 250));
+        pDatosCliente.setPreferredSize(new java.awt.Dimension(350, 350));
         pDatosCliente.setLayout(new java.awt.GridBagLayout());
 
         lblNombreApellido.setText("Nombre y Apellidos :");
@@ -163,9 +179,9 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosCliente.add(jLabel3, gridBagConstraints);
 
-        txfCliente1Nombre.setMaximumSize(new java.awt.Dimension(100, 20));
-        txfCliente1Nombre.setMinimumSize(new java.awt.Dimension(100, 20));
-        txfCliente1Nombre.setPreferredSize(new java.awt.Dimension(100, 20));
+        txfCliente1Nombre.setMaximumSize(new java.awt.Dimension(200, 20));
+        txfCliente1Nombre.setMinimumSize(new java.awt.Dimension(200, 20));
+        txfCliente1Nombre.setPreferredSize(new java.awt.Dimension(200, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -173,9 +189,9 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosCliente.add(txfCliente1Nombre, gridBagConstraints);
 
-        txfCliente2Nombre.setMaximumSize(new java.awt.Dimension(100, 20));
-        txfCliente2Nombre.setMinimumSize(new java.awt.Dimension(100, 20));
-        txfCliente2Nombre.setPreferredSize(new java.awt.Dimension(100, 20));
+        txfCliente2Nombre.setMaximumSize(new java.awt.Dimension(200, 20));
+        txfCliente2Nombre.setMinimumSize(new java.awt.Dimension(200, 20));
+        txfCliente2Nombre.setPreferredSize(new java.awt.Dimension(200, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -183,9 +199,9 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosCliente.add(txfCliente2Nombre, gridBagConstraints);
 
-        txfDNI1.setMaximumSize(new java.awt.Dimension(100, 20));
-        txfDNI1.setMinimumSize(new java.awt.Dimension(100, 20));
-        txfDNI1.setPreferredSize(new java.awt.Dimension(100, 20));
+        txfDNI1.setMaximumSize(new java.awt.Dimension(200, 20));
+        txfDNI1.setMinimumSize(new java.awt.Dimension(200, 20));
+        txfDNI1.setPreferredSize(new java.awt.Dimension(200, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
@@ -193,9 +209,9 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosCliente.add(txfDNI1, gridBagConstraints);
 
-        txfDNI2.setMaximumSize(new java.awt.Dimension(100, 20));
-        txfDNI2.setMinimumSize(new java.awt.Dimension(100, 20));
-        txfDNI2.setPreferredSize(new java.awt.Dimension(100, 20));
+        txfDNI2.setMaximumSize(new java.awt.Dimension(200, 20));
+        txfDNI2.setMinimumSize(new java.awt.Dimension(200, 20));
+        txfDNI2.setPreferredSize(new java.awt.Dimension(200, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
@@ -203,9 +219,9 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosCliente.add(txfDNI2, gridBagConstraints);
 
-        txfTelefono.setMaximumSize(new java.awt.Dimension(100, 20));
-        txfTelefono.setMinimumSize(new java.awt.Dimension(100, 20));
-        txfTelefono.setPreferredSize(new java.awt.Dimension(100, 20));
+        txfTelefono.setMaximumSize(new java.awt.Dimension(200, 20));
+        txfTelefono.setMinimumSize(new java.awt.Dimension(200, 20));
+        txfTelefono.setPreferredSize(new java.awt.Dimension(200, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
@@ -213,9 +229,9 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosCliente.add(txfTelefono, gridBagConstraints);
 
-        txfCorreo.setMaximumSize(new java.awt.Dimension(100, 20));
-        txfCorreo.setMinimumSize(new java.awt.Dimension(100, 20));
-        txfCorreo.setPreferredSize(new java.awt.Dimension(100, 20));
+        txfCorreo.setMaximumSize(new java.awt.Dimension(200, 20));
+        txfCorreo.setMinimumSize(new java.awt.Dimension(200, 20));
+        txfCorreo.setPreferredSize(new java.awt.Dimension(200, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
@@ -223,9 +239,9 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosCliente.add(txfCorreo, gridBagConstraints);
 
-        txfDireccion.setMaximumSize(new java.awt.Dimension(100, 20));
-        txfDireccion.setMinimumSize(new java.awt.Dimension(100, 20));
-        txfDireccion.setPreferredSize(new java.awt.Dimension(100, 20));
+        txfDireccion.setMaximumSize(new java.awt.Dimension(200, 20));
+        txfDireccion.setMinimumSize(new java.awt.Dimension(200, 20));
+        txfDireccion.setPreferredSize(new java.awt.Dimension(200, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 12;
@@ -237,6 +253,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
         pDatosCliente.add(jSeparator1, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -244,6 +261,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
         pDatosCliente.add(jSeparator2, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -251,6 +269,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
         pDatosCliente.add(jSeparator3, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -258,6 +277,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
         pDatosCliente.add(jSeparator4, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -265,6 +285,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
         pDatosCliente.add(jSeparator5, gridBagConstraints);
 
@@ -339,7 +360,8 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDireccion.add(jComboBox1, gridBagConstraints);
 
-        jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator6.setBackground(new java.awt.Color(250, 250, 250));
+        jSeparator6.setForeground(new java.awt.Color(250, 250, 250));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -354,18 +376,26 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosCliente.add(pDireccion, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(pDatosCliente, gridBagConstraints);
 
         pDatosInventario.setBackground(new java.awt.Color(250, 250, 250));
         pDatosInventario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
-        pDatosInventario.setMaximumSize(new java.awt.Dimension(400, 200));
-        pDatosInventario.setMinimumSize(new java.awt.Dimension(400, 200));
-        pDatosInventario.setPreferredSize(new java.awt.Dimension(400, 200));
+        pDatosInventario.setMaximumSize(new java.awt.Dimension(400, 250));
+        pDatosInventario.setMinimumSize(new java.awt.Dimension(200, 150));
+        pDatosInventario.setPreferredSize(new java.awt.Dimension(350, 200));
         pDatosInventario.setLayout(new java.awt.GridBagLayout());
 
-        jTextField1.setMaximumSize(new java.awt.Dimension(150, 20));
-        jTextField1.setMinimumSize(new java.awt.Dimension(150, 20));
-        jTextField1.setPreferredSize(new java.awt.Dimension(150, 20));
+        jTextField1.setMaximumSize(new java.awt.Dimension(100, 20));
+        jTextField1.setMinimumSize(new java.awt.Dimension(100, 20));
+        jTextField1.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -382,38 +412,10 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosInventario.add(jButton6, gridBagConstraints);
 
-        spInventario.setMaximumSize(new java.awt.Dimension(200, 100));
-        spInventario.setMinimumSize(new java.awt.Dimension(200, 100));
-        spInventario.setPreferredSize(new java.awt.Dimension(200, 100));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jTable1.setMaximumSize(new java.awt.Dimension(100, 50));
-        jTable1.setMinimumSize(new java.awt.Dimension(100, 50));
-        jTable1.setPreferredSize(new java.awt.Dimension(100, 50));
-        spInventario.setViewportView(jTable1);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(spInventario, gridBagConstraints);
-
         pBuscarPor.setBackground(new java.awt.Color(250, 250, 250));
-        pBuscarPor.setPreferredSize(new java.awt.Dimension(100, 30));
+        pBuscarPor.setMaximumSize(new java.awt.Dimension(400, 30));
+        pBuscarPor.setMinimumSize(new java.awt.Dimension(200, 30));
+        pBuscarPor.setPreferredSize(new java.awt.Dimension(250, 30));
         pBuscarPor.setLayout(new java.awt.GridBagLayout());
 
         jLabel6.setText("Buscar por:");
@@ -458,32 +460,78 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosInventario.add(pBuscarPor, gridBagConstraints);
 
-        pDatosInventarioAdicional.setBackground(new java.awt.Color(250, 250, 250));
-        pDatosInventarioAdicional.setMaximumSize(new java.awt.Dimension(200, 120));
-        pDatosInventarioAdicional.setMinimumSize(new java.awt.Dimension(200, 120));
-        pDatosInventarioAdicional.setPreferredSize(new java.awt.Dimension(200, 120));
-        pDatosInventarioAdicional.setLayout(new java.awt.GridBagLayout());
+        spInventario.setMaximumSize(new java.awt.Dimension(150, 100));
+        spInventario.setMinimumSize(new java.awt.Dimension(150, 100));
+        spInventario.setPreferredSize(new java.awt.Dimension(150, 100));
 
-        jLabel7.setText("jLabel7");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventarioAdicional.add(jLabel7, gridBagConstraints);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable1.setMaximumSize(new java.awt.Dimension(100, 50));
+        jTable1.setMinimumSize(new java.awt.Dimension(100, 50));
+        jTable1.setPreferredSize(new java.awt.Dimension(100, 50));
+        spInventario.setViewportView(jTable1);
 
-        jLabel8.setText("jLabel8");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pDatosInventario.add(spInventario, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(pDatosInventario, gridBagConstraints);
+
+        pDatosInventarioAdicional.setBackground(new java.awt.Color(250, 250, 250));
+        pDatosInventarioAdicional.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Adicionales", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(60, 60, 60))); // NOI18N
+        pDatosInventarioAdicional.setMaximumSize(new java.awt.Dimension(800, 100));
+        pDatosInventarioAdicional.setMinimumSize(new java.awt.Dimension(600, 100));
+        pDatosInventarioAdicional.setPreferredSize(new java.awt.Dimension(700, 100));
+        pDatosInventarioAdicional.setLayout(new java.awt.GridBagLayout());
+
+        jLabel7.setText("Codigo :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pDatosInventarioAdicional.add(jLabel7, gridBagConstraints);
+
+        jLabel8.setText("Marca :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosInventarioAdicional.add(jLabel8, gridBagConstraints);
 
-        jLabel9.setText("jLabel9");
+        jLabel9.setText("Motor :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosInventarioAdicional.add(jLabel9, gridBagConstraints);
+
+        jTextField2.setMaximumSize(new java.awt.Dimension(100, 20));
+        jTextField2.setMinimumSize(new java.awt.Dimension(100, 20));
+        jTextField2.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -492,6 +540,10 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosInventarioAdicional.add(jTextField2, gridBagConstraints);
+
+        jTextField3.setMaximumSize(new java.awt.Dimension(100, 20));
+        jTextField3.setMinimumSize(new java.awt.Dimension(100, 20));
+        jTextField3.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -500,6 +552,10 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosInventarioAdicional.add(jTextField3, gridBagConstraints);
+
+        jTextField4.setMaximumSize(new java.awt.Dimension(100, 20));
+        jTextField4.setMinimumSize(new java.awt.Dimension(100, 20));
+        jTextField4.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -508,26 +564,33 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosInventarioAdicional.add(jTextField4, gridBagConstraints);
 
-        jLabel10.setText("jLabel10");
+        jLabel10.setText("Chasis :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosInventarioAdicional.add(jLabel10, gridBagConstraints);
 
-        jLabel11.setText("jLabel11");
+        jLabel11.setText("Precio:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosInventarioAdicional.add(jLabel11, gridBagConstraints);
 
-        jLabel12.setText("jLabel12");
+        jLabel12.setText("Cantidad :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosInventarioAdicional.add(jLabel12, gridBagConstraints);
+
+        jTextField5.setMaximumSize(new java.awt.Dimension(100, 20));
+        jTextField5.setMinimumSize(new java.awt.Dimension(100, 20));
+        jTextField5.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
@@ -536,6 +599,10 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosInventarioAdicional.add(jTextField5, gridBagConstraints);
+
+        jTextField6.setMaximumSize(new java.awt.Dimension(100, 20));
+        jTextField6.setMinimumSize(new java.awt.Dimension(100, 20));
+        jTextField6.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
@@ -544,6 +611,10 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosInventarioAdicional.add(jTextField6, gridBagConstraints);
+
+        jTextField7.setMaximumSize(new java.awt.Dimension(100, 20));
+        jTextField7.setMinimumSize(new java.awt.Dimension(100, 20));
+        jTextField7.setPreferredSize(new java.awt.Dimension(100, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 4;
@@ -556,10 +627,9 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(pDatosInventarioAdicional, gridBagConstraints);
+        add(pDatosInventarioAdicional, gridBagConstraints);
 
         pDatosTrabajador.setBackground(new java.awt.Color(250, 250, 250));
 
@@ -574,18 +644,40 @@ public class Panel_Ventas extends javax.swing.JPanel {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 527;
+        gridBagConstraints.ipady = 50;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 6, 0, 0);
+        add(pDatosTrabajador, gridBagConstraints);
+
         pDatosVenta.setBackground(new java.awt.Color(250, 250, 250));
 
         javax.swing.GroupLayout pDatosVentaLayout = new javax.swing.GroupLayout(pDatosVenta);
         pDatosVenta.setLayout(pDatosVentaLayout);
         pDatosVentaLayout.setHorizontalGroup(
             pDatosVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 527, Short.MAX_VALUE)
+            .addGap(0, 605, Short.MAX_VALUE)
         );
         pDatosVentaLayout.setVerticalGroup(
             pDatosVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 319, Short.MAX_VALUE)
+            .addGap(0, 787, Short.MAX_VALUE)
         );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(11, 6, 0, 0);
+        add(pDatosVenta, gridBagConstraints);
 
         pDatoBotones.setBackground(new java.awt.Color(250, 250, 250));
         pDatoBotones.setLayout(new java.awt.GridBagLayout());
@@ -636,6 +728,13 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatoBotones.add(jButton4, gridBagConstraints);
 
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(pDatoBotones, gridBagConstraints);
+
         pDatosAdicionales.setBackground(new java.awt.Color(250, 250, 250));
 
         javax.swing.GroupLayout pDatosAdicionalesLayout = new javax.swing.GroupLayout(pDatosAdicionales);
@@ -646,52 +745,15 @@ public class Panel_Ventas extends javax.swing.JPanel {
         );
         pDatosAdicionalesLayout.setVerticalGroup(
             pDatosAdicionalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(pDatosInventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pDatosFactura, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pDatosCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pDatosTrabajador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pDatosVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(pDatoBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(pDatosAdicionales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pDatosFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 50, Short.MAX_VALUE)
-                    .addComponent(pDatosTrabajador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(pDatosCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pDatosInventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(pDatosVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(pDatoBotones, javax.swing.GroupLayout.PREFERRED_SIZE, 104, Short.MAX_VALUE)
-                                .addGap(29, 29, 29))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(pDatosAdicionales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(19, 6, 11, 0);
+        add(pDatosAdicionales, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
 
