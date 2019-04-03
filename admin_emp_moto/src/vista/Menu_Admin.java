@@ -25,7 +25,6 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnAyuda = new modelo.CustomButton();
         btnCerrarSesion = new modelo.CustomButton();
         jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(60, 60, 60));
         setLayout(new java.awt.GridBagLayout());
@@ -60,7 +59,7 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnAlmacen.setPreferredSize(new java.awt.Dimension(250, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(btnAlmacen, gridBagConstraints);
 
@@ -77,7 +76,7 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnCompras.setPreferredSize(new java.awt.Dimension(250, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(btnCompras, gridBagConstraints);
 
@@ -94,7 +93,7 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnVentas.setPreferredSize(new java.awt.Dimension(250, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(btnVentas, gridBagConstraints);
 
@@ -111,7 +110,7 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnRegistros.setPreferredSize(new java.awt.Dimension(250, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(btnRegistros, gridBagConstraints);
 
@@ -128,7 +127,7 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnAjustes.setPreferredSize(new java.awt.Dimension(250, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(btnAjustes, gridBagConstraints);
 
@@ -144,7 +143,7 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnAyuda.setPreferredSize(new java.awt.Dimension(250, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(btnAyuda, gridBagConstraints);
 
@@ -160,23 +159,19 @@ public class Menu_Admin extends javax.swing.JPanel {
         btnCerrarSesion.setPreferredSize(new java.awt.Dimension(250, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
-        gridBagConstraints.weighty = 1.0;
         add(btnCerrarSesion, gridBagConstraints);
+
+        jSeparator1.setBackground(new java.awt.Color(60, 60, 60));
+        jSeparator1.setForeground(new java.awt.Color(60, 60, 60));
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(10, 5, 10, 5);
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.weighty = 1.0;
         add(jSeparator1, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(10, 5, 10, 5);
-        add(jSeparator2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
     
 
@@ -190,6 +185,5 @@ public class Menu_Admin extends javax.swing.JPanel {
     public modelo.CustomButton btnRegistros;
     public modelo.CustomButton btnVentas;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
 }

@@ -74,7 +74,6 @@ public class Controlador_admin implements ActionListener {
     }
     
     private void limpiarSpContent(){
-        //panelRegistros.setVisible(false);
         panelVentas=null;
         panelRegistros=null;
     }
