@@ -52,7 +52,7 @@ public class Ventana_Admin extends javax.swing.JFrame{
         constraints.anchor = GridBagConstraints.CENTER;//Poscion que ocupa el componente
         getContentPane().add (bordeVentana, constraints);
         
-        menuNotificaciones = new Menu_Notificaciones();
+        menuNotificaciones = new Menu_Notificaciones(this);
         constraints.gridx = 0;
         constraints.gridy = 1;
         constraints.gridwidth = 2;
