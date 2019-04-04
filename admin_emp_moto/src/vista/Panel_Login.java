@@ -132,10 +132,9 @@ public class Panel_Login extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(lblTitulo, gridBagConstraints);
 
-        btnIngresar.setBackground(new java.awt.Color(82, 158, 202));
         btnIngresar.setText("Acceder");
-        btnIngresar.setColorHover(new java.awt.Color(60, 60, 60));
-        btnIngresar.setColorNormal(new java.awt.Color(82, 158, 202));
+        btnIngresar.setColorHover(new java.awt.Color(70, 70, 70));
+        btnIngresar.setColorNormal(new java.awt.Color(60, 60, 60));
         btnIngresar.setColorPressed(new java.awt.Color(90, 90, 90));
         btnIngresar.setFocusPainted(false);
         btnIngresar.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
