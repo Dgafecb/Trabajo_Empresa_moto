@@ -129,6 +129,8 @@ public class Panel_Ventas extends javax.swing.JPanel {
         pDatosFactura.setPreferredSize(new java.awt.Dimension(400, 65));
         pDatosFactura.setLayout(new java.awt.GridBagLayout());
 
+        lblFactura.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblFactura.setForeground(new java.awt.Color(60, 60, 60));
         lblFactura.setText("Nro. Factura :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -136,7 +138,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         pDatosFactura.add(lblFactura, gridBagConstraints);
 
         numeroFactura.setBackground(new java.awt.Color(255, 255, 255));
-        numeroFactura.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        numeroFactura.setFont(new java.awt.Font("Tahoma", 0, 28)); // NOI18N
         numeroFactura.setForeground(new java.awt.Color(60, 60, 60));
         numeroFactura.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         numeroFactura.setText("0");
@@ -156,7 +158,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         add(pDatosFactura, gridBagConstraints);
 
         pDatosCliente.setBackground(new java.awt.Color(250, 250, 250));
-        pDatosCliente.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)), "Datos Clientes", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(60, 60, 60))); // NOI18N
+        pDatosCliente.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)), "Datos Clientes", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(60, 60, 60))); // NOI18N
         pDatosCliente.setMaximumSize(new java.awt.Dimension(400, 450));
         pDatosCliente.setMinimumSize(new java.awt.Dimension(300, 350));
         pDatosCliente.setPreferredSize(new java.awt.Dimension(350, 400));
@@ -844,9 +846,9 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosTrabajador.add(spnrCuotas, gridBagConstraints);
 
-        txfDescuento.setMaximumSize(new java.awt.Dimension(100, 20));
-        txfDescuento.setMinimumSize(new java.awt.Dimension(100, 20));
-        txfDescuento.setPreferredSize(new java.awt.Dimension(100, 20));
+        txfDescuento.setMaximumSize(new java.awt.Dimension(200, 20));
+        txfDescuento.setMinimumSize(new java.awt.Dimension(200, 20));
+        txfDescuento.setPreferredSize(new java.awt.Dimension(200, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
@@ -854,9 +856,9 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosTrabajador.add(txfDescuento, gridBagConstraints);
 
-        txfCuotaInicial.setMaximumSize(new java.awt.Dimension(100, 20));
-        txfCuotaInicial.setMinimumSize(new java.awt.Dimension(100, 20));
-        txfCuotaInicial.setPreferredSize(new java.awt.Dimension(100, 20));
+        txfCuotaInicial.setMaximumSize(new java.awt.Dimension(200, 20));
+        txfCuotaInicial.setMinimumSize(new java.awt.Dimension(200, 20));
+        txfCuotaInicial.setPreferredSize(new java.awt.Dimension(200, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;

@@ -37,7 +37,6 @@ public class Panel_Registros extends javax.swing.JPanel {
         subBtnAsistencia.setColorNormal(new java.awt.Color(60, 60, 60));
         subBtnAsistencia.setColorPressed(new java.awt.Color(70, 70, 70));
         subBtnAsistencia.setFocusPainted(false);
-        subBtnAsistencia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         subBtnAsistencia.setMaximumSize(new java.awt.Dimension(140, 40));
         subBtnAsistencia.setMinimumSize(new java.awt.Dimension(140, 40));
         subBtnAsistencia.setPreferredSize(new java.awt.Dimension(140, 40));
@@ -53,7 +52,6 @@ public class Panel_Registros extends javax.swing.JPanel {
         subBtnClientes.setColorNormal(new java.awt.Color(60, 60, 60));
         subBtnClientes.setColorPressed(new java.awt.Color(70, 70, 70));
         subBtnClientes.setFocusPainted(false);
-        subBtnClientes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         subBtnClientes.setMaximumSize(new java.awt.Dimension(127, 40));
         subBtnClientes.setMinimumSize(new java.awt.Dimension(127, 40));
         subBtnClientes.setPreferredSize(new java.awt.Dimension(127, 40));
@@ -69,7 +67,6 @@ public class Panel_Registros extends javax.swing.JPanel {
         subBtnCompras.setColorNormal(new java.awt.Color(60, 60, 60));
         subBtnCompras.setColorPressed(new java.awt.Color(70, 70, 70));
         subBtnCompras.setFocusPainted(false);
-        subBtnCompras.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         subBtnCompras.setMaximumSize(new java.awt.Dimension(128, 40));
         subBtnCompras.setMinimumSize(new java.awt.Dimension(128, 40));
         subBtnCompras.setPreferredSize(new java.awt.Dimension(128, 40));
@@ -85,7 +82,6 @@ public class Panel_Registros extends javax.swing.JPanel {
         subBtnTrabajadores.setColorNormal(new java.awt.Color(60, 60, 60));
         subBtnTrabajadores.setColorPressed(new java.awt.Color(70, 70, 70));
         subBtnTrabajadores.setFocusPainted(false);
-        subBtnTrabajadores.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         subBtnTrabajadores.setMaximumSize(new java.awt.Dimension(166, 40));
         subBtnTrabajadores.setMinimumSize(new java.awt.Dimension(166, 40));
         subBtnTrabajadores.setPreferredSize(new java.awt.Dimension(166, 40));
@@ -101,7 +97,6 @@ public class Panel_Registros extends javax.swing.JPanel {
         subBtnVentas.setColorNormal(new java.awt.Color(60, 60, 60));
         subBtnVentas.setColorPressed(new java.awt.Color(70, 70, 70));
         subBtnVentas.setFocusPainted(false);
-        subBtnVentas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         subBtnVentas.setMaximumSize(new java.awt.Dimension(115, 40));
         subBtnVentas.setMinimumSize(new java.awt.Dimension(115, 40));
         subBtnVentas.setPreferredSize(new java.awt.Dimension(115, 40));
