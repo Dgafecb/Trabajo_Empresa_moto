@@ -1,6 +1,13 @@
 
 package vista;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.RenderingHints;
+import javax.swing.JComponent;
+import javax.swing.plaf.basic.BasicProgressBarUI;
+
 
 
 public class Panel_Login extends javax.swing.JPanel {
@@ -12,7 +19,22 @@ public class Panel_Login extends javax.swing.JPanel {
     public Panel_Login() {
         initComponents();
         this.txtContr.setEchoChar('•');
+        pbLogin.setUI(new MyProgressUI());
+        this.updateUI();
         
+    }
+    
+    class MyProgressUI extends BasicProgressBarUI {
+    Rectangle r = new Rectangle();
+    @Override
+    protected void paintIndeterminate(Graphics g, JComponent c) {
+    Graphics2D g2d = (Graphics2D) g;
+    g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+        RenderingHints.VALUE_ANTIALIAS_ON);
+    r = getBox(r);
+    g.setColor(progressBar.getForeground());
+    g.fillRect(r.x, r.y, r.width, r.height);
+        }
     }
     
     @SuppressWarnings("unchecked")
@@ -37,11 +59,6 @@ public class Panel_Login extends javax.swing.JPanel {
         txtUsuario.setMaximumSize(new java.awt.Dimension(400, 0));
         txtUsuario.setMinimumSize(new java.awt.Dimension(0, 40));
         txtUsuario.setPreferredSize(new java.awt.Dimension(0, 35));
-        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsuarioActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -59,11 +76,6 @@ public class Panel_Login extends javax.swing.JPanel {
         txtContr.setMaximumSize(new java.awt.Dimension(400, 40));
         txtContr.setMinimumSize(new java.awt.Dimension(0, 40));
         txtContr.setPreferredSize(new java.awt.Dimension(0, 40));
-        txtContr.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtContrActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -90,6 +102,8 @@ public class Panel_Login extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 30, 10, 0);
         add(lblPassword, gridBagConstraints);
+
+        pbLogin.setForeground(new java.awt.Color(60, 60, 60));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -137,14 +151,6 @@ public class Panel_Login extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
         add(btnIngresar, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsuarioActionPerformed
-
-    private void txtContrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContrActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtContrActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
