@@ -20,6 +20,7 @@ public class Panel_Login extends javax.swing.JPanel {
         initComponents();
         this.txtContr.setEchoChar('•');
         pbLogin.setUI(new MyProgressUI());
+        pbLogin.setBorder(null);
         this.updateUI();
         
     }
