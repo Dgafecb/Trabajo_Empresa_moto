@@ -1,10 +1,12 @@
 
 package vista;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
+import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.plaf.basic.BasicProgressBarUI;
 
@@ -20,7 +22,7 @@ public class Panel_Login extends javax.swing.JPanel {
         initComponents();
         this.txtContr.setEchoChar('•');
         pbLogin.setUI(new MyProgressUI());
-        pbLogin.setBorder(null);
+        pbLogin.setBorder(BorderFactory.createLineBorder(new Color(200,200,200)));
         this.updateUI();
         
     }
@@ -54,9 +56,11 @@ public class Panel_Login extends javax.swing.JPanel {
         setBackground(new java.awt.Color(250, 250, 250));
         setLayout(new java.awt.GridBagLayout());
 
-        txtUsuario.setBackground(new java.awt.Color(229, 229, 229));
+        txtUsuario.setBackground(new java.awt.Color(60, 60, 60));
         txtUsuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
         txtUsuario.setBorder(null);
+        txtUsuario.setCaretColor(new java.awt.Color(255, 255, 255));
         txtUsuario.setMaximumSize(new java.awt.Dimension(400, 0));
         txtUsuario.setMinimumSize(new java.awt.Dimension(0, 40));
         txtUsuario.setPreferredSize(new java.awt.Dimension(0, 35));
@@ -71,9 +75,11 @@ public class Panel_Login extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 30);
         add(txtUsuario, gridBagConstraints);
 
-        txtContr.setBackground(new java.awt.Color(229, 229, 229));
+        txtContr.setBackground(new java.awt.Color(60, 60, 60));
         txtContr.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtContr.setForeground(new java.awt.Color(255, 255, 255));
         txtContr.setBorder(null);
+        txtContr.setCaretColor(new java.awt.Color(255, 255, 255));
         txtContr.setMaximumSize(new java.awt.Dimension(400, 40));
         txtContr.setMinimumSize(new java.awt.Dimension(0, 40));
         txtContr.setPreferredSize(new java.awt.Dimension(0, 40));
@@ -104,6 +110,7 @@ public class Panel_Login extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 30, 10, 0);
         add(lblPassword, gridBagConstraints);
 
+        pbLogin.setBackground(new java.awt.Color(250, 250, 250));
         pbLogin.setForeground(new java.awt.Color(60, 60, 60));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
