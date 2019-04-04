@@ -129,7 +129,4 @@ public class Consultas_Trabajadores_meta extends ConexionSQL {
             }
         }
     }
-
-    
-
 }
