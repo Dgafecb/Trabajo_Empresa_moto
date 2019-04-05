@@ -22,7 +22,7 @@ public class Panel_Login extends javax.swing.JPanel {
         initComponents();
         this.txtContr.setEchoChar('•');
         pbLogin.setUI(new MyProgressUI());
-        pbLogin.setBorder(BorderFactory.createLineBorder(new Color(200,200,200)));
+        pbLogin.setBorder(BorderFactory.createLineBorder(new Color(200,200,200))); 
         this.updateUI();
         
     }
