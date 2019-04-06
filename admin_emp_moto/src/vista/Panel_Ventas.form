@@ -503,14 +503,14 @@
         </Container>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="pDatosInventario">
+    <Container class="javax.swing.JPanel" name="pDatosAlmacen">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="fa" green="fa" red="fa" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder justification="2" position="2" title="Inventario">
+            <TitledBorder justification="2" position="2" title="Almacen">
               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder>
                   <Color PropertyName="color" blue="c8" green="c8" red="c8" type="rgb"/>
@@ -539,7 +539,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="txfInventarioBuscar">
+        <Component class="javax.swing.JTextField" name="txfAlmacenBuscar">
           <Properties>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 20]"/>
@@ -557,7 +557,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton6">
+        <Component class="javax.swing.JButton" name="btnAlmacenBuscar">
           <Properties>
             <Property name="text" type="java.lang.String" value="buscar"/>
             <Property name="focusPainted" type="boolean" value="false"/>
@@ -731,7 +731,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="pDatosInventarioAdicional">
+    <Container class="javax.swing.JPanel" name="pDatosAlmacenAdicional">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="fa" green="fa" red="fa" type="rgb"/>
