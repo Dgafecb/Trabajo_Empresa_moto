@@ -15,68 +15,92 @@ import vista.Ventana_Login;
 
 
 public class Controlador_admin implements ActionListener {
-    private Ventana_Login view_login;
-    private Ventana_Admin view_admin;
-    private Modelo_Trabajadores_meta model_tr;
-    private Consultas_Trabajadores_meta consultas_tr;
-    private Modelo_Inventario model_inventario;
-    private Consultas_Inventario consultas_inventario;
-    private Consultas_Trabajadores consultas_login;
-    private Modelo_Trabajadores model_user;
-    private Controlador_login ctrl_login;
+    /*--------------------VENTANAS---------------------------*/
+    private Ventana_Admin ventanaAdmin;
     
+    /*---------------------PANELES---------------------------*/
     private Panel_Registros panelRegistros;
-    private Panel_Ventas panelVentas;
+    private Panel_Ventas panelVentas;    
+    
+    /*---------------------MODELOS---------------------------*/
+    private Modelo_Trabajadores model_user;
+    
+    /*--------------------CONSULTAS--------------------------*/
+    private Consultas_Trabajadores consultasTrabajadores;
+    
+    /*-------------------CONTROLADORES-----------------------*/
+    private Controlador_Registros controladorRegistros;
     
     public Controlador_admin(Ventana_Admin view_admin,  Modelo_Trabajadores model_user) {
-        this.view_admin = view_admin;
+        this.ventanaAdmin = view_admin;
         this.model_user = model_user;
-        this.callComp();
-    }
-//
-//    Controlador_admin(Ventana_Admin viewAdmin, String user) {
-//       
-//    }
-
-    private void callComp() { 
-        view_admin.menuAdmin.btnRegistros.addActionListener(this);
-        view_admin.menuAdmin.btnCerrarSesion.addActionListener(this);
-        view_admin.menuAdmin.btnVentas.addActionListener(this);
-
+        this.llamarComponentes();
     }
 
-    public void init() {
-        view_admin.setTitle("Administrador");
+    public Ventana_Admin getVentanaAdmin() {
+        return ventanaAdmin;
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) { 
-        if(e.getSource() == view_admin.menuAdmin.btnVentas){
-            limpiarSpContent();
-            panelVentas = new Panel_Ventas();
-            view_admin.administrarPanel(view_admin.spContent,panelVentas );
-        }else if (e.getSource() == view_admin.menuAdmin.btnRegistros) {
-            limpiarSpContent();
-            panelRegistros = new Panel_Registros();
-            view_admin.administrarPanel(view_admin.spContent,panelRegistros );
-        }else if(e.getSource() == view_admin.menuAdmin.btnCerrarSesion){ 
-            cerrarSesion();
-        }
+    public Modelo_Trabajadores getModel_user() {
+        return model_user;
+    }
+
+    public Consultas_Trabajadores getConsultasTrabajadores() {
+        return consultasTrabajadores;
+    }
+
+    public Panel_Registros getPanelRegistros() {
+        return panelRegistros;
+    }
+
+    public Panel_Ventas getPanelVentas() {
+        return panelVentas;
+    }
+
+    public Controlador_Registros getControladorRegistros() {
+        return controladorRegistros;
+    }
+
+    private void llamarComponentes() { 
+        ventanaAdmin.menuAdmin.btnRegistros.addActionListener(this);
+        ventanaAdmin.menuAdmin.btnCerrarSesion.addActionListener(this);
+        ventanaAdmin.menuAdmin.btnVentas.addActionListener(this);
 
     }
-    
+
     private void limpiarSpContent(){
         panelVentas=null;
         panelRegistros=null;
     }
     private void cerrarSesion(){
-        view_admin.setVisible(false);
-            view_admin.dispose();
-            view_login = new Ventana_Login();
-            consultas_login = new Consultas_Trabajadores();
-            Modelo_Trabajadores new_user = new Modelo_Trabajadores();
-            view_login.setVisible(true);
-            ctrl_login = new Controlador_login(view_login, new_user,consultas_login ); 
+        ventanaAdmin.setVisible(false);
+        ventanaAdmin.dispose();
+        
+        Ventana_Login view_login = new Ventana_Login();
+        Modelo_Trabajadores trabajador = new Modelo_Trabajadores();
+        
+        consultasTrabajadores = new Consultas_Trabajadores();
+        view_login.setVisible(true);
+        Controlador_login controlador_login = new Controlador_login(view_login, trabajador,consultasTrabajadores ); 
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) { 
+        if(e.getSource() == ventanaAdmin.menuAdmin.btnVentas){
+            limpiarSpContent();
+            panelVentas = new Panel_Ventas();
+            ventanaAdmin.administrarPanel(ventanaAdmin.spContent,panelVentas );
+        }else if (e.getSource() == ventanaAdmin.menuAdmin.btnRegistros) {
+            limpiarSpContent();
+            panelRegistros = new Panel_Registros();
+            controladorRegistros = new Controlador_Registros(this);
+            ventanaAdmin.administrarPanel(ventanaAdmin.spContent,panelRegistros );
+        }else if(e.getSource() == ventanaAdmin.menuAdmin.btnCerrarSesion){ 
+            cerrarSesion();
+        }
+
+    }
+    
+    
 
 }

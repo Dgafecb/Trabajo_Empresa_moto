@@ -1,6 +1,9 @@
 
 package vista;
 
+import java.awt.Component;
+import javax.swing.JScrollPane;
+
 
 public class Panel_Registros extends javax.swing.JPanel {
 
@@ -9,6 +12,10 @@ public class Panel_Registros extends javax.swing.JPanel {
         initComponents();
     }
 
+    public void administrarPanel(JScrollPane contenedor,Component compt){
+        contenedor.setViewportView(compt);       
+    }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
