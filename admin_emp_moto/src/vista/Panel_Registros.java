@@ -23,10 +23,9 @@ public class Panel_Registros extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         pSubMenuRegistros = new javax.swing.JPanel();
-        subBtnAsistencia = new modelo.CustomButton();
+        subBtnTrabajadores = new modelo.CustomButton();
         subBtnClientes = new modelo.CustomButton();
         subBtnCompras = new modelo.CustomButton();
-        subBtnTrabajadores = new modelo.CustomButton();
         subBtnVentas = new modelo.CustomButton();
         jSeparator4 = new javax.swing.JSeparator();
         spContenidoRegistros = new javax.swing.JScrollPane();
@@ -39,20 +38,18 @@ public class Panel_Registros extends javax.swing.JPanel {
         pSubMenuRegistros.setPreferredSize(new java.awt.Dimension(770, 40));
         pSubMenuRegistros.setLayout(new java.awt.GridBagLayout());
 
-        subBtnAsistencia.setText("ASISTENCIA");
-        subBtnAsistencia.setColorHover(new java.awt.Color(90, 90, 90));
-        subBtnAsistencia.setColorNormal(new java.awt.Color(60, 60, 60));
-        subBtnAsistencia.setColorPressed(new java.awt.Color(70, 70, 70));
-        subBtnAsistencia.setFocusPainted(false);
-        subBtnAsistencia.setMaximumSize(new java.awt.Dimension(140, 40));
-        subBtnAsistencia.setMinimumSize(new java.awt.Dimension(140, 40));
-        subBtnAsistencia.setPreferredSize(new java.awt.Dimension(140, 40));
+        subBtnTrabajadores.setText("TRABAJADORES");
+        subBtnTrabajadores.setColorHover(new java.awt.Color(90, 90, 90));
+        subBtnTrabajadores.setColorNormal(new java.awt.Color(60, 60, 60));
+        subBtnTrabajadores.setColorPressed(new java.awt.Color(70, 70, 70));
+        subBtnTrabajadores.setFocusPainted(false);
+        subBtnTrabajadores.setMaximumSize(new java.awt.Dimension(140, 40));
+        subBtnTrabajadores.setMinimumSize(new java.awt.Dimension(140, 40));
+        subBtnTrabajadores.setPreferredSize(new java.awt.Dimension(140, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        pSubMenuRegistros.add(subBtnAsistencia, gridBagConstraints);
+        pSubMenuRegistros.add(subBtnTrabajadores, gridBagConstraints);
 
         subBtnClientes.setText("CLIENTES");
         subBtnClientes.setColorHover(new java.awt.Color(90, 90, 90));
@@ -63,7 +60,7 @@ public class Panel_Registros extends javax.swing.JPanel {
         subBtnClientes.setMinimumSize(new java.awt.Dimension(127, 40));
         subBtnClientes.setPreferredSize(new java.awt.Dimension(127, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -78,26 +75,11 @@ public class Panel_Registros extends javax.swing.JPanel {
         subBtnCompras.setMinimumSize(new java.awt.Dimension(128, 40));
         subBtnCompras.setPreferredSize(new java.awt.Dimension(128, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         pSubMenuRegistros.add(subBtnCompras, gridBagConstraints);
-
-        subBtnTrabajadores.setText("TRABAJADORES");
-        subBtnTrabajadores.setColorHover(new java.awt.Color(90, 90, 90));
-        subBtnTrabajadores.setColorNormal(new java.awt.Color(60, 60, 60));
-        subBtnTrabajadores.setColorPressed(new java.awt.Color(70, 70, 70));
-        subBtnTrabajadores.setFocusPainted(false);
-        subBtnTrabajadores.setMaximumSize(new java.awt.Dimension(166, 40));
-        subBtnTrabajadores.setMinimumSize(new java.awt.Dimension(166, 40));
-        subBtnTrabajadores.setPreferredSize(new java.awt.Dimension(166, 40));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        pSubMenuRegistros.add(subBtnTrabajadores, gridBagConstraints);
 
         subBtnVentas.setText("VENTAS");
         subBtnVentas.setColorHover(new java.awt.Color(90, 90, 90));
@@ -108,7 +90,7 @@ public class Panel_Registros extends javax.swing.JPanel {
         subBtnVentas.setMinimumSize(new java.awt.Dimension(115, 40));
         subBtnVentas.setPreferredSize(new java.awt.Dimension(115, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         pSubMenuRegistros.add(subBtnVentas, gridBagConstraints);
@@ -117,7 +99,7 @@ public class Panel_Registros extends javax.swing.JPanel {
         jSeparator4.setForeground(new java.awt.Color(60, 60, 60));
         jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -144,7 +126,6 @@ public class Panel_Registros extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator4;
     public javax.swing.JPanel pSubMenuRegistros;
     public javax.swing.JScrollPane spContenidoRegistros;
-    public modelo.CustomButton subBtnAsistencia;
     public modelo.CustomButton subBtnClientes;
     public modelo.CustomButton subBtnCompras;
     public modelo.CustomButton subBtnTrabajadores;
