@@ -29,9 +29,9 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         pTrabajadores = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jButton8 = new javax.swing.JButton();
-        jTextField11 = new javax.swing.JTextField();
+        pTrabajadoresBuscar = new javax.swing.JPanel();
+        btnTrabajadoresBuscar = new javax.swing.JButton();
+        txfTrabajadoresBuscar = new javax.swing.JTextField();
         pTrabajadoresDatos = new javax.swing.JPanel();
         lblDatosDNI = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -117,23 +117,23 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         pTrabajadores.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)), "Trabajadores", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(60, 60, 60))); // NOI18N
         pTrabajadores.setLayout(new java.awt.GridBagLayout());
 
-        jPanel7.setBackground(new java.awt.Color(250, 250, 250));
-        jPanel7.setLayout(new java.awt.GridBagLayout());
+        pTrabajadoresBuscar.setBackground(new java.awt.Color(250, 250, 250));
+        pTrabajadoresBuscar.setLayout(new java.awt.GridBagLayout());
 
-        jButton8.setText("Buscar");
+        btnTrabajadoresBuscar.setText("Buscar");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel7.add(jButton8, gridBagConstraints);
+        pTrabajadoresBuscar.add(btnTrabajadoresBuscar, gridBagConstraints);
 
-        jTextField11.setText("jTextField11");
+        txfTrabajadoresBuscar.setText("jTextField11");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel7.add(jTextField11, gridBagConstraints);
+        pTrabajadoresBuscar.add(txfTrabajadoresBuscar, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -141,7 +141,7 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pTrabajadores.add(jPanel7, gridBagConstraints);
+        pTrabajadores.add(pTrabajadoresBuscar, gridBagConstraints);
 
         pTrabajadoresDatos.setBackground(new java.awt.Color(250, 250, 250));
         pTrabajadoresDatos.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)), "Datos Trabajadores", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(60, 60, 60))); // NOI18N
@@ -878,6 +878,7 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClienteBuscar;
+    private javax.swing.JButton btnTrabajadoresBuscar;
     private javax.swing.JComboBox<String> cbCiudad;
     private javax.swing.JComboBox<String> cbPais;
     private javax.swing.JButton jButton1;
@@ -889,7 +890,6 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
     public javax.swing.JButton jButton5;
     public javax.swing.JButton jButton6;
     public javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     public javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -904,7 +904,6 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel18;
     public javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel6;
-    public javax.swing.JPanel jPanel7;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator2;
@@ -915,7 +914,6 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
     private javax.swing.JTable jTable1;
     public javax.swing.JTable jTable2;
     public javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField4;
     public javax.swing.JTextField jTextField5;
     public javax.swing.JTextField jTextField6;
@@ -943,6 +941,7 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
     public javax.swing.JPanel pDatosCliente;
     private javax.swing.JPanel pDireccion;
     public javax.swing.JPanel pTrabajadores;
+    public javax.swing.JPanel pTrabajadoresBuscar;
     public javax.swing.JPanel pTrabajadoresDatos;
     public javax.swing.JScrollPane spClienteLista;
     private javax.swing.JTextField txfBuscar;
@@ -958,5 +957,6 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
     private javax.swing.JLabel txfDatosNombre;
     private javax.swing.JTextField txfDireccion;
     private javax.swing.JTextField txfTelefono;
+    private javax.swing.JTextField txfTrabajadoresBuscar;
     // End of variables declaration//GEN-END:variables
 }
