@@ -2,6 +2,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.LinkedList;
 import modelo.Consultas_Trabajadores;
 import modelo.Consultas_Inventario;
 import modelo.Consultas_Trabajadores_meta;
@@ -31,9 +32,15 @@ public class Controlador_admin implements ActionListener {
     /*-------------------CONTROLADORES-----------------------*/
     private Controlador_Registros controladorRegistros;
     
+    /*---------------------VARIABLES-------------------------*/
+    
+    public LinkedList<Modelo_Trabajadores> listaTrabajadores;
+    
     public Controlador_admin(Ventana_Admin view_admin,  Modelo_Trabajadores model_user) {
         this.ventanaAdmin = view_admin;
         this.model_user = model_user;
+        /*this.consultasTrabajadores = new Consultas_Trabajadores();
+        this.listaTrabajadores =  consultasTrabajadores.readAll();*/
         this.llamarComponentes();
     }
 

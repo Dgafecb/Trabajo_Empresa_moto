@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.LinkedList;
 import javax.swing.SwingWorker;
 
 import modelo.Modelo_Trabajadores;
@@ -23,6 +24,9 @@ public class Controlador_login implements ActionListener, KeyListener {
     private Controlador_admin controlador_admin;
     private Ventana_Trabajador view_trabajador;
     private Controlador_trabajador ctrl_trabajador;
+    
+
+    
     public Controlador_login(Ventana_Login view, Modelo_Trabajadores model, Consultas_Trabajadores consultas) {
         this.view = view;
         this.model = model;
@@ -37,11 +41,7 @@ public class Controlador_login implements ActionListener, KeyListener {
         this.view.panelLogin.txtUsuario.addKeyListener(this);
     }
 
-//    public void init() {
-//        
-//        view.setTitle("Login");
-//        view.setLocationRelativeTo(null);
-//    }
+
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
