@@ -42,39 +42,39 @@ public class Controlador_Registros implements ActionListener {
             limpiarSpContenido();
             panelRegistrosTrabajadores = new Panel_Registros_Trabajadores();
             panelRegistros.administrarPanel(panelRegistros.spContenidoRegistros, panelRegistrosTrabajadores);
-            panelRegistrosTrabajadores.jButton5.addActionListener(this);
+            panelRegistrosTrabajadores.btnTrabajadoresAgregar.addActionListener(this);
         }
-        if (ae.getSource() == this.panelRegistrosTrabajadores.jButton5) { // boton Agregar del Panel trabajadores
+        if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadoresAgregar) { // boton Agregar del Panel trabajadores
             Modelo_Trabajadores modelo_trabajadores = new Modelo_Trabajadores();
-            modelo_trabajadores.setDni(this.panelRegistrosTrabajadores.jTextField5.getText());
-            if(this.panelRegistrosTrabajadores.jTextField5.getText().length()==8){
-                modelo_trabajadores.setDni(this.panelRegistrosTrabajadores.jTextField5.getText());
+            modelo_trabajadores.setDni(this.panelRegistrosTrabajadores.txfTrabajadoresDNI.getText());
+            if(this.panelRegistrosTrabajadores.txfTrabajadoresDNI.getText().length()==8){
+                modelo_trabajadores.setDni(this.panelRegistrosTrabajadores.txfTrabajadoresDNI.getText());
             }
             else{
                 // Panel para el mensaje que la longitud del dni no es correcta
                 System.out.println("Longitud del dni incorrecta");
             }
 
-            modelo_trabajadores.setNombre(this.panelRegistrosTrabajadores.jTextField8.getText());
-            modelo_trabajadores.setApellido(this.panelRegistrosTrabajadores.jTextField9.getText());
-            if (this.panelRegistrosTrabajadores.jTextField6.getText().compareTo(this.panelRegistrosTrabajadores.jTextField7.getText()) == 0 && this.panelRegistrosTrabajadores.jTextField6.getText().length() > 5) {
-                modelo_trabajadores.setPassword(this.panelRegistrosTrabajadores.jTextField6.getText());
+            modelo_trabajadores.setNombre(this.panelRegistrosTrabajadores.txfTrabajadoresNombre.getText());
+            modelo_trabajadores.setApellido(this.panelRegistrosTrabajadores.txfTrabajadoresApellidos.getText());
+            if (this.panelRegistrosTrabajadores.txfTrabajadoresPassword.getText().compareTo(this.panelRegistrosTrabajadores.txfTrabajadoresValidatePassword.getText()) == 0 && this.panelRegistrosTrabajadores.txfTrabajadoresPassword.getText().length() > 5) {
+                modelo_trabajadores.setPassword(this.panelRegistrosTrabajadores.txfTrabajadoresPassword.getText());
 
             } else {
                 // Crea un panel que avise que la "password" no coincide o es muy corta
                 System.out.println("La contrasenha no coincide o la longitud es muy corta");
             }
-            if(this.panelRegistrosTrabajadores.jComboBox1.getSelectedItem().toString().compareTo("Admin")==0){
+            if(this.panelRegistrosTrabajadores.cbTrabajadoresPrivilegio.getSelectedItem().toString().compareTo("Admin")==0){
                 modelo_trabajadores.setPrivilege(2);
             }
             else{
                 modelo_trabajadores.setPrivilege(0);
             }
             try {
-                if (Float.valueOf(this.panelRegistrosTrabajadores.jTextField10.getText()) < 930.00) {
+                if (Float.valueOf(this.panelRegistrosTrabajadores.txfTrabajadoresSueldo.getText()) < 930.00) {
                     modelo_trabajadores.setSueldo(930.00f);
                 } else {
-                    modelo_trabajadores.setSueldo(Float.valueOf(this.panelRegistrosTrabajadores.jTextField10.getText()));
+                    modelo_trabajadores.setSueldo(Float.valueOf(this.panelRegistrosTrabajadores.txfTrabajadoresSueldo.getText()));
                 }
             } catch (NumberFormatException e) {
                 System.out.println(" " + e.getMessage());
