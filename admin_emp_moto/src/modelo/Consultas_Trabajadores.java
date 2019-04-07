@@ -155,10 +155,13 @@ public class Consultas_Trabajadores extends ConexionSQL {
 
             while (rs.next()) {
                 trabajador = new Modelo_Trabajadores();
+                trabajador.setId(rs.getInt("id"));
                 trabajador.setDni(rs.getString("dni"));
+                trabajador.setPassword(rs.getString("password"));
                 trabajador.setNombre(rs.getString("nombre"));
                 trabajador.setApellido(rs.getString("apellido"));
-                trabajador.setSueldo(rs.getFloat("sueldo"));             
+                trabajador.setSueldo(rs.getFloat("sueldo"));
+                trabajador.setFecha_creacion("fecha_creacion");
                 listaTrabajadores.add(trabajador);
 
             }

@@ -25,6 +25,8 @@ public class Controlador_login implements ActionListener, KeyListener {
     private Ventana_Trabajador view_trabajador;
     private Controlador_trabajador ctrl_trabajador;
     
+    
+    public LinkedList<Modelo_Trabajadores> lista_trabajadores;
 
     
     public Controlador_login(Ventana_Login view, Modelo_Trabajadores model, Consultas_Trabajadores consultas) {
@@ -85,6 +87,8 @@ public class Controlador_login implements ActionListener, KeyListener {
         privilege = this.verificacion(model, view.panelLogin.txtContr.getText());
         if (privilege == 2) {
             message("Bienvenido Admin");
+            Consultas_Trabajadores consultas = new Consultas_Trabajadores();
+            lista_trabajadores = consultas.readAll();
             view.setVisible(false);
             view.dispose();
             view_admin = new Ventana_Admin();

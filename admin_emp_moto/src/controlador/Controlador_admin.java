@@ -39,8 +39,6 @@ public class Controlador_admin implements ActionListener {
     public Controlador_admin(Ventana_Admin view_admin,  Modelo_Trabajadores model_user) {
         this.ventanaAdmin = view_admin;
         this.model_user = model_user;
-        /*this.consultasTrabajadores = new Consultas_Trabajadores();
-        this.listaTrabajadores =  consultasTrabajadores.readAll();*/
         this.llamarComponentes();
     }
 
