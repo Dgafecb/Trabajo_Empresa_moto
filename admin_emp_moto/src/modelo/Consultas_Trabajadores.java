@@ -141,7 +141,7 @@ public class Consultas_Trabajadores extends ConexionSQL {
     }
 
     public LinkedList readAll() {
-        LinkedList<Modelo_Trabajadores> listaTrabajadores = new LinkedList<Modelo_Trabajadores>();
+        LinkedList<Modelo_Trabajadores> listaTrabajadores = new LinkedList();
         Modelo_Trabajadores trabajador = null;
         PreparedStatement ps = null;
         ResultSet rs = null;

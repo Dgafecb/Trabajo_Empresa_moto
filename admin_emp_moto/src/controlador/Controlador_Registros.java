@@ -1,9 +1,12 @@
 package controlador;
 
+import static controlador.Controlador_login.lista_trabajadores;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.LinkedList;
+import javax.swing.table.DefaultTableModel;
 import modelo.Consultas_Trabajadores;
 import modelo.Modelo_Trabajadores;
 import vista.Panel_Registros;
@@ -43,6 +46,7 @@ public class Controlador_Registros implements ActionListener {
             panelRegistrosTrabajadores = new Panel_Registros_Trabajadores();
             panelRegistros.administrarPanel(panelRegistros.spContenidoRegistros, panelRegistrosTrabajadores);
             panelRegistrosTrabajadores.btnTrabajadoresAgregar.addActionListener(this);
+            panelRegistrosTrabajadores.jTable2.setModel(this.tableModelTrabajadores(lista_trabajadores));
         }
         if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadoresAgregar) { // boton Agregar del Panel trabajadores
             Modelo_Trabajadores modelo_trabajadores = new Modelo_Trabajadores();
@@ -88,5 +92,27 @@ public class Controlador_Registros implements ActionListener {
             }
             
         }
+    }
+    public DefaultTableModel tableModelTrabajadores(LinkedList<Modelo_Trabajadores> listaTrabajadores) { // devuelve un modelo para el Jtable Trabajadores
+        DefaultTableModel model = new DefaultTableModel(new String[]{"Nombres y Apellidos", "dni", "Privilegio", "Sueldo"}, 0);
+
+        for(int i = 0 ; i < listaTrabajadores.size() ; i++){
+            String nombre = listaTrabajadores.get(i).getNombre();
+            String apellido = listaTrabajadores.get(i).getApellido();
+            String nombreyApellido = nombre + " " + apellido;
+            String dni = listaTrabajadores.get(i).getDni();
+            int privilege = listaTrabajadores.get(i).getPrivilege();
+            String privilegio;
+            if (privilege == 0 || privilege == 1) {
+                     privilegio = "Trabajador";
+                }
+                else{
+                    privilegio = "Administrador";
+                }
+            Float sueldo =  listaTrabajadores.get(i).getSueldo();
+            model.addRow(new Object[]{nombreyApellido, dni, privilegio, sueldo});
+        }
+
+        return model;
     }
 }

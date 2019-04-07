@@ -15,7 +15,7 @@ import vista.Ventana_Login;
 import vista.Ventana_Trabajador;
 
 public class Controlador_login implements ActionListener, KeyListener {
-
+    public static LinkedList<Modelo_Trabajadores> lista_trabajadores;
     private Ventana_Login view;
     private Modelo_Trabajadores model;
     private Consultas_Trabajadores consultas;
@@ -26,7 +26,7 @@ public class Controlador_login implements ActionListener, KeyListener {
     private Controlador_trabajador ctrl_trabajador;
     
     
-    public LinkedList<Modelo_Trabajadores> lista_trabajadores;
+    
 
     
     public Controlador_login(Ventana_Login view, Modelo_Trabajadores model, Consultas_Trabajadores consultas) {
