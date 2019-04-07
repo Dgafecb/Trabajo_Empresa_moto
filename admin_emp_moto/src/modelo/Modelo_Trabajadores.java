@@ -9,7 +9,7 @@ public class Modelo_Trabajadores {
  private String apellido;
  private int privilege;
  private String fecha_creacion;
- private int sueldo;
+ private float sueldo;
 
     public int getId() {
         return id;
@@ -67,11 +67,11 @@ public class Modelo_Trabajadores {
         this.fecha_creacion = fecha_creacion;
     }
 
-    public int getSueldo() {
+    public float getSueldo() {
         return sueldo;
     }
 
-    public void setSueldo(int sueldo) {
+    public void setSueldo(float sueldo) {
         this.sueldo = sueldo;
     }
 

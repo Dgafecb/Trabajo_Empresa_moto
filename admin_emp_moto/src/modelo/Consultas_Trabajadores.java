@@ -24,7 +24,7 @@ public class Consultas_Trabajadores extends ConexionSQL {
             ps.setString(4, user.getApellido());
             ps.setInt(5, user.getPrivilege());
             ps.setString(6, user.getFecha_creacion());
-            ps.setInt(7, user.getSueldo());
+            ps.setFloat(7, user.getSueldo());
             ps.execute();
             ps.close();
             return true;
@@ -61,7 +61,7 @@ public class Consultas_Trabajadores extends ConexionSQL {
                 user.setApellido(rs.getString("apellido"));
                 user.setPrivilege(rs.getInt("privilege"));
                 user.setFecha_creacion(rs.getString("fecha_creacion"));
-                user.setSueldo(rs.getInt("sueldo"));
+                user.setSueldo(rs.getFloat("sueldo"));
                 return true;
             }
 
@@ -96,7 +96,7 @@ public class Consultas_Trabajadores extends ConexionSQL {
             ps.setString(4, user.getApellido());
             ps.setInt(5, user.getPrivilege());
             ps.setString(6, user.getFecha_creacion());
-            ps.setInt(7, user.getSueldo());
+            ps.setFloat(7, user.getSueldo());
             ps.setInt(8, user.getId());
             ps.execute();
             ps.close();
@@ -157,7 +157,7 @@ public class Consultas_Trabajadores extends ConexionSQL {
                 trabajador.setDni(rs.getString("dni"));
                 trabajador.setNombre(rs.getString("nombre"));
                 trabajador.setApellido(rs.getString("apellido"));
-                trabajador.setSueldo(rs.getInt("sueldo"));               
+                trabajador.setSueldo(rs.getFloat("sueldo"));             
                 listaTrabajadores.add(trabajador);
 
             }
