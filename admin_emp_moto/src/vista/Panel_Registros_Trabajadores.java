@@ -131,7 +131,9 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pTrabajadoresBuscar.add(btnTrabajadoresBuscar, gridBagConstraints);
 
-        txfTrabajadoresBuscar.setText("jTextField11");
+        txfTrabajadoresBuscar.setMaximumSize(new java.awt.Dimension(200, 20));
+        txfTrabajadoresBuscar.setMinimumSize(new java.awt.Dimension(200, 20));
+        txfTrabajadoresBuscar.setPreferredSize(new java.awt.Dimension(200, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -387,9 +389,10 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         pTrabajadores.add(jScrollPane2, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         add(pTrabajadores, gridBagConstraints);
 
         pClientes.setBackground(new java.awt.Color(250, 250, 250));
@@ -697,9 +700,10 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         pClientes.add(spClienteLista, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         add(pClientes, gridBagConstraints);
 
         pAsistencia.setBackground(new java.awt.Color(250, 250, 250));
@@ -896,9 +900,8 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         pAsistencia.add(pAsistenciaDatos, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         add(pAsistencia, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
