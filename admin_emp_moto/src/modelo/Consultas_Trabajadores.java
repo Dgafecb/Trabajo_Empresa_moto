@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
+
 import javax.swing.table.DefaultTableModel;
 
 public class Consultas_Trabajadores extends ConexionSQL {
@@ -85,8 +85,8 @@ public class Consultas_Trabajadores extends ConexionSQL {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
-        String query = "UPDATE Trabajadores SET"
-                + "dni = ? , password = ?,nombre = ?,apellido=?, privilege = ?, fecha_creacion=?,sueldo=?"
+        String query = "UPDATE Trabajadores SET "
+                + "dni = ? , password = ?,nombre = ?,apellido=?, privilege = ?, fecha_creacion=?,sueldo=? "
                 + "WHERE id = ? ";
 
         try {
@@ -140,8 +140,8 @@ public class Consultas_Trabajadores extends ConexionSQL {
         }
     }
 
-    public LinkedList readAll() {
-        LinkedList<Modelo_Trabajadores> listaTrabajadores = new LinkedList();
+    public Linked_List readAll() {
+        Linked_List<Modelo_Trabajadores> listaTrabajadores = new Linked_List();
         Modelo_Trabajadores trabajador = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -186,29 +186,4 @@ public class Consultas_Trabajadores extends ConexionSQL {
         }
     }
     
-    public DefaultTableModel tableModelTrabajadores(LinkedList<Modelo_Trabajadores> listaTrabajadores) { // devuelve un modelo para el Jtable Trabajadores
-        DefaultTableModel model = new DefaultTableModel(new String[]{"Nombres y Apellidos", "dni", "Privilegio", "Sueldo"}, 0);
-        Connection con = getConnection();
-        String query = "SELECT * FROM Trabajadores";
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        for(int i = 0 ; i < listaTrabajadores.size() ; i++){
-            String nombre = listaTrabajadores.get(i).getNombre();
-            String apellido = listaTrabajadores.get(i).getApellido();
-            String nombreyApellido = nombre + " " + apellido;
-            String dni = listaTrabajadores.get(i).getDni();
-            int privilege = listaTrabajadores.get(i).getPrivilege();
-            String privilegio;
-            if (privilege == 0 || privilege == 1) {
-                     privilegio = "Trabajador";
-                }
-                else{
-                    privilegio = "Administrador";
-                }
-            Float sueldo =  listaTrabajadores.get(i).getSueldo();
-            model.addRow(new Object[]{nombreyApellido, dni, privilegio, sueldo});
-        }
-        
-        return model;
-    }
 }

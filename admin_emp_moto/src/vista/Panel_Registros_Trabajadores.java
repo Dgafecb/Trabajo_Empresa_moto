@@ -347,7 +347,6 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         btnTrabajadoresActualizar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnTrabajadoresActualizar.setForeground(new java.awt.Color(60, 60, 60));
         btnTrabajadoresActualizar.setText("ACTUALIZAR");
-        btnTrabajadoresActualizar.setEnabled(false);
         btnTrabajadoresActualizar.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -358,7 +357,6 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         btnTrabajadoresEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnTrabajadoresEliminar.setForeground(new java.awt.Color(60, 60, 60));
         btnTrabajadoresEliminar.setText("ELIMINAR");
-        btnTrabajadoresEliminar.setEnabled(false);
         btnTrabajadoresEliminar.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -627,7 +625,6 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         btnAsistenciaEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAsistenciaEliminar.setForeground(new java.awt.Color(60, 60, 60));
         btnAsistenciaEliminar.setText("ELIMINAR");
-        btnAsistenciaEliminar.setEnabled(false);
         btnAsistenciaEliminar.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -639,7 +636,6 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         btnAsistenciaActualizar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAsistenciaActualizar.setForeground(new java.awt.Color(60, 60, 60));
         btnAsistenciaActualizar.setText("ACTUALIZAR");
-        btnAsistenciaActualizar.setEnabled(false);
         btnAsistenciaActualizar.setFocusPainted(false);
         btnAsistenciaActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -684,15 +680,15 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAsistenciaActualizar;
-    private javax.swing.JButton btnAsistenciaAgregar;
-    private javax.swing.JButton btnAsistenciaEliminar;
-    private javax.swing.JButton btnBuscar;
+    public javax.swing.JButton btnAsistenciaActualizar;
+    public javax.swing.JButton btnAsistenciaAgregar;
+    public javax.swing.JButton btnAsistenciaEliminar;
+    public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnTrabajadoresActualizar;
     public javax.swing.JButton btnTrabajadoresAgregar;
     public javax.swing.JButton btnTrabajadoresEliminar;
     public javax.swing.JComboBox<String> cbPrivilegio;
-    private javax.swing.JButton jButton4;
+    public javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
@@ -702,7 +698,7 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTable jTable1;
     public javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField4;
+    public javax.swing.JTextField jTextField4;
     public javax.swing.JLabel lblApellidos;
     public javax.swing.JLabel lblDNI;
     private javax.swing.JLabel lblDatosDescuento;
@@ -725,12 +721,12 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
     private javax.swing.JPanel pTrabajadores;
     public javax.swing.JScrollPane spTabla;
     public javax.swing.JTextField txfApellidos;
-    private javax.swing.JTextField txfBuscar;
+    public javax.swing.JTextField txfBuscar;
     public javax.swing.JTextField txfDNI;
     private javax.swing.JLabel txfDatosDescuento;
-    private javax.swing.JTextField txfDatosFecha;
-    private javax.swing.JTextField txfDatosHora;
-    private javax.swing.JTextField txfDatosID;
+    public javax.swing.JTextField txfDatosFecha;
+    public javax.swing.JTextField txfDatosHora;
+    public javax.swing.JTextField txfDatosID;
     private javax.swing.JLabel txfDatosNombre;
     public javax.swing.JTextField txfNombre;
     public javax.swing.JTextField txfPassword;

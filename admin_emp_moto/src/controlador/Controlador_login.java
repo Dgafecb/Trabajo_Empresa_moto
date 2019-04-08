@@ -4,18 +4,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.LinkedList;
+
 import javax.swing.SwingWorker;
 
 import modelo.Modelo_Trabajadores;
 import modelo.Consultas_Trabajadores;
+import modelo.Linked_List;
 import vista.Panel_Login;
 import vista.Ventana_Admin;
 import vista.Ventana_Login;
 import vista.Ventana_Trabajador;
 
 public class Controlador_login implements ActionListener, KeyListener {
-    public static LinkedList<Modelo_Trabajadores> lista_trabajadores;
+
+    public static Linked_List<Modelo_Trabajadores> lista_trabajadores;
     private Ventana_Login view;
     private Modelo_Trabajadores model;
     private Consultas_Trabajadores consultas;
@@ -24,11 +26,7 @@ public class Controlador_login implements ActionListener, KeyListener {
     private Controlador_admin controlador_admin;
     private Ventana_Trabajador view_trabajador;
     private Controlador_trabajador ctrl_trabajador;
-    
-    
-    
 
-    
     public Controlador_login(Ventana_Login view, Modelo_Trabajadores model, Consultas_Trabajadores consultas) {
         this.view = view;
         this.model = model;
@@ -43,7 +41,6 @@ public class Controlador_login implements ActionListener, KeyListener {
         this.view.panelLogin.txtUsuario.addKeyListener(this);
     }
 
-
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -57,25 +54,21 @@ public class Controlador_login implements ActionListener, KeyListener {
 
         if (e.getSource() == view.panelLogin.btnIngresar) {
             SwingWorker sw = new SwingWorker() {
-        @Override
-        protected Object doInBackground() throws Exception {
-            view.panelLogin.pbLogin.setIndeterminate(true);
-            accionBtnIngresar(); // llama al metodo para hacer la verificacion de privilegios
-            return null;
-        }
+                @Override
+                protected Object doInBackground() throws Exception {
+                    view.panelLogin.pbLogin.setIndeterminate(true);
+                    accionBtnIngresar(); // llama al metodo para hacer la verificacion de privilegios
+                    return null;
+                }
 
-        @Override
-        public void done(){
-            view.panelLogin.pbLogin.setIndeterminate(false);
-            view.panelLogin.pbLogin.setValue(0); // 100%
-        }
-    };
-     sw.execute();
-            
-            
-            
-            
-            
+                @Override
+                public void done() {
+                    view.panelLogin.pbLogin.setIndeterminate(false);
+                    view.panelLogin.pbLogin.setValue(0); // 100%
+                }
+            };
+            sw.execute();
+
         }
     }
 
@@ -99,14 +92,14 @@ public class Controlador_login implements ActionListener, KeyListener {
             view.setVisible(false);
             view.dispose();
             view_trabajador = new Ventana_Trabajador();
-            ctrl_trabajador = new Controlador_trabajador(view_trabajador,model);
+            ctrl_trabajador = new Controlador_trabajador(view_trabajador, model);
             view_trabajador.setVisible(true);
         } else if (privilege == 0) {
             message("Bienvenido Trabajador");
             view.setVisible(false);
             view.dispose();
             view_trabajador = new Ventana_Trabajador();
-            ctrl_trabajador = new Controlador_trabajador(view_trabajador,model);
+            ctrl_trabajador = new Controlador_trabajador(view_trabajador, model);
             view_trabajador.setVisible(true);
         }
     }
@@ -145,12 +138,11 @@ public class Controlador_login implements ActionListener, KeyListener {
     // Metodos abstractos obligatorios
     @Override
     public void keyTyped(KeyEvent e) {
-        
+
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        
-        
+
     }
 }
