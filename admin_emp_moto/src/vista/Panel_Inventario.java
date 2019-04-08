@@ -34,6 +34,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         btnEliminar = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
+        btnMarca = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -66,7 +67,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         jTextField1.setMinimumSize(new java.awt.Dimension(200, 20));
         jTextField1.setPreferredSize(new java.awt.Dimension(200, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
@@ -75,10 +76,17 @@ public class Panel_Inventario extends javax.swing.JPanel {
 
         btnBuscar.setText("BUSCAR");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pMenuInventario.add(btnBuscar, gridBagConstraints);
+
+        btnMarca.setText("MARCA");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pMenuInventario.add(btnMarca, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -116,6 +124,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnMarca;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;

@@ -61,9 +61,9 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         jLabel12 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
+        jComboBox2 = new javax.swing.JComboBox<>();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -248,6 +248,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         pDatosInventario.add(jTextField2, gridBagConstraints);
 
         jTextField4.setToolTipText("");
+        jTextField4.setEnabled(false);
         jTextField4.setMaximumSize(new java.awt.Dimension(250, 20));
         jTextField4.setMinimumSize(new java.awt.Dimension(250, 20));
         jTextField4.setPreferredSize(new java.awt.Dimension(250, 20));
@@ -259,6 +260,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         pDatosInventario.add(jTextField4, gridBagConstraints);
 
         jTextField5.setToolTipText("");
+        jTextField5.setEnabled(false);
         jTextField5.setMaximumSize(new java.awt.Dimension(250, 20));
         jTextField5.setMinimumSize(new java.awt.Dimension(250, 20));
         jTextField5.setPreferredSize(new java.awt.Dimension(250, 20));
@@ -270,6 +272,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         pDatosInventario.add(jTextField5, gridBagConstraints);
 
         jTextField6.setToolTipText("");
+        jTextField6.setEnabled(false);
         jTextField6.setMaximumSize(new java.awt.Dimension(250, 20));
         jTextField6.setMinimumSize(new java.awt.Dimension(250, 20));
         jTextField6.setPreferredSize(new java.awt.Dimension(250, 20));
@@ -281,6 +284,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         pDatosInventario.add(jTextField6, gridBagConstraints);
 
         jTextField7.setToolTipText("");
+        jTextField7.setEnabled(false);
         jTextField7.setMaximumSize(new java.awt.Dimension(250, 20));
         jTextField7.setMinimumSize(new java.awt.Dimension(250, 20));
         jTextField7.setPreferredSize(new java.awt.Dimension(250, 20));
@@ -352,7 +356,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         jComboBox1.setPreferredSize(new java.awt.Dimension(250, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
@@ -416,15 +420,6 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosInventario.add(jLabel12, gridBagConstraints);
-
-        jTextField3.setMaximumSize(new java.awt.Dimension(250, 20));
-        jTextField3.setMinimumSize(new java.awt.Dimension(250, 20));
-        jTextField3.setPreferredSize(new java.awt.Dimension(250, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jTextField3, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -440,6 +435,18 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosInventario.add(jSeparator8, gridBagConstraints);
 
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setMaximumSize(new java.awt.Dimension(250, 20));
+        jComboBox2.setMinimumSize(new java.awt.Dimension(250, 20));
+        jComboBox2.setPreferredSize(new java.awt.Dimension(250, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pDatosInventario.add(jComboBox2, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -453,6 +460,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
     private javax.swing.JLabel Motor;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -478,7 +486,6 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
