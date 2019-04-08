@@ -1,15 +1,22 @@
 package vista;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 
 
 public class Borde_Ventana extends javax.swing.JPanel {
 
     private JFrame ventana;
+    private JDialog dialogo;
     private int posicionx,posiciony;
     
     public Borde_Ventana(JFrame ventana) {
         this.ventana = ventana;
+        initComponents();
+    }
+    
+    public Borde_Ventana(JDialog dialogo) {
+        this.dialogo = dialogo;
         initComponents();
     }
 

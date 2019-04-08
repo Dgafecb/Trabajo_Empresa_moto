@@ -9,6 +9,7 @@ import modelo.Consultas_Trabajadores;
 import modelo.Consultas_Trabajadores_meta;
 import modelo.Modelo_Trabajadores_meta;
 import modelo.Modelo_Trabajadores;
+import vista.Mensaje_Emergente;
 import vista.Ventana_Login;
 
 public class Admin_emp_moto {
@@ -30,7 +31,10 @@ public class Admin_emp_moto {
         Consultas_Trabajadores consultas = new Consultas_Trabajadores();
         Ventana_Login view = new Ventana_Login();
         Controlador_login ctrl = new Controlador_login(view, user, consultas);
-
+        
+        Mensaje_Emergente mensaje=new Mensaje_Emergente(view,true,"TEXTO DE PRUEBA PARA EL LOGIN");
+        mensaje.setVisible(true);
+        
         view.setVisible(true);
         
     }
