@@ -134,13 +134,6 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
@@ -148,9 +141,6 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
             }
         ));
         jTable2.setFocusable(false);
-        jTable2.setMaximumSize(new java.awt.Dimension(400, 50));
-        jTable2.setMinimumSize(new java.awt.Dimension(400, 50));
-        jTable2.setPreferredSize(new java.awt.Dimension(400, 50));
         spTabla.setViewportView(jTable2);
 
         gridBagConstraints = new java.awt.GridBagConstraints();

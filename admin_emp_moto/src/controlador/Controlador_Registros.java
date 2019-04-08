@@ -20,6 +20,7 @@ public class Controlador_Registros implements ActionListener {
     private Panel_Registros panelRegistros;
     private Panel_Registros_Trabajadores panelRegistrosTrabajadores;
     private Consultas_Trabajadores consultasTrabajadores;
+    //private static LinkedList<Modelo_Trabajadores> listaTrabajadores = lista_trabajadores;
 
     public Controlador_Registros(Controlador_admin controladorAdmin) {
         this.controladorAdmin = controladorAdmin;
@@ -68,7 +69,6 @@ public class Controlador_Registros implements ActionListener {
                 String tempdni = (String) this.panelRegistrosTrabajadores.jTable2.getValueAt(this.panelRegistrosTrabajadores.jTable2.getSelectedRow(), 1);   //             
                 Consultas_Trabajadores consultaActualizar = new Consultas_Trabajadores();
                 int index_seleccionado = lista_trabajadores.findTrabajador(lista_trabajadores, tempdni);//consigo el indice del id
-
                 temp_model.setId(((Modelo_Trabajadores) lista_trabajadores.get(index_seleccionado)).getId());
                 Thread hilo_consulta_tabla = new Thread() {
                     @Override
@@ -138,7 +138,7 @@ public class Controlador_Registros implements ActionListener {
             String dni = temp_model.getDni();
             int privilege = temp_model.getPrivilege();
             String privilegio;
-            if (privilege == 0 || privilege == 1) {
+            if (privilege == 0) {
                 privilegio = "Trabajador";
             } else {
                 privilegio = "Administrador";
@@ -192,7 +192,6 @@ public class Controlador_Registros implements ActionListener {
 
     public DefaultTableModel tableModelTrabajadores(LinkedList<Modelo_Trabajadores> listaTrabajadores) { // devuelve un modelo para el Jtable Trabajadores
         DefaultTableModel model = new DefaultTableModel(new String[]{"Nombres y Apellidos", "dni", "Privilegio", "Sueldo"}, 0);
-
         for (int i = 0; i < listaTrabajadores.size(); i++) {
             String nombre = listaTrabajadores.get(i).getNombre();
             String apellido = listaTrabajadores.get(i).getApellido();
@@ -200,7 +199,7 @@ public class Controlador_Registros implements ActionListener {
             String dni = listaTrabajadores.get(i).getDni();
             int privilege = listaTrabajadores.get(i).getPrivilege();
             String privilegio;
-            if (privilege == 0 || privilege == 1) {
+            if (privilege == 0) {
                 privilegio = "Trabajador";
             } else {
                 privilegio = "Administrador";
