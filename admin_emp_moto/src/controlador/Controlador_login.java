@@ -12,6 +12,7 @@ import modelo.Modelo_Trabajadores;
 import modelo.Consultas_Trabajadores;
 import modelo.Linked_List;
 import modelo.Modelo_Asistencia;
+import vista.Mensaje_Emergente;
 import vista.Panel_Login;
 import vista.Ventana_Admin;
 import vista.Ventana_Login;
@@ -124,11 +125,13 @@ public class Controlador_login implements ActionListener, KeyListener {
                     message("Contraseña Correcta");
                     return model.getPrivilege();
                 } else {
-                    message("Contraseña Incorrecta");
+                    Mensaje_Emergente mensaje = new Mensaje_Emergente(view, true, "Contraseña incorrecta");
+                    mensaje.setVisible(true);
                     return -3;
                 }
             } else {
-                message("Usuario no existe");
+                Mensaje_Emergente mensaje = new Mensaje_Emergente(view, true, "Usuario no existe");
+                mensaje.setVisible(true);
                 return -2;
             }
         } else {

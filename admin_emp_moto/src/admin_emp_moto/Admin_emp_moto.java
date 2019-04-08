@@ -32,8 +32,8 @@ public class Admin_emp_moto {
         Ventana_Login view = new Ventana_Login();
         Controlador_login ctrl = new Controlador_login(view, user, consultas);
         
-        Mensaje_Emergente mensaje=new Mensaje_Emergente(view,true,"TEXTO DE PRUEBA PARA EL LOGIN");
-        mensaje.setVisible(true);
+//        Mensaje_Emergente mensaje=new Mensaje_Emergente(view,true,"TEXTO DE PRUEBA PARA EL LOGIN"); // Lo desactive porque ya implemente los demas mensajes de advertencia
+//        mensaje.setVisible(true);
         
         view.setVisible(true);
         

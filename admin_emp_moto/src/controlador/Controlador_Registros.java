@@ -12,6 +12,7 @@ import modelo.Consultas_Asistencia;
 import modelo.Consultas_Trabajadores;
 import modelo.Modelo_Asistencia;
 import modelo.Modelo_Trabajadores;
+import vista.Mensaje_Emergente;
 import vista.Panel_Registros;
 import vista.Panel_Registros_Trabajadores;
 import vista.Ventana_Admin;
@@ -23,10 +24,10 @@ public class Controlador_Registros implements ActionListener {
     private Panel_Registros panelRegistros;
     private Panel_Registros_Trabajadores panelRegistrosTrabajadores;
     private Consultas_Trabajadores consultasTrabajadores;
-    //private static LinkedList<Modelo_Trabajadores> listaTrabajadores = lista_trabajadores;
 
-    public Controlador_Registros(Controlador_admin controladorAdmin) {
+    public Controlador_Registros(Controlador_admin controladorAdmin, Ventana_Admin ventanaAdmin) {
         this.controladorAdmin = controladorAdmin;
+        this.ventanaAdmin = ventanaAdmin;
         this.iniciarComponentes();
         this.llamarComponentes();
     }
@@ -57,7 +58,7 @@ public class Controlador_Registros implements ActionListener {
             panelRegistrosTrabajadores.btnAsistenciaActualizar.addActionListener(this);
             panelRegistrosTrabajadores.jTable2.setModel(this.tableModelTrabajadores(lista_trabajadores));// Inicializa tabla trabajadores
             panelRegistrosTrabajadores.jTable1.setModel(this.tableModelAsistencia(lista_asistencia));// Inicializa tabla asistencia
-            
+
         }
         if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadoresAgregar) { // boton Agregar del Panel Registro Trabajadores
             consultasTrabajadores = new Consultas_Trabajadores();
@@ -65,7 +66,8 @@ public class Controlador_Registros implements ActionListener {
             if (consultasTrabajadores.create(temp_model) == true) {
                 System.out.println("Se agrego al trabajador");
             } else {
-                System.out.println("No se pudo agregar al trabajador");
+                Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se pudo agregar al trabajador");
+                mensaje.setVisible(true);
             }
             lista_trabajadores = consultasTrabajadores.readAll();
             this.panelRegistrosTrabajadores.jTable2.setModel(this.tableModelTrabajadores(lista_trabajadores));
@@ -86,7 +88,8 @@ public class Controlador_Registros implements ActionListener {
                         if (consultaActualizar.update(temp_model)) {
                             System.out.println("Se actualizo al trabajador");
                         } else {
-                            System.out.println("No se pudo actualizar al trabajador");
+                            Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se pudo actualizar al trabajador");
+                            mensaje.setVisible(true);
                         }
 
                     }
@@ -97,8 +100,8 @@ public class Controlador_Registros implements ActionListener {
                 this.panelRegistrosTrabajadores.jTable2.setModel(this.tableModelTrabajadores(lista_trabajadores));
 
             } else {
-                // Agregar advertencia
-                System.out.println("Selecciona una fila a modificar de la tabla trabajadores");
+                Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "Selecciona una fila de la tabla trabajadores a modificar");
+                mensaje.setVisible(true);
             }
         }
         if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadoresEliminar) {
@@ -116,7 +119,8 @@ public class Controlador_Registros implements ActionListener {
                         if (consultaActualizar.delete(temp_model)) {
                             System.out.println("Se elimino al trabajador");
                         } else {
-                            System.out.println("No se pudo eliminar al trabajador");
+                            Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se pudo eliminar al trabajador");
+                            mensaje.setVisible(true);
                         }
 
                     }
@@ -126,8 +130,8 @@ public class Controlador_Registros implements ActionListener {
                 this.panelRegistrosTrabajadores.jTable2.setModel(this.tableModelTrabajadores(lista_trabajadores));
 
             } else {
-                // Agregar advertencia
-                System.out.println("Selecciona una fila a eliminar de la tabla trabajadores");
+                Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "Selecciona una fila a eliminar de la tabla trabajadores");
+                mensaje.setVisible(true);
             }
 
         }
@@ -161,7 +165,8 @@ public class Controlador_Registros implements ActionListener {
             if (consultasAsistencia.create(temp_model) == true) {
                 System.out.println("Se agrego el registro de asistencia");
             } else {
-                System.out.println("No se pudo agregar el registro");
+                Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se pudo agregar al registro");
+                mensaje.setVisible(true);
             }
             lista_asistencia = consultasAsistencia.readAll();
             this.panelRegistrosTrabajadores.jTable1.setModel(this.tableModelAsistencia(lista_asistencia));
@@ -180,7 +185,8 @@ public class Controlador_Registros implements ActionListener {
                         if (consultasAsistencia.update(temp_model)) {
                             System.out.println("Se actualizo el registro");
                         } else {
-                            System.out.println("No se pudo actualizar el registro");
+                            Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se pudo actualizar el registro");
+                            mensaje.setVisible(true);
                         }
 
                     }
@@ -191,8 +197,8 @@ public class Controlador_Registros implements ActionListener {
                 this.panelRegistrosTrabajadores.jTable1.setModel(this.tableModelAsistencia(lista_asistencia));
 
             } else {
-                // Agregar advertencia
-                System.out.println("Selecciona una fila a modificar de la tabla trabajadores");
+                Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "Selecciona una fila de la tabla asistencia para modificar");
+                mensaje.setVisible(true);
             }
         }
     }
@@ -207,12 +213,13 @@ public class Controlador_Registros implements ActionListener {
 
     public Modelo_Trabajadores PanelRegistroTrabajadores() { // Devuelve un modelo con los valores rellenados en el panel registro trabajadores
         Modelo_Trabajadores modelo_trabajadores = new Modelo_Trabajadores();
-        modelo_trabajadores.setDni(this.panelRegistrosTrabajadores.txfDNI.getText());
+        
         if (this.panelRegistrosTrabajadores.txfDNI.getText().length() == 8) {
             modelo_trabajadores.setDni(this.panelRegistrosTrabajadores.txfDNI.getText());
         } else {
             // Panel para el mensaje que la longitud del dni no es correcta
-            System.out.println("Longitud del dni incorrecta");
+            Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "Longitud del DNI incorrecta");
+            mensaje.setVisible(true);
         }
 
         modelo_trabajadores.setNombre(this.panelRegistrosTrabajadores.txfNombre.getText());
@@ -222,8 +229,14 @@ public class Controlador_Registros implements ActionListener {
             modelo_trabajadores.setPassword(this.panelRegistrosTrabajadores.txfPassword.getText());
 
         } else {
-            // Crea un panel que avise que la "password" no coincide o es muy corta
-            System.out.println("La contrasenha no coincide o la longitud es muy corta");
+            if (this.panelRegistrosTrabajadores.txfPassword.getText().compareTo(this.panelRegistrosTrabajadores.txfValidatePassword.getText()) == 0) {
+                Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "La contraseña es muy corta");
+                mensaje.setVisible(true);
+            } else {
+                Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "Las contraseñas no coinciden");
+                mensaje.setVisible(true);
+            }
+
         }
         if (this.panelRegistrosTrabajadores.cbPrivilegio.getSelectedItem().toString().compareTo("Admin") == 0) {
             modelo_trabajadores.setPrivilege(2);

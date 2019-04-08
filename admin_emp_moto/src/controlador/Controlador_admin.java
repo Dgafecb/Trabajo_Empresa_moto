@@ -98,7 +98,7 @@ public class Controlador_admin implements ActionListener {
         }else if (e.getSource() == ventanaAdmin.menuAdmin.btnRegistros) {
             limpiarSpContent();
             panelRegistros = new Panel_Registros();
-            controladorRegistros = new Controlador_Registros(this);
+            controladorRegistros = new Controlador_Registros(this,this.ventanaAdmin);
             ventanaAdmin.administrarPanel(ventanaAdmin.spContent,panelRegistros );
         }else if(e.getSource() == ventanaAdmin.menuAdmin.btnCerrarSesion){ 
             cerrarSesion();
