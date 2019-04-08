@@ -28,6 +28,7 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        pTrabajadores = new javax.swing.JPanel();
         pBuscar = new javax.swing.JPanel();
         btnBuscar = new javax.swing.JButton();
         txfBuscar = new javax.swing.JTextField();
@@ -56,12 +57,38 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        pAsistencia = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        pAsistenciaBuscar = new javax.swing.JPanel();
+        jTextField4 = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        pAsistenciaDatos = new javax.swing.JPanel();
+        lblDatosID = new javax.swing.JLabel();
+        lblDatosNombre = new javax.swing.JLabel();
+        lblDatosFecha = new javax.swing.JLabel();
+        lblDatosHora = new javax.swing.JLabel();
+        lblDatosDescuento = new javax.swing.JLabel();
+        txfDatosNombre = new javax.swing.JLabel();
+        txfDatosDescuento = new javax.swing.JLabel();
+        txfDatosID = new javax.swing.JTextField();
+        txfDatosFecha = new javax.swing.JTextField();
+        txfDatosHora = new javax.swing.JTextField();
+        pDatosBotones = new javax.swing.JPanel();
+        btnAsistenciaAgregar = new javax.swing.JButton();
+        btnAsistenciaEliminar = new javax.swing.JButton();
+        btnAsistenciaActualizar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(250, 250, 250));
         setMaximumSize(new java.awt.Dimension(140, 20));
         setMinimumSize(new java.awt.Dimension(140, 20));
         setPreferredSize(new java.awt.Dimension(140, 20));
         setLayout(new java.awt.GridBagLayout());
+
+        pTrabajadores.setBackground(new java.awt.Color(250, 250, 250));
+        pTrabajadores.setLayout(new java.awt.GridBagLayout());
 
         pBuscar.setBackground(new java.awt.Color(250, 250, 250));
         pBuscar.setMaximumSize(new java.awt.Dimension(400, 40));
@@ -70,7 +97,9 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         pBuscar.setPreferredSize(new java.awt.Dimension(400, 40));
         pBuscar.setLayout(new java.awt.GridBagLayout());
 
-        btnBuscar.setText("Buscar");
+        btnBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(60, 60, 60));
+        btnBuscar.setText("BUSCAR");
         btnBuscar.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -94,7 +123,7 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        add(pBuscar, gridBagConstraints);
+        pTrabajadores.add(pBuscar, gridBagConstraints);
 
         spTabla.setBackground(new java.awt.Color(250, 250, 250));
         spTabla.setMaximumSize(new java.awt.Dimension(600, 50));
@@ -124,7 +153,7 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(spTabla, gridBagConstraints);
+        pTrabajadores.add(spTabla, gridBagConstraints);
 
         pDatos.setBackground(new java.awt.Color(250, 250, 250));
         pDatos.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)), "Datos Trabajadores", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(60, 60, 60))); // NOI18N
@@ -307,12 +336,16 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         pCRUD.setBackground(new java.awt.Color(250, 250, 250));
         pCRUD.setLayout(new java.awt.GridBagLayout());
 
+        btnTrabajadoresAgregar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnTrabajadoresAgregar.setForeground(new java.awt.Color(60, 60, 60));
         btnTrabajadoresAgregar.setText("AGREGAR");
         btnTrabajadoresAgregar.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pCRUD.add(btnTrabajadoresAgregar, gridBagConstraints);
 
+        btnTrabajadoresActualizar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnTrabajadoresActualizar.setForeground(new java.awt.Color(60, 60, 60));
         btnTrabajadoresActualizar.setText("ACTUALIZAR");
         btnTrabajadoresActualizar.setEnabled(false);
         btnTrabajadoresActualizar.setFocusPainted(false);
@@ -322,6 +355,8 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pCRUD.add(btnTrabajadoresActualizar, gridBagConstraints);
 
+        btnTrabajadoresEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnTrabajadoresEliminar.setForeground(new java.awt.Color(60, 60, 60));
         btnTrabajadoresEliminar.setText("ELIMINAR");
         btnTrabajadoresEliminar.setEnabled(false);
         btnTrabajadoresEliminar.setFocusPainted(false);
@@ -374,35 +409,329 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(pDatos, gridBagConstraints);
+        pTrabajadores.add(pDatos, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        add(pTrabajadores, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(jSeparator2, gridBagConstraints);
+
+        pAsistencia.setBackground(new java.awt.Color(250, 250, 250));
+        pAsistencia.setLayout(new java.awt.GridBagLayout());
+
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(600, 50));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(600, 50));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(600, 50));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable1.setMaximumSize(new java.awt.Dimension(600, 50));
+        jTable1.setMinimumSize(new java.awt.Dimension(600, 50));
+        jTable1.setPreferredSize(new java.awt.Dimension(600, 50));
+        jScrollPane1.setViewportView(jTable1);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAsistencia.add(jScrollPane1, gridBagConstraints);
+
+        pAsistenciaBuscar.setBackground(new java.awt.Color(250, 250, 250));
+        pAsistenciaBuscar.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAsistenciaBuscar.add(jTextField4, gridBagConstraints);
+
+        jButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(60, 60, 60));
+        jButton4.setText("BUSCAR");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAsistenciaBuscar.add(jButton4, gridBagConstraints);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(60, 60, 60));
+        jLabel1.setText("Filtra por :");
+        jLabel1.setMaximumSize(new java.awt.Dimension(62, 20));
+        jLabel1.setMinimumSize(new java.awt.Dimension(62, 20));
+        jLabel1.setPreferredSize(new java.awt.Dimension(62, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAsistenciaBuscar.add(jLabel1, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        pAsistencia.add(pAsistenciaBuscar, gridBagConstraints);
+
+        pAsistenciaDatos.setBackground(new java.awt.Color(250, 250, 250));
+        pAsistenciaDatos.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)), "Datos Asistencia", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(60, 60, 60))); // NOI18N
+        pAsistenciaDatos.setLayout(new java.awt.GridBagLayout());
+
+        lblDatosID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDatosID.setForeground(new java.awt.Color(60, 60, 60));
+        lblDatosID.setText("ID Trabajador :");
+        lblDatosID.setMaximumSize(new java.awt.Dimension(150, 20));
+        lblDatosID.setMinimumSize(new java.awt.Dimension(150, 20));
+        lblDatosID.setPreferredSize(new java.awt.Dimension(150, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAsistenciaDatos.add(lblDatosID, gridBagConstraints);
+
+        lblDatosNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDatosNombre.setForeground(new java.awt.Color(60, 60, 60));
+        lblDatosNombre.setText("Nombre Trabajador :");
+        lblDatosNombre.setMaximumSize(new java.awt.Dimension(150, 20));
+        lblDatosNombre.setMinimumSize(new java.awt.Dimension(150, 20));
+        lblDatosNombre.setPreferredSize(new java.awt.Dimension(150, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAsistenciaDatos.add(lblDatosNombre, gridBagConstraints);
+
+        lblDatosFecha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDatosFecha.setForeground(new java.awt.Color(60, 60, 60));
+        lblDatosFecha.setText("Fecha :");
+        lblDatosFecha.setMaximumSize(new java.awt.Dimension(150, 20));
+        lblDatosFecha.setMinimumSize(new java.awt.Dimension(150, 20));
+        lblDatosFecha.setPreferredSize(new java.awt.Dimension(150, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAsistenciaDatos.add(lblDatosFecha, gridBagConstraints);
+
+        lblDatosHora.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDatosHora.setForeground(new java.awt.Color(60, 60, 60));
+        lblDatosHora.setText("Hora de entrada :");
+        lblDatosHora.setMaximumSize(new java.awt.Dimension(150, 20));
+        lblDatosHora.setMinimumSize(new java.awt.Dimension(150, 20));
+        lblDatosHora.setPreferredSize(new java.awt.Dimension(150, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAsistenciaDatos.add(lblDatosHora, gridBagConstraints);
+
+        lblDatosDescuento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDatosDescuento.setForeground(new java.awt.Color(60, 60, 60));
+        lblDatosDescuento.setText("Descuento :");
+        lblDatosDescuento.setMaximumSize(new java.awt.Dimension(150, 20));
+        lblDatosDescuento.setMinimumSize(new java.awt.Dimension(150, 20));
+        lblDatosDescuento.setPreferredSize(new java.awt.Dimension(150, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAsistenciaDatos.add(lblDatosDescuento, gridBagConstraints);
+
+        txfDatosNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfDatosNombre.setForeground(new java.awt.Color(60, 60, 60));
+        txfDatosNombre.setText("NAME_DEFAULT");
+        txfDatosNombre.setMaximumSize(new java.awt.Dimension(250, 20));
+        txfDatosNombre.setMinimumSize(new java.awt.Dimension(250, 20));
+        txfDatosNombre.setPreferredSize(new java.awt.Dimension(250, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAsistenciaDatos.add(txfDatosNombre, gridBagConstraints);
+
+        txfDatosDescuento.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txfDatosDescuento.setForeground(new java.awt.Color(60, 60, 60));
+        txfDatosDescuento.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txfDatosDescuento.setText("0.0");
+        txfDatosDescuento.setMaximumSize(new java.awt.Dimension(250, 20));
+        txfDatosDescuento.setMinimumSize(new java.awt.Dimension(250, 20));
+        txfDatosDescuento.setPreferredSize(new java.awt.Dimension(250, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAsistenciaDatos.add(txfDatosDescuento, gridBagConstraints);
+
+        txfDatosID.setMaximumSize(new java.awt.Dimension(250, 20));
+        txfDatosID.setMinimumSize(new java.awt.Dimension(250, 20));
+        txfDatosID.setPreferredSize(new java.awt.Dimension(250, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAsistenciaDatos.add(txfDatosID, gridBagConstraints);
+
+        txfDatosFecha.setMaximumSize(new java.awt.Dimension(250, 20));
+        txfDatosFecha.setMinimumSize(new java.awt.Dimension(250, 20));
+        txfDatosFecha.setPreferredSize(new java.awt.Dimension(250, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAsistenciaDatos.add(txfDatosFecha, gridBagConstraints);
+
+        txfDatosHora.setMaximumSize(new java.awt.Dimension(250, 20));
+        txfDatosHora.setMinimumSize(new java.awt.Dimension(250, 20));
+        txfDatosHora.setPreferredSize(new java.awt.Dimension(250, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAsistenciaDatos.add(txfDatosHora, gridBagConstraints);
+
+        pDatosBotones.setBackground(new java.awt.Color(250, 250, 250));
+        pDatosBotones.setLayout(new java.awt.GridBagLayout());
+
+        btnAsistenciaAgregar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnAsistenciaAgregar.setForeground(new java.awt.Color(60, 60, 60));
+        btnAsistenciaAgregar.setText("AGREGAR");
+        btnAsistenciaAgregar.setFocusPainted(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pDatosBotones.add(btnAsistenciaAgregar, gridBagConstraints);
+
+        btnAsistenciaEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnAsistenciaEliminar.setForeground(new java.awt.Color(60, 60, 60));
+        btnAsistenciaEliminar.setText("ELIMINAR");
+        btnAsistenciaEliminar.setEnabled(false);
+        btnAsistenciaEliminar.setFocusPainted(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pDatosBotones.add(btnAsistenciaEliminar, gridBagConstraints);
+
+        btnAsistenciaActualizar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnAsistenciaActualizar.setForeground(new java.awt.Color(60, 60, 60));
+        btnAsistenciaActualizar.setText("ACTUALIZAR");
+        btnAsistenciaActualizar.setEnabled(false);
+        btnAsistenciaActualizar.setFocusPainted(false);
+        btnAsistenciaActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAsistenciaActualizarActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pDatosBotones.add(btnAsistenciaActualizar, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAsistenciaDatos.add(pDatosBotones, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAsistencia.add(pAsistenciaDatos, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(pAsistencia, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAsistenciaActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsistenciaActualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAsistenciaActualizarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAsistenciaActualizar;
+    private javax.swing.JButton btnAsistenciaAgregar;
+    private javax.swing.JButton btnAsistenciaEliminar;
     private javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnTrabajadoresActualizar;
     public javax.swing.JButton btnTrabajadoresAgregar;
     public javax.swing.JButton btnTrabajadoresEliminar;
     public javax.swing.JComboBox<String> cbPrivilegio;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
+    public javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JTable jTable1;
     public javax.swing.JTable jTable2;
+    private javax.swing.JTextField jTextField4;
     public javax.swing.JLabel lblApellidos;
     public javax.swing.JLabel lblDNI;
+    private javax.swing.JLabel lblDatosDescuento;
+    private javax.swing.JLabel lblDatosFecha;
+    private javax.swing.JLabel lblDatosHora;
+    private javax.swing.JLabel lblDatosID;
+    private javax.swing.JLabel lblDatosNombre;
     public javax.swing.JLabel lblNombre;
     public javax.swing.JLabel lblPass;
     public javax.swing.JLabel lblPrivilegio;
     public javax.swing.JLabel lblSueldo;
     public javax.swing.JLabel lblValidarPass;
+    public javax.swing.JPanel pAsistencia;
+    public javax.swing.JPanel pAsistenciaBuscar;
+    public javax.swing.JPanel pAsistenciaDatos;
     public javax.swing.JPanel pBuscar;
     public javax.swing.JPanel pCRUD;
     public javax.swing.JPanel pDatos;
+    private javax.swing.JPanel pDatosBotones;
+    private javax.swing.JPanel pTrabajadores;
     public javax.swing.JScrollPane spTabla;
     public javax.swing.JTextField txfApellidos;
     private javax.swing.JTextField txfBuscar;
     public javax.swing.JTextField txfDNI;
+    private javax.swing.JLabel txfDatosDescuento;
+    private javax.swing.JTextField txfDatosFecha;
+    private javax.swing.JTextField txfDatosHora;
+    private javax.swing.JTextField txfDatosID;
+    private javax.swing.JLabel txfDatosNombre;
     public javax.swing.JTextField txfNombre;
     public javax.swing.JTextField txfPassword;
     public javax.swing.JTextField txfSueldo;
