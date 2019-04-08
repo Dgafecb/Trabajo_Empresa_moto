@@ -4,12 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 
-import javax.swing.table.DefaultTableModel;
 
 public class Consultas_Trabajadores extends ConexionSQL {
 
-    public boolean create(Modelo_Trabajadores user) {
+    public int create(Modelo_Trabajadores user) {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
@@ -28,11 +28,15 @@ public class Consultas_Trabajadores extends ConexionSQL {
             ps.setFloat(7, user.getSueldo());
             ps.execute();
             ps.close();
-            return true;
+            return 2;
 
-        } catch (SQLException e) {
+        }
+        catch(SQLIntegrityConstraintViolationException e){
             System.err.println(e);
-            return false;
+            return 0;
+        }catch (SQLException e) {
+            System.err.println(e);
+            return 1;
         } finally {
             try {
                 con.close();
@@ -186,5 +190,5 @@ public class Consultas_Trabajadores extends ConexionSQL {
             }
         }
     }
-    
+
 }

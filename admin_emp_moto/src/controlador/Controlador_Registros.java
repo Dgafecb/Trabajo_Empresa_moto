@@ -63,11 +63,18 @@ public class Controlador_Registros implements ActionListener {
         if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadoresAgregar) { // boton Agregar del Panel Registro Trabajadores
             consultasTrabajadores = new Consultas_Trabajadores();
             Modelo_Trabajadores temp_model = this.PanelRegistroTrabajadores();
-            if (consultasTrabajadores.create(temp_model) == true) {
+            int resultadoConsulta = consultasTrabajadores.create(temp_model);
+            if (resultadoConsulta == 2) {
                 System.out.println("Se agrego al trabajador");
             } else {
-                Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se pudo agregar al trabajador");
-                mensaje.setVisible(true);
+                if (resultadoConsulta == 1) {
+                    Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "Ya existe ese DNI");
+                    mensaje.setVisible(true);
+                } else {
+                    Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se pudo agregar al trabajador");
+                    mensaje.setVisible(true);
+                }
+
             }
             lista_trabajadores = consultasTrabajadores.readAll();
             this.panelRegistrosTrabajadores.jTable2.setModel(this.tableModelTrabajadores(lista_trabajadores));
@@ -213,7 +220,7 @@ public class Controlador_Registros implements ActionListener {
 
     public Modelo_Trabajadores PanelRegistroTrabajadores() { // Devuelve un modelo con los valores rellenados en el panel registro trabajadores
         Modelo_Trabajadores modelo_trabajadores = new Modelo_Trabajadores();
-        
+
         if (this.panelRegistrosTrabajadores.txfDNI.getText().length() == 8) {
             modelo_trabajadores.setDni(this.panelRegistrosTrabajadores.txfDNI.getText());
         } else {
