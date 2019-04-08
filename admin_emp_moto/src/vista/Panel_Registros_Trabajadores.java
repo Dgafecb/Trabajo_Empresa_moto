@@ -692,7 +692,7 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable1;
     public javax.swing.JTable jTable2;
     public javax.swing.JTextField jTextField4;
     public javax.swing.JLabel lblApellidos;

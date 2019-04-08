@@ -6,10 +6,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.SwingWorker;
+import modelo.Consultas_Asistencia;
 
 import modelo.Modelo_Trabajadores;
 import modelo.Consultas_Trabajadores;
 import modelo.Linked_List;
+import modelo.Modelo_Asistencia;
 import vista.Panel_Login;
 import vista.Ventana_Admin;
 import vista.Ventana_Login;
@@ -18,6 +20,7 @@ import vista.Ventana_Trabajador;
 public class Controlador_login implements ActionListener, KeyListener {
 
     public static Linked_List<Modelo_Trabajadores> lista_trabajadores;
+    public static Linked_List<Modelo_Asistencia> lista_asistencia;
     private Ventana_Login view;
     private Modelo_Trabajadores model;
     private Consultas_Trabajadores consultas;
@@ -80,8 +83,10 @@ public class Controlador_login implements ActionListener, KeyListener {
         privilege = this.verificacion(model, view.panelLogin.txtContr.getText());
         if (privilege == 2) {
             message("Bienvenido Admin");
-            Consultas_Trabajadores consultas = new Consultas_Trabajadores();
-            lista_trabajadores = consultas.readAll();
+            Consultas_Trabajadores consultas_trabajadores = new Consultas_Trabajadores();
+            lista_trabajadores = consultas_trabajadores.readAll();
+            Consultas_Asistencia consultas_asistencia = new Consultas_Asistencia();
+            lista_asistencia = consultas_asistencia.readAll();
             view.setVisible(false);
             view.dispose();
             view_admin = new Ventana_Admin();
