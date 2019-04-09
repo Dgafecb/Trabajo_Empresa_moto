@@ -51,7 +51,7 @@ public class Panel_Login extends javax.swing.JPanel {
         lblPassword = new javax.swing.JLabel();
         pbLogin = new javax.swing.JProgressBar();
         lblTitulo = new javax.swing.JLabel();
-        btnIngresar = new modelo.CustomButton();
+        btnAcceder = new modelo.CustomButtonShaped();
 
         setBackground(new java.awt.Color(250, 250, 250));
         setLayout(new java.awt.GridBagLayout());
@@ -140,28 +140,21 @@ public class Panel_Login extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         add(lblTitulo, gridBagConstraints);
 
-        btnIngresar.setText("Acceder");
-        btnIngresar.setColorHover(new java.awt.Color(70, 70, 70));
-        btnIngresar.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnIngresar.setColorPressed(new java.awt.Color(90, 90, 90));
-        btnIngresar.setFocusPainted(false);
-        btnIngresar.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        btnIngresar.setMaximumSize(new java.awt.Dimension(200, 45));
-        btnIngresar.setMinimumSize(new java.awt.Dimension(200, 45));
-        btnIngresar.setPreferredSize(new java.awt.Dimension(200, 45));
+        btnAcceder.setText("ACCEDER");
+        btnAcceder.setMaximumSize(new java.awt.Dimension(200, 45));
+        btnAcceder.setMinimumSize(new java.awt.Dimension(200, 45));
+        btnAcceder.setPreferredSize(new java.awt.Dimension(200, 45));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 20, 0);
-        add(btnIngresar, gridBagConstraints);
+        add(btnAcceder, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public modelo.CustomButton btnIngresar;
+    public modelo.CustomButtonShaped btnAcceder;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblUser;

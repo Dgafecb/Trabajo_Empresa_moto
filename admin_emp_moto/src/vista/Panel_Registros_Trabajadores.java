@@ -56,9 +56,12 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         txfSueldo = new javax.swing.JTextField();
         cbPrivilegio = new javax.swing.JComboBox<>();
         pCRUD = new javax.swing.JPanel();
-        btnTrabajadoresAgregar = new javax.swing.JButton();
-        btnTrabajadoresActualizar = new javax.swing.JButton();
-        btnTrabajadoresEliminar = new javax.swing.JButton();
+        btnTrabajadorAgregar = new javax.swing.JButton();
+        btnTrabajadorModificar = new javax.swing.JButton();
+        btnTrabajadorBorrar = new javax.swing.JButton();
+        customButtonShaped1 = new modelo.CustomButtonShaped();
+        customButtonShaped3 = new modelo.CustomButtonShaped();
+        customButtonShaped2 = new modelo.CustomButtonShaped();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
@@ -84,8 +87,8 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         txfDatosHora = new javax.swing.JTextField();
         pDatosBotones = new javax.swing.JPanel();
         btnAsistenciaAgregar = new javax.swing.JButton();
+        btnAsistenciaModificar = new javax.swing.JButton();
         btnAsistenciaEliminar = new javax.swing.JButton();
-        btnAsistenciaActualizar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(250, 250, 250));
         setMaximumSize(new java.awt.Dimension(140, 20));
@@ -164,109 +167,104 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         lblDNI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblDNI.setForeground(new java.awt.Color(60, 60, 60));
         lblDNI.setText("DNI :");
-        lblDNI.setMaximumSize(new java.awt.Dimension(150, 20));
-        lblDNI.setMinimumSize(new java.awt.Dimension(150, 20));
-        lblDNI.setPreferredSize(new java.awt.Dimension(150, 20));
+        lblDNI.setMaximumSize(new java.awt.Dimension(200, 20));
+        lblDNI.setMinimumSize(new java.awt.Dimension(200, 20));
+        lblDNI.setPreferredSize(new java.awt.Dimension(200, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatos.add(lblDNI, gridBagConstraints);
 
         lblPass.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblPass.setForeground(new java.awt.Color(60, 60, 60));
         lblPass.setText("Contraseña :");
-        lblPass.setMaximumSize(new java.awt.Dimension(150, 20));
-        lblPass.setMinimumSize(new java.awt.Dimension(150, 20));
-        lblPass.setPreferredSize(new java.awt.Dimension(150, 20));
+        lblPass.setMaximumSize(new java.awt.Dimension(200, 20));
+        lblPass.setMinimumSize(new java.awt.Dimension(200, 20));
+        lblPass.setPreferredSize(new java.awt.Dimension(200, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatos.add(lblPass, gridBagConstraints);
 
         lblNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(60, 60, 60));
         lblNombre.setText("Nombre :");
-        lblNombre.setMaximumSize(new java.awt.Dimension(150, 20));
-        lblNombre.setMinimumSize(new java.awt.Dimension(150, 20));
-        lblNombre.setPreferredSize(new java.awt.Dimension(150, 20));
+        lblNombre.setMaximumSize(new java.awt.Dimension(200, 20));
+        lblNombre.setMinimumSize(new java.awt.Dimension(200, 20));
+        lblNombre.setPreferredSize(new java.awt.Dimension(200, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatos.add(lblNombre, gridBagConstraints);
 
         lblApellidos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblApellidos.setForeground(new java.awt.Color(60, 60, 60));
         lblApellidos.setText("Apellidos :");
-        lblApellidos.setMaximumSize(new java.awt.Dimension(150, 20));
-        lblApellidos.setMinimumSize(new java.awt.Dimension(150, 20));
-        lblApellidos.setPreferredSize(new java.awt.Dimension(150, 20));
+        lblApellidos.setMaximumSize(new java.awt.Dimension(200, 20));
+        lblApellidos.setMinimumSize(new java.awt.Dimension(200, 20));
+        lblApellidos.setPreferredSize(new java.awt.Dimension(200, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatos.add(lblApellidos, gridBagConstraints);
 
         lblPrivilegio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblPrivilegio.setForeground(new java.awt.Color(60, 60, 60));
         lblPrivilegio.setText("Privilegio :");
-        lblPrivilegio.setMaximumSize(new java.awt.Dimension(150, 20));
-        lblPrivilegio.setMinimumSize(new java.awt.Dimension(150, 20));
-        lblPrivilegio.setPreferredSize(new java.awt.Dimension(150, 20));
+        lblPrivilegio.setMaximumSize(new java.awt.Dimension(200, 20));
+        lblPrivilegio.setMinimumSize(new java.awt.Dimension(200, 20));
+        lblPrivilegio.setPreferredSize(new java.awt.Dimension(200, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatos.add(lblPrivilegio, gridBagConstraints);
 
         lblSueldo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblSueldo.setForeground(new java.awt.Color(60, 60, 60));
         lblSueldo.setText("Sueldo :");
-        lblSueldo.setMaximumSize(new java.awt.Dimension(150, 20));
-        lblSueldo.setMinimumSize(new java.awt.Dimension(150, 20));
-        lblSueldo.setPreferredSize(new java.awt.Dimension(150, 20));
+        lblSueldo.setMaximumSize(new java.awt.Dimension(200, 20));
+        lblSueldo.setMinimumSize(new java.awt.Dimension(200, 20));
+        lblSueldo.setPreferredSize(new java.awt.Dimension(200, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatos.add(lblSueldo, gridBagConstraints);
 
         lblValidarPass.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblValidarPass.setForeground(new java.awt.Color(60, 60, 60));
         lblValidarPass.setText("Validar Contraseña :");
-        lblValidarPass.setMaximumSize(new java.awt.Dimension(150, 20));
-        lblValidarPass.setMinimumSize(new java.awt.Dimension(150, 20));
-        lblValidarPass.setPreferredSize(new java.awt.Dimension(150, 20));
+        lblValidarPass.setMaximumSize(new java.awt.Dimension(200, 20));
+        lblValidarPass.setMinimumSize(new java.awt.Dimension(200, 20));
+        lblValidarPass.setPreferredSize(new java.awt.Dimension(200, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatos.add(lblValidarPass, gridBagConstraints);
 
-        txfDNI.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfDNI.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfDNI.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfDNI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfDNI.setForeground(new java.awt.Color(60, 60, 60));
+        txfDNI.setMaximumSize(new java.awt.Dimension(250, 25));
+        txfDNI.setMinimumSize(new java.awt.Dimension(250, 25));
+        txfDNI.setPreferredSize(new java.awt.Dimension(250, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -274,9 +272,11 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatos.add(txfDNI, gridBagConstraints);
 
-        txfPassword.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfPassword.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfPassword.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfPassword.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfPassword.setForeground(new java.awt.Color(60, 60, 60));
+        txfPassword.setMaximumSize(new java.awt.Dimension(250, 25));
+        txfPassword.setMinimumSize(new java.awt.Dimension(250, 25));
+        txfPassword.setPreferredSize(new java.awt.Dimension(250, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -284,9 +284,11 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatos.add(txfPassword, gridBagConstraints);
 
-        txfValidatePassword.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfValidatePassword.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfValidatePassword.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfValidatePassword.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfValidatePassword.setForeground(new java.awt.Color(60, 60, 60));
+        txfValidatePassword.setMaximumSize(new java.awt.Dimension(250, 25));
+        txfValidatePassword.setMinimumSize(new java.awt.Dimension(250, 25));
+        txfValidatePassword.setPreferredSize(new java.awt.Dimension(250, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -294,9 +296,11 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatos.add(txfValidatePassword, gridBagConstraints);
 
-        txfNombre.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfNombre.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfNombre.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfNombre.setForeground(new java.awt.Color(60, 60, 60));
+        txfNombre.setMaximumSize(new java.awt.Dimension(250, 25));
+        txfNombre.setMinimumSize(new java.awt.Dimension(250, 25));
+        txfNombre.setPreferredSize(new java.awt.Dimension(250, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
@@ -304,9 +308,11 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatos.add(txfNombre, gridBagConstraints);
 
-        txfApellidos.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfApellidos.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfApellidos.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfApellidos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfApellidos.setForeground(new java.awt.Color(60, 60, 60));
+        txfApellidos.setMaximumSize(new java.awt.Dimension(250, 25));
+        txfApellidos.setMinimumSize(new java.awt.Dimension(250, 25));
+        txfApellidos.setPreferredSize(new java.awt.Dimension(250, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
@@ -314,9 +320,11 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatos.add(txfApellidos, gridBagConstraints);
 
-        txfSueldo.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfSueldo.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfSueldo.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfSueldo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfSueldo.setForeground(new java.awt.Color(60, 60, 60));
+        txfSueldo.setMaximumSize(new java.awt.Dimension(250, 25));
+        txfSueldo.setMinimumSize(new java.awt.Dimension(250, 25));
+        txfSueldo.setPreferredSize(new java.awt.Dimension(250, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
@@ -338,33 +346,23 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         pCRUD.setBackground(new java.awt.Color(250, 250, 250));
         pCRUD.setLayout(new java.awt.GridBagLayout());
 
-        btnTrabajadoresAgregar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnTrabajadoresAgregar.setForeground(new java.awt.Color(60, 60, 60));
-        btnTrabajadoresAgregar.setText("AGREGAR");
-        btnTrabajadoresAgregar.setFocusPainted(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pCRUD.add(btnTrabajadoresAgregar, gridBagConstraints);
+        btnTrabajadorAgregar.setText("jButton1");
+        pCRUD.add(btnTrabajadorAgregar, new java.awt.GridBagConstraints());
 
-        btnTrabajadoresActualizar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnTrabajadoresActualizar.setForeground(new java.awt.Color(60, 60, 60));
-        btnTrabajadoresActualizar.setText("ACTUALIZAR");
-        btnTrabajadoresActualizar.setFocusPainted(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pCRUD.add(btnTrabajadoresActualizar, gridBagConstraints);
+        btnTrabajadorModificar.setText("jButton2");
+        pCRUD.add(btnTrabajadorModificar, new java.awt.GridBagConstraints());
 
-        btnTrabajadoresEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnTrabajadoresEliminar.setForeground(new java.awt.Color(60, 60, 60));
-        btnTrabajadoresEliminar.setText("ELIMINAR");
-        btnTrabajadoresEliminar.setFocusPainted(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pCRUD.add(btnTrabajadoresEliminar, gridBagConstraints);
+        btnTrabajadorBorrar.setText("jButton1");
+        pCRUD.add(btnTrabajadorBorrar, new java.awt.GridBagConstraints());
+
+        customButtonShaped1.setText("customButtonShaped1");
+        pCRUD.add(customButtonShaped1, new java.awt.GridBagConstraints());
+
+        customButtonShaped3.setText("customButtonShaped3");
+        pCRUD.add(customButtonShaped3, new java.awt.GridBagConstraints());
+
+        customButtonShaped2.setText("customButtonShaped2");
+        pCRUD.add(customButtonShaped2, new java.awt.GridBagConstraints());
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -588,9 +586,11 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pAsistenciaDatos.add(txfDatosDescuento, gridBagConstraints);
 
-        txfDatosDNI.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfDatosDNI.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfDatosDNI.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfDatosDNI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfDatosDNI.setForeground(new java.awt.Color(60, 60, 60));
+        txfDatosDNI.setMaximumSize(new java.awt.Dimension(250, 25));
+        txfDatosDNI.setMinimumSize(new java.awt.Dimension(250, 25));
+        txfDatosDNI.setPreferredSize(new java.awt.Dimension(250, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -600,9 +600,11 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
 
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         txfDatosFecha = new javax.swing.JFormattedTextField(df);
-        txfDatosFecha.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfDatosFecha.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfDatosFecha.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfDatosFecha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfDatosFecha.setForeground(new java.awt.Color(60, 60, 60));
+        txfDatosFecha.setMaximumSize(new java.awt.Dimension(250, 25));
+        txfDatosFecha.setMinimumSize(new java.awt.Dimension(250, 25));
+        txfDatosFecha.setPreferredSize(new java.awt.Dimension(250, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -612,9 +614,11 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
 
         Format timeFormat = new SimpleDateFormat("HH:mm:ss");
         txfDatosHora = new JFormattedTextField(timeFormat);
-        txfDatosHora.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfDatosHora.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfDatosHora.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfDatosHora.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfDatosHora.setForeground(new java.awt.Color(60, 60, 60));
+        txfDatosHora.setMaximumSize(new java.awt.Dimension(250, 25));
+        txfDatosHora.setMinimumSize(new java.awt.Dimension(250, 25));
+        txfDatosHora.setPreferredSize(new java.awt.Dimension(250, 25));
         txfDatosHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txfDatosHoraActionPerformed(evt);
@@ -630,41 +634,14 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         pDatosBotones.setBackground(new java.awt.Color(250, 250, 250));
         pDatosBotones.setLayout(new java.awt.GridBagLayout());
 
-        btnAsistenciaAgregar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnAsistenciaAgregar.setForeground(new java.awt.Color(60, 60, 60));
-        btnAsistenciaAgregar.setText("AGREGAR");
-        btnAsistenciaAgregar.setFocusPainted(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosBotones.add(btnAsistenciaAgregar, gridBagConstraints);
+        btnAsistenciaAgregar.setText("jButton1");
+        pDatosBotones.add(btnAsistenciaAgregar, new java.awt.GridBagConstraints());
 
-        btnAsistenciaEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnAsistenciaEliminar.setForeground(new java.awt.Color(60, 60, 60));
-        btnAsistenciaEliminar.setText("ELIMINAR");
-        btnAsistenciaEliminar.setFocusPainted(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosBotones.add(btnAsistenciaEliminar, gridBagConstraints);
+        btnAsistenciaModificar.setText("jButton2");
+        pDatosBotones.add(btnAsistenciaModificar, new java.awt.GridBagConstraints());
 
-        btnAsistenciaActualizar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnAsistenciaActualizar.setForeground(new java.awt.Color(60, 60, 60));
-        btnAsistenciaActualizar.setText("ACTUALIZAR");
-        btnAsistenciaActualizar.setFocusPainted(false);
-        btnAsistenciaActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAsistenciaActualizarActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosBotones.add(btnAsistenciaActualizar, gridBagConstraints);
+        btnAsistenciaEliminar.setText("jButton3");
+        pDatosBotones.add(btnAsistenciaEliminar, new java.awt.GridBagConstraints());
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -691,10 +668,6 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         add(pAsistencia, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAsistenciaActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsistenciaActualizarActionPerformed
-
-    }//GEN-LAST:event_btnAsistenciaActualizarActionPerformed
-
     private void txfDatosHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfDatosHoraActionPerformed
 
     }//GEN-LAST:event_txfDatosHoraActionPerformed
@@ -705,15 +678,18 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAsistenciaActualizar;
     public javax.swing.JButton btnAsistenciaAgregar;
     public javax.swing.JButton btnAsistenciaBuscar;
     public javax.swing.JButton btnAsistenciaEliminar;
-    public javax.swing.JButton btnTrabajadoresActualizar;
-    public javax.swing.JButton btnTrabajadoresAgregar;
+    public javax.swing.JButton btnAsistenciaModificar;
+    public javax.swing.JButton btnTrabajadorAgregar;
+    public javax.swing.JButton btnTrabajadorBorrar;
+    public javax.swing.JButton btnTrabajadorModificar;
     public javax.swing.JButton btnTrabajadoresBuscar;
-    public javax.swing.JButton btnTrabajadoresEliminar;
     public javax.swing.JComboBox<String> cbPrivilegio;
+    private modelo.CustomButtonShaped customButtonShaped1;
+    private modelo.CustomButtonShaped customButtonShaped2;
+    private modelo.CustomButtonShaped customButtonShaped3;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;

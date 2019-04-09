@@ -78,7 +78,7 @@ public class Ventana_Admin extends javax.swing.JFrame{
         
         spContent = new JScrollPane();
         spContent.setBorder(null);
-        spContent.getViewport().setBackground(new Color(255,255,255));
+        spContent.getViewport().setBackground(new Color(60,60,60));
         constraints.gridx = 1;
         constraints.gridy = 2;
         constraints.gridwidth = 1;

@@ -18,6 +18,8 @@ public class Borde_Ventana extends javax.swing.JPanel {
     public Borde_Ventana(JDialog dialogo) {
         this.dialogo = dialogo;
         initComponents();
+        this.btnMinimizar.setVisible(false);
+        this.updateUI();
     }
 
     public void moverVentana(boolean mover){
@@ -111,9 +113,13 @@ public class Borde_Ventana extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-        ventana.setVisible(false); 
-        ventana.dispose(); 
-        System.exit(0);
+        if(ventana!=null){
+            ventana.setVisible(false); 
+            ventana.dispose(); 
+            System.exit(0);
+        }else if(dialogo!=null){
+            dialogo.dispose();
+        }
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void moverPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moverPanelMousePressed
@@ -122,11 +128,21 @@ public class Borde_Ventana extends javax.swing.JPanel {
     }//GEN-LAST:event_moverPanelMousePressed
 
     private void moverPanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moverPanelMouseDragged
-        ventana.setLocation(ventana.getLocation().x + evt.getX()- posicionx , ventana.getLocation().y + evt.getY()- posiciony);
+        if(ventana!=null){
+            ventana.setLocation(ventana.getLocation().x + evt.getX()- posicionx , ventana.getLocation().y + evt.getY()- posiciony);
+        }else if(dialogo!=null){
+            dialogo.setLocation(dialogo.getLocation().x + evt.getX()- posicionx , dialogo.getLocation().y + evt.getY()- posiciony);
+        }
+        
+        
     }//GEN-LAST:event_moverPanelMouseDragged
 
     private void btnMinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinimizarActionPerformed
-        ventana.setExtendedState(JFrame.ICONIFIED); 
+        if(ventana!=null){
+            ventana.setExtendedState(JFrame.ICONIFIED);
+        }else if(dialogo!=null){
+            
+        }
     }//GEN-LAST:event_btnMinimizarActionPerformed
 
     

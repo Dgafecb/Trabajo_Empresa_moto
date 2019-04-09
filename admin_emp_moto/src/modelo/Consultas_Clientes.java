@@ -161,38 +161,44 @@ public class Consultas_Clientes extends ConexionSQL {
     }
 
     public LinkedList readAll() {
-        LinkedList<Modelo_Trabajadores> listaTrabajadores = new LinkedList<Modelo_Trabajadores>();
-        Modelo_Trabajadores trabajador = null;
+        LinkedList<Modelo_Clientes> listaClientes = new LinkedList<Modelo_Clientes>();
+        Modelo_Clientes cliente = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection con = getConnection();
 
-        String query = "SELECT * FROM Trabajadores";
+        String query = "SELECT * FROM Clientes";
 
         try {
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                trabajador = new Modelo_Trabajadores();
-                trabajador.setDni(rs.getString("dni"));
-                trabajador.setNombre(rs.getString("nombre"));
-                trabajador.setApellido(rs.getString("apellido"));
-                trabajador.setSueldo(rs.getInt("sueldo"));
-                listaTrabajadores.add(trabajador);
+                cliente = new Modelo_Clientes();
+                cliente.setId(rs.getInt("id"));
+                cliente.setNombre_apellido(rs.getString("nombre_apellido"));
+                cliente.setNombre_apellido_2(rs.getString("nombre_apellido_2"));
+                cliente.setDni(rs.getString("dni"));
+                cliente.setDni_2(rs.getString("dni_2"));
+                cliente.setCorreo(rs.getString("correo"));
+                cliente.setDireccion(rs.getString("direccion"));
+                cliente.setTelefono(rs.getString("telefono"));
+                cliente.setCiudad(rs.getString("ciudad"));
+                cliente.setPais(rs.getString("pais"));
+                listaClientes.add(cliente);
 
             }
 
             ps.close();
-            return listaTrabajadores;
+            return listaClientes;
 
         } catch (SQLException e) {
             System.err.println(e);
-            trabajador = new Modelo_Trabajadores();
-            trabajador.setDni("0");
-            trabajador.setNombre("Sin Datos");
-            listaTrabajadores.add(trabajador);
-            return listaTrabajadores;
+            cliente = new Modelo_Clientes();
+            cliente.setDni("0");
+            cliente.setNombre_apellido("Sin Datos");
+            listaClientes.add(cliente);
+            return listaClientes;
 
         } finally {
             try {

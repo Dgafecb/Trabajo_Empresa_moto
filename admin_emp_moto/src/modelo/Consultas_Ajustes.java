@@ -76,8 +76,8 @@ public class Consultas_Ajustes extends ConexionSQL {
         Connection con = getConnection();
 
         String query = "UPDATE Configuracion SET "
-                + "datos = ?, valor = ?"
-                + "WHERE id = ? ";
+                + "dato = ?, valor = ?"
+                + " WHERE id = ? ";
 
         try {
             ps = con.prepareStatement(query);
@@ -128,7 +128,7 @@ public class Consultas_Ajustes extends ConexionSQL {
 
     public Linked_List readAll() {
         Linked_List<Modelo_Ajustes> listausers = new Linked_List();
-        Modelo_Ajustes user = null;
+        Modelo_Ajustes ajustes = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection con = getConnection();
@@ -140,14 +140,13 @@ public class Consultas_Ajustes extends ConexionSQL {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                user = new Modelo_Ajustes();
+                ajustes = new Modelo_Ajustes();
 
-                user.setId(rs.getInt("id"));
+                ajustes.setId(rs.getInt("id"));
+                ajustes.setDato(rs.getString("dato"));
+                ajustes.setValor(rs.getString("valor"));
 
-                user.setDato(rs.getString("dato"));
-                user.setValor(rs.getString("valor"));
-
-                listausers.add(user);
+                listausers.add(ajustes);
 
             }
 
@@ -156,9 +155,9 @@ public class Consultas_Ajustes extends ConexionSQL {
 
         } catch (SQLException e) {
             System.err.println(e);
-            user = new Modelo_Ajustes();
+            ajustes = new Modelo_Ajustes();
 
-            listausers.add(user);
+            listausers.add(ajustes);
             return listausers;
 
         } finally {

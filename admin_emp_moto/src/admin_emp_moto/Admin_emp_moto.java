@@ -1,6 +1,6 @@
 package admin_emp_moto;
 
-import controlador.Controlador_admin;
+import controlador.Controlador_Admin;
 import controlador.Controlador_login;
 import javax.swing.JDialog;
 import javax.swing.JFrame;

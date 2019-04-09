@@ -23,11 +23,11 @@ import javax.swing.plaf.basic.BasicButtonUI;
 
 public class CustomButtonShaped extends JButton implements MouseListener, MouseMotionListener {
     
-    private Color colorNormalGrad1 = new Color(0, 139, 139);
-    private Color colorNormalGrad2 = new Color(0, 139, 139);
+    private Color colorNormalGrad1 = new Color(60, 60, 60);
+    private Color colorNormalGrad2 = new Color(60, 60, 60);
     
-    private Color colorPressedGrad1 = new Color(0, 0, 0);
-    private Color colorPressedGrad2 = new Color(0, 0, 0);
+    private Color colorPressedGrad1 = new Color(40, 40, 40);
+    private Color colorPressedGrad2 = new Color(40, 40, 40);
     
     /**
      * Color para el fondo del boton
@@ -51,6 +51,8 @@ public class CustomButtonShaped extends JButton implements MouseListener, MouseM
     public CustomButtonShaped() {
         this.setUI(new ShapedButtonUI());
         this.setFont(f);
+        this.setMinimumSize(new Dimension(250, 35));
+        this.setMaximumSize(new Dimension(150, 35));
         this.setPreferredSize(new Dimension(150, 35));
         this.setSize(new Dimension(150, 35));
         this.setBorder(null);

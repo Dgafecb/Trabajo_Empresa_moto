@@ -4,10 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.LinkedList;
 
 import javax.swing.SwingWorker;
 import modelo.Consultas_Ajustes;
 import modelo.Consultas_Asistencia;
+import modelo.Consultas_Clientes;
 import modelo.Consultas_Inventario_Repuestos;
 import modelo.Consultas_Inventario_Vehiculos;
 import modelo.Consultas_Marca;
@@ -17,6 +19,7 @@ import modelo.Consultas_Trabajadores;
 import modelo.Linked_List;
 import modelo.Modelo_Ajustes;
 import modelo.Modelo_Asistencia;
+import modelo.Modelo_Clientes;
 import modelo.Modelo_Inventario_Repuestos;
 import modelo.Modelo_Inventario_Vehiculos;
 import modelo.Modelo_Marcas;
@@ -34,12 +37,13 @@ public class Controlador_login implements ActionListener, KeyListener {
     public static Linked_List<Modelo_Inventario_Vehiculos> lista_vehiculos;
     public static Linked_List<Modelo_Inventario_Repuestos> lista_repuestos;
     public static Linked_List<Modelo_Ajustes> lista_ajustes;
+    public static LinkedList<Modelo_Clientes> lista_clientes;
     private Ventana_Login view;
     private Modelo_Trabajadores model;
     private Consultas_Trabajadores consultas;
     private Ventana_Admin view_admin;
     private Ventana_Trabajador viewTrabajador;
-    private Controlador_admin controlador_admin;
+    private Controlador_Admin controlador_admin;
     private Ventana_Trabajador view_trabajador;
     private Controlador_trabajador ctrl_trabajador;
 
@@ -52,7 +56,7 @@ public class Controlador_login implements ActionListener, KeyListener {
     }
 
     private void callComp() {
-        this.view.panelLogin.btnIngresar.addActionListener(this);
+        this.view.panelLogin.btnAcceder.addActionListener(this);
         this.view.panelLogin.txtContr.addKeyListener(this);
         this.view.panelLogin.txtUsuario.addKeyListener(this);
     }
@@ -60,7 +64,7 @@ public class Controlador_login implements ActionListener, KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-            this.view.panelLogin.btnIngresar.doClick();
+            this.view.panelLogin.btnAcceder.doClick();
         }
 
     }
@@ -68,12 +72,12 @@ public class Controlador_login implements ActionListener, KeyListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getSource() == view.panelLogin.btnIngresar) {
+        if (e.getSource() == view.panelLogin.btnAcceder) {
             SwingWorker sw = new SwingWorker() {
                 @Override
                 protected Object doInBackground() throws Exception {
                     view.panelLogin.pbLogin.setIndeterminate(true);
-                    accionBtnIngresar(); // llama al metodo para hacer la verificacion de privilegios
+                    accionBtnIngresar();
                     return null;
                 }
 
@@ -110,6 +114,9 @@ public class Controlador_login implements ActionListener, KeyListener {
                         return;} 
                 };
                 hilo.start();
+                
+            Consultas_Clientes consultas_clientes = new Consultas_Clientes();
+            lista_clientes = consultas_clientes.readAll();
             
             Consultas_Inventario_Repuestos consultas_repuestos = new Consultas_Inventario_Repuestos();
             lista_repuestos = consultas_repuestos.readAll();
@@ -120,9 +127,9 @@ public class Controlador_login implements ActionListener, KeyListener {
             view.setVisible(false);
             view.dispose();
             view_admin = new Ventana_Admin();
-            controlador_admin = new Controlador_admin(view_admin, model);
+            controlador_admin = new Controlador_Admin(view_admin, model);
             view_admin.setVisible(true);
-        } else if (privilege == 1 || privilege == 0) {
+        } else if (privilege == 0) {
             Consultas_Trabajadores consultas_trabajadores = new Consultas_Trabajadores();
             lista_trabajadores = consultas_trabajadores.readAll();
             message("Bienvenido Trabajador");
@@ -142,7 +149,8 @@ public class Controlador_login implements ActionListener, KeyListener {
     }
 
     private int verificacion(Modelo_Trabajadores model, String password) {
-        if (model != null) {
+        if (model.getDni().equals("")!=true && model.getPassword().equals("")!=true) {
+            System.out.println(model.getPassword());
             if (consultas.read(model)) {
                 message("Usuario existe");
                 if (password.equals(model.getPassword())) {
@@ -151,14 +159,16 @@ public class Controlador_login implements ActionListener, KeyListener {
                 } else {
                     Mensaje_Emergente mensaje = new Mensaje_Emergente(view, true, "Contraseña incorrecta");
                     mensaje.setVisible(true);
-                    return -3;
+                    return -1;
                 }
             } else {
                 Mensaje_Emergente mensaje = new Mensaje_Emergente(view, true, "Usuario no existe");
                 mensaje.setVisible(true);
-                return -2;
+                return -1;
             }
         } else {
+            Mensaje_Emergente mensaje = new Mensaje_Emergente(view, true, "Ingresar datos validos");
+            mensaje.setVisible(true);
             return -1;
         }
     }

@@ -45,7 +45,7 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
             ventanaAdmin.menuAdmin.btnEstadisticas.setText("ESTADISTICAS");
             ventanaAdmin.menuAdmin.btnRegistros.setText("REGISTROS");
             ventanaAdmin.menuAdmin.btnVentas.setText("VENTAS");
-            dimension.setSize(200, 40);
+            dimension.setSize(250, 40);
             ventanaAdmin.menuAdmin.setPreferredSize(dimension.getSize());
             ventanaAdmin.menuAdmin.updateUI();
             ventanaAdmin.menuAdmin.repaint();
@@ -76,7 +76,7 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
             ventanaTrabajador.menuTrabajador.btnInicio.setText("INICIO");
 
             ventanaTrabajador.menuTrabajador.btnVentas.setText("VENTAS");
-            dimension.setSize(200, 40);
+            dimension.setSize(250, 40);
             ventanaTrabajador.menuTrabajador.setPreferredSize(dimension.getSize());
             ventanaTrabajador.menuTrabajador.updateUI();
             ventanaTrabajador.menuTrabajador.repaint();

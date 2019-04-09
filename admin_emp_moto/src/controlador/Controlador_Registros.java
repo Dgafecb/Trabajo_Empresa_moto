@@ -20,13 +20,13 @@ import vista.Ventana_Admin;
 
 public class Controlador_Registros implements ActionListener {
 
-    private Controlador_admin controladorAdmin;
+    private Controlador_Admin controladorAdmin;
     private Ventana_Admin ventanaAdmin;
     private Panel_Registros panelRegistros;
     private Panel_Registros_Trabajadores panelRegistrosTrabajadores;
     private Consultas_Trabajadores consultasTrabajadores;
     
-    public Controlador_Registros(Controlador_admin controladorAdmin, Ventana_Admin ventanaAdmin) {
+    public Controlador_Registros(Controlador_Admin controladorAdmin, Ventana_Admin ventanaAdmin) {
         this.controladorAdmin = controladorAdmin;
         this.ventanaAdmin = ventanaAdmin;
         this.iniciarComponentes();
@@ -52,19 +52,19 @@ public class Controlador_Registros implements ActionListener {
             limpiarSpContenido();
             panelRegistrosTrabajadores = new Panel_Registros_Trabajadores();
             panelRegistros.administrarPanel(panelRegistros.spContenidoRegistros, panelRegistrosTrabajadores);
-            panelRegistrosTrabajadores.btnTrabajadoresAgregar.addActionListener(this);
-            panelRegistrosTrabajadores.btnTrabajadoresActualizar.addActionListener(this);
-            panelRegistrosTrabajadores.btnTrabajadoresEliminar.addActionListener(this);
+            panelRegistrosTrabajadores.btnTrabajadorAgregar.addActionListener(this);
+            panelRegistrosTrabajadores.btnTrabajadorModificar.addActionListener(this);
+            panelRegistrosTrabajadores.btnTrabajadorBorrar.addActionListener(this);
             panelRegistrosTrabajadores.btnTrabajadoresBuscar.addActionListener(this);
             panelRegistrosTrabajadores.btnAsistenciaAgregar.addActionListener(this);
-            panelRegistrosTrabajadores.btnAsistenciaActualizar.addActionListener(this);
+            panelRegistrosTrabajadores.btnAsistenciaModificar.addActionListener(this);
             panelRegistrosTrabajadores.btnAsistenciaBuscar.addActionListener(this);
             panelRegistrosTrabajadores.btnAsistenciaEliminar.addActionListener(this);
             panelRegistrosTrabajadores.jTable2.setModel(this.tableModelTrabajadores(lista_trabajadores));// Inicializa tabla trabajadores
             panelRegistrosTrabajadores.jTable1.setModel(this.tableModelAsistencia(lista_asistencia));// Inicializa tabla asistencia
 
         }
-        if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadoresAgregar) { // boton Agregar del Panel Registro Trabajadores
+        if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadorAgregar) { // boton Agregar del Panel Registro Trabajadores
             consultasTrabajadores = new Consultas_Trabajadores();
             Modelo_Trabajadores temp_model = this.PanelRegistroTrabajadores();
             int resultadoConsulta = consultasTrabajadores.create(temp_model);
@@ -86,7 +86,7 @@ public class Controlador_Registros implements ActionListener {
 
         }
 
-        if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadoresActualizar) { // boton Actualizar del Panel Registro Trabajadores
+        if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadorModificar) { // boton Actualizar del Panel Registro Trabajadores
             if (this.panelRegistrosTrabajadores.jTable2.getSelectionModel().isSelectionEmpty() == false) {
                 Modelo_Trabajadores temp_model = this.PanelRegistroTrabajadores();
                 String tempdni = (String) this.panelRegistrosTrabajadores.jTable2.getValueAt(this.panelRegistrosTrabajadores.jTable2.getSelectedRow(), 1);   //             
@@ -115,7 +115,7 @@ public class Controlador_Registros implements ActionListener {
                 mensaje.setVisible(true);
             }
         }
-        if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadoresEliminar) {//boton elimnar del panel Registro trabajadores
+        if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadorBorrar) {//boton elimnar del panel Registro trabajadores
             if (this.panelRegistrosTrabajadores.jTable2.getSelectionModel().isSelectionEmpty() == false) {
                 Modelo_Trabajadores temp_model = new Modelo_Trabajadores();
                 String tempdni = (String) this.panelRegistrosTrabajadores.jTable2.getValueAt(this.panelRegistrosTrabajadores.jTable2.getSelectedRow(), 1);   //             
@@ -188,7 +188,7 @@ public class Controlador_Registros implements ActionListener {
             this.panelRegistrosTrabajadores.jTable1.setModel(this.tableModelAsistencia(lista_asistencia));
 
         }
-        if (ae.getSource() == this.panelRegistrosTrabajadores.btnAsistenciaActualizar) {// boton eliminar del panel Registro asistencia
+        if (ae.getSource() == this.panelRegistrosTrabajadores.btnAsistenciaModificar) {// boton eliminar del panel Registro asistencia
             if (this.panelRegistrosTrabajadores.jTable1.getSelectionModel().isSelectionEmpty() == false) {
                 Modelo_Asistencia temp_model = this.PanelRegistroAsistencia();
                 String tempdni = (String) this.panelRegistrosTrabajadores.jTable1.getValueAt(this.panelRegistrosTrabajadores.jTable1.getSelectedRow(), 1);   //             
