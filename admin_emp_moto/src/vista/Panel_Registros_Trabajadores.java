@@ -83,9 +83,9 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         txfDatosFecha = new javax.swing.JTextField();
         txfDatosHora = new javax.swing.JTextField();
         pDatosBotones = new javax.swing.JPanel();
-        btnAsistenciaAgregar = new javax.swing.JButton();
-        btnAsistenciaModificar = new javax.swing.JButton();
-        btnAsistenciaEliminar = new javax.swing.JButton();
+        btnAsistenciaAgregar = new modelo.CustomButtonShaped();
+        btnAsistenciaModificar = new modelo.CustomButtonShaped();
+        btnAsistenciaBorrar = new modelo.CustomButtonShaped();
 
         setBackground(new java.awt.Color(250, 250, 250));
         setMaximumSize(new java.awt.Dimension(140, 20));
@@ -629,14 +629,14 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         pDatosBotones.setBackground(new java.awt.Color(250, 250, 250));
         pDatosBotones.setLayout(new java.awt.GridBagLayout());
 
-        btnAsistenciaAgregar.setText("jButton1");
+        btnAsistenciaAgregar.setText("AGREGAR");
         pDatosBotones.add(btnAsistenciaAgregar, new java.awt.GridBagConstraints());
 
-        btnAsistenciaModificar.setText("jButton2");
+        btnAsistenciaModificar.setText("MODIFICAR");
         pDatosBotones.add(btnAsistenciaModificar, new java.awt.GridBagConstraints());
 
-        btnAsistenciaEliminar.setText("jButton3");
-        pDatosBotones.add(btnAsistenciaEliminar, new java.awt.GridBagConstraints());
+        btnAsistenciaBorrar.setText("BORRAR");
+        pDatosBotones.add(btnAsistenciaBorrar, new java.awt.GridBagConstraints());
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -673,10 +673,10 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAsistenciaAgregar;
+    public modelo.CustomButtonShaped btnAsistenciaAgregar;
+    public modelo.CustomButtonShaped btnAsistenciaBorrar;
     public javax.swing.JButton btnAsistenciaBuscar;
-    public javax.swing.JButton btnAsistenciaEliminar;
-    public javax.swing.JButton btnAsistenciaModificar;
+    public modelo.CustomButtonShaped btnAsistenciaModificar;
     public modelo.CustomButtonShaped btnTrabajadorAgregar;
     public modelo.CustomButtonShaped btnTrabajadorBorrar;
     public modelo.CustomButtonShaped btnTrabajadorModificar;

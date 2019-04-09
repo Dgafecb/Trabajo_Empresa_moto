@@ -59,7 +59,7 @@ public class Controlador_Registros implements ActionListener {
             panelRegistrosTrabajadores.btnAsistenciaAgregar.addActionListener(this);
             panelRegistrosTrabajadores.btnAsistenciaModificar.addActionListener(this);
             panelRegistrosTrabajadores.btnAsistenciaBuscar.addActionListener(this);
-            panelRegistrosTrabajadores.btnAsistenciaEliminar.addActionListener(this);
+            panelRegistrosTrabajadores.btnAsistenciaBorrar.addActionListener(this);
             panelRegistrosTrabajadores.jTable2.setModel(this.tableModelTrabajadores(lista_trabajadores));// Inicializa tabla trabajadores
             panelRegistrosTrabajadores.jTable1.setModel(this.tableModelAsistencia(lista_asistencia));// Inicializa tabla asistencia
 
@@ -243,7 +243,7 @@ public class Controlador_Registros implements ActionListener {
             }
 
         }
-        if (ae.getSource() == this.panelRegistrosTrabajadores.btnAsistenciaEliminar) {//boton eliminar del panel Registro asistencia
+        if (ae.getSource() == this.panelRegistrosTrabajadores.btnAsistenciaBorrar) {//boton eliminar del panel Registro asistencia
             if (this.panelRegistrosTrabajadores.jTable1.getSelectionModel().isSelectionEmpty() == false) {
                 Modelo_Asistencia temp_model = new Modelo_Asistencia();
                 String tempdni = (String) this.panelRegistrosTrabajadores.jTable1.getValueAt(this.panelRegistrosTrabajadores.jTable1.getSelectedRow(), 1);   //             
