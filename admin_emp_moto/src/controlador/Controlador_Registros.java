@@ -47,6 +47,7 @@ public class Controlador_Registros implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent ae) {
+        
         if (ae.getSource() == panelRegistros.subBtnTrabajadores) {
             limpiarSpContenido();
             panelRegistrosTrabajadores = new Panel_Registros_Trabajadores();

@@ -9,6 +9,7 @@ import modelo.Consultas_Trabajadores_meta;
 import modelo.Modelo_Inventario;
 import modelo.Modelo_Trabajadores_meta;
 import modelo.Modelo_Trabajadores;
+import vista.Panel_Inventario;
 import vista.Panel_Registros;
 import vista.Panel_Ventas;
 import vista.Ventana_Admin;
@@ -22,6 +23,7 @@ public class Controlador_admin implements ActionListener {
     /*---------------------PANELES---------------------------*/
     private Panel_Registros panelRegistros;
     private Panel_Ventas panelVentas;    
+    private Panel_Inventario panelInventario;
     
     /*---------------------MODELOS---------------------------*/
     private Modelo_Trabajadores model_user;
@@ -70,12 +72,13 @@ public class Controlador_admin implements ActionListener {
         ventanaAdmin.menuAdmin.btnRegistros.addActionListener(this);
         ventanaAdmin.menuAdmin.btnCerrarSesion.addActionListener(this);
         ventanaAdmin.menuAdmin.btnVentas.addActionListener(this);
-
+        ventanaAdmin.menuAdmin.btnAlmacen.addActionListener(this);
     }
 
     private void limpiarSpContent(){
         panelVentas=null;
         panelRegistros=null;
+        panelInventario = null;
     }
     private void cerrarSesion(){
         ventanaAdmin.setVisible(false);
@@ -100,9 +103,15 @@ public class Controlador_admin implements ActionListener {
             panelRegistros = new Panel_Registros();
             controladorRegistros = new Controlador_Registros(this,this.ventanaAdmin);
             ventanaAdmin.administrarPanel(ventanaAdmin.spContent,panelRegistros );
+        }else if(e.getSource() == ventanaAdmin.menuAdmin.btnAlmacen){
+            limpiarSpContent();
+            panelInventario = new Panel_Inventario();
+            ventanaAdmin.administrarPanel(ventanaAdmin.spContent, panelInventario);
+        
         }else if(e.getSource() == ventanaAdmin.menuAdmin.btnCerrarSesion){ 
             cerrarSesion();
         }
+        
 
     }
     

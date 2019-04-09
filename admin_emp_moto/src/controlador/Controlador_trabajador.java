@@ -9,40 +9,35 @@ import vista.Ventana_Trabajador;
 
 
 public class Controlador_trabajador implements ActionListener {
-    private Ventana_Trabajador view_trabajador;
+    private Ventana_Trabajador ventanaTrabajador;
     private Modelo_Trabajadores model_user;
     private Ventana_Login view_login;
     private Consultas_Trabajadores consultas_login;
     private Controlador_login ctrl_login;
     
     
-    public Controlador_trabajador(Ventana_Trabajador view_trabajador,  Modelo_Trabajadores model_user) {// Falta instanciar las demas variables a usar
-        this.view_trabajador = view_trabajador;
+    public Controlador_trabajador(Ventana_Trabajador ventanaTrabajador,  Modelo_Trabajadores model_user) {// Falta instanciar las demas variables a usar
+        this.ventanaTrabajador = ventanaTrabajador;
         this.model_user = model_user;
-        this.callComp();
+        this.llamarComp();
     }
 
 
-    private void callComp() { 
+    private void llamarComp() { 
         
-        view_trabajador.MenuTrabajador.btnCerrarSesion.addActionListener(this);
+        ventanaTrabajador.menuTrabajador.btnCerrarSesion.addActionListener(this);
 
     }
 
-//    public void init() {
-//        view_trabajador.setTitle("Administrador");
-//    }
+
 
     @Override
     public void actionPerformed(ActionEvent e) { 
-//        if (e.getSource() == view_admin.MenuAdmin.btnTrabajadores) {
-//            panel_tr = new Panel_Trabajadores();
-//            view_admin.administrarPanel(view_admin.jsContent, panel_tr);
-//        }
 
-        if(e.getSource() == view_trabajador.MenuTrabajador.btnCerrarSesion){ // Reinstancia la ventana de login, permitiendo otro inicio de sesion
-            view_trabajador.setVisible(false);
-            view_trabajador.dispose();
+
+        if(e.getSource() == ventanaTrabajador.menuTrabajador.btnCerrarSesion){ // Reinstancia la ventana de login, permitiendo otro inicio de sesion
+            ventanaTrabajador.setVisible(false);
+            ventanaTrabajador.dispose();
             view_login = new Ventana_Login();
             consultas_login = new Consultas_Trabajadores();
             Modelo_Trabajadores new_user = new Modelo_Trabajadores();
