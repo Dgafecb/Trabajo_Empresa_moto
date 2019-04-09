@@ -48,9 +48,9 @@ public class Panel_Inventario extends javax.swing.JPanel {
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         jTextField1.setCaretColor(new java.awt.Color(60, 60, 60));
-        jTextField1.setMaximumSize(new java.awt.Dimension(500, 34));
-        jTextField1.setMinimumSize(new java.awt.Dimension(500, 34));
-        jTextField1.setPreferredSize(new java.awt.Dimension(500, 34));
+        jTextField1.setMaximumSize(new java.awt.Dimension(500, 39));
+        jTextField1.setMinimumSize(new java.awt.Dimension(500, 39));
+        jTextField1.setPreferredSize(new java.awt.Dimension(500, 39));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
@@ -59,30 +59,42 @@ public class Panel_Inventario extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
         pMenuInventario.add(jTextField1, gridBagConstraints);
 
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(35x35)btnAgregar.png"))); // NOI18N
         btnAgregar.setText("AGREGAR");
-        btnAgregar.setMaximumSize(new java.awt.Dimension(161, 35));
-        btnAgregar.setMinimumSize(new java.awt.Dimension(161, 35));
+        btnAgregar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnAgregar.setMaximumSize(new java.awt.Dimension(125, 40));
+        btnAgregar.setMinimumSize(new java.awt.Dimension(125, 40));
+        btnAgregar.setPreferredSize(new java.awt.Dimension(125, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pMenuInventario.add(btnAgregar, gridBagConstraints);
 
+        bntEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(35x35)btnBorrar.png"))); // NOI18N
         bntEliminar.setText("BORRAR");
+        bntEliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        bntEliminar.setMaximumSize(new java.awt.Dimension(125, 40));
+        bntEliminar.setMinimumSize(new java.awt.Dimension(125, 40));
+        bntEliminar.setPreferredSize(new java.awt.Dimension(125, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pMenuInventario.add(bntEliminar, gridBagConstraints);
 
         btnMarca.setText("MARCA");
+        btnMarca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnMarca.setMaximumSize(new java.awt.Dimension(125, 40));
+        btnMarca.setMinimumSize(new java.awt.Dimension(125, 40));
+        btnMarca.setPreferredSize(new java.awt.Dimension(125, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pMenuInventario.add(btnMarca, gridBagConstraints);
 
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(35x35)btnBuscar.png"))); // NOI18N
         btnBuscar.setCurve(0);
-        btnBuscar.setMaximumSize(new java.awt.Dimension(40, 35));
-        btnBuscar.setMinimumSize(new java.awt.Dimension(40, 35));
-        btnBuscar.setPreferredSize(new java.awt.Dimension(40, 35));
+        btnBuscar.setMaximumSize(new java.awt.Dimension(40, 40));
+        btnBuscar.setMinimumSize(new java.awt.Dimension(40, 40));
+        btnBuscar.setPreferredSize(new java.awt.Dimension(40, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
@@ -114,8 +126,6 @@ public class Panel_Inventario extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
-        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(jScrollPane1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
