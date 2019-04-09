@@ -96,14 +96,21 @@ public class Controlador_login implements ActionListener, KeyListener {
         privilege = this.verificacion(model, view.panelLogin.txtContr.getText());
         if (privilege == 2) {
             message("Bienvenido Admin");
-            Consultas_Trabajadores consultas_trabajadores = new Consultas_Trabajadores();
-            lista_trabajadores = consultas_trabajadores.readAll();
-            Consultas_Asistencia consultas_asistencia = new Consultas_Asistencia();
-            lista_asistencia = consultas_asistencia.readAll();
-            Consultas_Marca consultas_marca = new Consultas_Marca();
-            lista_marcas = consultas_marca.readAll();
-            Consultas_Inventario_Vehiculos consultas_vehiculos = new Consultas_Inventario_Vehiculos();
-            lista_vehiculos = consultas_vehiculos.readAll();
+            Thread hilo = new Thread() {
+                    @Override
+                    public void run() {
+                    Consultas_Trabajadores consultas_trabajadores = new Consultas_Trabajadores();
+                    lista_trabajadores = consultas_trabajadores.readAll();
+                    Consultas_Asistencia consultas_asistencia = new Consultas_Asistencia();
+                    lista_asistencia = consultas_asistencia.readAll();
+                    Consultas_Marca consultas_marca = new Consultas_Marca();
+                    lista_marcas = consultas_marca.readAll();
+                    Consultas_Inventario_Vehiculos consultas_vehiculos = new Consultas_Inventario_Vehiculos();
+                    lista_vehiculos = consultas_vehiculos.readAll();
+                        return;} 
+                };
+                hilo.start();
+            
             Consultas_Inventario_Repuestos consultas_repuestos = new Consultas_Inventario_Repuestos();
             lista_repuestos = consultas_repuestos.readAll();
             Consultas_Ajustes consultas_ajustes = new Consultas_Ajustes();

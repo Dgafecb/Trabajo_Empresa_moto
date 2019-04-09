@@ -29,25 +29,20 @@ public class Panel_Inventario extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         pMenuInventario = new javax.swing.JPanel();
-        btnAgregar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         btnMarca = new javax.swing.JButton();
+        btnAgregar = new modelo.CustomButtonShaped();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(250, 250, 250));
         setLayout(new java.awt.GridBagLayout());
 
+        pMenuInventario.setBackground(new java.awt.Color(250, 250, 250));
         pMenuInventario.setLayout(new java.awt.GridBagLayout());
-
-        btnAgregar.setText("AGREGAR");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pMenuInventario.add(btnAgregar, gridBagConstraints);
 
         btnActualizar.setText("ACTUALIZAR");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -88,6 +83,14 @@ public class Panel_Inventario extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pMenuInventario.add(btnMarca, gridBagConstraints);
 
+        btnAgregar.setText("AGREGAR");
+        btnAgregar.setMaximumSize(new java.awt.Dimension(161, 35));
+        btnAgregar.setMinimumSize(new java.awt.Dimension(161, 35));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        pMenuInventario.add(btnAgregar, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -121,7 +124,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnActualizar;
-    public javax.swing.JButton btnAgregar;
+    private modelo.CustomButtonShaped btnAgregar;
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnMarca;
