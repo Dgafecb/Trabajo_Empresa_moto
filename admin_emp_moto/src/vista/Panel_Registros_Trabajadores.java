@@ -5,6 +5,12 @@
  */
 package vista;
 
+import java.text.DateFormat;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.HashSet;
+import javax.swing.JFormattedTextField;
+
 /**
  *
  * @author FuryMercury
@@ -30,7 +36,7 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
 
         pTrabajadores = new javax.swing.JPanel();
         pBuscar = new javax.swing.JPanel();
-        btnBuscar = new javax.swing.JButton();
+        btnTrabajadoresBuscar = new javax.swing.JButton();
         txfBuscar = new javax.swing.JTextField();
         spTabla = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -63,7 +69,7 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         pAsistenciaBuscar = new javax.swing.JPanel();
         jTextField4 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        btnAsistenciaBuscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         pAsistenciaDatos = new javax.swing.JPanel();
         lblDatosID = new javax.swing.JLabel();
@@ -73,7 +79,7 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         lblDatosDescuento = new javax.swing.JLabel();
         txfDatosNombre = new javax.swing.JLabel();
         txfDatosDescuento = new javax.swing.JLabel();
-        txfDatosID = new javax.swing.JTextField();
+        txfDatosDNI = new javax.swing.JTextField();
         txfDatosFecha = new javax.swing.JTextField();
         txfDatosHora = new javax.swing.JTextField();
         pDatosBotones = new javax.swing.JPanel();
@@ -97,19 +103,25 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         pBuscar.setPreferredSize(new java.awt.Dimension(400, 40));
         pBuscar.setLayout(new java.awt.GridBagLayout());
 
-        btnBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnBuscar.setForeground(new java.awt.Color(60, 60, 60));
-        btnBuscar.setText("BUSCAR");
-        btnBuscar.setFocusPainted(false);
+        btnTrabajadoresBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnTrabajadoresBuscar.setForeground(new java.awt.Color(60, 60, 60));
+        btnTrabajadoresBuscar.setText("BUSCAR");
+        btnTrabajadoresBuscar.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pBuscar.add(btnBuscar, gridBagConstraints);
+        pBuscar.add(btnTrabajadoresBuscar, gridBagConstraints);
 
+        txfBuscar.setText("Inserte el DNI a buscar:");
         txfBuscar.setMaximumSize(new java.awt.Dimension(200, 20));
         txfBuscar.setMinimumSize(new java.awt.Dimension(200, 20));
         txfBuscar.setPreferredSize(new java.awt.Dimension(200, 20));
+        txfBuscar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txfBuscarFocusGained(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -450,18 +462,30 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
 
         pAsistenciaBuscar.setBackground(new java.awt.Color(250, 250, 250));
         pAsistenciaBuscar.setLayout(new java.awt.GridBagLayout());
+
+        jTextField4.setText("Inserte el DNI a buscar:");
+        jTextField4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField4FocusGained(evt);
+            }
+        });
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pAsistenciaBuscar.add(jTextField4, gridBagConstraints);
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(60, 60, 60));
-        jButton4.setText("BUSCAR");
+        btnAsistenciaBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnAsistenciaBuscar.setForeground(new java.awt.Color(60, 60, 60));
+        btnAsistenciaBuscar.setText("BUSCAR");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAsistenciaBuscar.add(jButton4, gridBagConstraints);
+        pAsistenciaBuscar.add(btnAsistenciaBuscar, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(60, 60, 60));
@@ -487,7 +511,7 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
 
         lblDatosID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblDatosID.setForeground(new java.awt.Color(60, 60, 60));
-        lblDatosID.setText("ID Trabajador :");
+        lblDatosID.setText("D.N.I.:");
         lblDatosID.setMaximumSize(new java.awt.Dimension(150, 20));
         lblDatosID.setMinimumSize(new java.awt.Dimension(150, 20));
         lblDatosID.setPreferredSize(new java.awt.Dimension(150, 20));
@@ -576,19 +600,27 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pAsistenciaDatos.add(txfDatosDescuento, gridBagConstraints);
 
-        txfDatosID.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfDatosID.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfDatosID.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfDatosDNI.setMaximumSize(new java.awt.Dimension(250, 20));
+        txfDatosDNI.setMinimumSize(new java.awt.Dimension(250, 20));
+        txfDatosDNI.setPreferredSize(new java.awt.Dimension(250, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAsistenciaDatos.add(txfDatosID, gridBagConstraints);
+        pAsistenciaDatos.add(txfDatosDNI, gridBagConstraints);
 
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        txfDatosFecha = new javax.swing.JFormattedTextField(df);
+        txfDatosFecha.setText("dd/MM/aaaa");
         txfDatosFecha.setMaximumSize(new java.awt.Dimension(250, 20));
         txfDatosFecha.setMinimumSize(new java.awt.Dimension(250, 20));
         txfDatosFecha.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfDatosFecha.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txfDatosFechaFocusGained(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -596,9 +628,22 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pAsistenciaDatos.add(txfDatosFecha, gridBagConstraints);
 
+        Format timeFormat = new SimpleDateFormat("HH:mm:ss");
+        txfDatosHora = new JFormattedTextField(timeFormat);
+        txfDatosHora.setText("HH:mm:ss");
         txfDatosHora.setMaximumSize(new java.awt.Dimension(250, 20));
         txfDatosHora.setMinimumSize(new java.awt.Dimension(250, 20));
         txfDatosHora.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfDatosHora.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txfDatosHoraFocusGained(evt);
+            }
+        });
+        txfDatosHora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txfDatosHoraActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -671,20 +716,44 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAsistenciaActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsistenciaActualizarActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_btnAsistenciaActualizarActionPerformed
+
+    private void txfDatosHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfDatosHoraActionPerformed
+
+    }//GEN-LAST:event_txfDatosHoraActionPerformed
+
+    private void txfDatosHoraFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfDatosHoraFocusGained
+        txfDatosHora.setText("");
+    }//GEN-LAST:event_txfDatosHoraFocusGained
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jTextField4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusGained
+        jTextField4.setText("");
+    }//GEN-LAST:event_jTextField4FocusGained
+
+    private void txfBuscarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfBuscarFocusGained
+        txfBuscar.setText("");
+    }//GEN-LAST:event_txfBuscarFocusGained
+
+    private void txfDatosFechaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txfDatosFechaFocusGained
+        txfDatosFecha.setText("");
+    }//GEN-LAST:event_txfDatosFechaFocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAsistenciaActualizar;
     public javax.swing.JButton btnAsistenciaAgregar;
+    public javax.swing.JButton btnAsistenciaBuscar;
     public javax.swing.JButton btnAsistenciaEliminar;
-    public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnTrabajadoresActualizar;
     public javax.swing.JButton btnTrabajadoresAgregar;
+    public javax.swing.JButton btnTrabajadoresBuscar;
     public javax.swing.JButton btnTrabajadoresEliminar;
     public javax.swing.JComboBox<String> cbPrivilegio;
-    public javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
@@ -719,11 +788,11 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
     public javax.swing.JTextField txfApellidos;
     public javax.swing.JTextField txfBuscar;
     public javax.swing.JTextField txfDNI;
-    private javax.swing.JLabel txfDatosDescuento;
+    public javax.swing.JTextField txfDatosDNI;
+    public javax.swing.JLabel txfDatosDescuento;
     public javax.swing.JTextField txfDatosFecha;
     public javax.swing.JTextField txfDatosHora;
-    public javax.swing.JTextField txfDatosID;
-    private javax.swing.JLabel txfDatosNombre;
+    public javax.swing.JLabel txfDatosNombre;
     public javax.swing.JTextField txfNombre;
     public javax.swing.JTextField txfPassword;
     public javax.swing.JTextField txfSueldo;

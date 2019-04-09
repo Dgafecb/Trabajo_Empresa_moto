@@ -10,6 +10,7 @@ import java.util.LinkedList;
 import javax.swing.table.DefaultTableModel;
 import modelo.Consultas_Asistencia;
 import modelo.Consultas_Trabajadores;
+import modelo.Linked_List;
 import modelo.Modelo_Asistencia;
 import modelo.Modelo_Trabajadores;
 import vista.Mensaje_Emergente;
@@ -53,9 +54,11 @@ public class Controlador_Registros implements ActionListener {
             panelRegistrosTrabajadores.btnTrabajadoresAgregar.addActionListener(this);
             panelRegistrosTrabajadores.btnTrabajadoresActualizar.addActionListener(this);
             panelRegistrosTrabajadores.btnTrabajadoresEliminar.addActionListener(this);
-            panelRegistrosTrabajadores.btnBuscar.addActionListener(this);
+            panelRegistrosTrabajadores.btnTrabajadoresBuscar.addActionListener(this);
             panelRegistrosTrabajadores.btnAsistenciaAgregar.addActionListener(this);
             panelRegistrosTrabajadores.btnAsistenciaActualizar.addActionListener(this);
+            panelRegistrosTrabajadores.btnAsistenciaBuscar.addActionListener(this);
+            panelRegistrosTrabajadores.btnAsistenciaEliminar.addActionListener(this);
             panelRegistrosTrabajadores.jTable2.setModel(this.tableModelTrabajadores(lista_trabajadores));// Inicializa tabla trabajadores
             panelRegistrosTrabajadores.jTable1.setModel(this.tableModelAsistencia(lista_asistencia));// Inicializa tabla asistencia
 
@@ -111,11 +114,11 @@ public class Controlador_Registros implements ActionListener {
                 mensaje.setVisible(true);
             }
         }
-        if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadoresEliminar) {
+        if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadoresEliminar) {//boton elimnar del panel Registro trabajadores
             if (this.panelRegistrosTrabajadores.jTable2.getSelectionModel().isSelectionEmpty() == false) {
                 Modelo_Trabajadores temp_model = new Modelo_Trabajadores();
                 String tempdni = (String) this.panelRegistrosTrabajadores.jTable2.getValueAt(this.panelRegistrosTrabajadores.jTable2.getSelectedRow(), 1);   //             
-                Consultas_Trabajadores consultaActualizar = new Consultas_Trabajadores();
+                Consultas_Trabajadores consultaEliminar = new Consultas_Trabajadores();
                 int index_seleccionado = lista_trabajadores.findTrabajador(lista_trabajadores, tempdni);//consigo el indice del id
 
                 temp_model.setId(((Modelo_Trabajadores) lista_trabajadores.get(index_seleccionado)).getId());
@@ -123,7 +126,7 @@ public class Controlador_Registros implements ActionListener {
                 Thread hilo_consulta_tabla = new Thread() {
                     @Override
                     public void run() {
-                        if (consultaActualizar.delete(temp_model)) {
+                        if (consultaEliminar.delete(temp_model)) {
                             System.out.println("Se elimino al trabajador");
                         } else {
                             Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se pudo eliminar al trabajador");
@@ -142,8 +145,8 @@ public class Controlador_Registros implements ActionListener {
             }
 
         }
-        if (ae.getSource() == this.panelRegistrosTrabajadores.btnBuscar) {
-            Consultas_Trabajadores consultas = new Consultas_Trabajadores();
+        if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadoresBuscar) {//boton buscar del panel Registro trabajadores
+
             String temp_dni = this.panelRegistrosTrabajadores.txfBuscar.getText();
             Modelo_Trabajadores temp_model;
 
@@ -166,7 +169,7 @@ public class Controlador_Registros implements ActionListener {
             model.addRow(new Object[]{nombreyApellido, dni, privilegio, sueldo});
             this.panelRegistrosTrabajadores.jTable2.setModel(model);
         }
-        if (ae.getSource() == this.panelRegistrosTrabajadores.btnAsistenciaAgregar) {
+        if (ae.getSource() == this.panelRegistrosTrabajadores.btnAsistenciaAgregar) {// boton agregar del panel Registro asistencia
             Consultas_Asistencia consultasAsistencia = new Consultas_Asistencia();
             Modelo_Asistencia temp_model = this.PanelRegistroAsistencia();
             if (consultasAsistencia.create(temp_model) == true) {
@@ -179,42 +182,106 @@ public class Controlador_Registros implements ActionListener {
             this.panelRegistrosTrabajadores.jTable1.setModel(this.tableModelAsistencia(lista_asistencia));
 
         }
-        if (ae.getSource() == this.panelRegistrosTrabajadores.btnAsistenciaActualizar) {
+        if (ae.getSource() == this.panelRegistrosTrabajadores.btnAsistenciaActualizar) {// boton eliminar del panel Registro asistencia
             if (this.panelRegistrosTrabajadores.jTable1.getSelectionModel().isSelectionEmpty() == false) {
                 Modelo_Asistencia temp_model = this.PanelRegistroAsistencia();
                 String tempdni = (String) this.panelRegistrosTrabajadores.jTable1.getValueAt(this.panelRegistrosTrabajadores.jTable1.getSelectedRow(), 1);   //             
                 Consultas_Asistencia consultasAsistencia = new Consultas_Asistencia();
                 int index_seleccionado = lista_asistencia.findAsistencia(lista_asistencia, tempdni);//consigo el indice del id
                 temp_model.setId(((Modelo_Asistencia) lista_asistencia.get(index_seleccionado)).getId());
-                Thread hilo_consulta_tabla = new Thread() {
-                    @Override
-                    public void run() {
-                        if (consultasAsistencia.update(temp_model)) {
-                            System.out.println("Se actualizo el registro");
-                        } else {
-                            Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se pudo actualizar el registro");
-                            mensaje.setVisible(true);
-                        }
 
-                    }
-                };
-                lista_asistencia.remove(index_seleccionado);
-                lista_asistencia.add(index_seleccionado, temp_model);
-                hilo_consulta_tabla.start();
-                this.panelRegistrosTrabajadores.jTable1.setModel(this.tableModelAsistencia(lista_asistencia));
+                if (consultasAsistencia.update(temp_model)) {
+                    System.out.println("Se actualizo el registro");
+                    lista_asistencia.remove(index_seleccionado);
+                    lista_asistencia.add(index_seleccionado, temp_model);
+                    this.panelRegistrosTrabajadores.jTable1.setModel(this.tableModelAsistencia(lista_asistencia));
+
+                } else {
+                    Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se pudo actualizar el registro");
+                    mensaje.setVisible(true);
+                }
 
             } else {
                 Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "Selecciona una fila de la tabla asistencia para modificar");
                 mensaje.setVisible(true);
             }
         }
+        if (ae.getSource() == this.panelRegistrosTrabajadores.btnAsistenciaBuscar) {//boton buscar panel Registro asistencia
+
+            String temp_dni = this.panelRegistrosTrabajadores.jTextField4.getText();
+            Linked_List<Modelo_Asistencia> temp_model = new Linked_List<>();
+            Linked_List.ResultadoListaAsistenciaDNI resultadoBusqueda = lista_asistencia.findAsistenciaList(lista_asistencia, temp_dni);
+            LinkedList<Integer> dnis = resultadoBusqueda.getTemp();//obtiene la lista de indices donde el dni coincide
+            boolean dni_encontrado = resultadoBusqueda.isFunciona();
+            if (dni_encontrado) {
+                for (int i = 0; i < dnis.size(); i++) {
+                    temp_model.add((Modelo_Asistencia) lista_asistencia.get(dnis.get(i)));
+                }
+                DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "DNI", "Fecha", "Hora de Entrada"}, 0);
+                int id;
+                String dni;
+                String fecha;
+                String hora_entrada;
+                for (int i = 0; i < temp_model.size(); i++) {
+                    id = ((Modelo_Asistencia) temp_model.get(i)).getId();
+                    dni = ((Modelo_Asistencia) temp_model.get(i)).getDni();
+                    fecha = ((Modelo_Asistencia) temp_model.get(i)).getFecha();
+                    hora_entrada = ((Modelo_Asistencia) temp_model.get(i)).getHora_entrada();
+                    model.addRow(new Object[]{id, dni, fecha, hora_entrada});
+                }
+
+                this.panelRegistrosTrabajadores.jTable1.setModel(model);
+            } else {
+                Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se encontró el DNI");
+                mensaje.setVisible(true);
+            }
+
+        }
+        if (ae.getSource() == this.panelRegistrosTrabajadores.btnAsistenciaEliminar) {//boton eliminar del panel Registro asistencia
+            if (this.panelRegistrosTrabajadores.jTable1.getSelectionModel().isSelectionEmpty() == false) {
+                Modelo_Asistencia temp_model = new Modelo_Asistencia();
+                String tempdni = (String) this.panelRegistrosTrabajadores.jTable1.getValueAt(this.panelRegistrosTrabajadores.jTable1.getSelectedRow(), 1);   //             
+                Consultas_Asistencia consultaEliminar = new Consultas_Asistencia();
+                int index_seleccionado = lista_asistencia.findAsistencia(lista_asistencia, tempdni);//consigo el indice del id
+
+                temp_model.setId(((Modelo_Asistencia) lista_asistencia.get(index_seleccionado)).getId());
+
+                Thread hilo_consulta_tabla = new Thread() {
+                    @Override
+                    public void run() {
+                        if (consultaEliminar.delete(temp_model)) {
+                            System.out.println("Se elimino el registro");
+                        } else {
+                            Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se pudo eliminar el registro");
+                            mensaje.setVisible(true);
+                        }
+
+                    }
+                };
+                lista_asistencia.remove(index_seleccionado);
+                hilo_consulta_tabla.start();
+                this.panelRegistrosTrabajadores.jTable1.setModel(this.tableModelAsistencia(lista_asistencia));
+
+            } else {
+                Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "Selecciona una fila a eliminar de la tabla asistencia");
+                mensaje.setVisible(true);
+            }
+        }
     }
 
-    public Modelo_Asistencia PanelRegistroAsistencia() {
+    public Modelo_Asistencia PanelRegistroAsistencia() { // Devuelve un modelo para el panel registro asistencia
         Modelo_Asistencia modelo_asistencia = new Modelo_Asistencia();
-        modelo_asistencia.setDni(this.panelRegistrosTrabajadores.txfDatosID.getText());
-        modelo_asistencia.setFecha(this.panelRegistrosTrabajadores.txfDatosFecha.getText());
-        modelo_asistencia.setHora_entrada(this.panelRegistrosTrabajadores.txfDatosHora.getText());
+        if (this.panelRegistrosTrabajadores.txfDNI.getText().length() == 8) {
+            modelo_asistencia.setDni(this.panelRegistrosTrabajadores.txfDatosDNI.getText());
+        } else {
+            // Panel para el mensaje que la longitud del dni no es correcta
+            Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "Longitud del DNI incorrecta");
+            mensaje.setVisible(true);
+        }
+        String[] temp_fecha = this.panelRegistrosTrabajadores.txfDatosFecha.getText().split("/");
+        modelo_asistencia.setFecha(temp_fecha[0] + temp_fecha[1] + temp_fecha[2]);
+        String[] temp_hora = this.panelRegistrosTrabajadores.txfDatosHora.getText().split(":");
+        modelo_asistencia.setHora_entrada(temp_hora[0] + temp_hora[1] + temp_hora[2]);
         return modelo_asistencia;
     }
 
@@ -272,8 +339,9 @@ public class Controlador_Registros implements ActionListener {
             int id = listaAsistencia.get(i).getId();
             String dni = listaAsistencia.get(i).getDni();
             String fecha = listaAsistencia.get(i).getFecha();
+            fecha = fecha.substring(0, 2) + "/" + fecha.substring(2, 4) + "/" + fecha.substring(4, fecha.length());
             String hora_entrada = listaAsistencia.get(i).getHora_entrada();
-
+            hora_entrada = hora_entrada.substring(0, 2) + ":" + hora_entrada.substring(2, 4) + ":" + hora_entrada.substring(4, hora_entrada.length());
             model.addRow(new Object[]{id, dni, fecha, hora_entrada});
         }
 

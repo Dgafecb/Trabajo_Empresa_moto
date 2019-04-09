@@ -5,6 +5,10 @@
  */
 package vista;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import javax.swing.JFormattedTextField;
+
 /**
  *
  * @author FuryMercury
@@ -44,12 +48,12 @@ public class Panel_Registros_Asistencia extends javax.swing.JPanel {
         txfDatosNombre = new javax.swing.JLabel();
         txfDatosDescuento = new javax.swing.JLabel();
         txfDatosID = new javax.swing.JTextField();
-        txfDatosFecha = new javax.swing.JTextField();
-        txfDatosHora = new javax.swing.JTextField();
         pDatosBotones = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        txfDatosFecha = new javax.swing.JFormattedTextField();
+        txfDatosHora = new javax.swing.JFormattedTextField();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -113,7 +117,7 @@ public class Panel_Registros_Asistencia extends javax.swing.JPanel {
         pAsistenciaDatos.setBackground(new java.awt.Color(250, 250, 250));
         pAsistenciaDatos.setLayout(new java.awt.GridBagLayout());
 
-        lblDatosID.setText("ID Trabajador :");
+        lblDatosID.setText("D.N.I.:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -180,26 +184,6 @@ public class Panel_Registros_Asistencia extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pAsistenciaDatos.add(txfDatosID, gridBagConstraints);
 
-        txfDatosFecha.setMaximumSize(new java.awt.Dimension(200, 20));
-        txfDatosFecha.setMinimumSize(new java.awt.Dimension(200, 20));
-        txfDatosFecha.setPreferredSize(new java.awt.Dimension(200, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAsistenciaDatos.add(txfDatosFecha, gridBagConstraints);
-
-        txfDatosHora.setMaximumSize(new java.awt.Dimension(200, 20));
-        txfDatosHora.setMinimumSize(new java.awt.Dimension(200, 20));
-        txfDatosHora.setPreferredSize(new java.awt.Dimension(200, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAsistenciaDatos.add(txfDatosHora, gridBagConstraints);
-
         pDatosBotones.setBackground(new java.awt.Color(250, 250, 250));
         pDatosBotones.setLayout(new java.awt.GridBagLayout());
 
@@ -238,6 +222,21 @@ public class Panel_Registros_Asistencia extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pAsistenciaDatos.add(pDatosBotones, gridBagConstraints);
 
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        txfDatosFecha = new JFormattedTextField(df);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAsistenciaDatos.add(txfDatosFecha, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAsistenciaDatos.add(txfDatosHora, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -259,15 +258,15 @@ public class Panel_Registros_Asistencia extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    public javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JPanel jPanel2;
     public javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField4;
+    public javax.swing.JTable jTable1;
+    public javax.swing.JTextField jTextField4;
     private javax.swing.JLabel lblDatosDescuento;
     private javax.swing.JLabel lblDatosFecha;
     private javax.swing.JLabel lblDatosHora;
@@ -276,10 +275,10 @@ public class Panel_Registros_Asistencia extends javax.swing.JPanel {
     public javax.swing.JPanel pAsistencia;
     public javax.swing.JPanel pAsistenciaDatos;
     private javax.swing.JPanel pDatosBotones;
-    private javax.swing.JLabel txfDatosDescuento;
-    private javax.swing.JTextField txfDatosFecha;
-    private javax.swing.JTextField txfDatosHora;
+    public javax.swing.JLabel txfDatosDescuento;
+    public javax.swing.JFormattedTextField txfDatosFecha;
+    public javax.swing.JFormattedTextField txfDatosHora;
     private javax.swing.JTextField txfDatosID;
-    private javax.swing.JLabel txfDatosNombre;
+    public javax.swing.JLabel txfDatosNombre;
     // End of variables declaration//GEN-END:variables
 }

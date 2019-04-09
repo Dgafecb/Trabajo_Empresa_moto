@@ -120,14 +120,14 @@ public class Panel_Inventario extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnActualizar;
-    private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnMarca;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JPanel pMenuInventario;
+    public javax.swing.JButton btnActualizar;
+    public javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnBuscar;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnMarca;
+    public javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTable jTable1;
+    public javax.swing.JTextField jTextField1;
+    public javax.swing.JPanel pMenuInventario;
     // End of variables declaration//GEN-END:variables
 }
