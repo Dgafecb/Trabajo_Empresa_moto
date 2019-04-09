@@ -9,10 +9,10 @@ import vista.Ventana_Admin;
 public class Controlador_Clientes implements ActionListener{
     
     private LinkedList listaClientes = lista_clientes;
-    private Controlador_Admin controladorAdmin;
+    private Controlador_admin controladorAdmin;
     private Ventana_Admin ventanaAdmin;
     
-    public Controlador_Clientes(Controlador_Admin controladorAdmin, Ventana_Admin ventanaAdmin) {
+    public Controlador_Clientes(Controlador_admin controladorAdmin, Ventana_Admin ventanaAdmin) {
         this.controladorAdmin = controladorAdmin;
         this.ventanaAdmin = ventanaAdmin;
     }

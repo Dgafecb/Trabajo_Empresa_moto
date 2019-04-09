@@ -17,13 +17,13 @@ import vista.Ventana_Admin;
  */
 public class Controlador_Ajustes implements ActionListener {
 
-    private Controlador_Admin controladorAdmin;
+    private Controlador_admin controladorAdmin;
     private Ventana_Admin ventanaAdmin;
     private Panel_Ajustes panelAjustes;
     private LinkedList<Modelo_Ajustes> ajustes;
     
 
-    public Controlador_Ajustes(Controlador_Admin controladorAdmin, Ventana_Admin ventanaAdmin) {
+    public Controlador_Ajustes(Controlador_admin controladorAdmin, Ventana_Admin ventanaAdmin) {
         this.controladorAdmin = controladorAdmin;
         this.ventanaAdmin = ventanaAdmin;
         this.iniciarComponentes();

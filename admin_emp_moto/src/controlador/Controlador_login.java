@@ -43,7 +43,7 @@ public class Controlador_login implements ActionListener, KeyListener {
     private Consultas_Trabajadores consultas;
     private Ventana_Admin view_admin;
     private Ventana_Trabajador viewTrabajador;
-    private Controlador_Admin controlador_admin;
+    private Controlador_admin controlador_admin;
     private Ventana_Trabajador view_trabajador;
     private Controlador_trabajador ctrl_trabajador;
 
@@ -127,7 +127,7 @@ public class Controlador_login implements ActionListener, KeyListener {
             view.setVisible(false);
             view.dispose();
             view_admin = new Ventana_Admin();
-            controlador_admin = new Controlador_Admin(view_admin, model);
+            controlador_admin = new Controlador_admin(view_admin, model);
             view_admin.setVisible(true);
         } else if (privilege == 0) {
             Consultas_Trabajadores consultas_trabajadores = new Consultas_Trabajadores();

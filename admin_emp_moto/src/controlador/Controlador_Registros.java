@@ -20,13 +20,13 @@ import vista.Ventana_Admin;
 
 public class Controlador_Registros implements ActionListener {
 
-    private Controlador_Admin controladorAdmin;
+    private Controlador_admin controladorAdmin;
     private Ventana_Admin ventanaAdmin;
     private Panel_Registros panelRegistros;
     private Panel_Registros_Trabajadores panelRegistrosTrabajadores;
     private Consultas_Trabajadores consultasTrabajadores;
     
-    public Controlador_Registros(Controlador_Admin controladorAdmin, Ventana_Admin ventanaAdmin) {
+    public Controlador_Registros(Controlador_admin controladorAdmin, Ventana_Admin ventanaAdmin) {
         this.controladorAdmin = controladorAdmin;
         this.ventanaAdmin = ventanaAdmin;
         this.iniciarComponentes();
