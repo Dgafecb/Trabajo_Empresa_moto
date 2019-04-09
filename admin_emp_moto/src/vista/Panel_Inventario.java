@@ -32,7 +32,6 @@ public class Panel_Inventario extends javax.swing.JPanel {
         jTextField1 = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         btnAgregar = new modelo.CustomButtonShaped();
-        btnModificar = new modelo.CustomButtonShaped();
         bntEliminar = new modelo.CustomButtonShaped();
         btnMarca = new modelo.CustomButtonShaped();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -73,12 +72,6 @@ public class Panel_Inventario extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pMenuInventario.add(btnAgregar, gridBagConstraints);
 
-        btnModificar.setText("MODIFICAR");
-        btnModificar.setMinimumSize(new java.awt.Dimension(150, 35));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pMenuInventario.add(btnModificar, gridBagConstraints);
-
         bntEliminar.setText("BORRAR");
         bntEliminar.setMinimumSize(new java.awt.Dimension(150, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -86,6 +79,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         pMenuInventario.add(bntEliminar, gridBagConstraints);
 
         btnMarca.setText("MARCA");
+        btnMarca.setMinimumSize(new java.awt.Dimension(150, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pMenuInventario.add(btnMarca, gridBagConstraints);
@@ -126,7 +120,6 @@ public class Panel_Inventario extends javax.swing.JPanel {
     public modelo.CustomButtonShaped btnAgregar;
     public javax.swing.JButton btnBuscar;
     public modelo.CustomButtonShaped btnMarca;
-    public modelo.CustomButtonShaped btnModificar;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jTable1;
     public javax.swing.JTextField jTextField1;

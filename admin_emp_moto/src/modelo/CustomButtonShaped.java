@@ -29,6 +29,8 @@ public class CustomButtonShaped extends JButton implements MouseListener, MouseM
     private Color colorPressedGrad1 = new Color(40, 40, 40);
     private Color colorPressedGrad2 = new Color(40, 40, 40);
     
+    
+    private int curve = 25;
     /**
      * Color para el fondo del boton
      */
@@ -51,8 +53,8 @@ public class CustomButtonShaped extends JButton implements MouseListener, MouseM
     public CustomButtonShaped() {
         this.setUI(new ShapedButtonUI());
         this.setFont(f);
-        this.setMinimumSize(new Dimension(250, 35));
-        this.setMaximumSize(new Dimension(150, 35));
+        this.setMinimumSize(new Dimension(150, 35));
+        this.setMaximumSize(new Dimension(250, 35));
         this.setPreferredSize(new Dimension(150, 35));
         this.setSize(new Dimension(150, 35));
         this.setBorder(null);
@@ -179,6 +181,14 @@ public class CustomButtonShaped extends JButton implements MouseListener, MouseM
         this.colorPressedGrad2 = colorPressedGrad2;
     }
 
+    public int getCurve() {
+        return curve;
+    }
+
+    public void setCurve(int curve) {
+        this.curve = curve;
+    }
+
     
     @Override
     public void mouseDragged(MouseEvent e) {
@@ -208,7 +218,7 @@ public class CustomButtonShaped extends JButton implements MouseListener, MouseM
         ApplyQualityRenderingHints(g2d);//
         Shape buttonShape = null;
    
-        buttonShape = new RoundRectangle2D.Double(0, 0, c.getWidth() - 1, c.getHeight() - 1, 25, 25);
+        buttonShape = new RoundRectangle2D.Double(0, 0, c.getWidth() - 1, c.getHeight() - 1, curve, curve);
    
         /*
         Establecemos un gradiente para el fondo del boton
@@ -229,7 +239,7 @@ public class CustomButtonShaped extends JButton implements MouseListener, MouseM
  
    // definamos las formas de nuestros botones
    Shape buttonShape = null;
-   buttonShape = new RoundRectangle2D.Double(0, 0, b.getWidth() - 1, b.getHeight() - 1, 25, 25);
+   buttonShape = new RoundRectangle2D.Double(0, 0, b.getWidth() - 1, b.getHeight() - 1, curve, curve);
    GradientPaint gp = new GradientPaint(0, 0, colorPressedGrad1, 0, b.getHeight(), colorPressedGrad2);
    g2d.setPaint(gp);
    g2d.fill(buttonShape);
