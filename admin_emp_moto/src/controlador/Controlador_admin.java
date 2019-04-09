@@ -4,9 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import modelo.Consultas_Trabajadores;
-import modelo.Consultas_Inventario;
+
 import modelo.Consultas_Trabajadores_meta;
-import modelo.Modelo_Inventario;
+
 import modelo.Modelo_Trabajadores_meta;
 import modelo.Modelo_Trabajadores;
 import vista.Panel_Inventario;
