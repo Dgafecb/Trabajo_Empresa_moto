@@ -74,18 +74,19 @@ public class Panel_Inventario extends javax.swing.JPanel {
         bntEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(35x35)btnBorrar.png"))); // NOI18N
         bntEliminar.setText("BORRAR");
         bntEliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        bntEliminar.setMaximumSize(new java.awt.Dimension(125, 40));
-        bntEliminar.setMinimumSize(new java.awt.Dimension(125, 40));
-        bntEliminar.setPreferredSize(new java.awt.Dimension(125, 40));
+        bntEliminar.setMaximumSize(new java.awt.Dimension(120, 40));
+        bntEliminar.setMinimumSize(new java.awt.Dimension(120, 40));
+        bntEliminar.setPreferredSize(new java.awt.Dimension(120, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pMenuInventario.add(bntEliminar, gridBagConstraints);
 
+        btnMarca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(35x35)btnMarca.png"))); // NOI18N
         btnMarca.setText("MARCA");
         btnMarca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnMarca.setMaximumSize(new java.awt.Dimension(125, 40));
-        btnMarca.setMinimumSize(new java.awt.Dimension(125, 40));
-        btnMarca.setPreferredSize(new java.awt.Dimension(125, 40));
+        btnMarca.setMaximumSize(new java.awt.Dimension(105, 40));
+        btnMarca.setMinimumSize(new java.awt.Dimension(105, 40));
+        btnMarca.setPreferredSize(new java.awt.Dimension(105, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pMenuInventario.add(btnMarca, gridBagConstraints);
