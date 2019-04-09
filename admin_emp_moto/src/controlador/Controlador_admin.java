@@ -10,6 +10,7 @@ import modelo.Consultas_Trabajadores_meta;
 
 import modelo.Modelo_Trabajadores_meta;
 import modelo.Modelo_Trabajadores;
+import vista.Panel_Ajustes;
 import vista.Panel_Inventario;
 import vista.Panel_Registros;
 import vista.Panel_Ventas;
@@ -25,6 +26,7 @@ public class Controlador_admin implements ActionListener {
     private Panel_Registros panelRegistros;
     private Panel_Ventas panelVentas;
     private Panel_Inventario panelInventario;
+    private Panel_Ajustes panelAjustes;
 
     /*---------------------MODELOS---------------------------*/
     private Modelo_Trabajadores model_user;
@@ -34,6 +36,7 @@ public class Controlador_admin implements ActionListener {
 
     /*-------------------CONTROLADORES-----------------------*/
     private Controlador_Registros controladorRegistros;
+    private Controlador_Ajustes controladorAjustes;
 
     /*---------------------VARIABLES-------------------------*/
     public LinkedList<Modelo_Trabajadores> listaTrabajadores;
@@ -44,6 +47,22 @@ public class Controlador_admin implements ActionListener {
         this.llamarComponentes();
     }
 
+    public Panel_Inventario getPanelInventario() {
+        return panelInventario;
+    }
+
+    public void setPanelInventario(Panel_Inventario panelInventario) {
+        this.panelInventario = panelInventario;
+    }
+
+    public Panel_Ajustes getPanelAjustes() {
+        return panelAjustes;
+    }
+
+    public void setPanelAjustes(Panel_Ajustes panelAjustes) {
+        this.panelAjustes = panelAjustes;
+    }
+    
     public Ventana_Admin getVentanaAdmin() {
         return ventanaAdmin;
     }
@@ -73,6 +92,7 @@ public class Controlador_admin implements ActionListener {
         ventanaAdmin.menuAdmin.btnCerrarSesion.addActionListener(this);
         ventanaAdmin.menuAdmin.btnVentas.addActionListener(this);
         ventanaAdmin.menuAdmin.btnAlmacen.addActionListener(this);
+        ventanaAdmin.menuAdmin.btnAjustes.addActionListener(this);
         //Agrega el nombre y apellido a la esquina superior derecha
         String nombre_apellido = ((Modelo_Trabajadores) lista_trabajadores.get(lista_trabajadores.findTrabajador(lista_trabajadores, this.model_user.getDni()))).getNombre();
         nombre_apellido = nombre_apellido + " " + ((Modelo_Trabajadores) lista_trabajadores.get(lista_trabajadores.findTrabajador(lista_trabajadores, this.model_user.getDni()))).getApellido();
@@ -83,6 +103,7 @@ public class Controlador_admin implements ActionListener {
         this.panelVentas = null;
         this.panelRegistros = null;
         this.panelInventario = null;
+        this.panelAjustes = null;
     }
 
     private void cerrarSesion() {
@@ -103,19 +124,26 @@ public class Controlador_admin implements ActionListener {
             limpiarSpContent();
             panelVentas = new Panel_Ventas();
             ventanaAdmin.administrarPanel(ventanaAdmin.spContent, panelVentas);
-        } else if (e.getSource() == ventanaAdmin.menuAdmin.btnRegistros) {
+        }  if (e.getSource() == ventanaAdmin.menuAdmin.btnRegistros) {
             limpiarSpContent();
             panelRegistros = new Panel_Registros();
             controladorRegistros = new Controlador_Registros(this, this.ventanaAdmin);
             ventanaAdmin.administrarPanel(ventanaAdmin.spContent, panelRegistros);
-        } else if (e.getSource() == ventanaAdmin.menuAdmin.btnAlmacen) {
+        } if (e.getSource() == ventanaAdmin.menuAdmin.btnAlmacen) {
             limpiarSpContent();
             panelInventario = new Panel_Inventario();
             ventanaAdmin.administrarPanel(ventanaAdmin.spContent, panelInventario);
 
-        } else if (e.getSource() == ventanaAdmin.menuAdmin.btnCerrarSesion) {
+        }if (e.getSource() == ventanaAdmin.menuAdmin.btnCerrarSesion) {
             cerrarSesion();
         }
+        if(e.getSource() == ventanaAdmin.menuAdmin.btnAjustes){
+            limpiarSpContent();
+            panelAjustes = new Panel_Ajustes();
+            controladorAjustes = new Controlador_Ajustes(this,this.ventanaAdmin);
+            ventanaAdmin.administrarPanel(ventanaAdmin.spContent, panelAjustes);
+        }
+        
 
     }
 

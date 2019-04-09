@@ -13,6 +13,7 @@ public class Linked_List<T> extends LinkedList {
         System.out.println("No se encontro el dni");
         return 0;
     }
+    
     public ResultadoDNITrabajador findDNI(Linked_List<Modelo_Trabajadores> list, String dni) {
         ResultadoDNITrabajador resultado = new ResultadoDNITrabajador();
         for (int i = 0; i < list.size(); i++) {
@@ -56,6 +57,7 @@ public class Linked_List<T> extends LinkedList {
             return resultado;
         }
     }
+    
     public class ResultadoDNITrabajador{
         int i;
         boolean resultado;

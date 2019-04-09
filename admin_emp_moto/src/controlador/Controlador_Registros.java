@@ -25,7 +25,7 @@ public class Controlador_Registros implements ActionListener {
     private Panel_Registros panelRegistros;
     private Panel_Registros_Trabajadores panelRegistrosTrabajadores;
     private Consultas_Trabajadores consultasTrabajadores;
-
+    
     public Controlador_Registros(Controlador_admin controladorAdmin, Ventana_Admin ventanaAdmin) {
         this.controladorAdmin = controladorAdmin;
         this.ventanaAdmin = ventanaAdmin;
