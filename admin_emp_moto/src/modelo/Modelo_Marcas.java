@@ -10,8 +10,17 @@ package modelo;
  * @author Dgafecb
  */
 public class Modelo_Marcas {
-    String marca;
+    private int id;
+    private String marca;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getMarca() {
         return marca;
     }

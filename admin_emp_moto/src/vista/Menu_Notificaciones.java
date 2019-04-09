@@ -6,22 +6,24 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
 
     Ventana_Admin ventanaAdmin = null;
     Ventana_Trabajador ventanaTrabajador = null;
-    
+
     public Menu_Notificaciones() {
         initComponents();
     }
-    
+
     public Menu_Notificaciones(Ventana_Admin ventanaAdmin) {
         this.ventanaAdmin = ventanaAdmin;
         initComponents();
     }
-    public Menu_Notificaciones(Ventana_Trabajador ventanaTrabajador){
+
+    public Menu_Notificaciones(Ventana_Trabajador ventanaTrabajador) {
         this.ventanaTrabajador = ventanaTrabajador;
         initComponents();
     }
-    private void mostrarMenuAdmin(boolean mostrar){
+
+    private void mostrarMenuAdmin(boolean mostrar) {
         Dimension dimension = new Dimension();
-        if(mostrar!=true){
+        if (mostrar != true) {
             ventanaAdmin.menuAdmin.btnAjustes.setText("");
             ventanaAdmin.menuAdmin.btnAlmacen.setText("");
             ventanaAdmin.menuAdmin.btnAyuda.setText("");
@@ -34,7 +36,7 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
             ventanaAdmin.menuAdmin.setPreferredSize(dimension.getSize());
             ventanaAdmin.menuAdmin.updateUI();
             ventanaAdmin.menuAdmin.repaint();
-        }else{
+        } else {
             ventanaAdmin.menuAdmin.btnAjustes.setText("AJUSTES");
             ventanaAdmin.menuAdmin.btnAlmacen.setText("ALMACEN");
             ventanaAdmin.menuAdmin.btnAyuda.setText("AYUDA");
@@ -49,29 +51,30 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
             ventanaAdmin.menuAdmin.repaint();
         }
     }
-    private void mostrarMenuTrabajador(boolean mostrar){
+
+    private void mostrarMenuTrabajador(boolean mostrar) {
         Dimension dimension = new Dimension();
-        if(mostrar!=true){
-            ventanaTrabajador.menuTrabajador.btnAjustes.setText("");
+        if (mostrar != true) {
+
             ventanaTrabajador.menuTrabajador.btnAlmacen.setText("");
-            ventanaTrabajador.menuTrabajador.btnAyuda.setText("");
+
             ventanaTrabajador.menuTrabajador.btnCerrarSesion.setText("");
-            
-            ventanaTrabajador.menuTrabajador.btnEstadisticas.setText("");
-            ventanaTrabajador.menuTrabajador.btnRegistros.setText("");
+
+            ventanaTrabajador.menuTrabajador.btnInicio.setText("");
+
             ventanaTrabajador.menuTrabajador.btnVentas.setText("");
             dimension.setSize(40, 40);
             ventanaTrabajador.menuTrabajador.setPreferredSize(dimension.getSize());
             ventanaTrabajador.menuTrabajador.updateUI();
             ventanaTrabajador.menuTrabajador.repaint();
-        }else{
-            ventanaTrabajador.menuTrabajador.btnAjustes.setText("AJUSTES");
+        } else {
+
             ventanaTrabajador.menuTrabajador.btnAlmacen.setText("ALMACEN");
-            ventanaTrabajador.menuTrabajador.btnAyuda.setText("AYUDA");
+
             ventanaTrabajador.menuTrabajador.btnCerrarSesion.setText("CERRAR SESION");
-            
-            ventanaTrabajador.menuTrabajador.btnEstadisticas.setText("ESTADISTICAS");
-            ventanaTrabajador.menuTrabajador.btnRegistros.setText("REGISTROS");
+
+            ventanaTrabajador.menuTrabajador.btnInicio.setText("INICIO");
+
             ventanaTrabajador.menuTrabajador.btnVentas.setText("VENTAS");
             dimension.setSize(200, 40);
             ventanaTrabajador.menuTrabajador.setPreferredSize(dimension.getSize());
@@ -79,7 +82,6 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
             ventanaTrabajador.menuTrabajador.repaint();
         }
     }
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -114,25 +116,25 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-       if(ventanaAdmin != null){
-          if("AJUSTES".equals(ventanaAdmin.menuAdmin.btnAjustes.getText())){
-               mostrarMenuAdmin(false);
-          }else{
-               mostrarMenuAdmin(true);
-          }
+        if (ventanaAdmin != null) {
+            if ("AJUSTES".equals(ventanaAdmin.menuAdmin.btnAjustes.getText())) {
+                mostrarMenuAdmin(false);
+            } else {
+                mostrarMenuAdmin(true);
+            }
         }
-       if(ventanaTrabajador!=null){
-           if("AJUSTES".equals(ventanaTrabajador.menuTrabajador.btnAjustes.getText())){
-               mostrarMenuTrabajador(false);
-          }else{
-               mostrarMenuTrabajador(true);
-          }
-       }
+        if (ventanaTrabajador != null) {
+            if ("INICIO".equals(ventanaTrabajador.menuTrabajador.btnInicio.getText())) {
+                mostrarMenuTrabajador(false);
+            } else {
+                mostrarMenuTrabajador(true);
+            }
+        }
     }//GEN-LAST:event_btnMenuActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnMenu;
-    private vista.Perfil_Usuario perfil_Usuario1;
+    public vista.Perfil_Usuario perfil_Usuario1;
     // End of variables declaration//GEN-END:variables
 }

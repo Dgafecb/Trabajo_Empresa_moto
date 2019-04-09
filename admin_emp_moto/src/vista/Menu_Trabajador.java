@@ -16,12 +16,9 @@ public class Menu_Trabajador extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        btnEstadisticas = new modelo.CustomButton();
+        btnInicio = new modelo.CustomButton();
         btnAlmacen = new modelo.CustomButton();
         btnVentas = new modelo.CustomButton();
-        btnRegistros = new modelo.CustomButton();
-        btnAjustes = new modelo.CustomButton();
-        btnAyuda = new modelo.CustomButton();
         btnCerrarSesion = new modelo.CustomButton();
         jSeparator1 = new javax.swing.JSeparator();
 
@@ -30,23 +27,23 @@ public class Menu_Trabajador extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(200, 320));
         setLayout(new java.awt.GridBagLayout());
 
-        btnEstadisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(40x40px)btnEstadisticas.png"))); // NOI18N
-        btnEstadisticas.setText("ESTADISTICAS");
-        btnEstadisticas.setColorHover(new java.awt.Color(90, 90, 90));
-        btnEstadisticas.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnEstadisticas.setColorPressed(new java.awt.Color(70, 70, 70));
-        btnEstadisticas.setFocusPainted(false);
-        btnEstadisticas.setFocusable(false);
-        btnEstadisticas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnEstadisticas.setMaximumSize(new java.awt.Dimension(200, 40));
-        btnEstadisticas.setMinimumSize(new java.awt.Dimension(40, 40));
-        btnEstadisticas.setPreferredSize(new java.awt.Dimension(200, 40));
+        btnInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(40x40px)btnEstadisticas.png"))); // NOI18N
+        btnInicio.setText("INICIO");
+        btnInicio.setColorHover(new java.awt.Color(90, 90, 90));
+        btnInicio.setColorNormal(new java.awt.Color(60, 60, 60));
+        btnInicio.setColorPressed(new java.awt.Color(70, 70, 70));
+        btnInicio.setFocusPainted(false);
+        btnInicio.setFocusable(false);
+        btnInicio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnInicio.setMaximumSize(new java.awt.Dimension(200, 40));
+        btnInicio.setMinimumSize(new java.awt.Dimension(40, 40));
+        btnInicio.setPreferredSize(new java.awt.Dimension(200, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        add(btnEstadisticas, gridBagConstraints);
+        add(btnInicio, gridBagConstraints);
 
         btnAlmacen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(40x40px)btnAlmacen.png"))); // NOI18N
         btnAlmacen.setText("ALMACEN");
@@ -84,59 +81,6 @@ public class Menu_Trabajador extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         add(btnVentas, gridBagConstraints);
 
-        btnRegistros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(40x40px)btnRegistros.png"))); // NOI18N
-        btnRegistros.setText("REGISTROS");
-        btnRegistros.setColorHover(new java.awt.Color(90, 90, 90));
-        btnRegistros.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnRegistros.setColorPressed(new java.awt.Color(70, 70, 70));
-        btnRegistros.setFocusPainted(false);
-        btnRegistros.setFocusable(false);
-        btnRegistros.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnRegistros.setMaximumSize(new java.awt.Dimension(200, 40));
-        btnRegistros.setMinimumSize(new java.awt.Dimension(40, 40));
-        btnRegistros.setPreferredSize(new java.awt.Dimension(200, 40));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        add(btnRegistros, gridBagConstraints);
-
-        btnAjustes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(40x40px)btnAjustes.png"))); // NOI18N
-        btnAjustes.setText("AJUSTES");
-        btnAjustes.setColorHover(new java.awt.Color(90, 90, 90));
-        btnAjustes.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnAjustes.setColorPressed(new java.awt.Color(70, 70, 70));
-        btnAjustes.setFocusPainted(false);
-        btnAjustes.setFocusable(false);
-        btnAjustes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnAjustes.setMaximumSize(new java.awt.Dimension(200, 40));
-        btnAjustes.setMinimumSize(new java.awt.Dimension(40, 40));
-        btnAjustes.setPreferredSize(new java.awt.Dimension(200, 40));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        add(btnAjustes, gridBagConstraints);
-
-        btnAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(40x40px)btnAyuda.png"))); // NOI18N
-        btnAyuda.setText("AYUDA");
-        btnAyuda.setColorHover(new java.awt.Color(90, 90, 90));
-        btnAyuda.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnAyuda.setColorPressed(new java.awt.Color(70, 70, 70));
-        btnAyuda.setFocusPainted(false);
-        btnAyuda.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnAyuda.setMaximumSize(new java.awt.Dimension(200, 40));
-        btnAyuda.setMinimumSize(new java.awt.Dimension(40, 40));
-        btnAyuda.setPreferredSize(new java.awt.Dimension(200, 40));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        add(btnAyuda, gridBagConstraints);
-
         btnCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(40x40px)btnCerrarSesion.png"))); // NOI18N
         btnCerrarSesion.setText("CERRAR SESION");
         btnCerrarSesion.setColorHover(new java.awt.Color(90, 90, 90));
@@ -167,12 +111,9 @@ public class Menu_Trabajador extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public modelo.CustomButton btnAjustes;
     public modelo.CustomButton btnAlmacen;
-    public modelo.CustomButton btnAyuda;
     public modelo.CustomButton btnCerrarSesion;
-    public modelo.CustomButton btnEstadisticas;
-    public modelo.CustomButton btnRegistros;
+    public modelo.CustomButton btnInicio;
     public modelo.CustomButton btnVentas;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables

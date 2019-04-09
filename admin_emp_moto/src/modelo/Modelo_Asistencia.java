@@ -10,10 +10,10 @@ package modelo;
  * @author Dgafecb
  */
 public class Modelo_Asistencia {
-    int id;
-    String dni;
-    String fecha;
-    String hora_entrada;
+    private int id;
+    private String dni;
+    private String fecha;
+    private String hora_entrada;
 
     public int getId() {
         return id;

@@ -10,19 +10,20 @@ package modelo;
  * @author Dgafecb
  */
 public class Modelo_Inventario_Vehiculos {
-    int id;
-    String nombre_prod;
-    String tipo_vehiculo;
-    String marca;
-    String modelo;
-    String color;
-    String motor;
-    String chasis;
-    String anho_fab;
-    String anhos_garantia;
-    String cantidad;
-    float precio;
-    int limite_advertencia;
+
+    private int id;
+    private String nombre_prod;
+    private String tipo_vehiculo;
+    private String marca;
+    private String modelo;
+    private String color;
+    private String motor;
+    private String chasis;
+    private String anho_fab;
+    private String anhos_garantia;
+    private int cantidad;
+    private float precio;
+    private int limite_advertencia;
 
     public int getId() {
         return id;
@@ -104,11 +105,11 @@ public class Modelo_Inventario_Vehiculos {
         this.anhos_garantia = anhos_garantia;
     }
 
-    public String getCantidad() {
+    public int getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(String cantidad) {
+    public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
@@ -127,6 +128,5 @@ public class Modelo_Inventario_Vehiculos {
     public void setLimite_advertencia(int limite_advertencia) {
         this.limite_advertencia = limite_advertencia;
     }
-    
-    
+
 }

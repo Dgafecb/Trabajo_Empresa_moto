@@ -93,14 +93,9 @@ public class Controlador_login implements ActionListener, KeyListener {
             view_admin = new Ventana_Admin();
             controlador_admin = new Controlador_admin(view_admin, model);
             view_admin.setVisible(true);
-        } else if (privilege == 1) {
-            message("Bienvenido Recepcionista");
-            view.setVisible(false);
-            view.dispose();
-            view_trabajador = new Ventana_Trabajador();
-            ctrl_trabajador = new Controlador_trabajador(view_trabajador, model);
-            view_trabajador.setVisible(true);
-        } else if (privilege == 0) {
+        } else if (privilege == 1 || privilege == 0) {
+            Consultas_Trabajadores consultas_trabajadores = new Consultas_Trabajadores();
+            lista_trabajadores = consultas_trabajadores.readAll();
             message("Bienvenido Trabajador");
             view.setVisible(false);
             view.dispose();

@@ -47,7 +47,7 @@ public class Controlador_Registros implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent ae) {
-        
+
         if (ae.getSource() == panelRegistros.subBtnTrabajadores) {
             limpiarSpContenido();
             panelRegistrosTrabajadores = new Panel_Registros_Trabajadores();
@@ -150,25 +150,30 @@ public class Controlador_Registros implements ActionListener {
 
             String temp_dni = this.panelRegistrosTrabajadores.txfBuscar.getText();
             Modelo_Trabajadores temp_model;
+            Linked_List.ResultadoDNITrabajador temp_resultado = lista_trabajadores.findDNI(lista_trabajadores, temp_dni);
+            if (temp_resultado.isResultado()) {
+                temp_model = (Modelo_Trabajadores) lista_trabajadores.get(temp_resultado.getI());
 
-            temp_model = (Modelo_Trabajadores) lista_trabajadores.get(lista_trabajadores.findTrabajador(lista_trabajadores, temp_dni));
+                DefaultTableModel model = new DefaultTableModel(new String[]{"Nombres y Apellidos", "dni", "Privilegio", "Sueldo"}, 0);
+                String nombre = temp_model.getNombre();
+                String apellido = temp_model.getApellido();
+                String nombreyApellido = nombre + " " + apellido;
+                String dni = temp_model.getDni();
+                int privilege = temp_model.getPrivilege();
+                String privilegio;
+                if (privilege == 0) {
+                    privilegio = "Trabajador";
+                } else {
+                    privilegio = "Administrador";
+                }
 
-            DefaultTableModel model = new DefaultTableModel(new String[]{"Nombres y Apellidos", "dni", "Privilegio", "Sueldo"}, 0);
-            String nombre = temp_model.getNombre();
-            String apellido = temp_model.getApellido();
-            String nombreyApellido = nombre + " " + apellido;
-            String dni = temp_model.getDni();
-            int privilege = temp_model.getPrivilege();
-            String privilegio;
-            if (privilege == 0) {
-                privilegio = "Trabajador";
+                Float sueldo = temp_model.getSueldo();
+                model.addRow(new Object[]{nombreyApellido, dni, privilegio, sueldo});
+                this.panelRegistrosTrabajadores.jTable2.setModel(model);
             } else {
-                privilegio = "Administrador";
+                Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se encontro el DNI");
+                mensaje.setVisible(true);
             }
-
-            Float sueldo = temp_model.getSueldo();
-            model.addRow(new Object[]{nombreyApellido, dni, privilegio, sueldo});
-            this.panelRegistrosTrabajadores.jTable2.setModel(model);
         }
         if (ae.getSource() == this.panelRegistrosTrabajadores.btnAsistenciaAgregar) {// boton agregar del panel Registro asistencia
             Consultas_Asistencia consultasAsistencia = new Consultas_Asistencia();
