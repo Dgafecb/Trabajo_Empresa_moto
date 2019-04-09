@@ -8,6 +8,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 
 
 public class Consultas_Inventario_Vehiculos extends ConexionSQL {
+    
 
     
 }

@@ -93,7 +93,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txfBuscar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Inserte el DNI a buscar:"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[200, 20]"/>
                 </Property>
@@ -104,9 +103,6 @@
                   <Dimension value="[200, 20]"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txfBuscarFocusGained"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
@@ -773,11 +769,7 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
           <SubComponents>
             <Component class="javax.swing.JTextField" name="jTextField4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Inserte el DNI a buscar:"/>
-              </Properties>
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextField4FocusGained"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField4ActionPerformed"/>
               </Events>
               <AuxValues>
@@ -1070,7 +1062,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txfDatosFecha">
               <Properties>
-                <Property name="text" type="java.lang.String" value="dd/MM/aaaa"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[250, 20]"/>
                 </Property>
@@ -1081,9 +1072,6 @@
                   <Dimension value="[250, 20]"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txfDatosFechaFocusGained"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="DateFormat df = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);&#xa;txfDatosFecha = new javax.swing.JFormattedTextField(df);"/>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -1096,7 +1084,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txfDatosHora">
               <Properties>
-                <Property name="text" type="java.lang.String" value="HH:mm:ss"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[250, 20]"/>
                 </Property>
@@ -1108,7 +1095,6 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txfDatosHoraFocusGained"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txfDatosHoraActionPerformed"/>
               </Events>
               <AuxValues>
