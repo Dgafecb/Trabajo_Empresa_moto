@@ -56,12 +56,9 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         txfSueldo = new javax.swing.JTextField();
         cbPrivilegio = new javax.swing.JComboBox<>();
         pCRUD = new javax.swing.JPanel();
-        btnTrabajadorAgregar = new javax.swing.JButton();
-        btnTrabajadorModificar = new javax.swing.JButton();
-        btnTrabajadorBorrar = new javax.swing.JButton();
-        customButtonShaped1 = new modelo.CustomButtonShaped();
-        customButtonShaped3 = new modelo.CustomButtonShaped();
-        customButtonShaped2 = new modelo.CustomButtonShaped();
+        btnTrabajadorAgregar = new modelo.CustomButtonShaped();
+        btnTrabajadorModificar = new modelo.CustomButtonShaped();
+        btnTrabajadorBorrar = new modelo.CustomButtonShaped();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
@@ -150,6 +147,7 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
             }
         ));
         jTable2.setFocusable(false);
+        jTable2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         spTabla.setViewportView(jTable2);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -346,23 +344,20 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         pCRUD.setBackground(new java.awt.Color(250, 250, 250));
         pCRUD.setLayout(new java.awt.GridBagLayout());
 
-        btnTrabajadorAgregar.setText("jButton1");
-        pCRUD.add(btnTrabajadorAgregar, new java.awt.GridBagConstraints());
+        btnTrabajadorAgregar.setText("AGREGAR");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pCRUD.add(btnTrabajadorAgregar, gridBagConstraints);
 
-        btnTrabajadorModificar.setText("jButton2");
-        pCRUD.add(btnTrabajadorModificar, new java.awt.GridBagConstraints());
+        btnTrabajadorModificar.setText("MODIFICAR");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pCRUD.add(btnTrabajadorModificar, gridBagConstraints);
 
-        btnTrabajadorBorrar.setText("jButton1");
-        pCRUD.add(btnTrabajadorBorrar, new java.awt.GridBagConstraints());
-
-        customButtonShaped1.setText("customButtonShaped1");
-        pCRUD.add(customButtonShaped1, new java.awt.GridBagConstraints());
-
-        customButtonShaped3.setText("customButtonShaped3");
-        pCRUD.add(customButtonShaped3, new java.awt.GridBagConstraints());
-
-        customButtonShaped2.setText("customButtonShaped2");
-        pCRUD.add(customButtonShaped2, new java.awt.GridBagConstraints());
+        btnTrabajadorBorrar.setText("BORRAR");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pCRUD.add(btnTrabajadorBorrar, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -682,14 +677,11 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
     public javax.swing.JButton btnAsistenciaBuscar;
     public javax.swing.JButton btnAsistenciaEliminar;
     public javax.swing.JButton btnAsistenciaModificar;
-    public javax.swing.JButton btnTrabajadorAgregar;
-    public javax.swing.JButton btnTrabajadorBorrar;
-    public javax.swing.JButton btnTrabajadorModificar;
+    public modelo.CustomButtonShaped btnTrabajadorAgregar;
+    public modelo.CustomButtonShaped btnTrabajadorBorrar;
+    public modelo.CustomButtonShaped btnTrabajadorModificar;
     public javax.swing.JButton btnTrabajadoresBuscar;
     public javax.swing.JComboBox<String> cbPrivilegio;
-    private modelo.CustomButtonShaped customButtonShaped1;
-    private modelo.CustomButtonShaped customButtonShaped2;
-    private modelo.CustomButtonShaped customButtonShaped3;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
