@@ -26,11 +26,12 @@ public class Panel_Inventario extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         pMenuInventario = new javax.swing.JPanel();
-        txfBuscar = new javax.swing.JTextField();
         btnAgregar = new modelo.CustomButtonShaped();
         bntEliminar = new modelo.CustomButtonShaped();
         btnMarca = new modelo.CustomButtonShaped();
         btnBuscar = new modelo.CustomButtonShaped();
+        pBuscar = new javax.swing.JPanel();
+        txfBuscar = new modelo.CustomTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -39,22 +40,6 @@ public class Panel_Inventario extends javax.swing.JPanel {
 
         pMenuInventario.setBackground(new java.awt.Color(250, 250, 250));
         pMenuInventario.setLayout(new java.awt.GridBagLayout());
-
-        txfBuscar.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        txfBuscar.setForeground(new java.awt.Color(90, 90, 90));
-        txfBuscar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txfBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
-        txfBuscar.setCaretColor(new java.awt.Color(60, 60, 60));
-        txfBuscar.setMaximumSize(new java.awt.Dimension(500, 39));
-        txfBuscar.setMinimumSize(new java.awt.Dimension(500, 39));
-        txfBuscar.setPreferredSize(new java.awt.Dimension(500, 39));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
-        pMenuInventario.add(txfBuscar, gridBagConstraints);
 
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(35x35)btnAgregar.png"))); // NOI18N
         btnAgregar.setText("AGREGAR");
@@ -75,6 +60,8 @@ public class Panel_Inventario extends javax.swing.JPanel {
         bntEliminar.setMinimumSize(new java.awt.Dimension(120, 40));
         bntEliminar.setPreferredSize(new java.awt.Dimension(120, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pMenuInventario.add(bntEliminar, gridBagConstraints);
 
@@ -85,6 +72,8 @@ public class Panel_Inventario extends javax.swing.JPanel {
         btnMarca.setMinimumSize(new java.awt.Dimension(105, 40));
         btnMarca.setPreferredSize(new java.awt.Dimension(105, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pMenuInventario.add(btnMarca, gridBagConstraints);
 
@@ -96,9 +85,32 @@ public class Panel_Inventario extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 5);
         pMenuInventario.add(btnBuscar, gridBagConstraints);
+
+        pBuscar.setBackground(new java.awt.Color(255, 255, 255));
+        pBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pBuscar.setLayout(new java.awt.GridBagLayout());
+
+        txfBuscar.setBorder(null);
+        txfBuscar.setForeground(new java.awt.Color(60, 60, 60));
+        txfBuscar.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        txfBuscar.setMaximumSize(new java.awt.Dimension(500, 39));
+        txfBuscar.setMinimumSize(new java.awt.Dimension(500, 39));
+        txfBuscar.setPhColor(new java.awt.Color(150, 150, 150));
+        txfBuscar.setPlaceholder(Cadenas.INVENTARIO_BUSCAR);
+        txfBuscar.setPreferredSize(new java.awt.Dimension(500, 39));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        pBuscar.add(txfBuscar, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
+        pMenuInventario.add(pBuscar, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -136,7 +148,8 @@ public class Panel_Inventario extends javax.swing.JPanel {
     public modelo.CustomButtonShaped btnMarca;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jTable1;
+    private javax.swing.JPanel pBuscar;
     public javax.swing.JPanel pMenuInventario;
-    public javax.swing.JTextField txfBuscar;
+    public modelo.CustomTextField txfBuscar;
     // End of variables declaration//GEN-END:variables
 }
