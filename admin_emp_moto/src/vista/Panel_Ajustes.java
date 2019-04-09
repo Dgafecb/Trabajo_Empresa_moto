@@ -441,9 +441,7 @@ public class Panel_Ajustes extends javax.swing.JPanel {
         pGuardar.setLayout(new java.awt.GridBagLayout());
 
         btnGuardar.setText("GUARDAR");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pGuardar.add(btnGuardar, gridBagConstraints);
+        pGuardar.add(btnGuardar, new java.awt.GridBagConstraints());
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
