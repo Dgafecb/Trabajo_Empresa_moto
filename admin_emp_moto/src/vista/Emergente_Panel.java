@@ -107,7 +107,31 @@ public class Emergente_Panel extends javax.swing.JDialog {
                 String temp = null;
                 temp = ( pInventarioAgregar.txfID != null) ? pInventarioAgregar.txfID.getText() : null;
                 inventario.add(temp);
-                
+                temp = ( pInventarioAgregar.cbxVehiculo.getSelectedItem().equals("Vehiculo")) ? "Vehiculo" : "Repuestos";
+                inventario.add(temp);
+                temp = ( pInventarioAgregar.txfDescripicion != null) ? pInventarioAgregar.txfDescripicion.getText() : null;
+                inventario.add(temp);
+                temp = ( pInventarioAgregar.txfMarca != null) ? pInventarioAgregar.txfMarca.getText() : null;
+                inventario.add(temp);
+                temp = ( pInventarioAgregar.txfModelo != null) ? pInventarioAgregar.txfModelo.getText() : null;
+                inventario.add(temp);
+                temp = ( pInventarioAgregar.txfColor != null) ? pInventarioAgregar.txfColor.getText() : null;
+                inventario.add(temp);
+                temp = ( pInventarioAgregar.txfMotor != null) ? pInventarioAgregar.txfMotor.getText() : null;
+                inventario.add(temp);
+                temp = ( pInventarioAgregar.txfChasis != null) ? pInventarioAgregar.txfChasis.getText() : null;
+                inventario.add(temp);
+                temp = ( pInventarioAgregar.txfFab != null) ? pInventarioAgregar.txfFab.getText() : null;
+                inventario.add(temp);
+                temp = ( pInventarioAgregar.txfGarantia != null) ? pInventarioAgregar.txfGarantia.getText() : null;
+                inventario.add(temp);
+                temp = ( pInventarioAgregar.txfPrecio != null) ? pInventarioAgregar.txfPrecio.getText() : null;
+                inventario.add(temp);
+                temp = ( pInventarioAgregar.txfCantidad != null) ? pInventarioAgregar.txfCantidad.getText() : null;
+                inventario.add(temp);
+                temp = ( pInventarioAgregar.txfAdvertencia != null) ? pInventarioAgregar.txfAdvertencia.getText() : null;
+                inventario.add(temp);
+                dispose();
             }
         });
         
@@ -115,6 +139,7 @@ public class Emergente_Panel extends javax.swing.JDialog {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 inventario = null;
+                dispose();
             }
         });
     }

@@ -5,6 +5,8 @@
  */
 package vista;
 
+import java.awt.event.ItemEvent;
+
 /**
  *
  * @author FuryMercury
@@ -41,17 +43,17 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         txfID = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txfMarca = new javax.swing.JTextField();
+        txfModelo = new javax.swing.JTextField();
+        txfColor = new javax.swing.JTextField();
+        txfMotor = new javax.swing.JTextField();
+        txfChasis = new javax.swing.JTextField();
+        txfFab = new javax.swing.JTextField();
+        txfGarantia = new javax.swing.JTextField();
+        txfPrecio = new javax.swing.JTextField();
+        txfCantidad = new javax.swing.JTextField();
+        txfAdvertencia = new javax.swing.JTextField();
+        cbxVehiculo = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
@@ -233,141 +235,143 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(txfID, gridBagConstraints);
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField2.setToolTipText("");
-        jTextField2.setMaximumSize(new java.awt.Dimension(250, 20));
-        jTextField2.setMinimumSize(new java.awt.Dimension(250, 20));
-        jTextField2.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfMarca.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfMarca.setToolTipText("");
+        txfMarca.setMaximumSize(new java.awt.Dimension(250, 20));
+        txfMarca.setMinimumSize(new java.awt.Dimension(250, 20));
+        txfMarca.setPreferredSize(new java.awt.Dimension(250, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(jTextField2, gridBagConstraints);
+        add(txfMarca, gridBagConstraints);
 
-        jTextField4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField4.setToolTipText("");
-        jTextField4.setEnabled(false);
-        jTextField4.setMaximumSize(new java.awt.Dimension(250, 20));
-        jTextField4.setMinimumSize(new java.awt.Dimension(250, 20));
-        jTextField4.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfModelo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfModelo.setToolTipText("");
+        txfModelo.setMaximumSize(new java.awt.Dimension(250, 20));
+        txfModelo.setMinimumSize(new java.awt.Dimension(250, 20));
+        txfModelo.setPreferredSize(new java.awt.Dimension(250, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(jTextField4, gridBagConstraints);
+        add(txfModelo, gridBagConstraints);
 
-        jTextField5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField5.setToolTipText("");
-        jTextField5.setEnabled(false);
-        jTextField5.setMaximumSize(new java.awt.Dimension(250, 20));
-        jTextField5.setMinimumSize(new java.awt.Dimension(250, 20));
-        jTextField5.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfColor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfColor.setToolTipText("");
+        txfColor.setMaximumSize(new java.awt.Dimension(250, 20));
+        txfColor.setMinimumSize(new java.awt.Dimension(250, 20));
+        txfColor.setPreferredSize(new java.awt.Dimension(250, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(jTextField5, gridBagConstraints);
+        add(txfColor, gridBagConstraints);
 
-        jTextField6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField6.setToolTipText("");
-        jTextField6.setEnabled(false);
-        jTextField6.setMaximumSize(new java.awt.Dimension(250, 20));
-        jTextField6.setMinimumSize(new java.awt.Dimension(250, 20));
-        jTextField6.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfMotor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfMotor.setToolTipText("");
+        txfMotor.setMaximumSize(new java.awt.Dimension(250, 20));
+        txfMotor.setMinimumSize(new java.awt.Dimension(250, 20));
+        txfMotor.setPreferredSize(new java.awt.Dimension(250, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(jTextField6, gridBagConstraints);
+        add(txfMotor, gridBagConstraints);
 
-        jTextField7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField7.setToolTipText("");
-        jTextField7.setEnabled(false);
-        jTextField7.setMaximumSize(new java.awt.Dimension(250, 20));
-        jTextField7.setMinimumSize(new java.awt.Dimension(250, 20));
-        jTextField7.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfChasis.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfChasis.setToolTipText("");
+        txfChasis.setMaximumSize(new java.awt.Dimension(250, 20));
+        txfChasis.setMinimumSize(new java.awt.Dimension(250, 20));
+        txfChasis.setPreferredSize(new java.awt.Dimension(250, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(jTextField7, gridBagConstraints);
+        add(txfChasis, gridBagConstraints);
 
-        jTextField8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField8.setToolTipText("");
-        jTextField8.setMaximumSize(new java.awt.Dimension(250, 20));
-        jTextField8.setMinimumSize(new java.awt.Dimension(250, 20));
-        jTextField8.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfFab.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfFab.setToolTipText("");
+        txfFab.setMaximumSize(new java.awt.Dimension(250, 20));
+        txfFab.setMinimumSize(new java.awt.Dimension(250, 20));
+        txfFab.setPreferredSize(new java.awt.Dimension(250, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(jTextField8, gridBagConstraints);
+        add(txfFab, gridBagConstraints);
 
-        jTextField9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField9.setToolTipText("");
-        jTextField9.setMaximumSize(new java.awt.Dimension(250, 20));
-        jTextField9.setMinimumSize(new java.awt.Dimension(250, 20));
-        jTextField9.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfGarantia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfGarantia.setToolTipText("");
+        txfGarantia.setMaximumSize(new java.awt.Dimension(250, 20));
+        txfGarantia.setMinimumSize(new java.awt.Dimension(250, 20));
+        txfGarantia.setPreferredSize(new java.awt.Dimension(250, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(jTextField9, gridBagConstraints);
+        add(txfGarantia, gridBagConstraints);
 
-        jTextField10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField10.setToolTipText("");
-        jTextField10.setMaximumSize(new java.awt.Dimension(250, 20));
-        jTextField10.setMinimumSize(new java.awt.Dimension(250, 20));
-        jTextField10.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfPrecio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfPrecio.setToolTipText("");
+        txfPrecio.setMaximumSize(new java.awt.Dimension(250, 20));
+        txfPrecio.setMinimumSize(new java.awt.Dimension(250, 20));
+        txfPrecio.setPreferredSize(new java.awt.Dimension(250, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 16;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(jTextField10, gridBagConstraints);
+        add(txfPrecio, gridBagConstraints);
 
-        jTextField11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField11.setToolTipText("");
-        jTextField11.setMaximumSize(new java.awt.Dimension(250, 20));
-        jTextField11.setMinimumSize(new java.awt.Dimension(250, 20));
-        jTextField11.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfCantidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfCantidad.setToolTipText("");
+        txfCantidad.setMaximumSize(new java.awt.Dimension(250, 20));
+        txfCantidad.setMinimumSize(new java.awt.Dimension(250, 20));
+        txfCantidad.setPreferredSize(new java.awt.Dimension(250, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 18;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(jTextField11, gridBagConstraints);
+        add(txfCantidad, gridBagConstraints);
 
-        jTextField12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField12.setToolTipText("");
-        jTextField12.setMaximumSize(new java.awt.Dimension(250, 20));
-        jTextField12.setMinimumSize(new java.awt.Dimension(250, 20));
-        jTextField12.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfAdvertencia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfAdvertencia.setToolTipText("");
+        txfAdvertencia.setMaximumSize(new java.awt.Dimension(250, 20));
+        txfAdvertencia.setMinimumSize(new java.awt.Dimension(250, 20));
+        txfAdvertencia.setPreferredSize(new java.awt.Dimension(250, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 19;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(jTextField12, gridBagConstraints);
+        add(txfAdvertencia, gridBagConstraints);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vehiculo", "Repuesto" }));
-        jComboBox1.setMaximumSize(new java.awt.Dimension(250, 20));
-        jComboBox1.setMinimumSize(new java.awt.Dimension(250, 20));
-        jComboBox1.setPreferredSize(new java.awt.Dimension(250, 20));
+        cbxVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vehiculo", "Repuestos" }));
+        cbxVehiculo.setFocusable(false);
+        cbxVehiculo.setMaximumSize(new java.awt.Dimension(250, 20));
+        cbxVehiculo.setMinimumSize(new java.awt.Dimension(250, 20));
+        cbxVehiculo.setPreferredSize(new java.awt.Dimension(250, 20));
+        cbxVehiculo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxVehiculoItemStateChanged(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(jComboBox1, gridBagConstraints);
+        add(cbxVehiculo, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -441,10 +445,28 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         add(txfDescripicion, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cbxVehiculoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxVehiculoItemStateChanged
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+          Object item = evt.getItem();
+          System.out.print(item.toString());
+          if(item.toString().equals("Repuestos")){
+            this.txfModelo.setEnabled(false);
+            this.txfColor.setEnabled(false);
+            this.txfMotor.setEnabled(false);
+            this.txfChasis.setEnabled(false);
+          }else{
+           this.txfModelo.setEnabled(true);
+            this.txfColor.setEnabled(true);
+            this.txfMotor.setEnabled(true);
+            this.txfChasis.setEnabled(true);
+          }
+       }
+    }//GEN-LAST:event_cbxVehiculoItemStateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel Motor;
-    public javax.swing.JComboBox<String> jComboBox1;
+    public javax.swing.JComboBox<String> cbxVehiculo;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel11;
@@ -464,17 +486,17 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
     public javax.swing.JSeparator jSeparator5;
     public javax.swing.JSeparator jSeparator6;
     public javax.swing.JSeparator jSeparator7;
-    public javax.swing.JTextField jTextField10;
-    public javax.swing.JTextField jTextField11;
-    public javax.swing.JTextField jTextField12;
-    public javax.swing.JTextField jTextField2;
-    public javax.swing.JTextField jTextField4;
-    public javax.swing.JTextField jTextField5;
-    public javax.swing.JTextField jTextField6;
-    public javax.swing.JTextField jTextField7;
-    public javax.swing.JTextField jTextField8;
-    public javax.swing.JTextField jTextField9;
+    public javax.swing.JTextField txfAdvertencia;
+    public javax.swing.JTextField txfCantidad;
+    public javax.swing.JTextField txfChasis;
+    public javax.swing.JTextField txfColor;
     public javax.swing.JTextField txfDescripicion;
+    public javax.swing.JTextField txfFab;
+    public javax.swing.JTextField txfGarantia;
     public javax.swing.JTextField txfID;
+    public javax.swing.JTextField txfMarca;
+    public javax.swing.JTextField txfModelo;
+    public javax.swing.JTextField txfMotor;
+    public javax.swing.JTextField txfPrecio;
     // End of variables declaration//GEN-END:variables
 }
