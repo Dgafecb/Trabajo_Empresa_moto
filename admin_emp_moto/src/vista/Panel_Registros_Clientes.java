@@ -45,8 +45,8 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         pClienteBuscar = new javax.swing.JPanel();
         txfBuscar = new javax.swing.JTextField();
         btnClienteBuscar = new javax.swing.JButton();
-        spClienteLista = new javax.swing.JScrollPane();
-        lClienteLista = new javax.swing.JList<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -332,27 +332,25 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pClientes.add(pClienteBuscar, gridBagConstraints);
 
-        spClienteLista.setMaximumSize(new java.awt.Dimension(200, 50));
-        spClienteLista.setMinimumSize(new java.awt.Dimension(200, 50));
-        spClienteLista.setPreferredSize(new java.awt.Dimension(200, 50));
-
-        lClienteLista.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        lClienteLista.setMaximumSize(new java.awt.Dimension(200, 50));
-        lClienteLista.setMinimumSize(new java.awt.Dimension(200, 50));
-        lClienteLista.setPreferredSize(new java.awt.Dimension(200, 50));
-        lClienteLista.setSelectedIndex(1);
-        spClienteLista.setViewportView(lClienteLista);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pClientes.add(spClienteLista, gridBagConstraints);
+        pClientes.add(jScrollPane1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -371,12 +369,13 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
-    public javax.swing.JList<String> lClienteLista;
+    public javax.swing.JTable jTable1;
     private javax.swing.JLabel lblCiudad;
     private javax.swing.JLabel lblDNI;
     private javax.swing.JLabel lblNombreApellido;
@@ -387,7 +386,6 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
     public javax.swing.JPanel pClientes;
     public javax.swing.JPanel pDatosCliente;
     private javax.swing.JPanel pDireccion;
-    public javax.swing.JScrollPane spClienteLista;
     public javax.swing.JTextField txfBuscar;
     public javax.swing.JTextField txfCliente1Nombre;
     public javax.swing.JTextField txfCliente2Nombre;
