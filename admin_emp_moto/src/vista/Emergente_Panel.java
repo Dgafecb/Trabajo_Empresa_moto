@@ -99,37 +99,37 @@ public class Emergente_Panel extends javax.swing.JDialog {
         
     }
     
-    private void llamarComponentes(){
+   private void llamarComponentes() {
         inventario = new LinkedList<String>();
         btnAceptar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 String temp = null;
-                temp = ( pInventarioAgregar.txfID != null) ? pInventarioAgregar.txfID.getText() : null;
+                temp = (pInventarioAgregar.txfID.getText().compareTo("") != 0) ? pInventarioAgregar.txfID.getText() : null;
                 inventario.add(temp);
-                temp = ( pInventarioAgregar.cbxVehiculo.getSelectedItem().equals("Vehiculo")) ? "Vehiculo" : "Repuestos";
+                temp = (pInventarioAgregar.cbxVehiculo.getSelectedItem().equals("Vehiculo")) ? "Vehiculo" : "Repuesto";
                 inventario.add(temp);
-                temp = ( pInventarioAgregar.txfDescripicion != null) ? pInventarioAgregar.txfDescripicion.getText() : null;
+                temp = (pInventarioAgregar.txfDescripicion.getText().compareTo("") != 0) ? pInventarioAgregar.txfDescripicion.getText() : null;
                 inventario.add(temp);
-                temp = ( pInventarioAgregar.txfMarca != null) ? pInventarioAgregar.txfMarca.getText() : null;
+                temp = (pInventarioAgregar.txfMarca.getText().compareTo("") != 0) ? pInventarioAgregar.txfMarca.getText() : null;
                 inventario.add(temp);
-                temp = ( pInventarioAgregar.txfModelo != null) ? pInventarioAgregar.txfModelo.getText() : null;
+                temp = (pInventarioAgregar.txfModelo.getText().compareTo("") != 0) ? pInventarioAgregar.txfModelo.getText() : null;
                 inventario.add(temp);
-                temp = ( pInventarioAgregar.txfColor != null) ? pInventarioAgregar.txfColor.getText() : null;
+                temp = (pInventarioAgregar.txfColor.getText().compareTo("") != 0) ? pInventarioAgregar.txfColor.getText() : null;
                 inventario.add(temp);
-                temp = ( pInventarioAgregar.txfMotor != null) ? pInventarioAgregar.txfMotor.getText() : null;
+                temp = (pInventarioAgregar.txfMotor.getText().compareTo("") != 0) ? pInventarioAgregar.txfMotor.getText() : null;
                 inventario.add(temp);
-                temp = ( pInventarioAgregar.txfChasis != null) ? pInventarioAgregar.txfChasis.getText() : null;
+                temp = (pInventarioAgregar.txfChasis.getText().compareTo("") != 0) ? pInventarioAgregar.txfChasis.getText() : null;
                 inventario.add(temp);
-                temp = ( pInventarioAgregar.txfFab != null) ? pInventarioAgregar.txfFab.getText() : null;
+                temp = (pInventarioAgregar.txfFab.getText().compareTo("") != 0) ? pInventarioAgregar.txfFab.getText() : null;
                 inventario.add(temp);
-                temp = ( pInventarioAgregar.txfGarantia != null) ? pInventarioAgregar.txfGarantia.getText() : null;
+                temp = (pInventarioAgregar.txfGarantia.getText().compareTo("") != 0) ? pInventarioAgregar.txfGarantia.getText() : null;
                 inventario.add(temp);
-                temp = ( pInventarioAgregar.txfPrecio != null) ? pInventarioAgregar.txfPrecio.getText() : null;
+                temp = (pInventarioAgregar.txfPrecio.getText().compareTo("") != 0) ? pInventarioAgregar.txfPrecio.getText() : null;
                 inventario.add(temp);
-                temp = ( pInventarioAgregar.txfCantidad != null) ? pInventarioAgregar.txfCantidad.getText() : null;
+                temp = (pInventarioAgregar.txfCantidad.getText().compareTo("") != 0) ? pInventarioAgregar.txfCantidad.getText() : null;
                 inventario.add(temp);
-                temp = ( pInventarioAgregar.txfAdvertencia != null) ? pInventarioAgregar.txfAdvertencia.getText() : null;
+                temp = (pInventarioAgregar.txfAdvertencia.getText().compareTo("") != 0) ? pInventarioAgregar.txfAdvertencia.getText() : null;
                 inventario.add(temp);
                 dispose();
             }

@@ -52,7 +52,7 @@ public class Controlador_Almacen implements ActionListener {
 
             } else {
 
-                if (((String) listaAgregar.get(1)).compareTo("Vehiculo") == 0) {
+                
                     String id = listaAgregar.get(0);
                     String categoria = listaAgregar.get(1);
                     String descripcion = listaAgregar.get(2);
@@ -91,10 +91,8 @@ public class Controlador_Almacen implements ActionListener {
 
                     }
 
-                }
-                if (((String) listaAgregar.get(1)).compareTo("Repuesto") == 0) {
-
-                }
+                
+                
             }
 
         }
