@@ -18,7 +18,7 @@ public class Consultas_Inventario_Vehiculos extends ConexionSQL {
 
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, user.getId());
+            ps.setString(1, user.getId());
             ps.setString(2, user.getNombre_prod());
             ps.setString(3, user.getTipo_vehiculo());
             ps.setString(4, user.getMarca());
@@ -56,7 +56,7 @@ public class Consultas_Inventario_Vehiculos extends ConexionSQL {
 
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, user.getId());
+            ps.setString(1, user.getId());
             rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -113,7 +113,7 @@ public class Consultas_Inventario_Vehiculos extends ConexionSQL {
             ps.setInt(10, user.getCantidad());
             ps.setFloat(11, user.getPrecio());
             ps.setInt(12, user.getLimite_advertencia());
-            ps.setInt(13, user.getId());
+            ps.setString(13, user.getId());
             ps.execute();
             ps.close();
             return true;
@@ -138,7 +138,7 @@ public class Consultas_Inventario_Vehiculos extends ConexionSQL {
 
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, user.getId());
+            ps.setString(1, user.getId());
             ps.execute();
             ps.close();
             return true;
@@ -177,7 +177,7 @@ public class Consultas_Inventario_Vehiculos extends ConexionSQL {
                 vehiculo.setChasis(rs.getString("chasis"));
                 vehiculo.setColor(rs.getString("color"));
                 vehiculo.setNombre_prod(rs.getString("nombre_prod"));
-                vehiculo.setId(rs.getInt("id"));
+                vehiculo.setId(rs.getString("id"));
                 vehiculo.setLimite_advertencia(rs.getInt("limite_advertencia"));
                 vehiculo.setMarca(rs.getString("marca"));
                 vehiculo.setModelo(rs.getString("modelo"));

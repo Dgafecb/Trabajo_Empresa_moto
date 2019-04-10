@@ -70,6 +70,8 @@ public class Controlador_Registros_Clientes implements ActionListener {
 
                 }
                 this.panelClientes.jTable1.setModel(model);
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se agregó al registro");
+                mensaje.setVisible(true);
 
             } else {
                 Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el DNI");
@@ -96,14 +98,15 @@ public class Controlador_Registros_Clientes implements ActionListener {
                 String temp_dni = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 0);
                 int index = (lista_clientes.findClientes(lista_clientes, temp_dni).getTemp()).peek();
                 temp_model.setId(((Modelo_Clientes) lista_clientes.get(index)).getId());
-                if(consultas.update(temp_model)){
+                if (consultas.update(temp_model)) {
                     lista_clientes.remove(index);
-                    lista_clientes.add(index,temp_model);
+                    lista_clientes.add(index, temp_model);
                     llenarTabla();
-                }
-                else{
-                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo actualizar el registro");
-                mensaje.setVisible(true);
+                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se actualizó el registro");
+                    mensaje.setVisible(true);
+                } else {
+                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo actualizar el registro");
+                    mensaje.setVisible(true);
                 }
 
             } else {
@@ -116,11 +119,13 @@ public class Controlador_Registros_Clientes implements ActionListener {
                 Modelo_Clientes temp_model = new Modelo_Clientes();
                 String temp_dni = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 0);
                 int index = (lista_clientes.findClientes(lista_clientes, temp_dni).getTemp()).peek();
-                temp_model.setId(((Modelo_Clientes) lista_clientes.get(index)).getId());
+                temp_model.setId((int)((Modelo_Clientes) lista_clientes.get(index)).getId());
                 Consultas_Clientes consultas = new Consultas_Clientes();
                 if (consultas.delete(temp_model)) {
                     lista_clientes.remove(index);
                     llenarTabla();
+                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se eliminó el registro");
+                    mensaje.setVisible(true);
                 } else {
                     Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo eliminar el registro");
                     mensaje.setVisible(true);

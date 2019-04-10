@@ -11,7 +11,7 @@ package modelo;
  */
 public class Modelo_Inventario_Vehiculos {
 
-    private int id;
+    private String id;
     private String nombre_prod;
     private String tipo_vehiculo;
     private String marca;
@@ -25,11 +25,11 @@ public class Modelo_Inventario_Vehiculos {
     private float precio;
     private int limite_advertencia;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
