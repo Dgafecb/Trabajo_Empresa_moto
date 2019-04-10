@@ -75,14 +75,28 @@ public class Emergente_Imprimir extends javax.swing.JDialog {
         btnImprimir.setFocusPainted(false);
         constraints.gridx = 0;
         constraints.gridy = 2;
-        constraints.gridwidth = 2;
+        constraints.gridwidth = 1;
         constraints.gridheight = 1;
-        constraints.weightx = 0.0;
+        constraints.weightx = 1.0;
         constraints.weighty = 0.0; 
         constraints.fill = GridBagConstraints.NONE;
         constraints.anchor = GridBagConstraints.CENTER;
         constraints.insets= new Insets(15,15,15,15);
         getContentPane().add (btnImprimir, constraints);
+        
+        btnCancelar = new CustomButtonShaped();
+        btnCancelar.setText("CANCELAR");
+        btnCancelar.setFocusPainted(false);
+        constraints.gridx = 1;
+        constraints.gridy = 2;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.weightx = 1.0;
+        constraints.weighty = 0.0; 
+        constraints.fill = GridBagConstraints.NONE;
+        constraints.anchor = GridBagConstraints.CENTER;
+        constraints.insets= new Insets(15,15,15,15);
+        getContentPane().add (btnCancelar, constraints);
     }
     
     
