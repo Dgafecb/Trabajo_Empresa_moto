@@ -8,7 +8,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 import modelo.Consultas_Clientes;
 import modelo.Linked_List;
-import modelo.Linked_List.ResultadoDNIClientes;
+import modelo.Linked_List.ResultadoClientes;
 import modelo.Modelo_Clientes;
 import vista.Emergente_Aviso;
 import vista.Panel_Registros_Clientes;
@@ -57,7 +57,7 @@ public class Controlador_Registros_Clientes implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == this.panelClientes.btnClienteBuscar) {// boton buscar
             String dni_leido = this.panelClientes.txfBuscar.getText();
-            ResultadoDNIClientes resultado = clientes.findClientes(clientes, dni_leido);
+            ResultadoClientes resultado = clientes.findClientes(clientes, dni_leido);
             if (resultado.isFunciona()) {
                 DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos"}, 0);
                 for (int i = 0; i < resultado.getTemp().size(); i++) {

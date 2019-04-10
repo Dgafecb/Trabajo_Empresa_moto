@@ -13,9 +13,85 @@ public class Linked_List<T> extends LinkedList {
         System.out.println("No se encontro el dni");
         return 0;
     }
-    public ResultadoDNIClientes findClientes(Linked_List<Modelo_Clientes> list, String dni) {
+    public int findInventario(Linked_List<Modelo_Inventario_Vehiculos> list, String id){
+        for (int i = 0; i < list.size(); i++) {
+            if (((Modelo_Inventario_Vehiculos) list.get(i)).getId().compareTo(id) == 0) {
+                return i;
+            }
+        }
+        return 0;
+    }
+    public InventarioTEMP findIndexId(Linked_List<Modelo_Inventario_Vehiculos> list, String id){
+        InventarioTEMP TEMP = new InventarioTEMP();
+        LinkedList<Integer> temp = new LinkedList<>();
+        
+        for (int i = 0; i < list.size(); i++) {
+            if (((Modelo_Inventario_Vehiculos) list.get(i)).getId().equalsIgnoreCase(id)==true) {
+                temp.add(i);
+            }
+        }
+        if (!temp.isEmpty()) {
+            TEMP.setTemp(temp);
+            TEMP.setFunciona(true);
+            return TEMP;
+            
+        } else {
+            System.out.println("No se encontro el id");
+            TEMP.setTemp(temp);
+            TEMP.setFunciona(false);
+            return TEMP;
+        }
+    
+       
+    }public InventarioTEMP findIndexNombre(Linked_List<Modelo_Inventario_Vehiculos> list, String nombre){
+        InventarioTEMP TEMP = new InventarioTEMP();
+        LinkedList<Integer> temp = new LinkedList<>();
+        
+        for (int i = 0; i < list.size(); i++) {
+            if (((Modelo_Inventario_Vehiculos) list.get(i)).getNombre_prod().equalsIgnoreCase(nombre)==true) {
+                temp.add(i);
+            }
+        }
+        if (!temp.isEmpty()) {
+            TEMP.setTemp(temp);
+            TEMP.setFunciona(true);
+            return TEMP;
+            
+        } else {
+            System.out.println("No se encontro el nombre");
+            TEMP.setTemp(temp);
+            TEMP.setFunciona(false);
+            return TEMP;
+        }
+    
+       
+    }
+    public InventarioTEMP findIndexMarca(Linked_List<Modelo_Inventario_Vehiculos> list, String marca){
+        InventarioTEMP TEMP = new InventarioTEMP();
+        LinkedList<Integer> temp = new LinkedList<>();
+        
+        for (int i = 0; i < list.size(); i++) {
+            if (((Modelo_Inventario_Vehiculos) list.get(i)).getMarca().equalsIgnoreCase(marca) == true) {
+                temp.add(i);
+            }
+        }
+        if (!temp.isEmpty()) {
+            TEMP.setTemp(temp);
+            TEMP.setFunciona(true);
+            return TEMP;
+            
+        } else {
+            System.out.println("No se encontro la marca");
+            TEMP.setTemp(temp);
+            TEMP.setFunciona(false);
+            return TEMP;
+        }
+    
+       
+    }
+    public ResultadoClientes findClientes(Linked_List<Modelo_Clientes> list, String dni) {
          LinkedList<Integer> temp = new LinkedList<>();
-        ResultadoDNIClientes resultado = new ResultadoDNIClientes();
+        ResultadoClientes resultado = new ResultadoClientes();
         for (int i = 0; i < list.size(); i++) {
             if (((Modelo_Clientes) list.get(i)).getDni().compareTo(dni) == 0 ||((Modelo_Clientes) list.get(i)).getDni_2().compareTo(dni) == 0 ) {
                 temp.add(i);
@@ -75,8 +151,29 @@ public class Linked_List<T> extends LinkedList {
             return resultado;
         }
     }
-    public class ResultadoDNIClientes{
+    public class ResultadoClientes{
         LinkedList<Integer> temp;
+        boolean funciona;
+
+        public LinkedList<Integer> getTemp() {
+            return temp;
+        }
+
+        public void setTemp(LinkedList<Integer> temp) {
+            this.temp = temp;
+        }
+
+        public boolean isFunciona() {
+            return funciona;
+        }
+
+        public void setFunciona(boolean funciona) {
+            this.funciona = funciona;
+        }
+        
+    }
+    public class InventarioTEMP{
+         LinkedList<Integer> temp;
         boolean funciona;
 
         public LinkedList<Integer> getTemp() {
