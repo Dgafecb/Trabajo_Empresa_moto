@@ -3,18 +3,28 @@ package vista;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
+import javax.swing.JLabel;
+import modelo.CustomButtonShaped;
 
 
 public class Emergente_Imprimir extends javax.swing.JDialog {
 
-    private Dimension resolucionDialogo = new Dimension (1000,900);
+    private Dimension resolucionDialogo = new Dimension (700,950);
     private final Dimension resolucionPrevia = new Dimension(612,792);
     private final Dimension resolucionCarta = new Dimension (612,792); 
     private final Dimension resolucionA4 = new Dimension (595,842);
+    
+    public Borde_Ventana bordeVentana;
+    public CustomButtonShaped btnImprimir,btnCancelar;
+    public Contrato contrato;
+    
     public Emergente_Imprimir(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        initComponents();
+        initDialog();
+        initPanel();
     }
 
     private void initDialog(){
@@ -27,7 +37,53 @@ public class Emergente_Imprimir extends javax.swing.JDialog {
         getContentPane().setBackground(new Color(250,250,250));
         getContentPane().setLayout (new GridBagLayout());
     }
+
     
+    private void initPanel(){
+        
+        bordeVentana = new Borde_Ventana(this);
+        bordeVentana.moverVentana(true);
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.gridx = 0; // El área de texto empieza en la columna cero
+        constraints.gridy = 0; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 2; // El área de texto ocupa dos columnas
+        constraints.gridheight = 1; // El área de texto ocupa una fila
+        constraints.weightx = 1.0; // La columna se estira
+        constraints.weighty = 1.0; // La fila no se estira
+        constraints.fill = GridBagConstraints.HORIZONTAL;//Estirar los componentes
+        constraints.anchor = GridBagConstraints.NORTH;//Poscion que ocupa el componente
+        constraints.insets= new Insets(0,0,0,0);
+        getContentPane().add (bordeVentana, constraints);
+        
+        contrato = new Contrato();
+        contrato.setMinimumSize(resolucionPrevia);
+        contrato.setMaximumSize(resolucionPrevia);
+        contrato.setSize(resolucionPrevia);
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.gridwidth = 2;
+        constraints.gridheight = 1;
+        constraints.weightx = 0.0;
+        constraints.weighty = 0.0; 
+        constraints.fill = GridBagConstraints.NONE;
+        constraints.anchor = GridBagConstraints.CENTER;
+        constraints.insets= new Insets(15,15,15,15);
+        getContentPane().add (contrato, constraints);
+        
+        btnImprimir = new CustomButtonShaped();
+        btnImprimir.setText("IMPRIMIR");
+        btnImprimir.setFocusPainted(false);
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        constraints.gridwidth = 2;
+        constraints.gridheight = 1;
+        constraints.weightx = 0.0;
+        constraints.weighty = 0.0; 
+        constraints.fill = GridBagConstraints.NONE;
+        constraints.anchor = GridBagConstraints.CENTER;
+        constraints.insets= new Insets(15,15,15,15);
+        getContentPane().add (btnImprimir, constraints);
+    }
     
     
     @SuppressWarnings("unchecked")
