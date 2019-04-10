@@ -160,8 +160,8 @@ public class Consultas_Clientes extends ConexionSQL {
         }
     }
 
-    public LinkedList readAll() {
-        LinkedList<Modelo_Clientes> listaClientes = new LinkedList<Modelo_Clientes>();
+    public Linked_List readAll() {
+        Linked_List<Modelo_Clientes> listaClientes = new Linked_List<Modelo_Clientes>();
         Modelo_Clientes cliente = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
