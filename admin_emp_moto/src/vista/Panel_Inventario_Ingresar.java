@@ -28,7 +28,6 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        pDatosInventario = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -41,7 +40,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txfID = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
@@ -53,7 +52,6 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         jTextField11 = new javax.swing.JTextField();
         jTextField12 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
@@ -62,12 +60,10 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         jSeparator6 = new javax.swing.JSeparator();
         jLabel12 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
-        jSeparator8 = new javax.swing.JSeparator();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        txfDescripicion = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(250, 250, 250));
         setLayout(new java.awt.GridBagLayout());
-
-        pDatosInventario.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(60, 60, 60));
@@ -80,7 +76,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jLabel1, gridBagConstraints);
+        add(jLabel1, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(60, 60, 60));
@@ -93,7 +89,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jLabel2, gridBagConstraints);
+        add(jLabel2, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(60, 60, 60));
@@ -106,7 +102,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jLabel3, gridBagConstraints);
+        add(jLabel3, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(60, 60, 60));
@@ -119,7 +115,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jLabel4, gridBagConstraints);
+        add(jLabel4, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(60, 60, 60));
@@ -132,7 +128,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jLabel5, gridBagConstraints);
+        add(jLabel5, gridBagConstraints);
 
         Motor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Motor.setForeground(new java.awt.Color(60, 60, 60));
@@ -145,7 +141,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(Motor, gridBagConstraints);
+        add(Motor, gridBagConstraints);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(60, 60, 60));
@@ -158,7 +154,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jLabel6, gridBagConstraints);
+        add(jLabel6, gridBagConstraints);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(60, 60, 60));
@@ -171,7 +167,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jLabel7, gridBagConstraints);
+        add(jLabel7, gridBagConstraints);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(60, 60, 60));
@@ -184,7 +180,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jLabel8, gridBagConstraints);
+        add(jLabel8, gridBagConstraints);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(60, 60, 60));
@@ -197,7 +193,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 18;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jLabel9, gridBagConstraints);
+        add(jLabel9, gridBagConstraints);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(60, 60, 60));
@@ -210,7 +206,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 16;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jLabel10, gridBagConstraints);
+        add(jLabel10, gridBagConstraints);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(60, 60, 60));
@@ -223,30 +219,33 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 19;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jLabel11, gridBagConstraints);
+        add(jLabel11, gridBagConstraints);
 
-        jTextField1.setToolTipText("");
-        jTextField1.setMaximumSize(new java.awt.Dimension(250, 20));
-        jTextField1.setMinimumSize(new java.awt.Dimension(250, 20));
-        jTextField1.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfID.setToolTipText("");
+        txfID.setMaximumSize(new java.awt.Dimension(250, 20));
+        txfID.setMinimumSize(new java.awt.Dimension(250, 20));
+        txfID.setPreferredSize(new java.awt.Dimension(250, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jTextField1, gridBagConstraints);
+        add(txfID, gridBagConstraints);
 
+        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField2.setToolTipText("");
         jTextField2.setMaximumSize(new java.awt.Dimension(250, 20));
         jTextField2.setMinimumSize(new java.awt.Dimension(250, 20));
         jTextField2.setPreferredSize(new java.awt.Dimension(250, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jTextField2, gridBagConstraints);
+        add(jTextField2, gridBagConstraints);
 
+        jTextField4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField4.setToolTipText("");
         jTextField4.setEnabled(false);
         jTextField4.setMaximumSize(new java.awt.Dimension(250, 20));
@@ -257,8 +256,9 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jTextField4, gridBagConstraints);
+        add(jTextField4, gridBagConstraints);
 
+        jTextField5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField5.setToolTipText("");
         jTextField5.setEnabled(false);
         jTextField5.setMaximumSize(new java.awt.Dimension(250, 20));
@@ -269,8 +269,9 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jTextField5, gridBagConstraints);
+        add(jTextField5, gridBagConstraints);
 
+        jTextField6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField6.setToolTipText("");
         jTextField6.setEnabled(false);
         jTextField6.setMaximumSize(new java.awt.Dimension(250, 20));
@@ -281,8 +282,9 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jTextField6, gridBagConstraints);
+        add(jTextField6, gridBagConstraints);
 
+        jTextField7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField7.setToolTipText("");
         jTextField7.setEnabled(false);
         jTextField7.setMaximumSize(new java.awt.Dimension(250, 20));
@@ -293,8 +295,9 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jTextField7, gridBagConstraints);
+        add(jTextField7, gridBagConstraints);
 
+        jTextField8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField8.setToolTipText("");
         jTextField8.setMaximumSize(new java.awt.Dimension(250, 20));
         jTextField8.setMinimumSize(new java.awt.Dimension(250, 20));
@@ -304,8 +307,9 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jTextField8, gridBagConstraints);
+        add(jTextField8, gridBagConstraints);
 
+        jTextField9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField9.setToolTipText("");
         jTextField9.setMaximumSize(new java.awt.Dimension(250, 20));
         jTextField9.setMinimumSize(new java.awt.Dimension(250, 20));
@@ -315,8 +319,9 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jTextField9, gridBagConstraints);
+        add(jTextField9, gridBagConstraints);
 
+        jTextField10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField10.setToolTipText("");
         jTextField10.setMaximumSize(new java.awt.Dimension(250, 20));
         jTextField10.setMinimumSize(new java.awt.Dimension(250, 20));
@@ -326,8 +331,9 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 16;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jTextField10, gridBagConstraints);
+        add(jTextField10, gridBagConstraints);
 
+        jTextField11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField11.setToolTipText("");
         jTextField11.setMaximumSize(new java.awt.Dimension(250, 20));
         jTextField11.setMinimumSize(new java.awt.Dimension(250, 20));
@@ -337,8 +343,9 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 18;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jTextField11, gridBagConstraints);
+        add(jTextField11, gridBagConstraints);
 
+        jTextField12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField12.setToolTipText("");
         jTextField12.setMaximumSize(new java.awt.Dimension(250, 20));
         jTextField12.setMinimumSize(new java.awt.Dimension(250, 20));
@@ -348,9 +355,9 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 19;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jTextField12, gridBagConstraints);
+        add(jTextField12, gridBagConstraints);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vehiculo", "Repuesto" }));
         jComboBox1.setMaximumSize(new java.awt.Dimension(250, 20));
         jComboBox1.setMinimumSize(new java.awt.Dimension(250, 20));
         jComboBox1.setPreferredSize(new java.awt.Dimension(250, 20));
@@ -360,56 +367,49 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jComboBox1, gridBagConstraints);
-
-        jButton1.setText("AGREGAR");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 21;
-        gridBagConstraints.gridwidth = 2;
-        pDatosInventario.add(jButton1, gridBagConstraints);
+        add(jComboBox1, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jSeparator1, gridBagConstraints);
+        add(jSeparator1, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jSeparator2, gridBagConstraints);
+        add(jSeparator2, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jSeparator3, gridBagConstraints);
+        add(jSeparator3, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jSeparator4, gridBagConstraints);
+        add(jSeparator4, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 15;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jSeparator5, gridBagConstraints);
+        add(jSeparator5, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 17;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jSeparator6, gridBagConstraints);
+        add(jSeparator6, gridBagConstraints);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(60, 60, 60));
@@ -419,48 +419,32 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jLabel12, gridBagConstraints);
+        add(jLabel12, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jSeparator7, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 20;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jSeparator8, gridBagConstraints);
+        add(jSeparator7, gridBagConstraints);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox2.setMaximumSize(new java.awt.Dimension(250, 20));
-        jComboBox2.setMinimumSize(new java.awt.Dimension(250, 20));
-        jComboBox2.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfDescripicion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfDescripicion.setToolTipText("");
+        txfDescripicion.setMaximumSize(new java.awt.Dimension(250, 20));
+        txfDescripicion.setMinimumSize(new java.awt.Dimension(250, 20));
+        txfDescripicion.setPreferredSize(new java.awt.Dimension(250, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDatosInventario.add(jComboBox2, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipady = 6;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(pDatosInventario, gridBagConstraints);
+        add(txfDescripicion, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel Motor;
-    public javax.swing.JButton jButton1;
     public javax.swing.JComboBox<String> jComboBox1;
-    public javax.swing.JComboBox<String> jComboBox2;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel11;
@@ -480,8 +464,6 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
     public javax.swing.JSeparator jSeparator5;
     public javax.swing.JSeparator jSeparator6;
     public javax.swing.JSeparator jSeparator7;
-    public javax.swing.JSeparator jSeparator8;
-    public javax.swing.JTextField jTextField1;
     public javax.swing.JTextField jTextField10;
     public javax.swing.JTextField jTextField11;
     public javax.swing.JTextField jTextField12;
@@ -492,6 +474,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
     public javax.swing.JTextField jTextField7;
     public javax.swing.JTextField jTextField8;
     public javax.swing.JTextField jTextField9;
-    public javax.swing.JPanel pDatosInventario;
+    public javax.swing.JTextField txfDescripicion;
+    public javax.swing.JTextField txfID;
     // End of variables declaration//GEN-END:variables
 }

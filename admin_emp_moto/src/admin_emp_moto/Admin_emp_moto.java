@@ -10,6 +10,7 @@ import modelo.Modelo_Trabajadores_meta;
 import modelo.Modelo_Trabajadores;
 import vista.Emergente_Aviso;
 import vista.Emergente_Imprimir;
+import vista.Emergente_Panel;
 import vista.Ventana_Login;
 
 public class Admin_emp_moto {
@@ -32,7 +33,7 @@ public class Admin_emp_moto {
         Ventana_Login view = new Ventana_Login();
         Controlador_login ctrl = new Controlador_login(view, user, consultas);
         
-       Emergente_Imprimir mensaje=new Emergente_Imprimir(view,true); // Lo desactive porque ya implemente los demas mensajes de advertencia
+       Emergente_Panel mensaje=new Emergente_Panel (view,true); // Lo desactive porque ya implemente los demas mensajes de advertencia
        mensaje.setVisible(true);
         
         view.setVisible(true);

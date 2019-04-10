@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import javax.swing.DefaultListModel;
+import javax.swing.table.DefaultTableModel;
 import modelo.Linked_List;
 import modelo.Linked_List.ResultadoDNIClientes;
 import modelo.Modelo_Clientes;
@@ -43,7 +44,7 @@ public class Controlador_Registros_Clientes implements ActionListener {
 
     private void llamarComponentes() {
 
-        this.llenarListaClientes();
+        this.llenarTabla();
         this.panelClientes.btnClienteBuscar.addActionListener(this);
         this.panelClientes.jButton10.addActionListener(this);
         this.panelClientes.jButton9.addActionListener(this);
@@ -54,17 +55,23 @@ public class Controlador_Registros_Clientes implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == this.panelClientes.btnClienteBuscar) {// boton buscar
-            String dni = this.panelClientes.txfBuscar.getText();
-            ResultadoDNIClientes resultado = clientes.findClientes(clientes, dni);
+            String dni_leido = this.panelClientes.txfBuscar.getText();
+            ResultadoDNIClientes resultado = clientes.findClientes(clientes, dni_leido);
             if (resultado.isFunciona()) {
-                final DefaultListModel model = new DefaultListModel();
+                DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos"}, 0);
                 for (int i = 0; i < resultado.getTemp().size(); i++) {
-                    model.addElement(clientes.get((Integer)resultado.getTemp().pop()));
+
+                    String dni = ((Modelo_Clientes) clientes.get(i)).getDni();
+                    String nombres_apellido = ((Modelo_Clientes) clientes.get(i)).getNombre_apellido();
+                    String dni_2 = ((Modelo_Clientes) clientes.get(i)).getDni_2();
+                    String nombres_apellido_2 = ((Modelo_Clientes) clientes.get(i)).getNombre_apellido_2();
+                    model.addRow(new Object[]{dni, nombres_apellido, dni_2, nombres_apellido_2});
+
                 }
-                this.panelClientes.lClienteLista.setModel(model);
+                this.panelClientes.jTable1.setModel(model);
 
             } else {
-                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontró el DNI");
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el DNI");
                 mensaje.setVisible(true);
             }
         }
@@ -78,21 +85,24 @@ public class Controlador_Registros_Clientes implements ActionListener {
 
         }
     }
-    private Modelo_Clientes leerDatosClientes(){
-        Modelo_Clientes temp_model = new Modelo_Clientes();
-        
-        
-        
-        
-        
-        
-        return temp_model;
-    }   
-    private void llenarListaClientes() {
-        final DefaultListModel model = new DefaultListModel();
+
+    private void llenarTabla() {
+        DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos"}, 0);
         for (int i = 0; i < clientes.size(); i++) {
-            model.addElement(clientes.get(i));
+            String dni = ((Modelo_Clientes) clientes.get(i)).getDni();
+            String nombres_apellido = ((Modelo_Clientes) clientes.get(i)).getNombre_apellido();
+            String dni_2 = ((Modelo_Clientes) clientes.get(i)).getDni_2();
+            String nombres_apellido_2 = ((Modelo_Clientes) clientes.get(i)).getNombre_apellido_2();
+            model.addRow(new Object[]{dni, nombres_apellido, dni_2, nombres_apellido_2});
         }
-        this.panelClientes.lClienteLista.setModel(model);
+        this.panelClientes.jTable1.setModel(model);
+
     }
+
+    private Modelo_Clientes leerDatosClientes() {
+        Modelo_Clientes temp_model = new Modelo_Clientes();
+
+        return temp_model;
+    }
+
 }

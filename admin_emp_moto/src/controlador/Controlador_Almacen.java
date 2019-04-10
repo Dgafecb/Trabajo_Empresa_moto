@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controlador;
 
 import static controlador.Controlador_login.lista_repuestos;
@@ -12,13 +7,11 @@ import java.awt.event.ActionListener;
 import modelo.Linked_List;
 import modelo.Modelo_Inventario_Repuestos;
 import modelo.Modelo_Inventario_Vehiculos;
+import vista.Emergente_Panel;
 import vista.Panel_Inventario;
 import vista.Ventana_Admin;
 
-/**
- *
- * @author Dgafecb
- */
+
 public class Controlador_Almacen implements ActionListener {
 
     private Controlador_admin controladorAdmin;
@@ -47,7 +40,8 @@ public class Controlador_Almacen implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == this.panelInventario.btnAgregar){
-            System.out.println("Boton agregar");
+            Emergente_Panel panel = new Emergente_Panel(ventanaAdmin,true);
+            panel.setVisible(true);
         }
     }
     private void llenarTablaAlmacen(){
