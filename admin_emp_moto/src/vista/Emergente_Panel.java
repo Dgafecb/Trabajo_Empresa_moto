@@ -11,37 +11,35 @@ import java.util.LinkedList;
 import modelo.CustomButtonShaped;
 import modelo.Modelo_Inventario_Repuestos;
 
-
 public class Emergente_Panel extends javax.swing.JDialog {
 
-    private Dimension resolucionDialogo = new Dimension (500,650);
+    private Dimension resolucionDialogo = new Dimension(500, 650);
     public Borde_Ventana bordeVentana;
-    public CustomButtonShaped btnAceptar,btnCancelar;
+    public CustomButtonShaped btnAceptar, btnCancelar;
     public Panel_Inventario_Ingresar pInventarioAgregar;
     public LinkedList<String> inventario;
-    
-    
+
     public Emergente_Panel(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initDialog();
-        initPanel(); 
+        initPanel();
         llamarComponentes();
     }
-    
-    private void initDialog(){
+
+    private void initDialog() {
         setMinimumSize(new Dimension(resolucionDialogo));
         setMaximumSize(new Dimension(resolucionDialogo));
         setSize(new Dimension(resolucionDialogo));
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setUndecorated(true);
-        getContentPane().setBackground(new Color(250,250,250));
-        getContentPane().setLayout (new GridBagLayout());
+        getContentPane().setBackground(new Color(250, 250, 250));
+        getContentPane().setLayout(new GridBagLayout());
         pack();
     }
-    
-    private void initPanel(){
-        
+
+    private void initPanel() {
+
         bordeVentana = new Borde_Ventana(this);
         bordeVentana.moverVentana(true);
         GridBagConstraints constraints = new GridBagConstraints();
@@ -53,21 +51,21 @@ public class Emergente_Panel extends javax.swing.JDialog {
         constraints.weighty = 1.0; // La fila no se estira
         constraints.fill = GridBagConstraints.HORIZONTAL;//Estirar los componentes
         constraints.anchor = GridBagConstraints.NORTH;//Poscion que ocupa el componente
-        constraints.insets= new Insets(0,0,0,0);
-        getContentPane().add (bordeVentana, constraints);
-        
+        constraints.insets = new Insets(0, 0, 0, 0);
+        getContentPane().add(bordeVentana, constraints);
+
         pInventarioAgregar = new Panel_Inventario_Ingresar();
         constraints.gridx = 0;
         constraints.gridy = 1;
         constraints.gridwidth = 2;
         constraints.gridheight = 1;
         constraints.weightx = 0.0;
-        constraints.weighty = 0.0; 
+        constraints.weighty = 0.0;
         constraints.fill = GridBagConstraints.NONE;
         constraints.anchor = GridBagConstraints.CENTER;
-        constraints.insets= new Insets(15,15,15,15);
-        getContentPane().add (pInventarioAgregar, constraints);
-        
+        constraints.insets = new Insets(15, 15, 15, 15);
+        getContentPane().add(pInventarioAgregar, constraints);
+
         btnAceptar = new CustomButtonShaped();
         btnAceptar.setText("ACEPTAR");
         btnAceptar.setFocusPainted(false);
@@ -76,12 +74,12 @@ public class Emergente_Panel extends javax.swing.JDialog {
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
         constraints.weightx = 1.0;
-        constraints.weighty = 0.0; 
+        constraints.weighty = 0.0;
         constraints.fill = GridBagConstraints.NONE;
         constraints.anchor = GridBagConstraints.CENTER;
-        constraints.insets= new Insets(15,15,15,15);
-        getContentPane().add (btnAceptar, constraints);
-        
+        constraints.insets = new Insets(15, 15, 15, 15);
+        getContentPane().add(btnAceptar, constraints);
+
         btnCancelar = new CustomButtonShaped();
         btnCancelar.setText("CANCELAR");
         btnCancelar.setFocusPainted(false);
@@ -90,16 +88,15 @@ public class Emergente_Panel extends javax.swing.JDialog {
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
         constraints.weightx = 1.0;
-        constraints.weighty = 0.0; 
+        constraints.weighty = 0.0;
         constraints.fill = GridBagConstraints.NONE;
         constraints.anchor = GridBagConstraints.CENTER;
-        constraints.insets= new Insets(15,15,15,15);
-        getContentPane().add (btnCancelar, constraints);
-        
-        
+        constraints.insets = new Insets(15, 15, 15, 15);
+        getContentPane().add(btnCancelar, constraints);
+
     }
-    
-   private void llamarComponentes() {
+
+    private void llamarComponentes() {
         inventario = new LinkedList<String>();
         btnAceptar.addActionListener(new ActionListener() {
             @Override
@@ -113,28 +110,29 @@ public class Emergente_Panel extends javax.swing.JDialog {
                 inventario.add(temp);
                 temp = (pInventarioAgregar.txfMarca.getText().compareTo("") != 0) ? pInventarioAgregar.txfMarca.getText() : null;
                 inventario.add(temp);
-                temp = (pInventarioAgregar.txfModelo.getText().compareTo("") != 0) ? pInventarioAgregar.txfModelo.getText() : null;
+                temp = (pInventarioAgregar.txfModelo.getText().compareTo("") != 0) ? pInventarioAgregar.txfModelo.getText() : "-";
                 inventario.add(temp);
-                temp = (pInventarioAgregar.txfColor.getText().compareTo("") != 0) ? pInventarioAgregar.txfColor.getText() : null;
+                temp = (pInventarioAgregar.txfColor.getText().compareTo("") != 0) ? pInventarioAgregar.txfColor.getText() : "-";
                 inventario.add(temp);
-                temp = (pInventarioAgregar.txfMotor.getText().compareTo("") != 0) ? pInventarioAgregar.txfMotor.getText() : null;
+                temp = (pInventarioAgregar.txfMotor.getText().compareTo("") != 0) ? pInventarioAgregar.txfMotor.getText() : "-";
                 inventario.add(temp);
-                temp = (pInventarioAgregar.txfChasis.getText().compareTo("") != 0) ? pInventarioAgregar.txfChasis.getText() : null;
+                temp = (pInventarioAgregar.txfChasis.getText().compareTo("") != 0) ? pInventarioAgregar.txfChasis.getText() : "-";
                 inventario.add(temp);
                 temp = (pInventarioAgregar.txfFab.getText().compareTo("") != 0) ? pInventarioAgregar.txfFab.getText() : null;
                 inventario.add(temp);
                 temp = (pInventarioAgregar.txfGarantia.getText().compareTo("") != 0) ? pInventarioAgregar.txfGarantia.getText() : null;
                 inventario.add(temp);
-                temp = (pInventarioAgregar.txfPrecio.getText().compareTo("") != 0) ? pInventarioAgregar.txfPrecio.getText() : null;
-                inventario.add(temp);
                 temp = (pInventarioAgregar.txfCantidad.getText().compareTo("") != 0) ? pInventarioAgregar.txfCantidad.getText() : null;
                 inventario.add(temp);
+                temp = (pInventarioAgregar.txfPrecio.getText().compareTo("") != 0) ? pInventarioAgregar.txfPrecio.getText() : null;
+                inventario.add(temp);
+
                 temp = (pInventarioAgregar.txfAdvertencia.getText().compareTo("") != 0) ? pInventarioAgregar.txfAdvertencia.getText() : null;
                 inventario.add(temp);
                 dispose();
             }
         });
-        
+
         btnCancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -143,8 +141,6 @@ public class Emergente_Panel extends javax.swing.JDialog {
             }
         });
     }
-    
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
