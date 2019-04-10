@@ -6,8 +6,13 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import javax.swing.JLabel;
 import modelo.CustomButtonShaped;
+import modelo.MiPrintable;
 
 
 public class Emergente_Imprimir extends javax.swing.JDialog {
@@ -25,6 +30,7 @@ public class Emergente_Imprimir extends javax.swing.JDialog {
         super(parent, modal);
         initDialog();
         initPanel();
+        llamarComponentes();
     }
 
     private void initDialog(){
@@ -97,9 +103,28 @@ public class Emergente_Imprimir extends javax.swing.JDialog {
         constraints.anchor = GridBagConstraints.CENTER;
         constraints.insets= new Insets(15,15,15,15);
         getContentPane().add (btnCancelar, constraints);
+        
+        
     }
     
-    
+    private void llamarComponentes(){
+        btnImprimir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                MiPrintable mp = new MiPrintable(contrato);
+                PrinterJob job = PrinterJob.getPrinterJob();
+                job.setPrintable(mp);
+                boolean ok = job.printDialog();
+                if (ok) {
+                    try {
+                    job.print();
+                    } catch (PrinterException ex) {
+                    System.err.println(ex.getMessage());
+                    }
+                }
+            }
+        });
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
