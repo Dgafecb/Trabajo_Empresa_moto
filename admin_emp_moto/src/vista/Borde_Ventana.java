@@ -18,7 +18,7 @@ public class Borde_Ventana extends javax.swing.JPanel {
     public Borde_Ventana(JDialog dialogo) {
         this.dialogo = dialogo;
         initComponents();
-        this.customButtonMenu1.setVisible(false);
+        this.btnMinimizar.setVisible(false);
         this.updateUI();
     }
 
@@ -33,6 +33,8 @@ public class Borde_Ventana extends javax.swing.JPanel {
             updateUI();
         }
     }
+
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -41,8 +43,8 @@ public class Borde_Ventana extends javax.swing.JPanel {
 
         moverPanel = new javax.swing.JLabel();
         noMoverPanel = new javax.swing.JLabel();
-        customButtonMenu1 = new modelo.CustomButtonMenu();
-        btnCerrar = new modelo.CustomButtonMenu();
+        btnMinimizar = new custom.CustomButtonMenu();
+        btnCerrar = new custom.CustomButtonMenu();
 
         setBackground(new java.awt.Color(60, 60, 60));
         setLayout(new java.awt.GridBagLayout());
@@ -70,36 +72,31 @@ public class Borde_Ventana extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         add(noMoverPanel, gridBagConstraints);
 
-        customButtonMenu1.setText("-");
-        customButtonMenu1.setColorHover(new java.awt.Color(92, 92, 92));
-        customButtonMenu1.setColorNormal(new java.awt.Color(60, 60, 60));
-        customButtonMenu1.setColorPressed(new java.awt.Color(143, 143, 143));
-        customButtonMenu1.setFocusPainted(false);
-        customButtonMenu1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        customButtonMenu1.setMaximumSize(new java.awt.Dimension(48, 30));
-        customButtonMenu1.setMinimumSize(new java.awt.Dimension(48, 30));
-        customButtonMenu1.setPreferredSize(new java.awt.Dimension(48, 30));
-        customButtonMenu1.addActionListener(new java.awt.event.ActionListener() {
+        btnMinimizar.setText("-");
+        btnMinimizar.setColorHover(new java.awt.Color(102, 102, 102));
+        btnMinimizar.setColorNormal(new java.awt.Color(60, 60, 60));
+        btnMinimizar.setColorPressed(new java.awt.Color(153, 153, 153));
+        btnMinimizar.setFocusPainted(false);
+        btnMinimizar.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        btnMinimizar.setMaximumSize(new java.awt.Dimension(40, 30));
+        btnMinimizar.setMinimumSize(new java.awt.Dimension(40, 30));
+        btnMinimizar.setPreferredSize(new java.awt.Dimension(40, 30));
+        btnMinimizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                customButtonMenu1ActionPerformed(evt);
+                btnMinimizarActionPerformed(evt);
             }
         });
-        add(customButtonMenu1, new java.awt.GridBagConstraints());
+        add(btnMinimizar, new java.awt.GridBagConstraints());
 
         btnCerrar.setText("×");
         btnCerrar.setColorHover(new java.awt.Color(255, 0, 0));
         btnCerrar.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnCerrar.setColorPressed(new java.awt.Color(255, 102, 102));
+        btnCerrar.setColorPressed(new java.awt.Color(255, 51, 51));
         btnCerrar.setFocusPainted(false);
         btnCerrar.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        btnCerrar.setMaximumSize(new java.awt.Dimension(48, 30));
-        btnCerrar.setMinimumSize(new java.awt.Dimension(48, 30));
-        btnCerrar.setPreferredSize(new java.awt.Dimension(48, 30));
-        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCerrarActionPerformed(evt);
-            }
-        });
+        btnCerrar.setMaximumSize(new java.awt.Dimension(40, 30));
+        btnCerrar.setMinimumSize(new java.awt.Dimension(40, 30));
+        btnCerrar.setPreferredSize(new java.awt.Dimension(40, 30));
         add(btnCerrar, new java.awt.GridBagConstraints());
     }// </editor-fold>//GEN-END:initComponents
 
@@ -129,19 +126,19 @@ public class Borde_Ventana extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnCerrarActionPerformed
 
-    private void customButtonMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customButtonMenu1ActionPerformed
+    private void btnMinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinimizarActionPerformed
         if(ventana!=null){
             ventana.setExtendedState(JFrame.ICONIFIED);
         }else if(dialogo!=null){
 
         }
-    }//GEN-LAST:event_customButtonMenu1ActionPerformed
+    }//GEN-LAST:event_btnMinimizarActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private modelo.CustomButtonMenu btnCerrar;
-    private modelo.CustomButtonMenu customButtonMenu1;
+    public custom.CustomButtonMenu btnCerrar;
+    public custom.CustomButtonMenu btnMinimizar;
     private javax.swing.JLabel moverPanel;
     private javax.swing.JLabel noMoverPanel;
     // End of variables declaration//GEN-END:variables
