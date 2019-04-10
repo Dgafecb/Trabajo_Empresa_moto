@@ -33,7 +33,6 @@ public class Panel_Inventario extends javax.swing.JPanel {
         pMenuInventario = new javax.swing.JPanel();
         btnAgregar = new modelo.CustomButtonShaped();
         bntEliminar = new modelo.CustomButtonShaped();
-        btnMarca = new modelo.CustomButtonShaped();
         btnBuscar = new modelo.CustomButtonShaped();
         btnModificar = new CustomButtonShaped();
         pBuscar = new javax.swing.JPanel();
@@ -55,9 +54,9 @@ public class Panel_Inventario extends javax.swing.JPanel {
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(35x35)btnAgregar.png"))); // NOI18N
         btnAgregar.setText("AGREGAR");
         btnAgregar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnAgregar.setMaximumSize(new java.awt.Dimension(125, 40));
-        btnAgregar.setMinimumSize(new java.awt.Dimension(125, 40));
-        btnAgregar.setPreferredSize(new java.awt.Dimension(125, 40));
+        btnAgregar.setMaximumSize(new java.awt.Dimension(150, 40));
+        btnAgregar.setMinimumSize(new java.awt.Dimension(150, 40));
+        btnAgregar.setPreferredSize(new java.awt.Dimension(150, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -67,26 +66,14 @@ public class Panel_Inventario extends javax.swing.JPanel {
         bntEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(35x35)btnBorrar.png"))); // NOI18N
         bntEliminar.setText("BORRAR");
         bntEliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        bntEliminar.setMaximumSize(new java.awt.Dimension(120, 40));
-        bntEliminar.setMinimumSize(new java.awt.Dimension(120, 40));
-        bntEliminar.setPreferredSize(new java.awt.Dimension(120, 40));
+        bntEliminar.setMaximumSize(new java.awt.Dimension(150, 40));
+        bntEliminar.setMinimumSize(new java.awt.Dimension(150, 40));
+        bntEliminar.setPreferredSize(new java.awt.Dimension(150, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pMenuInventario.add(bntEliminar, gridBagConstraints);
-
-        btnMarca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(35x35)btnMarca.png"))); // NOI18N
-        btnMarca.setText("MARCA");
-        btnMarca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnMarca.setMaximumSize(new java.awt.Dimension(105, 40));
-        btnMarca.setMinimumSize(new java.awt.Dimension(105, 40));
-        btnMarca.setPreferredSize(new java.awt.Dimension(105, 40));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pMenuInventario.add(btnMarca, gridBagConstraints);
 
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(35x35)btnBuscar.png"))); // NOI18N
         btnBuscar.setCurve(0);
@@ -99,9 +86,10 @@ public class Panel_Inventario extends javax.swing.JPanel {
         pMenuInventario.add(btnBuscar, gridBagConstraints);
 
         btnModificar.setText("MODIFICAR");
-        btnModificar.setMaximumSize(new java.awt.Dimension(130, 40));
-        btnModificar.setMinimumSize(new java.awt.Dimension(130, 40));
-        btnModificar.setPreferredSize(new java.awt.Dimension(130, 40));
+        btnModificar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnModificar.setMaximumSize(new java.awt.Dimension(150, 40));
+        btnModificar.setMinimumSize(new java.awt.Dimension(150, 40));
+        btnModificar.setPreferredSize(new java.awt.Dimension(150, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -123,12 +111,15 @@ public class Panel_Inventario extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
         pBuscar.add(txfBuscar, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
         pMenuInventario.add(pBuscar, gridBagConstraints);
 
@@ -136,6 +127,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(60, 60, 60));
         jLabel1.setText("Buscar por :");
         jLabel1.setMaximumSize(new java.awt.Dimension(75, 30));
         jLabel1.setMinimumSize(new java.awt.Dimension(75, 30));
@@ -146,6 +138,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         jPanel1.add(jLabel1, gridBagConstraints);
 
         rbId.setBackground(new java.awt.Color(250, 250, 250));
+        rbId.setForeground(new java.awt.Color(60, 60, 60));
         rbId.setText("ID");
         rbId.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -154,6 +147,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         jPanel1.add(rbId, gridBagConstraints);
 
         rbMarca.setBackground(new java.awt.Color(250, 250, 250));
+        rbMarca.setForeground(new java.awt.Color(60, 60, 60));
         rbMarca.setText("MARCA");
         rbMarca.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -162,6 +156,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         jPanel1.add(rbMarca, gridBagConstraints);
 
         rbDescripcion.setBackground(new java.awt.Color(250, 250, 250));
+        rbDescripcion.setForeground(new java.awt.Color(60, 60, 60));
         rbDescripcion.setText("DESCRIPCION");
         rbDescripcion.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -180,7 +175,8 @@ public class Panel_Inventario extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(30, 30, 5, 30);
         add(pMenuInventario, gridBagConstraints);
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
@@ -188,20 +184,20 @@ public class Panel_Inventario extends javax.swing.JPanel {
         jTable1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "null", "Title 6", "Title 7", "Title 8", "Title 9", "Title 10", "Title 11", "Title 12", "Title 13"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jTable1.setColumnSelectionAllowed(true);
         jTable1.setFocusable(false);
-        jTable1.setMaximumSize(new java.awt.Dimension(800, 80));
-        jTable1.setMinimumSize(new java.awt.Dimension(800, 80));
-        jTable1.setPreferredSize(new java.awt.Dimension(800, 80));
+        jTable1.setMaximumSize(new java.awt.Dimension(1200, 80));
+        jTable1.setMinimumSize(new java.awt.Dimension(9000, 80));
+        jTable1.setPreferredSize(new java.awt.Dimension(900, 80));
         jTable1.setSelectionBackground(new java.awt.Color(102, 102, 102));
         jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jTable1);
@@ -210,8 +206,10 @@ public class Panel_Inventario extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 30, 30, 30);
         add(jScrollPane1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -220,7 +218,6 @@ public class Panel_Inventario extends javax.swing.JPanel {
     public modelo.CustomButtonShaped bntEliminar;
     public modelo.CustomButtonShaped btnAgregar;
     public modelo.CustomButtonShaped btnBuscar;
-    public modelo.CustomButtonShaped btnMarca;
     public CustomButtonShaped btnModificar;
     private javax.swing.ButtonGroup grupoBuscarFiltro;
     private javax.swing.JLabel jLabel1;

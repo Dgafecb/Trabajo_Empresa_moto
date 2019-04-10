@@ -104,14 +104,17 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
                 btnMenuActionPerformed(evt);
             }
         });
-        add(btnMenu, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        add(btnMenu, gridBagConstraints);
 
         perfil_Usuario1.setMaximumSize(new java.awt.Dimension(1000, 40));
         perfil_Usuario1.setMinimumSize(new java.awt.Dimension(150, 40));
         perfil_Usuario1.setPreferredSize(new java.awt.Dimension(200, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 20, 0, 20);
         add(perfil_Usuario1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 

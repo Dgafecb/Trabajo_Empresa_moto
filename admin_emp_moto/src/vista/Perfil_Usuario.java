@@ -24,6 +24,7 @@ public class Perfil_Usuario extends javax.swing.JPanel {
     public Perfil_Usuario(){
         initComponents();
         imagenCircular();
+        this.lblImagenPerfil.setSize(40,40);
         this.updateUI();
     }
 
@@ -104,7 +105,8 @@ public class Perfil_Usuario extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         add(lblEditUser, gridBagConstraints);
 
@@ -112,7 +114,7 @@ public class Perfil_Usuario extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
         add(lblImagenPerfil, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
