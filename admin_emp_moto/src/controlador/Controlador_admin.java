@@ -13,6 +13,7 @@ import modelo.Modelo_Trabajadores;
 import vista.Panel_Ajustes;
 import vista.Panel_Inventario;
 import vista.Panel_Registros;
+
 import vista.Panel_Ventas;
 import vista.Ventana_Admin;
 import vista.Ventana_Login;
@@ -37,6 +38,7 @@ public class Controlador_admin implements ActionListener {
     /*-------------------CONTROLADORES-----------------------*/
     private Controlador_Registros controladorRegistros;
     private Controlador_Ajustes controladorAjustes;
+    private Controlador_Almacen controladorAlmacen;
 
     /*---------------------VARIABLES-------------------------*/
     public LinkedList<Modelo_Trabajadores> listaTrabajadores;
@@ -62,7 +64,7 @@ public class Controlador_admin implements ActionListener {
     public void setPanelAjustes(Panel_Ajustes panelAjustes) {
         this.panelAjustes = panelAjustes;
     }
-    
+
     public Ventana_Admin getVentanaAdmin() {
         return ventanaAdmin;
     }
@@ -104,6 +106,7 @@ public class Controlador_admin implements ActionListener {
         this.panelRegistros = null;
         this.panelInventario = null;
         this.panelAjustes = null;
+
     }
 
     private void cerrarSesion() {
@@ -124,26 +127,29 @@ public class Controlador_admin implements ActionListener {
             limpiarSpContent();
             panelVentas = new Panel_Ventas();
             ventanaAdmin.administrarPanel(ventanaAdmin.spContent, panelVentas);
-        }  if (e.getSource() == ventanaAdmin.menuAdmin.btnRegistros) {
+        }
+        if (e.getSource() == ventanaAdmin.menuAdmin.btnRegistros) {
             limpiarSpContent();
             panelRegistros = new Panel_Registros();
             controladorRegistros = new Controlador_Registros(this, this.ventanaAdmin);
-            ventanaAdmin.administrarPanel(ventanaAdmin.spContent, panelRegistros);
-        } if (e.getSource() == ventanaAdmin.menuAdmin.btnAlmacen) {
+            ventanaAdmin.administrarPanel(this.ventanaAdmin.spContent, controladorRegistros.getPanelRegistros());
+        }
+        if (e.getSource() == ventanaAdmin.menuAdmin.btnAlmacen) {
             limpiarSpContent();
             panelInventario = new Panel_Inventario();
+            controladorAlmacen = new Controlador_Almacen(this,this.ventanaAdmin);
             ventanaAdmin.administrarPanel(ventanaAdmin.spContent, panelInventario);
 
-        }if (e.getSource() == ventanaAdmin.menuAdmin.btnCerrarSesion) {
+        }
+        if (e.getSource() == ventanaAdmin.menuAdmin.btnCerrarSesion) {
             cerrarSesion();
         }
-        if(e.getSource() == ventanaAdmin.menuAdmin.btnAjustes){
+        if (e.getSource() == ventanaAdmin.menuAdmin.btnAjustes) {
             limpiarSpContent();
             panelAjustes = new Panel_Ajustes();
-            controladorAjustes = new Controlador_Ajustes(this,this.ventanaAdmin);
+            controladorAjustes = new Controlador_Ajustes(this, this.ventanaAdmin);
             ventanaAdmin.administrarPanel(ventanaAdmin.spContent, panelAjustes);
         }
-        
 
     }
 

@@ -15,6 +15,7 @@ import modelo.Modelo_Asistencia;
 import modelo.Modelo_Trabajadores;
 import vista.Emergente_Aviso;
 import vista.Panel_Registros;
+import vista.Panel_Registros_Clientes;
 import vista.Panel_Registros_Trabajadores;
 import vista.Ventana_Admin;
 
@@ -24,30 +25,52 @@ public class Controlador_Registros implements ActionListener {
     private Ventana_Admin ventanaAdmin;
     private Panel_Registros panelRegistros;
     private Panel_Registros_Trabajadores panelRegistrosTrabajadores;
+    private Panel_Registros_Clientes panelRegistrosClientes;
     private Consultas_Trabajadores consultasTrabajadores;
-    
+
     public Controlador_Registros(Controlador_admin controladorAdmin, Ventana_Admin ventanaAdmin) {
         this.controladorAdmin = controladorAdmin;
+        
         this.ventanaAdmin = ventanaAdmin;
         this.iniciarComponentes();
         this.llamarComponentes();
     }
 
+    public Panel_Registros getPanelRegistros() {
+        return panelRegistros;
+    }
+
+    public void setPanelRegistros(Panel_Registros panelRegistros) {
+        this.panelRegistros = panelRegistros;
+    }
+
     private void iniciarComponentes() {
         this.ventanaAdmin = controladorAdmin.getVentanaAdmin();
         this.panelRegistros = controladorAdmin.getPanelRegistros();
+
     }
 
     private void llamarComponentes() {
-        panelRegistros.subBtnTrabajadores.addActionListener(this);
+        this.panelRegistros.subBtnTrabajadores.addActionListener(this);
+        
+        this.panelRegistros.subBtnClientes.addActionListener(this);
+
     }
 
     private void limpiarSpContenido() {
-        panelRegistrosTrabajadores = null;
+        this.panelRegistrosTrabajadores = null;
+        this.panelRegistrosClientes = null;
     }
 
+    @Override
     public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource() == panelRegistros.subBtnClientes) {
+            limpiarSpContenido();
+            panelRegistrosClientes = new Panel_Registros_Clientes();
+            Controlador_Clientes ctrl_clientes = new Controlador_Clientes(this.controladorAdmin, this.ventanaAdmin, this.panelRegistrosClientes);
+            panelRegistros.administrarPanel(panelRegistros.spContenidoRegistros, ctrl_clientes.getPanelClientes());
 
+        }
         if (ae.getSource() == panelRegistros.subBtnTrabajadores) {
             limpiarSpContenido();
             panelRegistrosTrabajadores = new Panel_Registros_Trabajadores();

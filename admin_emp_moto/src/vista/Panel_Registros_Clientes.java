@@ -362,12 +362,12 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnClienteBuscar;
-    private javax.swing.JComboBox<String> cbCiudad;
-    private javax.swing.JComboBox<String> cbPais;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton9;
+    public javax.swing.JButton btnClienteBuscar;
+    public javax.swing.JComboBox<String> cbCiudad;
+    public javax.swing.JComboBox<String> cbPais;
+    public javax.swing.JButton jButton10;
+    public javax.swing.JButton jButton11;
+    public javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -376,7 +376,7 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JList<String> lClienteLista;
+    public javax.swing.JList<String> lClienteLista;
     private javax.swing.JLabel lblCiudad;
     private javax.swing.JLabel lblDNI;
     private javax.swing.JLabel lblNombreApellido;
@@ -388,13 +388,13 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
     public javax.swing.JPanel pDatosCliente;
     private javax.swing.JPanel pDireccion;
     public javax.swing.JScrollPane spClienteLista;
-    private javax.swing.JTextField txfBuscar;
-    private javax.swing.JTextField txfCliente1Nombre;
-    private javax.swing.JTextField txfCliente2Nombre;
-    private javax.swing.JTextField txfCorreo;
-    private javax.swing.JTextField txfDNI1;
-    private javax.swing.JTextField txfDNI2;
-    private javax.swing.JTextField txfDireccion;
-    private javax.swing.JTextField txfTelefono;
+    public javax.swing.JTextField txfBuscar;
+    public javax.swing.JTextField txfCliente1Nombre;
+    public javax.swing.JTextField txfCliente2Nombre;
+    public javax.swing.JTextField txfCorreo;
+    public javax.swing.JTextField txfDNI1;
+    public javax.swing.JTextField txfDNI2;
+    public javax.swing.JTextField txfDireccion;
+    public javax.swing.JTextField txfTelefono;
     // End of variables declaration//GEN-END:variables
 }
