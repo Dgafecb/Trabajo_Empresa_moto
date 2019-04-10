@@ -5,6 +5,7 @@
  */
 package vista;
 
+import java.awt.Color;
 import modelo.Cadenas;
 import modelo.CustomButtonShaped;
 
@@ -16,6 +17,9 @@ public class Panel_Inventario extends javax.swing.JPanel {
         grupoBuscarFiltro.add(rbId);
         grupoBuscarFiltro.add(rbMarca);
         grupoBuscarFiltro.add(rbDescripcion);
+        jScrollPane1.getViewport().setBackground(Color.WHITE);
+        
+       
 
     }
 
@@ -128,25 +132,48 @@ public class Panel_Inventario extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
         pMenuInventario.add(pBuscar, gridBagConstraints);
 
-        jLabel1.setText("Buscar por :");
-        jPanel1.add(jLabel1);
+        jPanel1.setBackground(new java.awt.Color(250, 250, 250));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Buscar por :");
+        jLabel1.setMaximumSize(new java.awt.Dimension(75, 30));
+        jLabel1.setMinimumSize(new java.awt.Dimension(75, 30));
+        jLabel1.setPreferredSize(new java.awt.Dimension(75, 30));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        jPanel1.add(jLabel1, gridBagConstraints);
+
+        rbId.setBackground(new java.awt.Color(250, 250, 250));
         rbId.setText("ID");
         rbId.setFocusPainted(false);
-        jPanel1.add(rbId);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        jPanel1.add(rbId, gridBagConstraints);
 
-        rbMarca.setText("Marca");
+        rbMarca.setBackground(new java.awt.Color(250, 250, 250));
+        rbMarca.setText("MARCA");
         rbMarca.setFocusPainted(false);
-        jPanel1.add(rbMarca);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        jPanel1.add(rbMarca, gridBagConstraints);
 
-        rbDescripcion.setText("Descripcion");
+        rbDescripcion.setBackground(new java.awt.Color(250, 250, 250));
+        rbDescripcion.setText("DESCRIPCION");
         rbDescripcion.setFocusPainted(false);
-        jPanel1.add(rbDescripcion);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        jPanel1.add(rbDescripcion, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         pMenuInventario.add(jPanel1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -156,18 +183,29 @@ public class Panel_Inventario extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(pMenuInventario, gridBagConstraints);
 
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+
+        jTable1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "null", "Title 6", "Title 7", "Title 8", "Title 9", "Title 10", "Title 11", "Title 12", "Title 13"
             }
         ));
+        jTable1.setColumnSelectionAllowed(true);
+        jTable1.setFocusable(false);
+        jTable1.setMaximumSize(new java.awt.Dimension(800, 80));
+        jTable1.setMinimumSize(new java.awt.Dimension(800, 80));
+        jTable1.setPreferredSize(new java.awt.Dimension(800, 80));
+        jTable1.setSelectionBackground(new java.awt.Color(102, 102, 102));
+        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jTable1);
+        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

@@ -97,6 +97,11 @@ public class Borde_Ventana extends javax.swing.JPanel {
         btnCerrar.setMaximumSize(new java.awt.Dimension(40, 30));
         btnCerrar.setMinimumSize(new java.awt.Dimension(40, 30));
         btnCerrar.setPreferredSize(new java.awt.Dimension(40, 30));
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
         add(btnCerrar, new java.awt.GridBagConstraints());
     }// </editor-fold>//GEN-END:initComponents
 
@@ -124,6 +129,7 @@ public class Borde_Ventana extends javax.swing.JPanel {
         }else if(dialogo!=null){
             dialogo.dispose();
         }
+        
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnMinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinimizarActionPerformed
