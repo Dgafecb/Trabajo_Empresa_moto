@@ -34,9 +34,9 @@ public class Panel_Ventas extends javax.swing.JPanel {
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
         pBuscarCliente = new javax.swing.JPanel();
-        btnClienteBuscar = new javax.swing.JButton();
-        btnClienteAgregar = new javax.swing.JButton();
         txfBuscar = new javax.swing.JTextField();
+        btnClienteBuscar = new modelo.CustomButtonShaped();
+        btnClienteAgregar = new modelo.CustomButtonShaped();
         pDireccion = new javax.swing.JPanel();
         lblCiudad = new javax.swing.JLabel();
         lblPais = new javax.swing.JLabel();
@@ -319,23 +319,6 @@ public class Panel_Ventas extends javax.swing.JPanel {
         pBuscarCliente.setBackground(new java.awt.Color(250, 250, 250));
         pBuscarCliente.setLayout(new java.awt.GridBagLayout());
 
-        btnClienteBuscar.setText("Buscar");
-        btnClienteBuscar.setBorderPainted(false);
-        btnClienteBuscar.setFocusPainted(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pBuscarCliente.add(btnClienteBuscar, gridBagConstraints);
-
-        btnClienteAgregar.setText("+");
-        btnClienteAgregar.setFocusPainted(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pBuscarCliente.add(btnClienteAgregar, gridBagConstraints);
-
         txfBuscar.setMaximumSize(new java.awt.Dimension(150, 20));
         txfBuscar.setMinimumSize(new java.awt.Dimension(150, 20));
         txfBuscar.setPreferredSize(new java.awt.Dimension(150, 20));
@@ -346,6 +329,19 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pBuscarCliente.add(txfBuscar, gridBagConstraints);
+
+        btnClienteBuscar.setText("B");
+        btnClienteBuscar.setCurve(0);
+        btnClienteBuscar.setMaximumSize(new java.awt.Dimension(40, 40));
+        btnClienteBuscar.setMinimumSize(new java.awt.Dimension(40, 40));
+        btnClienteBuscar.setPreferredSize(new java.awt.Dimension(40, 40));
+        pBuscarCliente.add(btnClienteBuscar, new java.awt.GridBagConstraints());
+
+        btnClienteAgregar.setText("+");
+        btnClienteAgregar.setMaximumSize(new java.awt.Dimension(40, 40));
+        btnClienteAgregar.setMinimumSize(new java.awt.Dimension(40, 40));
+        btnClienteAgregar.setPreferredSize(new java.awt.Dimension(40, 40));
+        pBuscarCliente.add(btnClienteAgregar, new java.awt.GridBagConstraints());
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1223,8 +1219,8 @@ public class Panel_Ventas extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnAlmacenBuscar;
-    private javax.swing.JButton btnClienteAgregar;
-    private javax.swing.JButton btnClienteBuscar;
+    private modelo.CustomButtonShaped btnClienteAgregar;
+    private modelo.CustomButtonShaped btnClienteBuscar;
     private javax.swing.JButton btnCotizar;
     private javax.swing.JButton btnFacturar;
     private javax.swing.JButton btnLimpiar;
