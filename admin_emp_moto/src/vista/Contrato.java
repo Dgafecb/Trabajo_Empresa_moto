@@ -20,17 +20,8 @@ public class Contrato extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jSeparator3 = new javax.swing.JSeparator();
-        jSeparator4 = new javax.swing.JSeparator();
-        jSeparator5 = new javax.swing.JSeparator();
-        jSeparator6 = new javax.swing.JSeparator();
-        jSeparator7 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jSeparator1 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -99,126 +90,26 @@ public class Contrato extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        jLabel2.setText("Cliente :");
+        jScrollPane1.setBorder(null);
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Cliente:________________________________DNI:___________Telf:____________\nDirección:_____________________________________Fecha:___________________\nConste por el presente documento y contrato de compra al crédito que \ncelebra el representante legal TIENDAS Q&V ");
+        jTextArea1.setBorder(null);
+        jTextArea1.setDisabledTextColor(new java.awt.Color(60, 60, 60));
+        jScrollPane1.setViewportView(jTextArea1);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel2.add(jLabel2, gridBagConstraints);
-
-        jLabel3.setText("Dirección :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel2.add(jLabel3, gridBagConstraints);
-
-        jLabel6.setText("Conste por el presente documento y contrato de compra al crédito que celebra el representante legal TIENDAS Q&V ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel2.add(jLabel6, gridBagConstraints);
-
-        jLabel4.setText("DNI :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel2.add(jLabel4, gridBagConstraints);
-
-        jLabel5.setText("Telf:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel2.add(jLabel5, gridBagConstraints);
-
-        jLabel7.setText("Fecha :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel2.add(jLabel7, gridBagConstraints);
-
-        jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-        jSeparator3.setMaximumSize(new java.awt.Dimension(250, 1));
-        jSeparator3.setMinimumSize(new java.awt.Dimension(250, 1));
-        jSeparator3.setPreferredSize(new java.awt.Dimension(250, 1));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
-        jPanel2.add(jSeparator3, gridBagConstraints);
-
-        jSeparator4.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
-        jSeparator4.setMaximumSize(new java.awt.Dimension(100, 1));
-        jSeparator4.setMinimumSize(new java.awt.Dimension(100, 1));
-        jSeparator4.setPreferredSize(new java.awt.Dimension(100, 1));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
-        jPanel2.add(jSeparator4, gridBagConstraints);
-
-        jSeparator5.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
-        jSeparator5.setMaximumSize(new java.awt.Dimension(100, 1));
-        jSeparator5.setMinimumSize(new java.awt.Dimension(100, 1));
-        jSeparator5.setPreferredSize(new java.awt.Dimension(100, 1));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
-        jPanel2.add(jSeparator5, gridBagConstraints);
-
-        jSeparator6.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
-        jSeparator6.setMaximumSize(new java.awt.Dimension(50, 1));
-        jSeparator6.setMinimumSize(new java.awt.Dimension(50, 1));
-        jSeparator6.setPreferredSize(new java.awt.Dimension(50, 1));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
-        jPanel2.add(jSeparator6, gridBagConstraints);
-
-        jSeparator7.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
-        jSeparator7.setMaximumSize(new java.awt.Dimension(100, 1));
-        jSeparator7.setMinimumSize(new java.awt.Dimension(100, 1));
-        jSeparator7.setPreferredSize(new java.awt.Dimension(100, 1));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTH;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 6, 0);
-        jPanel2.add(jSeparator7, gridBagConstraints);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jPanel2.add(jScrollPane1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -247,21 +138,12 @@ public class Contrato extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
