@@ -13,7 +13,25 @@ public class Linked_List<T> extends LinkedList {
         System.out.println("No se encontro el dni");
         return 0;
     }
-    
+    public ResultadoDNIClientes findClientes(Linked_List<Modelo_Clientes> list, String dni) {
+         LinkedList<Integer> temp = new LinkedList<>();
+        ResultadoDNIClientes resultado = new ResultadoDNIClientes();
+        for (int i = 0; i < list.size(); i++) {
+            if (((Modelo_Clientes) list.get(i)).getDni().compareTo(dni) == 0 ||((Modelo_Clientes) list.get(i)).getDni_2().compareTo(dni) == 0 ) {
+                temp.add(i);
+            }
+        }
+        if (!temp.isEmpty()) {
+            resultado.setFunciona(true);
+            resultado.setTemp(temp);
+            return resultado;
+        } else {
+            System.out.println("No se encontro el dni");
+            resultado.setFunciona(false);
+            resultado.setTemp(temp);
+            return resultado;
+        }
+    }
     public ResultadoDNITrabajador findDNI(Linked_List<Modelo_Trabajadores> list, String dni) {
         ResultadoDNITrabajador resultado = new ResultadoDNITrabajador();
         for (int i = 0; i < list.size(); i++) {
@@ -57,7 +75,27 @@ public class Linked_List<T> extends LinkedList {
             return resultado;
         }
     }
-    
+    public class ResultadoDNIClientes{
+        LinkedList<Integer> temp;
+        boolean funciona;
+
+        public LinkedList<Integer> getTemp() {
+            return temp;
+        }
+
+        public void setTemp(LinkedList<Integer> temp) {
+            this.temp = temp;
+        }
+
+        public boolean isFunciona() {
+            return funciona;
+        }
+
+        public void setFunciona(boolean funciona) {
+            this.funciona = funciona;
+        }
+        
+    }
     public class ResultadoDNITrabajador{
         int i;
         boolean resultado;

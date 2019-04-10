@@ -37,7 +37,7 @@ public class Controlador_login implements ActionListener, KeyListener {
     public static Linked_List<Modelo_Inventario_Vehiculos> lista_vehiculos;
     public static Linked_List<Modelo_Inventario_Repuestos> lista_repuestos;
     public static Linked_List<Modelo_Ajustes> lista_ajustes;
-    public static LinkedList<Modelo_Clientes> lista_clientes;
+    public static Linked_List<Modelo_Clientes> lista_clientes;
     private Ventana_Login view;
     private Modelo_Trabajadores model;
     private Consultas_Trabajadores consultas;
