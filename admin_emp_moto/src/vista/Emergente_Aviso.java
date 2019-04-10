@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 import modelo.CustomButtonShaped;
 
 
-public class Mensaje_Emergente extends javax.swing.JDialog {
+public class Emergente_Aviso extends javax.swing.JDialog {
 
     public Borde_Ventana bordeVentana;
     public CustomButtonShaped btnAceptar,btnSi,btnNo;
@@ -25,7 +25,7 @@ public class Mensaje_Emergente extends javax.swing.JDialog {
     private int sizey ;
     
 
-    public Mensaje_Emergente(java.awt.Frame parent, boolean modal,String mensaje) {
+    public Emergente_Aviso(java.awt.Frame parent, boolean modal,String mensaje) {
         super(parent, modal);
         this.mensaje = new JLabel(mensaje);
         this.mensaje.setForeground(new Color(60,60,60));

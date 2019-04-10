@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import modelo.Consultas_Ajustes;
 import modelo.Modelo_Ajustes;
-import vista.Mensaje_Emergente;
+import vista.Emergente_Aviso;
 import vista.Panel_Ajustes;
 import vista.Ventana_Admin;
 
@@ -121,10 +121,10 @@ public class Controlador_Ajustes implements ActionListener {
                         lista_ajustes  = consultasAjustes.readAll();
                         ajustes = lista_ajustes;
                         initComponentes();  
-                        Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin,true,"Los cambios se realizaron con exito") ;
+                        Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin,true,"Los cambios se realizaron con exito") ;
                         mensaje.setVisible(true);
                     }else {
-                        Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin,true,"Usted no realizo cambios") ;
+                        Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin,true,"Usted no realizo cambios") ;
                         mensaje.setVisible(true);
                     }
                     

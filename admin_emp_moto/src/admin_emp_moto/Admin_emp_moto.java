@@ -8,7 +8,7 @@ import modelo.Consultas_Trabajadores;
 import modelo.Consultas_Trabajadores_meta;
 import modelo.Modelo_Trabajadores_meta;
 import modelo.Modelo_Trabajadores;
-import vista.Mensaje_Emergente;
+import vista.Emergente_Aviso;
 import vista.Ventana_Login;
 
 public class Admin_emp_moto {

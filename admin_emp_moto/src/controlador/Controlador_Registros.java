@@ -13,7 +13,7 @@ import modelo.Consultas_Trabajadores;
 import modelo.Linked_List;
 import modelo.Modelo_Asistencia;
 import modelo.Modelo_Trabajadores;
-import vista.Mensaje_Emergente;
+import vista.Emergente_Aviso;
 import vista.Panel_Registros;
 import vista.Panel_Registros_Trabajadores;
 import vista.Ventana_Admin;
@@ -72,10 +72,10 @@ public class Controlador_Registros implements ActionListener {
                 System.out.println("Se agrego al trabajador");
             } else {
                 if (resultadoConsulta == 1) {
-                    Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "Ya existe ese DNI");
+                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Ya existe ese DNI");
                     mensaje.setVisible(true);
                 } else {
-                    Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se pudo agregar al trabajador");
+                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo agregar al trabajador");
                     mensaje.setVisible(true);
                 }
 
@@ -99,7 +99,7 @@ public class Controlador_Registros implements ActionListener {
                         if (consultaActualizar.update(temp_model)) {
                             System.out.println("Se actualizo al trabajador");
                         } else {
-                            Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se pudo actualizar al trabajador");
+                            Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo actualizar al trabajador");
                             mensaje.setVisible(true);
                         }
 
@@ -111,7 +111,7 @@ public class Controlador_Registros implements ActionListener {
                 this.panelRegistrosTrabajadores.jTable2.setModel(this.tableModelTrabajadores(lista_trabajadores));
 
             } else {
-                Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "Selecciona una fila de la tabla trabajadores a modificar");
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Selecciona una fila de la tabla trabajadores a modificar");
                 mensaje.setVisible(true);
             }
         }
@@ -130,7 +130,7 @@ public class Controlador_Registros implements ActionListener {
                         if (consultaEliminar.delete(temp_model)) {
                             System.out.println("Se elimino al trabajador");
                         } else {
-                            Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se pudo eliminar al trabajador");
+                            Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo eliminar al trabajador");
                             mensaje.setVisible(true);
                         }
 
@@ -141,7 +141,7 @@ public class Controlador_Registros implements ActionListener {
                 this.panelRegistrosTrabajadores.jTable2.setModel(this.tableModelTrabajadores(lista_trabajadores));
 
             } else {
-                Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "Selecciona una fila a eliminar de la tabla trabajadores");
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Selecciona una fila a eliminar de la tabla trabajadores");
                 mensaje.setVisible(true);
             }
 
@@ -171,7 +171,7 @@ public class Controlador_Registros implements ActionListener {
                 model.addRow(new Object[]{nombreyApellido, dni, privilegio, sueldo});
                 this.panelRegistrosTrabajadores.jTable2.setModel(model);
             } else {
-                Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se encontro el DNI");
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el DNI");
                 mensaje.setVisible(true);
             }
         }
@@ -181,7 +181,7 @@ public class Controlador_Registros implements ActionListener {
             if (consultasAsistencia.create(temp_model) == true) {
                 System.out.println("Se agrego el registro de asistencia");
             } else {
-                Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se pudo agregar al registro");
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo agregar al registro");
                 mensaje.setVisible(true);
             }
             lista_asistencia = consultasAsistencia.readAll();
@@ -203,12 +203,12 @@ public class Controlador_Registros implements ActionListener {
                     this.panelRegistrosTrabajadores.jTable1.setModel(this.tableModelAsistencia(lista_asistencia));
 
                 } else {
-                    Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se pudo actualizar el registro");
+                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo actualizar el registro");
                     mensaje.setVisible(true);
                 }
 
             } else {
-                Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "Selecciona una fila de la tabla asistencia para modificar");
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Selecciona una fila de la tabla asistencia para modificar");
                 mensaje.setVisible(true);
             }
         }
@@ -238,7 +238,7 @@ public class Controlador_Registros implements ActionListener {
 
                 this.panelRegistrosTrabajadores.jTable1.setModel(model);
             } else {
-                Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se encontró el DNI");
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontró el DNI");
                 mensaje.setVisible(true);
             }
 
@@ -258,7 +258,7 @@ public class Controlador_Registros implements ActionListener {
                         if (consultaEliminar.delete(temp_model)) {
                             System.out.println("Se elimino el registro");
                         } else {
-                            Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "No se pudo eliminar el registro");
+                            Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo eliminar el registro");
                             mensaje.setVisible(true);
                         }
 
@@ -269,7 +269,7 @@ public class Controlador_Registros implements ActionListener {
                 this.panelRegistrosTrabajadores.jTable1.setModel(this.tableModelAsistencia(lista_asistencia));
 
             } else {
-                Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "Selecciona una fila a eliminar de la tabla asistencia");
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Selecciona una fila a eliminar de la tabla asistencia");
                 mensaje.setVisible(true);
             }
         }
@@ -281,7 +281,7 @@ public class Controlador_Registros implements ActionListener {
             modelo_asistencia.setDni(this.panelRegistrosTrabajadores.txfDatosDNI.getText());
         } else {
             // Panel para el mensaje que la longitud del dni no es correcta
-            Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "Longitud del DNI incorrecta");
+            Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Longitud del DNI incorrecta");
             mensaje.setVisible(true);
         }
         String[] temp_fecha = this.panelRegistrosTrabajadores.txfDatosFecha.getText().split("/");
@@ -298,7 +298,7 @@ public class Controlador_Registros implements ActionListener {
             modelo_trabajadores.setDni(this.panelRegistrosTrabajadores.txfDNI.getText());
         } else {
             // Panel para el mensaje que la longitud del dni no es correcta
-            Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "Longitud del DNI incorrecta");
+            Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Longitud del DNI incorrecta");
             mensaje.setVisible(true);
         }
 
@@ -310,10 +310,10 @@ public class Controlador_Registros implements ActionListener {
 
         } else {
             if (this.panelRegistrosTrabajadores.txfPassword.getText().compareTo(this.panelRegistrosTrabajadores.txfValidatePassword.getText()) == 0) {
-                Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "La contraseña es muy corta");
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "La contraseña es muy corta");
                 mensaje.setVisible(true);
             } else {
-                Mensaje_Emergente mensaje = new Mensaje_Emergente(ventanaAdmin, true, "Las contraseñas no coinciden");
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Las contraseñas no coinciden");
                 mensaje.setVisible(true);
             }
 

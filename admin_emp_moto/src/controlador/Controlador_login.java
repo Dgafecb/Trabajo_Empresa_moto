@@ -23,7 +23,7 @@ import modelo.Modelo_Clientes;
 import modelo.Modelo_Inventario_Repuestos;
 import modelo.Modelo_Inventario_Vehiculos;
 import modelo.Modelo_Marcas;
-import vista.Mensaje_Emergente;
+import vista.Emergente_Aviso;
 import vista.Panel_Login;
 import vista.Ventana_Admin;
 import vista.Ventana_Login;
@@ -157,17 +157,17 @@ public class Controlador_login implements ActionListener, KeyListener {
                     message("Contraseña Correcta");
                     return model.getPrivilege();
                 } else {
-                    Mensaje_Emergente mensaje = new Mensaje_Emergente(view, true, "Contraseña incorrecta");
+                    Emergente_Aviso mensaje = new Emergente_Aviso(view, true, "Contraseña incorrecta");
                     mensaje.setVisible(true);
                     return -1;
                 }
             } else {
-                Mensaje_Emergente mensaje = new Mensaje_Emergente(view, true, "Usuario no existe");
+                Emergente_Aviso mensaje = new Emergente_Aviso(view, true, "Usuario no existe");
                 mensaje.setVisible(true);
                 return -1;
             }
         } else {
-            Mensaje_Emergente mensaje = new Mensaje_Emergente(view, true, "Ingresar datos validos");
+            Emergente_Aviso mensaje = new Emergente_Aviso(view, true, "Ingresar datos validos");
             mensaje.setVisible(true);
             return -1;
         }
