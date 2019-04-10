@@ -103,8 +103,8 @@ public class Consultas_Clientes extends ConexionSQL {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
-        String query = "UPDATE Clientes SET"
-                + "nombre_apellido = ? , nombre_apellido_2 = ?,dni = ?,dni_2=?, correo= ?, direccion=?,telefono=?,ciudad=?,pais=?"
+        String query = "UPDATE Clientes SET "
+                + "nombre_apellido = ? , nombre_apellido_2 = ?,dni = ?,dni_2=?, correo= ?, direccion=?,telefono=?,ciudad=?,pais=? "
                 + "WHERE id = ? ";
 
         try {
@@ -139,7 +139,7 @@ public class Consultas_Clientes extends ConexionSQL {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
-        String query = "DELETE FROM Cliente WHERE id = ?";
+        String query = "DELETE FROM Clientes WHERE id = ?";
 
         try {
             ps = con.prepareStatement(query);

@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
+import modelo.Consultas_Clientes;
 import modelo.Linked_List;
 import modelo.Linked_List.ResultadoDNIClientes;
 import modelo.Modelo_Clientes;
@@ -77,12 +78,57 @@ public class Controlador_Registros_Clientes implements ActionListener {
         }
         if (ae.getSource() == this.panelClientes.jButton9) {//boton agregar
             Modelo_Clientes temp_model = this.leerDatosClientes();
+            Consultas_Clientes consultas = new Consultas_Clientes();
+
+            if (consultas.create(temp_model)) {
+                lista_clientes.add(temp_model);
+                llenarTabla();
+            } else {
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se agregó al trabajador");
+                mensaje.setVisible(true);
+
+            }
         }
         if (ae.getSource() == this.panelClientes.jButton10) {// boton modificar
+            if (this.panelClientes.jTable1.getSelectionModel().isSelectionEmpty() == false) {
+                Modelo_Clientes temp_model = this.leerDatosClientes();
+                Consultas_Clientes consultas = new Consultas_Clientes();
+                String temp_dni = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 0);
+                int index = (lista_clientes.findClientes(lista_clientes, temp_dni).getTemp()).peek();
+                temp_model.setId(((Modelo_Clientes) lista_clientes.get(index)).getId());
+                if(consultas.update(temp_model)){
+                    lista_clientes.remove(index);
+                    lista_clientes.add(index,temp_model);
+                    llenarTabla();
+                }
+                else{
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo actualizar el registro");
+                mensaje.setVisible(true);
+                }
 
+            } else {
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Seleccione una fila a eliminar");
+                mensaje.setVisible(true);
+            }
         }
         if (ae.getSource() == this.panelClientes.jButton11) {// boton eliminar
-
+            if (this.panelClientes.jTable1.getSelectionModel().isSelectionEmpty() == false) {
+                Modelo_Clientes temp_model = new Modelo_Clientes();
+                String temp_dni = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 0);
+                int index = (lista_clientes.findClientes(lista_clientes, temp_dni).getTemp()).peek();
+                temp_model.setId(((Modelo_Clientes) lista_clientes.get(index)).getId());
+                Consultas_Clientes consultas = new Consultas_Clientes();
+                if (consultas.delete(temp_model)) {
+                    lista_clientes.remove(index);
+                    llenarTabla();
+                } else {
+                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo eliminar el registro");
+                    mensaje.setVisible(true);
+                }
+            } else {
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Seleccione una fila a eliminar");
+                mensaje.setVisible(true);
+            }
         }
     }
 
@@ -101,6 +147,28 @@ public class Controlador_Registros_Clientes implements ActionListener {
 
     private Modelo_Clientes leerDatosClientes() {
         Modelo_Clientes temp_model = new Modelo_Clientes();
+        temp_model.setCiudad(this.panelClientes.cbCiudad.getSelectedItem().toString());
+        temp_model.setCorreo(this.panelClientes.txfCorreo.getText());
+        temp_model.setDireccion(this.panelClientes.txfDireccion.getText());
+        temp_model.setPais(this.panelClientes.cbPais.getSelectedItem().toString());
+        temp_model.setTelefono(this.panelClientes.txfTelefono.getText());
+        String nombre_2 = this.panelClientes.txfCliente2Nombre.getText();
+
+        String nombre_1 = this.panelClientes.txfCliente1Nombre.getText();
+        String dni_2 = this.panelClientes.txfDNI2.getText();
+        String dni_1 = this.panelClientes.txfDNI1.getText();
+        if (dni_1.length() != 8) {
+            Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "La longitud del DNI es incorrecta");
+            mensaje.setVisible(true);
+        }
+        if (nombre_2.compareTo("") != 0 && dni_2.length() != 8) {
+            Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "La longitud del DNI es incorrecta");
+            mensaje.setVisible(true);
+        }
+        temp_model.setNombre_apellido(nombre_1);
+        temp_model.setNombre_apellido_2(nombre_2);
+        temp_model.setDni(dni_1);
+        temp_model.setDni_2(dni_2);
 
         return temp_model;
     }
