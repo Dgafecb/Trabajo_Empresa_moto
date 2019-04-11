@@ -723,6 +723,32 @@ public class Panel_Ventas extends javax.swing.JPanel {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
@@ -1633,11 +1659,11 @@ public class Panel_Ventas extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private modelo.CustomButtonShaped btnAlmacenBuscar;
+    public modelo.CustomButtonShaped btnAlmacenBuscar;
     private modelo.CustomButtonShaped btnClienteAgregar;
-    private modelo.CustomButtonShaped btnClienteBuscar;
-    private javax.swing.JComboBox<String> cbCiudad;
-    private javax.swing.JComboBox<String> cbPais;
+    public modelo.CustomButtonShaped btnClienteBuscar;
+    public javax.swing.JComboBox<String> cbCiudad;
+    public javax.swing.JComboBox<String> cbPais;
     private javax.swing.JComboBox<String> cbTipoVenta;
     private custom.CustomButtonShaped customButtonShaped1;
     private custom.CustomButtonShaped customButtonShaped2;
@@ -1718,34 +1744,34 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private javax.swing.JPanel pVCuotaInicial;
     private javax.swing.JPanel pVDescuento;
     private javax.swing.JRadioButton rbBoleta;
-    private javax.swing.JRadioButton rbCodigo;
+    public javax.swing.JRadioButton rbCodigo;
     private javax.swing.JRadioButton rbContrato;
-    private javax.swing.JRadioButton rbDescripcion;
+    public javax.swing.JRadioButton rbDescripcion;
     private javax.swing.JRadioButton rbFactura;
-    private javax.swing.JRadioButton rbMarca;
+    public javax.swing.JRadioButton rbMarca;
     private javax.swing.JScrollPane spAlmacen;
     private javax.swing.JScrollPane spDatosVentas;
     private javax.swing.JSpinner spnrCuotas;
     public javax.swing.JTable tAlmacen;
     private javax.swing.JTable tDatosVentas;
-    private custom.CustomTextField txfAlmacenBuscar;
-    private javax.swing.JTextField txfAnhoFab;
-    private custom.CustomTextField txfBuscar;
-    private custom.CustomTextField txfCCorreo;
-    private custom.CustomTextField txfCDNI1;
-    private custom.CustomTextField txfCDNI2;
-    private custom.CustomTextField txfCDireccion;
-    private custom.CustomTextField txfCNombre1;
-    private custom.CustomTextField txfCNombre2;
-    private custom.CustomTextField txfCTelefono;
-    private javax.swing.JTextField txfCantidad;
-    private javax.swing.JTextField txfCategoria;
-    private javax.swing.JTextField txfDescripcion;
-    private javax.swing.JTextField txfMarca;
-    private javax.swing.JTextField txfModelo;
-    private javax.swing.JTextField txfPrecioMayor;
-    private javax.swing.JTextField txfPrecioUnidad;
-    private javax.swing.JTextField txfProductoID;
+    public custom.CustomTextField txfAlmacenBuscar;
+    public javax.swing.JTextField txfAnhoFab;
+    public custom.CustomTextField txfBuscar;
+    public custom.CustomTextField txfCCorreo;
+    public custom.CustomTextField txfCDNI1;
+    public custom.CustomTextField txfCDNI2;
+    public custom.CustomTextField txfCDireccion;
+    public custom.CustomTextField txfCNombre1;
+    public custom.CustomTextField txfCNombre2;
+    public custom.CustomTextField txfCTelefono;
+    public javax.swing.JTextField txfCantidad;
+    public javax.swing.JTextField txfCategoria;
+    public javax.swing.JTextField txfDescripcion;
+    public javax.swing.JTextField txfMarca;
+    public javax.swing.JTextField txfModelo;
+    public javax.swing.JTextField txfPrecioMayor;
+    public javax.swing.JTextField txfPrecioUnidad;
+    public javax.swing.JTextField txfProductoID;
     private custom.CustomTextField txfVCuotaInicial;
     private custom.CustomTextField txfVDescuento;
     // End of variables declaration//GEN-END:variables

@@ -330,7 +330,7 @@ public class Controlador_Registros_Trabajadores implements ActionListener{
     }
 
     public DefaultTableModel tableModelTrabajadores(LinkedList<Modelo_Trabajadores> listaTrabajadores) { // devuelve un modelo para el Jtable Trabajadores
-        DefaultTableModel model = new DefaultTableModel(new String[]{"Nombres y Apellidos", "dni", "Privilegio", "Sueldo"}, 0);
+        DefaultTableModel model = new DefaultTableModel(new String[]{"Nombres y Apellidos", "DNI", "Privilegio", "Sueldo"}, 0);
         for (int i = 0; i < listaTrabajadores.size(); i++) {
             String nombre = listaTrabajadores.get(i).getNombre();
             String apellido = listaTrabajadores.get(i).getApellido();

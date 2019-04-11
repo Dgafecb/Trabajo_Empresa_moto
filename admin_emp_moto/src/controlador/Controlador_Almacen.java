@@ -62,47 +62,57 @@ public class Controlador_Almacen implements ActionListener {
             if (listaAgregar.isEmpty()) {// caso que presiono cancelar
 
             } else {
-
                 String id = listaAgregar.get(0);
-                String categoria = listaAgregar.get(1);
-                String descripcion = listaAgregar.get(2);
-                int cantidad = Integer.valueOf(listaAgregar.get(10));
-                float precio = Float.valueOf(listaAgregar.get(11));
-                String marca = listaAgregar.get(3);
-                String modelo = listaAgregar.get(4);
-                String color = listaAgregar.get(5);
-                String motor = listaAgregar.get(6);
-                String chasis = listaAgregar.get(7);
-                String anho_fab = listaAgregar.get(8);
-                String anhos_garantia = listaAgregar.get(9);
-                int advertencia = Integer.valueOf(listaAgregar.get(12));
-                Modelo_Inventario_Vehiculos temp_model = new Modelo_Inventario_Vehiculos();
-                temp_model.setAnho_fab(anho_fab);
-                temp_model.setAnhos_garantia(anhos_garantia);
-                temp_model.setCantidad(cantidad);
-                temp_model.setChasis(chasis);
-                temp_model.setColor(color);
-                temp_model.setId(id);
-                temp_model.setLimite_advertencia(advertencia);
-                temp_model.setMarca(marca);
-                temp_model.setModelo(modelo);
-                temp_model.setMotor(motor);
-                temp_model.setNombre_prod(descripcion);
-                temp_model.setPrecio(precio);
-                temp_model.setTipo_vehiculo(categoria);
+                InventarioTEMP busqueda = lista_vehiculos.findIndexId(lista_vehiculos, id);
 
-                Consultas_Inventario_Vehiculos consultas = new Consultas_Inventario_Vehiculos();
-                if (consultas.create(temp_model)) {
-                    lista_vehiculos.add(temp_model);
-                    this.llenarTablaAlmacen();
-                } else {
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo agregar al inventario");
+                if (busqueda.isFunciona()) {
+                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "El ID del artículo ya existe, utilize otro ID o actualize el artículo ");
                     mensaje.setVisible(true);
+                } else {
+
+                    String categoria = listaAgregar.get(1);
+                    String descripcion = listaAgregar.get(2);
+                    int cantidad = Integer.valueOf(listaAgregar.get(10));
+                    float precio = Float.valueOf(listaAgregar.get(11));
+                    String marca = listaAgregar.get(3);
+                    String modelo = listaAgregar.get(4);
+                    String color = listaAgregar.get(5);
+                    String motor = listaAgregar.get(6);
+                    String chasis = listaAgregar.get(7);
+                    String anho_fab = listaAgregar.get(8);
+                    String anhos_garantia = listaAgregar.get(9);
+                    int advertencia = Integer.valueOf(listaAgregar.get(12));
+                    Modelo_Inventario_Vehiculos temp_model = new Modelo_Inventario_Vehiculos();
+                    temp_model.setAnho_fab(anho_fab);
+                    temp_model.setAnhos_garantia(anhos_garantia);
+                    temp_model.setCantidad(cantidad);
+                    temp_model.setChasis(chasis);
+                    temp_model.setColor(color);
+                    temp_model.setId(id);
+                    temp_model.setLimite_advertencia(advertencia);
+                    temp_model.setMarca(marca);
+                    temp_model.setModelo(modelo);
+                    temp_model.setMotor(motor);
+                    temp_model.setNombre_prod(descripcion);
+                    temp_model.setPrecio(precio);
+                    temp_model.setTipo_vehiculo(categoria);
+
+                    Consultas_Inventario_Vehiculos consultas = new Consultas_Inventario_Vehiculos();
+                    if (consultas.create(temp_model)) {
+                        lista_vehiculos.add(temp_model);
+                        this.llenarTablaAlmacen();
+                    } else {
+                        Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo agregar al inventario");
+                        mensaje.setVisible(true);
+                    }
                 }
+
             }
 
         }
-        if (e.getSource() == this.panelInventario.bntEliminar) {
+
+        if (e.getSource()
+                == this.panelInventario.bntEliminar) {
             if (this.panelInventario.jTable1.getSelectionModel().isSelectionEmpty() == false) {
                 String temp_id = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 0);
                 int index = lista_vehiculos.findInventario(lista_vehiculos, temp_id);
@@ -127,7 +137,9 @@ public class Controlador_Almacen implements ActionListener {
             }
 
         }
-        if (e.getSource() == this.panelInventario.btnModificar) {
+
+        if (e.getSource()
+                == this.panelInventario.btnModificar) {
             if (this.panelInventario.jTable1.getSelectionModel().isSelectionEmpty() == false) {
                 if (this.panelInventario.jTable1.isEditing()) {
                     this.panelInventario.jTable1.getCellEditor().stopCellEditing();
@@ -180,6 +192,7 @@ public class Controlador_Almacen implements ActionListener {
             }
 
         }
+
         if (e.getSource() == this.panelInventario.btnBuscar) {
             if (this.panelInventario.rbId.isSelected()) {// UNICO ID
                 String temp_id = this.panelInventario.txfBuscar.getText();
@@ -187,8 +200,8 @@ public class Controlador_Almacen implements ActionListener {
                 if (temp.isFunciona()) {
                     int index = (int) ((temp.getTemp()).peek());
 
-                    DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoria", "Descripcion", "Cantidad", "Precio", "Marca", "Modelo", "Color", "Motor", "Chasis", "Ano de Fabricacion",
-                        "Anos de Garantia", "Advertencia"}, 0);
+                    DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoria", "Descripcion", "Cantidad", "Precio", "Marca", "Modelo", "Color", "Motor", "Chasis", "Año de Fabricacion",
+                        "Años de Garantia", "Advertencia"}, 0);
                     String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getId();
                     String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getTipo_vehiculo();
                     String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getNombre_prod();
@@ -217,10 +230,10 @@ public class Controlador_Almacen implements ActionListener {
                 if (temp.isFunciona()) {
                     int index = (int) ((temp.getTemp()).peek());
                     LinkedList<Integer> temp_list = temp.getTemp();
-                    DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoria", "Descripcion", "Cantidad", "Precio", "Marca", "Modelo", "Color", "Motor", "Chasis", "Ano de Fabricacion",
-                        "Anos de Garantia", "Advertencia"}, 0);
+                    DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoria", "Descripcion", "Cantidad", "Precio", "Marca", "Modelo", "Color", "Motor", "Chasis", "Año de Fabricacion",
+                        "Años de Garantia", "Advertencia"}, 0);
                     for (int j = 0; j < temp_list.size(); j++) {
-                        int i =(int) temp.getTemp().get(j);
+                        int i = (int) temp.getTemp().get(j);
                         String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
                         String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getTipo_vehiculo();
                         String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getNombre_prod();
@@ -241,7 +254,7 @@ public class Controlador_Almacen implements ActionListener {
 
                     this.panelInventario.jTable1.setModel(model);
                 } else {
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el articulo con ese ID");
+                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el articulo con esa descripción");
                     mensaje.setVisible(true);
                 }
             }
@@ -251,10 +264,10 @@ public class Controlador_Almacen implements ActionListener {
                 if (temp.isFunciona()) {
                     int index = (int) ((temp.getTemp()).peek());
                     LinkedList<Integer> temp_list = temp.getTemp();
-                    DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoria", "Descripcion", "Cantidad", "Precio", "Marca", "Modelo", "Color", "Motor", "Chasis", "Ano de Fabricacion",
-                        "Anos de Garantia", "Advertencia"}, 0);
+                    DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoria", "Descripcion", "Cantidad", "Precio", "Marca", "Modelo", "Color", "Motor", "Chasis", "Año de Fabricacion",
+                        "Años de Garantia", "Advertencia"}, 0);
                     for (int j = 0; j < temp_list.size(); j++) {
-                        int i =(int) temp.getTemp().get(j);
+                        int i = (int) temp.getTemp().get(j);
                         String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
                         String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getTipo_vehiculo();
                         String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getNombre_prod();
@@ -273,7 +286,7 @@ public class Controlador_Almacen implements ActionListener {
                     }
                     this.panelInventario.jTable1.setModel(model);
                 } else {
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el articulo con ese ID");
+                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el articulo con esa marca");
                     mensaje.setVisible(true);
                 }
             }
@@ -284,8 +297,8 @@ public class Controlador_Almacen implements ActionListener {
 
     private void llenarTablaAlmacen() {
 
-        DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoria", "Descripcion", "Cantidad", "Precio", "Marca", "Modelo", "Color", "Motor", "Chasis", "Ano de Fabricacion",
-            "Anos de Garantia", "Advertencia"}, 0);
+        DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoria", "Descripcion", "Cantidad", "Precio", "Marca", "Modelo", "Color", "Motor", "Chasis", "Año de Fabricacion",
+            "Años de Garantia", "Advertencia"}, 0);
         for (int i = 0; i < lista_vehiculos.size(); i++) {
             String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
             String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getTipo_vehiculo();

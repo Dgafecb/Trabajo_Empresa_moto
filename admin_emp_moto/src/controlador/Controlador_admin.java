@@ -39,6 +39,7 @@ public class Controlador_admin implements ActionListener {
     private Controlador_Registros controladorRegistros;
     private Controlador_Ajustes controladorAjustes;
     private Controlador_Almacen controladorAlmacen;
+    private Controlador_Ventas controladorVentas;
 
     /*---------------------VARIABLES-------------------------*/
     public LinkedList<Modelo_Trabajadores> listaTrabajadores;
@@ -126,7 +127,9 @@ public class Controlador_admin implements ActionListener {
         if (e.getSource() == ventanaAdmin.menuAdmin.btnVentas) {
             limpiarSpContent();
             panelVentas = new Panel_Ventas();
+            controladorVentas = new Controlador_Ventas(this, this.ventanaAdmin);
             ventanaAdmin.administrarPanel(ventanaAdmin.spContent, panelVentas);
+            
         }
         if (e.getSource() == ventanaAdmin.menuAdmin.btnRegistros) {
             limpiarSpContent();

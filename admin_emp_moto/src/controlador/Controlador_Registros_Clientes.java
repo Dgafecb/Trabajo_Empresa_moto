@@ -75,8 +75,7 @@ public class Controlador_Registros_Clientes implements ActionListener {
 
                 }
                 this.panelClientes.jTable1.setModel(model);
-                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se agrego al registro");
-                mensaje.setVisible(true);
+                
 
             } else {
                 Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el DNI");
