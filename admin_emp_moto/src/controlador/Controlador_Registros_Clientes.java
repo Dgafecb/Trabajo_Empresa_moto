@@ -59,18 +59,23 @@ public class Controlador_Registros_Clientes implements ActionListener {
             String dni_leido = this.panelClientes.txfBuscar.getText();
             ResultadoClientes resultado = clientes.findClientes(clientes, dni_leido);
             if (resultado.isFunciona()) {
-                DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos"}, 0);
+                DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos", "Correo", "Direccion", "Ciudad", "Pais"}, 0);
                 for (int i = 0; i < resultado.getTemp().size(); i++) {
 
                     String dni = ((Modelo_Clientes) clientes.get(i)).getDni();
                     String nombres_apellido = ((Modelo_Clientes) clientes.get(i)).getNombre_apellido();
                     String dni_2 = ((Modelo_Clientes) clientes.get(i)).getDni_2();
                     String nombres_apellido_2 = ((Modelo_Clientes) clientes.get(i)).getNombre_apellido_2();
-                    model.addRow(new Object[]{dni, nombres_apellido, dni_2, nombres_apellido_2});
+                    String correo = ((Modelo_Clientes) clientes.get(i)).getCorreo();
+                    String direccion = ((Modelo_Clientes) clientes.get(i)).getDireccion();
+                    String ciudad = ((Modelo_Clientes) clientes.get(i)).getCiudad();
+                    String pais = ((Modelo_Clientes) clientes.get(i)).getPais();
+
+                    model.addRow(new Object[]{dni, nombres_apellido, dni_2, nombres_apellido_2,correo,direccion,ciudad,pais});
 
                 }
                 this.panelClientes.jTable1.setModel(model);
-                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se agregó al registro");
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se agrego al registro");
                 mensaje.setVisible(true);
 
             } else {
@@ -86,7 +91,7 @@ public class Controlador_Registros_Clientes implements ActionListener {
                 lista_clientes.add(temp_model);
                 llenarTabla();
             } else {
-                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se agregó al trabajador");
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se agrego al trabajador");
                 mensaje.setVisible(true);
 
             }
@@ -102,7 +107,7 @@ public class Controlador_Registros_Clientes implements ActionListener {
                     lista_clientes.remove(index);
                     lista_clientes.add(index, temp_model);
                     llenarTabla();
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se actualizó el registro");
+                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se actualizo el registro");
                     mensaje.setVisible(true);
                 } else {
                     Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo actualizar el registro");
@@ -119,12 +124,12 @@ public class Controlador_Registros_Clientes implements ActionListener {
                 Modelo_Clientes temp_model = new Modelo_Clientes();
                 String temp_dni = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 0);
                 int index = (lista_clientes.findClientes(lista_clientes, temp_dni).getTemp()).peek();
-                temp_model.setId((int)((Modelo_Clientes) lista_clientes.get(index)).getId());
+                temp_model.setId((int) ((Modelo_Clientes) lista_clientes.get(index)).getId());
                 Consultas_Clientes consultas = new Consultas_Clientes();
                 if (consultas.delete(temp_model)) {
                     lista_clientes.remove(index);
                     llenarTabla();
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se eliminó el registro");
+                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se elimino el registro");
                     mensaje.setVisible(true);
                 } else {
                     Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo eliminar el registro");
@@ -138,19 +143,24 @@ public class Controlador_Registros_Clientes implements ActionListener {
     }
 
     private void llenarTabla() {
-        DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos"}, 0);
+        DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos", "Correo", "Direccion", "Ciudad", "Pais"}, 0);
         for (int i = 0; i < clientes.size(); i++) {
             String dni = ((Modelo_Clientes) clientes.get(i)).getDni();
             String nombres_apellido = ((Modelo_Clientes) clientes.get(i)).getNombre_apellido();
             String dni_2 = ((Modelo_Clientes) clientes.get(i)).getDni_2();
             String nombres_apellido_2 = ((Modelo_Clientes) clientes.get(i)).getNombre_apellido_2();
-            model.addRow(new Object[]{dni, nombres_apellido, dni_2, nombres_apellido_2});
+            String correo = ((Modelo_Clientes) clientes.get(i)).getCorreo();
+            String direccion = ((Modelo_Clientes) clientes.get(i)).getDireccion();
+            String ciudad = ((Modelo_Clientes) clientes.get(i)).getCiudad();
+            String pais = ((Modelo_Clientes) clientes.get(i)).getPais();
+            model.addRow(new Object[]{dni, nombres_apellido, dni_2, nombres_apellido_2, correo, direccion, ciudad, pais});
         }
         this.panelClientes.jTable1.setModel(model);
 
     }
 
-    private Modelo_Clientes leerDatosClientes() {
+    private Modelo_Clientes leerDatosClientes() {//lee los datos los textfield
+
         Modelo_Clientes temp_model = new Modelo_Clientes();
         temp_model.setCiudad(this.panelClientes.cbCiudad.getSelectedItem().toString());
         temp_model.setCorreo(this.panelClientes.txfCorreo.getText());

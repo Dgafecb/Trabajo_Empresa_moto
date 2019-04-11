@@ -34,7 +34,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         btnAgregar = new modelo.CustomButtonShaped();
         bntEliminar = new modelo.CustomButtonShaped();
         btnBuscar = new modelo.CustomButtonShaped();
-        btnModificar = new CustomButtonShaped();
+        btnModificar = new custom.CustomButtonShaped();
         pBuscar = new javax.swing.JPanel();
         txfBuscar = new modelo.CustomTextField();
         jPanel1 = new javax.swing.JPanel();
@@ -85,8 +85,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         pMenuInventario.add(btnBuscar, gridBagConstraints);
 
-        btnModificar.setText("MODIFICAR");
-        btnModificar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnModificar.setText("EDITAR");
         btnModificar.setMaximumSize(new java.awt.Dimension(150, 40));
         btnModificar.setMinimumSize(new java.awt.Dimension(150, 40));
         btnModificar.setPreferredSize(new java.awt.Dimension(150, 40));
@@ -217,7 +216,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
     public modelo.CustomButtonShaped bntEliminar;
     public modelo.CustomButtonShaped btnAgregar;
     public modelo.CustomButtonShaped btnBuscar;
-    public CustomButtonShaped btnModificar;
+    public custom.CustomButtonShaped btnModificar;
     private javax.swing.ButtonGroup grupoBuscarFiltro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

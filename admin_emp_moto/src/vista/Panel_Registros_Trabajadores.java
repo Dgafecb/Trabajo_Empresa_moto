@@ -56,9 +56,9 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         txfSueldo = new javax.swing.JTextField();
         cbPrivilegio = new javax.swing.JComboBox<>();
         pCRUD = new javax.swing.JPanel();
-        btnTrabajadorAgregar = new modelo.CustomButtonShaped();
-        btnTrabajadorModificar = new modelo.CustomButtonShaped();
-        btnTrabajadorBorrar = new modelo.CustomButtonShaped();
+        btnTrabajadorAgregar = new custom.CustomButtonShaped();
+        btnTrabajadorModificar = new custom.CustomButtonShaped();
+        btnTrabajadorBorrar = new custom.CustomButtonShaped();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
@@ -155,6 +155,7 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pTrabajadores.add(spTabla, gridBagConstraints);
 
@@ -348,18 +349,24 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         pCRUD.setLayout(new java.awt.GridBagLayout());
 
         btnTrabajadorAgregar.setText("AGREGAR");
+        btnTrabajadorAgregar.setMinimumSize(new java.awt.Dimension(100, 35));
+        btnTrabajadorAgregar.setPreferredSize(new java.awt.Dimension(120, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.weightx = 1.0;
         pCRUD.add(btnTrabajadorAgregar, gridBagConstraints);
 
-        btnTrabajadorModificar.setText("MODIFICAR");
+        btnTrabajadorModificar.setText("EDITAR");
+        btnTrabajadorModificar.setMinimumSize(new java.awt.Dimension(100, 35));
+        btnTrabajadorModificar.setPreferredSize(new java.awt.Dimension(120, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.weightx = 1.0;
         pCRUD.add(btnTrabajadorModificar, gridBagConstraints);
 
         btnTrabajadorBorrar.setText("BORRAR");
+        btnTrabajadorBorrar.setMinimumSize(new java.awt.Dimension(100, 35));
+        btnTrabajadorBorrar.setPreferredSize(new java.awt.Dimension(120, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.weightx = 1.0;
         pCRUD.add(btnTrabajadorBorrar, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -410,6 +417,8 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(20, 20, 5, 20);
         add(pTrabajadores, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -443,6 +452,7 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pAsistencia.add(jScrollPane1, gridBagConstraints);
 
@@ -668,7 +678,7 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 20, 20);
         add(pAsistencia, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -686,9 +696,9 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
     public modelo.CustomButtonShaped btnAsistenciaBorrar;
     public javax.swing.JButton btnAsistenciaBuscar;
     public modelo.CustomButtonShaped btnAsistenciaModificar;
-    public modelo.CustomButtonShaped btnTrabajadorAgregar;
-    public modelo.CustomButtonShaped btnTrabajadorBorrar;
-    public modelo.CustomButtonShaped btnTrabajadorModificar;
+    public custom.CustomButtonShaped btnTrabajadorAgregar;
+    public custom.CustomButtonShaped btnTrabajadorBorrar;
+    public custom.CustomButtonShaped btnTrabajadorModificar;
     public javax.swing.JButton btnTrabajadoresBuscar;
     public javax.swing.JComboBox<String> cbPrivilegio;
     private javax.swing.JLabel jLabel1;

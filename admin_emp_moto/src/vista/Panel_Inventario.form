@@ -123,12 +123,9 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="CustomButtonShaped" name="btnModificar">
+        <Component class="custom.CustomButtonShaped" name="btnModificar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="MODIFICAR"/>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="12" style="1"/>
-            </Property>
+            <Property name="text" type="java.lang.String" value="EDITAR"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[150, 40]"/>
             </Property>

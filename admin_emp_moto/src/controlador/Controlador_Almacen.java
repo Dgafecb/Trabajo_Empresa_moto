@@ -113,10 +113,10 @@ public class Controlador_Almacen implements ActionListener {
 
                     lista_vehiculos.remove(index);
                     this.llenarTablaAlmacen();
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se eliminó del inventario");
+                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se elimino del inventario");
                     mensaje.setVisible(true);
                 } else {
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se logró eliminar");
+                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se logro eliminar");
                     mensaje.setVisible(true);
                 }
 
@@ -129,47 +129,50 @@ public class Controlador_Almacen implements ActionListener {
         }
         if (e.getSource() == this.panelInventario.btnModificar) {
             if (this.panelInventario.jTable1.getSelectionModel().isSelectionEmpty() == false) {
-                String id = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 0);
-                String categoria = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 1);
-                String descripcion = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 2);
-                int cantidad = Integer.valueOf( this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 3).toString());
-                float precio = Float.valueOf(this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 4).toString());
-                String marca = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 5);
-                String modelo = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 6);
-                String color = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 7);
-                String motor = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 8);
-                String chasis = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 9);
-                String anho_fab = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 10);
-                String anhos_garantia = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 11);
-                int advertencia = Integer.valueOf( this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 12).toString());
+                if (this.panelInventario.jTable1.isEditing()) {
+                    this.panelInventario.jTable1.getCellEditor().stopCellEditing();
+                    String id = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 0);
+                    String categoria = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 1);
+                    String descripcion = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 2);
+                    int cantidad = Integer.valueOf(this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 3).toString());
+                    float precio = Float.valueOf(this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 4).toString());
+                    String marca = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 5);
+                    String modelo = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 6);
+                    String color = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 7);
+                    String motor = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 8);
+                    String chasis = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 9);
+                    String anho_fab = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 10);
+                    String anhos_garantia = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 11);
+                    int advertencia = Integer.valueOf(this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 12).toString());
 
-                Modelo_Inventario_Vehiculos temp_model = new Modelo_Inventario_Vehiculos();
-                temp_model.setId(id);
-                temp_model.setTipo_vehiculo(categoria);
-                temp_model.setNombre_prod(descripcion);
-                temp_model.setCantidad(cantidad);
-                temp_model.setPrecio(precio);
-                temp_model.setMarca(marca);
-                temp_model.setModelo(modelo);
-                temp_model.setColor(color);
-                temp_model.setMotor(motor);
-                temp_model.setChasis(chasis);
-                temp_model.setAnho_fab(anho_fab);
-                temp_model.setAnhos_garantia(anhos_garantia);
-                temp_model.setLimite_advertencia(advertencia);
-                Consultas_Inventario_Vehiculos consultas = new Consultas_Inventario_Vehiculos();
-                if (consultas.update(temp_model)) {
-                    int index = (lista_vehiculos.findIndexId(lista_vehiculos, id).getTemp()).peek();
-                    lista_vehiculos.remove(index);
-                    lista_vehiculos.add(index, temp_model);
-                    this.llenarTablaAlmacen();
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se actualizó el registro");
-                    mensaje.setVisible(true);
-                } else {
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo actualizar el registro");
-                    mensaje.setVisible(true);
+                    Modelo_Inventario_Vehiculos temp_model = new Modelo_Inventario_Vehiculos();
+                    temp_model.setId(id);
+                    temp_model.setTipo_vehiculo(categoria);
+                    temp_model.setNombre_prod(descripcion);
+                    temp_model.setCantidad(cantidad);
+                    temp_model.setPrecio(precio);
+                    temp_model.setMarca(marca);
+                    temp_model.setModelo(modelo);
+                    temp_model.setColor(color);
+                    temp_model.setMotor(motor);
+                    temp_model.setChasis(chasis);
+                    temp_model.setAnho_fab(anho_fab);
+                    temp_model.setAnhos_garantia(anhos_garantia);
+                    temp_model.setLimite_advertencia(advertencia);
+                    Consultas_Inventario_Vehiculos consultas = new Consultas_Inventario_Vehiculos();
+
+                    if (consultas.update(temp_model)) {
+                        int index = (lista_vehiculos.findIndexId(lista_vehiculos, id).getTemp()).peek();
+                        lista_vehiculos.remove(index);
+                        lista_vehiculos.add(index, temp_model);
+                        this.llenarTablaAlmacen();
+                        Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se actualizo el registro");
+                        mensaje.setVisible(true);
+                    } else {
+                        Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo actualizar el registro");
+                        mensaje.setVisible(true);
+                    }
                 }
-
             } else {
                 Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Seleccione una fila a modificar");
                 mensaje.setVisible(true);
@@ -178,14 +181,14 @@ public class Controlador_Almacen implements ActionListener {
 
         }
         if (e.getSource() == this.panelInventario.btnBuscar) {
-            if (this.panelInventario.rbId.isSelected()) {
+            if (this.panelInventario.rbId.isSelected()) {// UNICO ID
                 String temp_id = this.panelInventario.txfBuscar.getText();
                 InventarioTEMP temp = lista_vehiculos.findIndexId(lista_vehiculos, temp_id);
                 if (temp.isFunciona()) {
                     int index = (int) ((temp.getTemp()).peek());
 
-                    DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoría", "Descripción","Cantidad", "Precio",  "Marca", "Modelo", "Color", "Motor", "Chasis", "Año de Fabricación",
-                        "Años de Garantía", "Advertencia"}, 0);
+                    DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoria", "Descripcion", "Cantidad", "Precio", "Marca", "Modelo", "Color", "Motor", "Chasis", "Ano de Fabricacion",
+                        "Anos de Garantia", "Advertencia"}, 0);
                     String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getId();
                     String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getTipo_vehiculo();
                     String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getNombre_prod();
@@ -208,29 +211,32 @@ public class Controlador_Almacen implements ActionListener {
                     mensaje.setVisible(true);
                 }
             }
-            if (this.panelInventario.rbDescripcion.isSelected()) {
+            if (this.panelInventario.rbDescripcion.isSelected()) { // DESCRIPCION
                 String temp_id = this.panelInventario.txfBuscar.getText();
-                InventarioTEMP temp = lista_vehiculos.findIndexMarca(lista_vehiculos, temp_id);
+                InventarioTEMP temp = lista_vehiculos.findIndexNombre(lista_vehiculos, temp_id);
                 if (temp.isFunciona()) {
                     int index = (int) ((temp.getTemp()).peek());
+                    LinkedList<Integer> temp_list = temp.getTemp();
+                    DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoria", "Descripcion", "Cantidad", "Precio", "Marca", "Modelo", "Color", "Motor", "Chasis", "Ano de Fabricacion",
+                        "Anos de Garantia", "Advertencia"}, 0);
+                    for (int i = 0; i < temp_list.size(); i++) {
+                        String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getId();
+                        String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getTipo_vehiculo();
+                        String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getNombre_prod();
+                        int cantidad = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getCantidad();
+                        float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getPrecio();
+                        String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getMarca();
+                        String modelo = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getModelo();
+                        String color = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getColor();
+                        String motor = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getMotor();
+                        String chasis = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getChasis();
+                        String anho_fab = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getAnho_fab();
+                        String anhos_garantia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getAnhos_garantia();
+                        int advertencia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getLimite_advertencia();
 
-                    DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoría", "Descripción","Cantidad", "Precio",  "Marca", "Modelo", "Color", "Motor", "Chasis", "Año de Fabricación",
-                        "Años de Garantía", "Advertencia"}, 0);
-                    String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getId();
-                    String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getTipo_vehiculo();
-                    String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getNombre_prod();
-                    int cantidad = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getCantidad();
-                    float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getPrecio();
-                    String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getMarca();
-                    String modelo = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getModelo();
-                    String color = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getColor();
-                    String motor = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getMotor();
-                    String chasis = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getChasis();
-                    String anho_fab = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getAnho_fab();
-                    String anhos_garantia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getAnhos_garantia();
-                    int advertencia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getLimite_advertencia();
+                        model.addRow(new Object[]{id, categoria, descripcion, cantidad, precio, marca, modelo, color, motor, chasis, anho_fab, anhos_garantia, advertencia});
 
-                    model.addRow(new Object[]{id, categoria, descripcion, cantidad, precio, marca, modelo, color, motor, chasis, anho_fab, anhos_garantia, advertencia});
+                    }
 
                     this.panelInventario.jTable1.setModel(model);
                 } else {
@@ -243,25 +249,26 @@ public class Controlador_Almacen implements ActionListener {
                 InventarioTEMP temp = lista_vehiculos.findIndexMarca(lista_vehiculos, temp_id);
                 if (temp.isFunciona()) {
                     int index = (int) ((temp.getTemp()).peek());
+                    LinkedList<Integer> temp_list = temp.getTemp();
+                    DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoria", "Descripcion", "Cantidad", "Precio", "Marca", "Modelo", "Color", "Motor", "Chasis", "Ano de Fabricacion",
+                        "Anos de Garantia", "Advertencia"}, 0);
+                    for (int i = 0; i < temp_list.size(); i++) {
+                        String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getId();
+                        String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getTipo_vehiculo();
+                        String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getNombre_prod();
+                        int cantidad = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getCantidad();
+                        float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getPrecio();
+                        String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getMarca();
+                        String modelo = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getModelo();
+                        String color = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getColor();
+                        String motor = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getMotor();
+                        String chasis = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getChasis();
+                        String anho_fab = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getAnho_fab();
+                        String anhos_garantia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getAnhos_garantia();
+                        int advertencia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getLimite_advertencia();
 
-                    DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoría", "Descripción", "Cantidad","Precio",  "Marca", "Modelo", "Color", "Motor", "Chasis", "Año de Fabricación",
-                        "Años de Garantía", "Advertencia"}, 0);
-                    String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getId();
-                    String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getTipo_vehiculo();
-                    String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getNombre_prod();
-                    int cantidad = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getCantidad();
-                    float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getPrecio();
-                    String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getMarca();
-                    String modelo = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getModelo();
-                    String color = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getColor();
-                    String motor = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getMotor();
-                    String chasis = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getChasis();
-                    String anho_fab = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getAnho_fab();
-                    String anhos_garantia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getAnhos_garantia();
-                    int advertencia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getLimite_advertencia();
-
-                    model.addRow(new Object[]{id, categoria, descripcion, cantidad, precio, marca, modelo, color, motor, chasis, anho_fab, anhos_garantia, advertencia});
-
+                        model.addRow(new Object[]{id, categoria, descripcion, cantidad, precio, marca, modelo, color, motor, chasis, anho_fab, anhos_garantia, advertencia});
+                    }
                     this.panelInventario.jTable1.setModel(model);
                 } else {
                     Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el articulo con ese ID");
@@ -274,9 +281,9 @@ public class Controlador_Almacen implements ActionListener {
     }
 
     private void llenarTablaAlmacen() {
-        
-        DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoría", "Descripción", "Cantidad","Precio",  "Marca", "Modelo", "Color", "Motor", "Chasis", "Año de Fabricación",
-            "Años de Garantía", "Advertencia"}, 0);
+
+        DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoria", "Descripcion", "Cantidad", "Precio", "Marca", "Modelo", "Color", "Motor", "Chasis", "Ano de Fabricacion",
+            "Anos de Garantia", "Advertencia"}, 0);
         for (int i = 0; i < lista_vehiculos.size(); i++) {
             String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
             String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getTipo_vehiculo();
