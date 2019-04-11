@@ -139,6 +139,15 @@ public class Emergente_Panel extends javax.swing.JDialog {
         btnCancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
+                String temp = null;
+                inventario = null;
+                dispose();
+            }
+        });
+        
+        bordeVentana.btnCerrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
                 inventario = null;
                 dispose();
             }

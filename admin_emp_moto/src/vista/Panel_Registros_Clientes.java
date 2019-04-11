@@ -2,6 +2,7 @@
 package vista;
 
 import java.awt.Color;
+import java.awt.event.ItemEvent;
 
 
 public class Panel_Registros_Clientes extends javax.swing.JPanel {
@@ -9,15 +10,67 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
     public Panel_Registros_Clientes() {
         initComponents();
         jScrollPane1.getViewport().setBackground(Color.WHITE);
+        llenarCiudad(0);
     }
 
+    private void llenarCiudad(int i){
+        cbCiudad.removeAllItems();
+        switch (i) {
+            case 0:{
+                cbCiudad.addItem("Amazonas");
+                cbCiudad.addItem("Áncash");
+                cbCiudad.addItem("Apurímac");
+                cbCiudad.addItem("Arequipa");
+                cbCiudad.addItem("Ayacucho");
+                cbCiudad.addItem("Cajamarca");
+                cbCiudad.addItem("Callao");
+                cbCiudad.addItem("Cusco");
+                cbCiudad.addItem("Huancavelica");
+                cbCiudad.addItem("Huánuco");
+                cbCiudad.addItem("Ica");
+                cbCiudad.addItem("Junín");
+                cbCiudad.addItem("La Libertad");
+                cbCiudad.addItem("Lambayeque");
+                cbCiudad.addItem("Lima");
+                cbCiudad.addItem("Loreto");
+                cbCiudad.addItem("Madre de Dios");
+                cbCiudad.addItem("Moquegua");
+                cbCiudad.addItem("Pasco");
+                cbCiudad.addItem("Piura");
+                cbCiudad.addItem("Puno");
+                cbCiudad.addItem("Pasco");
+                cbCiudad.addItem("San Martín");
+                cbCiudad.addItem("Tacna"); 
+                cbCiudad.addItem("Tumbes");
+                cbCiudad.addItem("Ucayali");
+                break;
+                }
+            case 1:
+                break;
+            case 2:
+                break;
+            default:cbCiudad.addItem("Ingresa Pais");
+                break;
+        }
+    }
+
+    private void evaluarPais(String item){
+        switch (item) {
+            case "PERU": llenarCiudad(0);
+                break;
+            default: llenarCiudad(-1);
+                break;
+        }
+    }
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        pClientes = new javax.swing.JPanel();
-        pDatosCliente = new javax.swing.JPanel();
+        customPanel1 = new custom.CustomPanel();
+        pDatosCliente = new custom.CustomPanel();
         lblNombreApellido = new javax.swing.JLabel();
         lblDNI = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -34,14 +87,12 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
-        pBuscarCliente = new javax.swing.JPanel();
         pDireccion = new javax.swing.JPanel();
         lblCiudad = new javax.swing.JLabel();
         lblPais = new javax.swing.JLabel();
         cbCiudad = new javax.swing.JComboBox<>();
         cbPais = new javax.swing.JComboBox<>();
         jSeparator6 = new javax.swing.JSeparator();
-        pClienteBotones = new javax.swing.JPanel();
         pCRUD = new javax.swing.JPanel();
         jButton9 = new custom.CustomButtonShaped();
         jButton10 = new custom.CustomButtonShaped();
@@ -53,20 +104,20 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(250, 250, 250));
+        setBackground(new java.awt.Color(60, 60, 60));
         setLayout(new java.awt.GridBagLayout());
 
-        pClientes.setBackground(new java.awt.Color(250, 250, 250));
-        pClientes.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)), "Clientes", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(60, 60, 60))); // NOI18N
-        pClientes.setLayout(new java.awt.GridBagLayout());
+        customPanel1.setBackground(new java.awt.Color(250, 250, 250));
+        customPanel1.setForeground(new java.awt.Color(60, 60, 60));
+        customPanel1.setOpaque(false);
+        customPanel1.setLayout(new java.awt.GridBagLayout());
 
         pDatosCliente.setBackground(new java.awt.Color(250, 250, 250));
-        pDatosCliente.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)), "Datos Clientes", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(60, 60, 60))); // NOI18N
-        pDatosCliente.setMaximumSize(new java.awt.Dimension(400, 450));
-        pDatosCliente.setMinimumSize(new java.awt.Dimension(300, 350));
-        pDatosCliente.setPreferredSize(new java.awt.Dimension(350, 400));
+        pDatosCliente.setForeground(new java.awt.Color(200, 200, 200));
         pDatosCliente.setLayout(new java.awt.GridBagLayout());
 
+        lblNombreApellido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblNombreApellido.setForeground(new java.awt.Color(60, 60, 60));
         lblNombreApellido.setText("Nombre y Apellidos :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -76,6 +127,8 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosCliente.add(lblNombreApellido, gridBagConstraints);
 
+        lblDNI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblDNI.setForeground(new java.awt.Color(60, 60, 60));
         lblDNI.setText("DNI :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -85,6 +138,8 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosCliente.add(lblDNI, gridBagConstraints);
 
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(60, 60, 60));
         jLabel16.setText("Correo :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -93,6 +148,8 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosCliente.add(jLabel16, gridBagConstraints);
 
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(60, 60, 60));
         jLabel17.setText("Telefono:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -101,6 +158,8 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosCliente.add(jLabel17, gridBagConstraints);
 
+        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(60, 60, 60));
         jLabel18.setText("Direccion :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -211,19 +270,11 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
         pDatosCliente.add(jSeparator5, gridBagConstraints);
 
-        pBuscarCliente.setBackground(new java.awt.Color(250, 250, 250));
-        pBuscarCliente.setLayout(new java.awt.GridBagLayout());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        pDatosCliente.add(pBuscarCliente, gridBagConstraints);
-
         pDireccion.setBackground(new java.awt.Color(250, 250, 250));
         pDireccion.setLayout(new java.awt.GridBagLayout());
 
+        lblCiudad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCiudad.setForeground(new java.awt.Color(60, 60, 60));
         lblCiudad.setText("Ciudad :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -232,6 +283,8 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDireccion.add(lblCiudad, gridBagConstraints);
 
+        lblPais.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblPais.setForeground(new java.awt.Color(60, 60, 60));
         lblPais.setText("Pais :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -240,6 +293,8 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDireccion.add(lblPais, gridBagConstraints);
 
+        cbCiudad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbCiudad.setForeground(new java.awt.Color(60, 60, 60));
         cbCiudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbCiudad.setFocusable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -249,8 +304,15 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDireccion.add(cbCiudad, gridBagConstraints);
 
-        cbPais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbPais.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbPais.setForeground(new java.awt.Color(60, 60, 60));
+        cbPais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PERU", "VENEZUELA" }));
         cbPais.setFocusable(false);
+        cbPais.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbPaisItemStateChanged(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -275,15 +337,6 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDatosCliente.add(pDireccion, gridBagConstraints);
-
-        pClienteBotones.setBackground(new java.awt.Color(250, 250, 250));
-        pClienteBotones.setLayout(new java.awt.GridBagLayout());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        pDatosCliente.add(pClienteBotones, gridBagConstraints);
 
         pCRUD.setBackground(new java.awt.Color(250, 250, 250));
         pCRUD.setLayout(new java.awt.GridBagLayout());
@@ -314,16 +367,18 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(20, 5, 20, 5);
         pDatosCliente.add(pCRUD, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pClientes.add(pDatosCliente, gridBagConstraints);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(20, 5, 20, 20);
+        customPanel1.add(pDatosCliente, gridBagConstraints);
 
         pClienteBuscar.setBackground(new java.awt.Color(250, 250, 250));
         pClienteBuscar.setLayout(new java.awt.GridBagLayout());
@@ -334,7 +389,7 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         btnClienteBuscar.setMinimumSize(new java.awt.Dimension(40, 40));
         btnClienteBuscar.setPreferredSize(new java.awt.Dimension(40, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         pClienteBuscar.add(btnClienteBuscar, gridBagConstraints);
 
@@ -358,20 +413,22 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         pBuscar.add(txfBuscar, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
         pClienteBuscar.add(pBuscar, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pClientes.add(pClienteBuscar, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(20, 20, 5, 5);
+        customPanel1.add(pClienteBuscar, gridBagConstraints);
 
+        jTable1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(60, 60, 60));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -391,23 +448,30 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pClientes.add(jScrollPane1, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 20, 5);
+        customPanel1.add(jScrollPane1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 20, 20);
-        add(pClientes, gridBagConstraints);
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(customPanel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cbPaisItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbPaisItemStateChanged
+       if (evt.getStateChange() == ItemEvent.SELECTED) {
+            Object item = evt.getItem();
+            evaluarPais(item.toString());
+        }
+    }//GEN-LAST:event_cbPaisItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public modelo.CustomButtonShaped btnClienteBuscar;
     public javax.swing.JComboBox<String> cbCiudad;
     public javax.swing.JComboBox<String> cbPais;
+    private custom.CustomPanel customPanel1;
     public custom.CustomButtonShaped jButton10;
     public custom.CustomButtonShaped jButton11;
     public custom.CustomButtonShaped jButton9;
@@ -426,12 +490,9 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
     private javax.swing.JLabel lblNombreApellido;
     private javax.swing.JLabel lblPais;
     private javax.swing.JPanel pBuscar;
-    private javax.swing.JPanel pBuscarCliente;
     public javax.swing.JPanel pCRUD;
-    private javax.swing.JPanel pClienteBotones;
     public javax.swing.JPanel pClienteBuscar;
-    public javax.swing.JPanel pClientes;
-    public javax.swing.JPanel pDatosCliente;
+    private custom.CustomPanel pDatosCliente;
     private javax.swing.JPanel pDireccion;
     public modelo.CustomTextField txfBuscar;
     public javax.swing.JTextField txfCliente1Nombre;

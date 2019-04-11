@@ -12,6 +12,13 @@ public class Panel_Ventas extends javax.swing.JPanel {
         spAlmacen.getViewport().setBackground(Color.WHITE);
         spDatosVentas.getViewport().setBackground(Color.WHITE);
         llenarCiudad(0);
+        grupoAlmacen.add(rbCodigo);
+        grupoAlmacen.add(rbDescripcion);
+        grupoAlmacen.add(rbMarca);
+        
+        grupoEmision.add(rbBoleta);
+        grupoEmision.add(rbContrato);
+        grupoEmision.add(rbFactura);
     }
     
     private void llenarCiudad(int i){
@@ -57,7 +64,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
 
     private void evaluarPais(String item){
         switch (item) {
-            case "Peru": llenarCiudad(0);
+            case "PERU": llenarCiudad(0);
                 break;
             default: llenarCiudad(-1);
                 break;
@@ -68,6 +75,8 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        grupoAlmacen = new javax.swing.ButtonGroup();
+        grupoEmision = new javax.swing.ButtonGroup();
         customPanel2 = new custom.CustomPanel();
         lblFactura = new javax.swing.JLabel();
         numeroFactura = new javax.swing.JLabel();
@@ -112,9 +121,9 @@ public class Panel_Ventas extends javax.swing.JPanel {
         tAlmacen = new javax.swing.JTable();
         pBuscarPor = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        rbCodigo = new javax.swing.JRadioButton();
+        rbDescripcion = new javax.swing.JRadioButton();
+        rbMarca = new javax.swing.JRadioButton();
         pAlmacenBuscar = new javax.swing.JPanel();
         btnAlmacenBuscar = new modelo.CustomButtonShaped();
         pContenedor = new javax.swing.JPanel();
@@ -564,6 +573,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         txfCCorreo.setMaximumSize(new java.awt.Dimension(200, 28));
         txfCCorreo.setMinimumSize(new java.awt.Dimension(200, 28));
         txfCCorreo.setPhColor(new java.awt.Color(60, 60, 60));
+        txfCCorreo.setPlaceholder(Cadenas.CLIENTES_CORREO);
         txfCCorreo.setPreferredSize(new java.awt.Dimension(200, 28));
         txfCCorreo.setSelectionColor(new java.awt.Color(60, 60, 60));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -595,6 +605,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         txfCDireccion.setMaximumSize(new java.awt.Dimension(200, 28));
         txfCDireccion.setMinimumSize(new java.awt.Dimension(200, 28));
         txfCDireccion.setPhColor(new java.awt.Color(60, 60, 60));
+        txfCDireccion.setPlaceholder(Cadenas.CLIENTES_DIRECCION);
         txfCDireccion.setPreferredSize(new java.awt.Dimension(200, 28));
         txfCDireccion.setSelectionColor(new java.awt.Color(60, 60, 60));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -651,7 +662,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
 
         cbPais.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbPais.setForeground(new java.awt.Color(60, 60, 60));
-        cbPais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Peru", "Venezuela" }));
+        cbPais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PERU", "VENEZUELA" }));
         cbPais.setFocusable(false);
         cbPais.setMaximumSize(new java.awt.Dimension(100, 30));
         cbPais.setMinimumSize(new java.awt.Dimension(100, 30));
@@ -705,7 +716,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         spAlmacen.setPreferredSize(new java.awt.Dimension(150, 100));
 
         tAlmacen.setBackground(new java.awt.Color(250, 250, 250));
-        tAlmacen.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tAlmacen.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         tAlmacen.setForeground(new java.awt.Color(60, 60, 60));
         tAlmacen.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -751,35 +762,35 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 5);
         pBuscarPor.add(jLabel6, gridBagConstraints);
 
-        jRadioButton1.setBackground(new java.awt.Color(250, 250, 250));
-        jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(60, 60, 60));
-        jRadioButton1.setText("Codigo");
-        jRadioButton1.setFocusPainted(false);
+        rbCodigo.setBackground(new java.awt.Color(250, 250, 250));
+        rbCodigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        rbCodigo.setForeground(new java.awt.Color(60, 60, 60));
+        rbCodigo.setText("Codigo");
+        rbCodigo.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pBuscarPor.add(jRadioButton1, gridBagConstraints);
+        pBuscarPor.add(rbCodigo, gridBagConstraints);
 
-        jRadioButton2.setBackground(new java.awt.Color(250, 250, 250));
-        jRadioButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(60, 60, 60));
-        jRadioButton2.setText("Nombre");
-        jRadioButton2.setFocusPainted(false);
+        rbDescripcion.setBackground(new java.awt.Color(250, 250, 250));
+        rbDescripcion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        rbDescripcion.setForeground(new java.awt.Color(60, 60, 60));
+        rbDescripcion.setText("Descripcion");
+        rbDescripcion.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pBuscarPor.add(jRadioButton2, gridBagConstraints);
+        pBuscarPor.add(rbDescripcion, gridBagConstraints);
 
-        jRadioButton3.setBackground(new java.awt.Color(250, 250, 250));
-        jRadioButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jRadioButton3.setForeground(new java.awt.Color(60, 60, 60));
-        jRadioButton3.setText("Marca");
-        jRadioButton3.setFocusPainted(false);
+        rbMarca.setBackground(new java.awt.Color(250, 250, 250));
+        rbMarca.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        rbMarca.setForeground(new java.awt.Color(60, 60, 60));
+        rbMarca.setText("Marca");
+        rbMarca.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
@@ -787,7 +798,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pBuscarPor.add(jRadioButton3, gridBagConstraints);
+        pBuscarPor.add(rbMarca, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -826,6 +837,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         txfAlmacenBuscar.setMaximumSize(new java.awt.Dimension(200, 38));
         txfAlmacenBuscar.setMinimumSize(new java.awt.Dimension(200, 38));
         txfAlmacenBuscar.setPhColor(new java.awt.Color(60, 60, 60));
+        txfAlmacenBuscar.setPlaceholder(Cadenas.INVENTARIO_BUSCAR);
         txfAlmacenBuscar.setPreferredSize(new java.awt.Dimension(200, 38));
         txfAlmacenBuscar.setSelectionColor(new java.awt.Color(60, 60, 60));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1636,6 +1648,8 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private custom.CustomPanel customPanel2;
     private custom.CustomPanel customPanel3;
     private custom.CustomPanel customPanel4;
+    private javax.swing.ButtonGroup grupoAlmacen;
+    private javax.swing.ButtonGroup grupoEmision;
     private javax.swing.JLabel iconProductDefault;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
@@ -1656,9 +1670,6 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -1707,8 +1718,11 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private javax.swing.JPanel pVCuotaInicial;
     private javax.swing.JPanel pVDescuento;
     private javax.swing.JRadioButton rbBoleta;
+    private javax.swing.JRadioButton rbCodigo;
     private javax.swing.JRadioButton rbContrato;
+    private javax.swing.JRadioButton rbDescripcion;
     private javax.swing.JRadioButton rbFactura;
+    private javax.swing.JRadioButton rbMarca;
     private javax.swing.JScrollPane spAlmacen;
     private javax.swing.JScrollPane spDatosVentas;
     private javax.swing.JSpinner spnrCuotas;

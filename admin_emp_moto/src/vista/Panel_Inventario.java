@@ -30,6 +30,9 @@ public class Panel_Inventario extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         grupoBuscarFiltro = new javax.swing.ButtonGroup();
+        customPanel1 = new custom.CustomPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         pMenuInventario = new javax.swing.JPanel();
         btnAgregar = new modelo.CustomButtonShaped();
         bntEliminar = new modelo.CustomButtonShaped();
@@ -42,11 +45,46 @@ public class Panel_Inventario extends javax.swing.JPanel {
         rbId = new javax.swing.JRadioButton();
         rbMarca = new javax.swing.JRadioButton();
         rbDescripcion = new javax.swing.JRadioButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(250, 250, 250));
+        setBackground(new java.awt.Color(60, 60, 60));
         setLayout(new java.awt.GridBagLayout());
+
+        customPanel1.setBackground(new java.awt.Color(250, 250, 250));
+        customPanel1.setForeground(new java.awt.Color(60, 60, 60));
+        customPanel1.setOpaque(false);
+        customPanel1.setLayout(new java.awt.GridBagLayout());
+
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+
+        jTable1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable1.setFocusable(false);
+        jTable1.setMaximumSize(new java.awt.Dimension(1200, 80));
+        jTable1.setMinimumSize(new java.awt.Dimension(9000, 80));
+        jTable1.setPreferredSize(new java.awt.Dimension(900, 80));
+        jTable1.setSelectionBackground(new java.awt.Color(102, 102, 102));
+        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(jTable1);
+        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 30, 30, 30);
+        customPanel1.add(jScrollPane1, gridBagConstraints);
 
         pMenuInventario.setBackground(new java.awt.Color(250, 250, 250));
         pMenuInventario.setLayout(new java.awt.GridBagLayout());
@@ -103,7 +141,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         txfBuscar.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         txfBuscar.setMaximumSize(new java.awt.Dimension(500, 39));
         txfBuscar.setMinimumSize(new java.awt.Dimension(500, 39));
-        txfBuscar.setPhColor(new java.awt.Color(150, 150, 150));
+        txfBuscar.setPhColor(new java.awt.Color(60, 60, 60));
         txfBuscar.setPlaceholder(Cadenas.INVENTARIO_BUSCAR);
         txfBuscar.setPreferredSize(new java.awt.Dimension(500, 39));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -178,39 +216,14 @@ public class Panel_Inventario extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(30, 30, 5, 30);
-        add(pMenuInventario, gridBagConstraints);
-
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
-
-        jTable1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jTable1.setFocusable(false);
-        jTable1.setMaximumSize(new java.awt.Dimension(1200, 80));
-        jTable1.setMinimumSize(new java.awt.Dimension(9000, 80));
-        jTable1.setPreferredSize(new java.awt.Dimension(900, 80));
-        jTable1.setSelectionBackground(new java.awt.Color(102, 102, 102));
-        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        customPanel1.add(pMenuInventario, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 30, 30, 30);
-        add(jScrollPane1, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(customPanel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -219,6 +232,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
     public modelo.CustomButtonShaped btnAgregar;
     public modelo.CustomButtonShaped btnBuscar;
     public custom.CustomButtonShaped btnModificar;
+    private custom.CustomPanel customPanel1;
     private javax.swing.ButtonGroup grupoBuscarFiltro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
