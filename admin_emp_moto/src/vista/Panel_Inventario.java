@@ -132,8 +132,8 @@ public class Panel_Inventario extends javax.swing.JPanel {
         jLabel1.setMinimumSize(new java.awt.Dimension(75, 30));
         jLabel1.setPreferredSize(new java.awt.Dimension(75, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(jLabel1, gridBagConstraints);
 
         rbId.setBackground(new java.awt.Color(250, 250, 250));
@@ -141,8 +141,8 @@ public class Panel_Inventario extends javax.swing.JPanel {
         rbId.setText("ID");
         rbId.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 20);
         jPanel1.add(rbId, gridBagConstraints);
 
         rbMarca.setBackground(new java.awt.Color(250, 250, 250));
@@ -150,8 +150,8 @@ public class Panel_Inventario extends javax.swing.JPanel {
         rbMarca.setText("MARCA");
         rbMarca.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 5, 20);
         jPanel1.add(rbMarca, gridBagConstraints);
 
         rbDescripcion.setBackground(new java.awt.Color(250, 250, 250));
@@ -159,8 +159,10 @@ public class Panel_Inventario extends javax.swing.JPanel {
         rbDescripcion.setText("DESCRIPCION");
         rbDescripcion.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 5, 20);
         jPanel1.add(rbDescripcion, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();

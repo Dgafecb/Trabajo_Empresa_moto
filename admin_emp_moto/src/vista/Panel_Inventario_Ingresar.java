@@ -448,7 +448,6 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
     private void cbxVehiculoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxVehiculoItemStateChanged
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             Object item = evt.getItem();
-            System.out.print(item.toString());
             if (item.toString().equals("Repuestos")) {
                 this.txfModelo.setText("");
                 this.txfModelo.setEnabled(false);

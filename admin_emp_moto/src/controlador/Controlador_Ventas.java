@@ -54,7 +54,7 @@ public class Controlador_Ventas implements ActionListener{
            
             model.addRow(new Object[]{id,  descripcion,  marca,precio});
         }
-         this.panelVentas.jTable1.setModel(model);
+         this.panelVentas.tAlmacen.setModel(model);
         
     }
 
