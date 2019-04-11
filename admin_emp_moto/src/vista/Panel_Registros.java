@@ -25,7 +25,6 @@ public class Panel_Registros extends javax.swing.JPanel {
         pSubMenuRegistros = new javax.swing.JPanel();
         subBtnTrabajadores = new modelo.CustomButton();
         subBtnClientes = new modelo.CustomButton();
-        subBtnCompras = new modelo.CustomButton();
         subBtnVentas = new modelo.CustomButton();
         jSeparator4 = new javax.swing.JSeparator();
         spContenidoRegistros = new javax.swing.JScrollPane();
@@ -65,21 +64,6 @@ public class Panel_Registros extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         pSubMenuRegistros.add(subBtnClientes, gridBagConstraints);
-
-        subBtnCompras.setText("COMPRAS");
-        subBtnCompras.setColorHover(new java.awt.Color(90, 90, 90));
-        subBtnCompras.setColorNormal(new java.awt.Color(60, 60, 60));
-        subBtnCompras.setColorPressed(new java.awt.Color(70, 70, 70));
-        subBtnCompras.setFocusPainted(false);
-        subBtnCompras.setMaximumSize(new java.awt.Dimension(128, 40));
-        subBtnCompras.setMinimumSize(new java.awt.Dimension(128, 40));
-        subBtnCompras.setPreferredSize(new java.awt.Dimension(128, 40));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        pSubMenuRegistros.add(subBtnCompras, gridBagConstraints);
 
         subBtnVentas.setText("VENTAS");
         subBtnVentas.setColorHover(new java.awt.Color(90, 90, 90));
@@ -127,7 +111,6 @@ public class Panel_Registros extends javax.swing.JPanel {
     public javax.swing.JPanel pSubMenuRegistros;
     public javax.swing.JScrollPane spContenidoRegistros;
     public modelo.CustomButton subBtnClientes;
-    public modelo.CustomButton subBtnCompras;
     public modelo.CustomButton subBtnTrabajadores;
     public modelo.CustomButton subBtnVentas;
     // End of variables declaration//GEN-END:variables

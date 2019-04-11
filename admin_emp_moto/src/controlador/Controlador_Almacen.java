@@ -219,20 +219,21 @@ public class Controlador_Almacen implements ActionListener {
                     LinkedList<Integer> temp_list = temp.getTemp();
                     DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoria", "Descripcion", "Cantidad", "Precio", "Marca", "Modelo", "Color", "Motor", "Chasis", "Ano de Fabricacion",
                         "Anos de Garantia", "Advertencia"}, 0);
-                    for (int i = 0; i < temp_list.size(); i++) {
-                        String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getId();
-                        String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getTipo_vehiculo();
-                        String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getNombre_prod();
-                        int cantidad = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getCantidad();
-                        float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getPrecio();
-                        String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getMarca();
-                        String modelo = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getModelo();
-                        String color = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getColor();
-                        String motor = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getMotor();
-                        String chasis = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getChasis();
-                        String anho_fab = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getAnho_fab();
-                        String anhos_garantia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getAnhos_garantia();
-                        int advertencia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getLimite_advertencia();
+                    for (int j = 0; j < temp_list.size(); j++) {
+                        int i =(int) temp.getTemp().get(j);
+                        String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
+                        String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getTipo_vehiculo();
+                        String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getNombre_prod();
+                        int cantidad = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getCantidad();
+                        float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getPrecio();
+                        String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMarca();
+                        String modelo = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getModelo();
+                        String color = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getColor();
+                        String motor = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMotor();
+                        String chasis = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getChasis();
+                        String anho_fab = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getAnho_fab();
+                        String anhos_garantia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getAnhos_garantia();
+                        int advertencia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getLimite_advertencia();
 
                         model.addRow(new Object[]{id, categoria, descripcion, cantidad, precio, marca, modelo, color, motor, chasis, anho_fab, anhos_garantia, advertencia});
 
@@ -252,20 +253,21 @@ public class Controlador_Almacen implements ActionListener {
                     LinkedList<Integer> temp_list = temp.getTemp();
                     DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoria", "Descripcion", "Cantidad", "Precio", "Marca", "Modelo", "Color", "Motor", "Chasis", "Ano de Fabricacion",
                         "Anos de Garantia", "Advertencia"}, 0);
-                    for (int i = 0; i < temp_list.size(); i++) {
-                        String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getId();
-                        String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getTipo_vehiculo();
-                        String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getNombre_prod();
-                        int cantidad = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getCantidad();
-                        float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getPrecio();
-                        String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getMarca();
-                        String modelo = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getModelo();
-                        String color = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getColor();
-                        String motor = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getMotor();
-                        String chasis = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getChasis();
-                        String anho_fab = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getAnho_fab();
-                        String anhos_garantia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getAnhos_garantia();
-                        int advertencia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getLimite_advertencia();
+                    for (int j = 0; j < temp_list.size(); j++) {
+                        int i =(int) temp.getTemp().get(j);
+                        String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
+                        String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getTipo_vehiculo();
+                        String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getNombre_prod();
+                        int cantidad = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getCantidad();
+                        float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getPrecio();
+                        String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMarca();
+                        String modelo = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getModelo();
+                        String color = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getColor();
+                        String motor = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMotor();
+                        String chasis = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getChasis();
+                        String anho_fab = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getAnho_fab();
+                        String anhos_garantia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getAnhos_garantia();
+                        int advertencia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getLimite_advertencia();
 
                         model.addRow(new Object[]{id, categoria, descripcion, cantidad, precio, marca, modelo, color, motor, chasis, anho_fab, anhos_garantia, advertencia});
                     }

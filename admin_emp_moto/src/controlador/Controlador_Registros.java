@@ -19,7 +19,7 @@ public class Controlador_Registros implements ActionListener {
 
     public Controlador_Registros(Controlador_admin controladorAdmin, Ventana_Admin ventanaAdmin) {
         this.controladorAdmin = controladorAdmin;
-        
+
         this.ventanaAdmin = ventanaAdmin;
         this.iniciarComponentes();
         this.llamarComponentes();
@@ -36,12 +36,16 @@ public class Controlador_Registros implements ActionListener {
     private void iniciarComponentes() {
         this.ventanaAdmin = controladorAdmin.getVentanaAdmin();
         this.panelRegistros = controladorAdmin.getPanelRegistros();
+        limpiarSpContenido();
+        panelRegistrosClientes = new Panel_Registros_Clientes();
+        Controlador_Registros_Clientes ctrl_clientes = new Controlador_Registros_Clientes(this.controladorAdmin, this.ventanaAdmin, this.panelRegistrosClientes);
+        panelRegistros.administrarPanel(panelRegistros.spContenidoRegistros, ctrl_clientes.getPanelClientes());
 
     }
 
     private void llamarComponentes() {
         this.panelRegistros.subBtnTrabajadores.addActionListener(this);
-        
+
         this.panelRegistros.subBtnClientes.addActionListener(this);
 
     }
@@ -59,7 +63,7 @@ public class Controlador_Registros implements ActionListener {
             Controlador_Registros_Clientes ctrl_clientes = new Controlador_Registros_Clientes(this.controladorAdmin, this.ventanaAdmin, this.panelRegistrosClientes);
             panelRegistros.administrarPanel(panelRegistros.spContenidoRegistros, ctrl_clientes.getPanelClientes());
 
-        }else if (ae.getSource() == panelRegistros.subBtnTrabajadores) {
+        } else if (ae.getSource() == panelRegistros.subBtnTrabajadores) {
             limpiarSpContenido();
             panelRegistrosTrabajadores = new Panel_Registros_Trabajadores();
             Controlador_Registros_Trabajadores ctrl_Reg_Trabajadores = new Controlador_Registros_Trabajadores(this.controladorAdmin, this.ventanaAdmin, this.panelRegistrosTrabajadores);

@@ -18,7 +18,6 @@ public class Menu_Admin extends javax.swing.JPanel {
 
         btnEstadisticas = new modelo.CustomButton();
         btnAlmacen = new modelo.CustomButton();
-        btnCompras = new modelo.CustomButton();
         btnVentas = new modelo.CustomButton();
         btnRegistros = new modelo.CustomButton();
         btnAjustes = new modelo.CustomButton();
@@ -66,24 +65,6 @@ public class Menu_Admin extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         add(btnAlmacen, gridBagConstraints);
-
-        btnCompras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(40x40px)btnCompras.png"))); // NOI18N
-        btnCompras.setText("COMPRAS");
-        btnCompras.setColorHover(new java.awt.Color(90, 90, 90));
-        btnCompras.setColorNormal(new java.awt.Color(60, 60, 60));
-        btnCompras.setColorPressed(new java.awt.Color(70, 70, 70));
-        btnCompras.setFocusPainted(false);
-        btnCompras.setFocusable(false);
-        btnCompras.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnCompras.setMaximumSize(new java.awt.Dimension(250, 40));
-        btnCompras.setMinimumSize(new java.awt.Dimension(40, 40));
-        btnCompras.setPreferredSize(new java.awt.Dimension(250, 40));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        add(btnCompras, gridBagConstraints);
 
         btnVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(40x40px)btnVentas.png"))); // NOI18N
         btnVentas.setText("VENTAS");
@@ -190,7 +171,6 @@ public class Menu_Admin extends javax.swing.JPanel {
     public modelo.CustomButton btnAlmacen;
     public modelo.CustomButton btnAyuda;
     public modelo.CustomButton btnCerrarSesion;
-    public modelo.CustomButton btnCompras;
     public modelo.CustomButton btnEstadisticas;
     public modelo.CustomButton btnRegistros;
     public modelo.CustomButton btnVentas;

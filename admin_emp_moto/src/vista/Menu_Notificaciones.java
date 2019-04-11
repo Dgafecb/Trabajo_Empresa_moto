@@ -28,7 +28,7 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
             ventanaAdmin.menuAdmin.btnAlmacen.setText("");
             ventanaAdmin.menuAdmin.btnAyuda.setText("");
             ventanaAdmin.menuAdmin.btnCerrarSesion.setText("");
-            ventanaAdmin.menuAdmin.btnCompras.setText("");
+            //ventanaAdmin.menuAdmin.btnCompras.setText("");
             ventanaAdmin.menuAdmin.btnEstadisticas.setText("");
             ventanaAdmin.menuAdmin.btnRegistros.setText("");
             ventanaAdmin.menuAdmin.btnVentas.setText("");
@@ -41,7 +41,7 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
             ventanaAdmin.menuAdmin.btnAlmacen.setText("ALMACEN");
             ventanaAdmin.menuAdmin.btnAyuda.setText("AYUDA");
             ventanaAdmin.menuAdmin.btnCerrarSesion.setText("CERRAR SESION");
-            ventanaAdmin.menuAdmin.btnCompras.setText("COMPRAS");
+            //ventanaAdmin.menuAdmin.btnCompras.setText("COMPRAS");
             ventanaAdmin.menuAdmin.btnEstadisticas.setText("ESTADISTICAS");
             ventanaAdmin.menuAdmin.btnRegistros.setText("REGISTROS");
             ventanaAdmin.menuAdmin.btnVentas.setText("VENTAS");
