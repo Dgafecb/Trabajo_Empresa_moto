@@ -102,6 +102,7 @@ public class Perfil_Usuario extends javax.swing.JPanel {
         lblEditUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblEditUser.setForeground(new java.awt.Color(255, 255, 255));
         lblEditUser.setText("NAME DEFAULT");
+        lblEditUser.setMaximumSize(new java.awt.Dimension(300, 17));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -114,7 +115,8 @@ public class Perfil_Usuario extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 0);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         add(lblImagenPerfil, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
