@@ -33,11 +33,11 @@ public class Controlador_Ventas implements ActionListener{
 
     private void llamarComponentes() {
         
-        try {
+        /*try {
             Thread.sleep(500);
         } catch (InterruptedException ex) {
             Logger.getLogger(Controlador_Almacen.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
         this.llenarTablaAlmacen();
     }
     

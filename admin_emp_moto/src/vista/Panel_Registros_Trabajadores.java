@@ -650,13 +650,25 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         pDatosBotones.setLayout(new java.awt.GridBagLayout());
 
         btnAsistenciaAgregar.setText("AGREGAR");
-        pDatosBotones.add(btnAsistenciaAgregar, new java.awt.GridBagConstraints());
+        btnAsistenciaAgregar.setMinimumSize(new java.awt.Dimension(100, 35));
+        btnAsistenciaAgregar.setPreferredSize(new java.awt.Dimension(120, 35));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.weightx = 1.0;
+        pDatosBotones.add(btnAsistenciaAgregar, gridBagConstraints);
 
-        btnAsistenciaModificar.setText("MODIFICAR");
-        pDatosBotones.add(btnAsistenciaModificar, new java.awt.GridBagConstraints());
+        btnAsistenciaModificar.setText("EDITAR");
+        btnAsistenciaModificar.setMinimumSize(new java.awt.Dimension(100, 35));
+        btnAsistenciaModificar.setPreferredSize(new java.awt.Dimension(120, 35));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.weightx = 1.0;
+        pDatosBotones.add(btnAsistenciaModificar, gridBagConstraints);
 
         btnAsistenciaBorrar.setText("BORRAR");
-        pDatosBotones.add(btnAsistenciaBorrar, new java.awt.GridBagConstraints());
+        btnAsistenciaBorrar.setMinimumSize(new java.awt.Dimension(100, 35));
+        btnAsistenciaBorrar.setPreferredSize(new java.awt.Dimension(120, 35));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.weightx = 1.0;
+        pDatosBotones.add(btnAsistenciaBorrar, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

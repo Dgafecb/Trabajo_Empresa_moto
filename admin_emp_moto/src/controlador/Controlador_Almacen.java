@@ -45,11 +45,11 @@ public class Controlador_Almacen implements ActionListener {
         this.panelInventario.bntEliminar.addActionListener(this);
         this.panelInventario.btnBuscar.addActionListener(this);
         this.panelInventario.btnModificar.addActionListener(this);
-        try {
+        /*try {
             Thread.sleep(500);
         } catch (InterruptedException ex) {
             Logger.getLogger(Controlador_Almacen.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
         this.llenarTablaAlmacen();
     }
 
