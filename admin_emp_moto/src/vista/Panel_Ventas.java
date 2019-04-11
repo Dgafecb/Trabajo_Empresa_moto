@@ -141,14 +141,16 @@ public class Panel_Ventas extends javax.swing.JPanel {
         lblAnhoFab = new javax.swing.JLabel();
         customPanel4 = new custom.CustomPanel();
         lblTipoVenta = new javax.swing.JLabel();
-        txfCuotaInicial = new javax.swing.JTextField();
         lblNombreTrabajador = new javax.swing.JLabel();
         lblCuotas = new javax.swing.JLabel();
         lblCuotaInicial = new javax.swing.JLabel();
         lblDescuento = new javax.swing.JLabel();
         cbTipoVenta = new javax.swing.JComboBox<>();
         spnrCuotas = new javax.swing.JSpinner();
-        txfDescuento = new javax.swing.JTextField();
+        pVDescuento = new javax.swing.JPanel();
+        txfVDescuento = new custom.CustomTextField();
+        pVCuotaInicial = new javax.swing.JPanel();
+        txfVCuotaInicial = new custom.CustomTextField();
         pDatosVenta = new custom.CustomPanel();
         spDatosVentas = new javax.swing.JScrollPane();
         tDatosVentas = new javax.swing.JTable();
@@ -1141,16 +1143,6 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         customPanel4.add(lblTipoVenta, gridBagConstraints);
 
-        txfCuotaInicial.setMaximumSize(new java.awt.Dimension(200, 20));
-        txfCuotaInicial.setMinimumSize(new java.awt.Dimension(200, 20));
-        txfCuotaInicial.setPreferredSize(new java.awt.Dimension(200, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        customPanel4.add(txfCuotaInicial, gridBagConstraints);
-
         lblNombreTrabajador.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         lblNombreTrabajador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombreTrabajador.setText("SELLER : DEFAULT WORKER");
@@ -1215,15 +1207,71 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         customPanel4.add(spnrCuotas, gridBagConstraints);
 
-        txfDescuento.setMaximumSize(new java.awt.Dimension(200, 20));
-        txfDescuento.setMinimumSize(new java.awt.Dimension(200, 20));
-        txfDescuento.setPreferredSize(new java.awt.Dimension(200, 20));
+        pVDescuento.setBackground(new java.awt.Color(255, 255, 255));
+        pVDescuento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pVDescuento.setMaximumSize(new java.awt.Dimension(100, 30));
+        pVDescuento.setMinimumSize(new java.awt.Dimension(100, 30));
+        pVDescuento.setPreferredSize(new java.awt.Dimension(100, 30));
+        pVDescuento.setLayout(new java.awt.GridBagLayout());
+
+        txfVDescuento.setBorder(null);
+        txfVDescuento.setForeground(new java.awt.Color(60, 60, 60));
+        txfVDescuento.setCaretColor(new java.awt.Color(60, 60, 60));
+        txfVDescuento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfVDescuento.setMaximumSize(new java.awt.Dimension(200, 28));
+        txfVDescuento.setMinimumSize(new java.awt.Dimension(200, 28));
+        txfVDescuento.setPhColor(new java.awt.Color(60, 60, 60));
+        txfVDescuento.setPlaceholder(Cadenas.VENTAS_DESCUENTO);
+        txfVDescuento.setPreferredSize(new java.awt.Dimension(200, 28));
+        txfVDescuento.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        pVDescuento.add(txfVDescuento, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        customPanel4.add(txfDescuento, gridBagConstraints);
+        customPanel4.add(pVDescuento, gridBagConstraints);
+
+        pVCuotaInicial.setBackground(new java.awt.Color(255, 255, 255));
+        pVCuotaInicial.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pVCuotaInicial.setMaximumSize(new java.awt.Dimension(100, 30));
+        pVCuotaInicial.setMinimumSize(new java.awt.Dimension(100, 30));
+        pVCuotaInicial.setPreferredSize(new java.awt.Dimension(100, 30));
+        pVCuotaInicial.setLayout(new java.awt.GridBagLayout());
+
+        txfVCuotaInicial.setBorder(null);
+        txfVCuotaInicial.setForeground(new java.awt.Color(60, 60, 60));
+        txfVCuotaInicial.setCaretColor(new java.awt.Color(60, 60, 60));
+        txfVCuotaInicial.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfVCuotaInicial.setMaximumSize(new java.awt.Dimension(200, 28));
+        txfVCuotaInicial.setMinimumSize(new java.awt.Dimension(200, 28));
+        txfVCuotaInicial.setPhColor(new java.awt.Color(60, 60, 60));
+        txfVCuotaInicial.setPlaceholder(Cadenas.VENTAS_CUOTA_INICIAL);
+        txfVCuotaInicial.setPreferredSize(new java.awt.Dimension(200, 28));
+        txfVCuotaInicial.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        pVCuotaInicial.add(txfVCuotaInicial, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        customPanel4.add(pVCuotaInicial, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -1251,6 +1299,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tDatosVentas.setFocusable(false);
         tDatosVentas.setSelectionBackground(new java.awt.Color(60, 60, 60));
         tDatosVentas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         spDatosVentas.setViewportView(tDatosVentas);
@@ -1655,6 +1704,8 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private custom.CustomPanel pDatosVenta;
     private javax.swing.JPanel pDireccion;
     private javax.swing.JPanel pTipoFactura;
+    private javax.swing.JPanel pVCuotaInicial;
+    private javax.swing.JPanel pVDescuento;
     private javax.swing.JRadioButton rbBoleta;
     private javax.swing.JRadioButton rbContrato;
     private javax.swing.JRadioButton rbFactura;
@@ -1675,13 +1726,13 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private custom.CustomTextField txfCTelefono;
     private javax.swing.JTextField txfCantidad;
     private javax.swing.JTextField txfCategoria;
-    private javax.swing.JTextField txfCuotaInicial;
     private javax.swing.JTextField txfDescripcion;
-    private javax.swing.JTextField txfDescuento;
     private javax.swing.JTextField txfMarca;
     private javax.swing.JTextField txfModelo;
     private javax.swing.JTextField txfPrecioMayor;
     private javax.swing.JTextField txfPrecioUnidad;
     private javax.swing.JTextField txfProductoID;
+    private custom.CustomTextField txfVCuotaInicial;
+    private custom.CustomTextField txfVDescuento;
     // End of variables declaration//GEN-END:variables
 }

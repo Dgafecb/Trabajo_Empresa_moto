@@ -15,6 +15,11 @@ public class Cadenas {
     public static String CLIENTES_CORREO= "Ingresar el correo electronico";
     public static String CLIENTES_DIRECCION= "Ingresar la direccion";
     
+    //VENTAS
+    
+    public static String VENTAS_DESCUENTO = "Ingresar descuento";
+    public static String VENTAS_CUOTA_INICIAL = "Ingres cuota inicial";
+    
     //TRABAJADORES    
     public static String TRABAJADORES_BUSCAR= "Buscar por DNI";
     
