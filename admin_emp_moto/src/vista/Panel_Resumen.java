@@ -4,6 +4,7 @@ package vista;
 import com.github.lgooddatepicker.components.DatePicker;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -25,12 +26,15 @@ public class Panel_Resumen extends javax.swing.JPanel {
     
     public Panel_Resumen() {
         initComponents();
-        configuracion(datePicker1);
-        configuracion(datePicker2);
+        
         this.updateUI();
     }
     
-    private void configuracion(DatePicker datePicker){
+    
+    
+    
+    /*
+    private void configPicker(DatePicker datePicker){
         BufferedImage master = null;
         try {
             master =ImageIO.read(Perfil_Usuario.class.getResourceAsStream(Cadenas.ASISTENCIA_CALENDARIO_RUTA));
@@ -40,9 +44,10 @@ public class Panel_Resumen extends javax.swing.JPanel {
         Image img= new ImageIcon(master).getImage();
         ImageIcon imgRedimensionada =new ImageIcon(img.getScaledInstance(30, 30, Image.SCALE_SMOOTH));
         LineBorder line = new LineBorder(new Color(200,200,200));
-        datePicker.getComponentDateTextField().setBorder(line);
+        Dimension dmnsn = new Dimension(40,40);
+        
+        
         datePicker.getComponentToggleCalendarButton().setText(null);
-        datePicker.getComponentToggleCalendarButton().setPreferredSize(new Dimension(40,40));
         datePicker.getComponentToggleCalendarButton().setBackground(new Color(60,60,60));
         datePicker.getComponentToggleCalendarButton().setBorder(null);
         datePicker.getComponentToggleCalendarButton().setBorderPainted(false);
@@ -50,8 +55,16 @@ public class Panel_Resumen extends javax.swing.JPanel {
         datePicker.getComponentToggleCalendarButton().setFocusPainted(false);
         datePicker.getComponentToggleCalendarButton().setOpaque(true);
         datePicker.getComponentToggleCalendarButton().setIcon(imgRedimensionada);
+        datePicker.getComponentToggleCalendarButton().setMaximumSize(dmnsn);
+        datePicker.getComponentToggleCalendarButton().setMinimumSize(dmnsn);
+        datePicker.getComponentToggleCalendarButton().setPreferredSize(dmnsn);
+        datePicker.getComponentToggleCalendarButton().setSize(dmnsn);
+        
+        datePicker.getComponentDateTextField().setBorder(line);
+        datePicker.getComponentDateTextField().setFont(new Font("Tahoma", Font.PLAIN, 14));
+        datePicker.getComponentDateTextField().setForeground(new Color(60,60,60));
     }
-
+    */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -68,8 +81,6 @@ public class Panel_Resumen extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
-        datePicker2 = new com.github.lgooddatepicker.components.DatePicker();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(60, 60, 60));
@@ -201,28 +212,6 @@ public class Panel_Resumen extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(jLabel1, gridBagConstraints);
 
-        datePicker1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        datePicker1.setForeground(new java.awt.Color(60, 60, 60));
-        datePicker1.setMinimumSize(new java.awt.Dimension(166, 40));
-        datePicker1.setPreferredSize(new java.awt.Dimension(166, 40));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel1.add(datePicker1, gridBagConstraints);
-
-        datePicker2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        datePicker2.setForeground(new java.awt.Color(60, 60, 60));
-        datePicker2.setMinimumSize(new java.awt.Dimension(166, 40));
-        datePicker2.setPreferredSize(new java.awt.Dimension(166, 40));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel1.add(datePicker2, gridBagConstraints);
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(60, 60, 60));
         jLabel2.setText("-");
@@ -237,8 +226,8 @@ public class Panel_Resumen extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipady = 12;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         customPanel3.add(jPanel1, gridBagConstraints);
 
@@ -257,8 +246,6 @@ public class Panel_Resumen extends javax.swing.JPanel {
     private custom.CustomPanel customPanel1;
     private custom.CustomPanel customPanel2;
     private custom.CustomPanel customPanel3;
-    private com.github.lgooddatepicker.components.DatePicker datePicker1;
-    private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
