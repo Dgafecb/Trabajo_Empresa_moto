@@ -3,6 +3,7 @@ package vista;
 
 import com.github.lgooddatepicker.components.DatePicker;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import static com.github.lgooddatepicker.durationpicker_underconstruction.DurationUnit.Day;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -16,6 +17,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.LinkedList;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,17 +32,23 @@ import modelo.Cadenas;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.data.time.Day;
+import org.jfree.data.time.TimeSeries;
+import org.jfree.data.time.TimeSeriesCollection;
+import org.jfree.data.xy.XYDataset;
 
 
 public class Panel_Resumen extends javax.swing.JPanel {
 
-    private JFreeChart grafica;
-    private ChartPanel panelGrafica;
+    public JFreeChart grafica;
+    public ChartPanel panelGrafica;
+    public XYDataset database;
     
     public Panel_Resumen() {
         initComponents();
+        this.jScrollPane1.getViewport().setBackground(Color.WHITE);
         configPicker(datePicker1);
-        crearGrafica();
+        crearGraficaDeafult();
         this.updateUI();
     }
     
@@ -55,8 +66,9 @@ public class Panel_Resumen extends javax.swing.JPanel {
         datePicker.getSettings();
     }
     
-    private void crearGrafica(){
-        grafica = ChartFactory.createXYLineChart("Ventas realizadas", "Dias", "Cantidad", null);
+    private void crearGraficaDeafult(){
+        database = createDatasetDeafult();
+        grafica = ChartFactory.createTimeSeriesChart("Grafico de Ventas", "Fecha", "Ventas realizadas", database, true, true, false);
         panelGrafica= new ChartPanel(grafica);
         panelGrafica.setPreferredSize(new Dimension(100,400));
         //GridBagLayout layout = (GridBagLayout) this.customPanel2.getLayout();
@@ -74,7 +86,51 @@ public class Panel_Resumen extends javax.swing.JPanel {
         
     }
 
-    
+    private XYDataset createDatasetDeafult() {
+        LinkedList<String> string = new LinkedList<String>();
+        LinkedList<Integer> valor = new LinkedList<Integer>();
+        Double valortemp = 0.0 ; 
+        string.add("18062019_105060");
+        string.add("18072019_105060");
+        string.add("19072019_105060");
+        valor.add(5);
+        valor.add(5);
+        valor.add(5);
+        
+        TimeSeriesCollection dataset = new TimeSeriesCollection();
+        TimeSeries series1 = new TimeSeries("Linea de Venta");
+        SimpleDateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+        if(string!=null){
+            Date date = null;
+            for(int i = 0;i<string.size();i++){
+                String dia = string.get(i).substring(0, 2);
+                String mes = string.get(i).substring(2, 4);
+                String anho = string.get(i).substring(4, 8);
+                String hora = string.get(i).substring(9, 11);
+                String min = string.get(i).substring(11, 13);
+                String seg = string.get(i).substring(13, 15);
+                String fecha = dia+"/"+mes+"/"+anho+" "+hora+":"+min+":"+seg;
+                System.out.print(fecha);
+                try {
+                date = dateformat.parse(fecha);
+                } catch (ParseException ex) {
+                Logger.getLogger(Panel_Resumen.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if(series1.getValue(new Day(date))!=null){
+                    valortemp = (Double)series1.getValue(new Day(date)) + valor.get(i).doubleValue();
+                }else{
+                    valortemp = (Double)valor.get(i).doubleValue();
+                }
+                
+                series1.addOrUpdate(new Day(date),valortemp);
+            }  
+            dataset.addSeries(series1);
+        }else{
+            //DEFAULT
+        }
+        return  dataset;
+    }
+
 
     
 
@@ -127,6 +183,7 @@ public class Panel_Resumen extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(customPanel1, gridBagConstraints);
 
