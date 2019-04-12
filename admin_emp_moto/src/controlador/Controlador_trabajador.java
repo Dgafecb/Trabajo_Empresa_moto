@@ -13,12 +13,12 @@ import vista.Ventana_Trabajador;
 
 public class Controlador_trabajador implements ActionListener {
 
-    private Ventana_Trabajador ventanaTrabajador;
-    private Modelo_Trabajadores model_user;
-    private Ventana_Login view_login;
-    private Consultas_Trabajadores consultas_login;
-    private Controlador_login ctrl_login;
-    private Panel_Resumen panel_resumen;
+    public Ventana_Trabajador ventanaTrabajador;
+    public Modelo_Trabajadores model_user;
+    public Ventana_Login view_login;
+    public Consultas_Trabajadores consultas_login;
+    public Controlador_login ctrl_login;
+    public Panel_Resumen panel_resumen;
     
     private Panel_Ventas panel_ventas;
 

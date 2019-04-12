@@ -3,15 +3,15 @@ package vista;
 
 import com.github.lgooddatepicker.components.DatePicker;
 import com.github.lgooddatepicker.components.DatePickerSettings;
-import com.github.lgooddatepicker.optionalusertools.CalendarListener;
-import com.github.lgooddatepicker.zinternaltools.CalendarSelectionEvent;
-import com.github.lgooddatepicker.zinternaltools.YearMonthChangeEvent;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Image;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -24,14 +24,20 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
 import modelo.Cadenas;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
 
 
 public class Panel_Resumen extends javax.swing.JPanel {
 
-
+    private JFreeChart grafica;
+    private ChartPanel panelGrafica;
+    
     public Panel_Resumen() {
         initComponents();
         configPicker(datePicker1);
+        crearGrafica();
         this.updateUI();
     }
     
@@ -49,6 +55,24 @@ public class Panel_Resumen extends javax.swing.JPanel {
         datePicker.getSettings();
     }
     
+    private void crearGrafica(){
+        grafica = ChartFactory.createXYLineChart("Ventas realizadas", "Dias", "Cantidad", null);
+        panelGrafica= new ChartPanel(grafica);
+        panelGrafica.setPreferredSize(new Dimension(100,400));
+        //GridBagLayout layout = (GridBagLayout) this.customPanel2.getLayout();
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.gridwidth = 1;
+        constraints.gridheight = 1;
+        constraints.weightx = 1.0; 
+        constraints.weighty = 1.0; 
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.anchor = GridBagConstraints.CENTER;
+        constraints.insets= new Insets(5,5,5,5);
+        customPanel2.add (panelGrafica, constraints);
+        
+    }
 
     
 
@@ -109,18 +133,7 @@ public class Panel_Resumen extends javax.swing.JPanel {
         customPanel2.setBackground(new java.awt.Color(250, 250, 250));
         customPanel2.setForeground(new java.awt.Color(60, 60, 60));
         customPanel2.setOpaque(false);
-
-        javax.swing.GroupLayout customPanel2Layout = new javax.swing.GroupLayout(customPanel2);
-        customPanel2.setLayout(customPanel2Layout);
-        customPanel2Layout.setHorizontalGroup(
-            customPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        customPanel2Layout.setVerticalGroup(
-            customPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
+        customPanel2.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
