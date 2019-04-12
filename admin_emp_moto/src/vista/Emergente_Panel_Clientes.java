@@ -111,15 +111,15 @@ public class Emergente_Panel_Clientes extends javax.swing.JDialog {
                 clientes.add(temp);
                 temp = (pClientesRegistrosAgregar.txfCDNI2.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCDNI2.getText() : null;
                 clientes.add(temp);
-                temp = (pClientesRegistrosAgregar.txfCTelefono.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCTelefono.getText() : null;
-                clientes.add(temp);
                 temp = (pClientesRegistrosAgregar.txfCCorreo.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCCorreo.getText() : null;
                 clientes.add(temp);
                 temp = (pClientesRegistrosAgregar.txfCDireccion.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCDireccion.getText() : null;
                 clientes.add(temp);
-                temp = pClientesRegistrosAgregar.cbPais.getSelectedItem().toString();
+                temp = (pClientesRegistrosAgregar.txfCTelefono.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCTelefono.getText() : null;
                 clientes.add(temp);
                 temp = pClientesRegistrosAgregar.cbCiudad.getSelectedItem().toString();
+                clientes.add(temp);
+                temp = pClientesRegistrosAgregar.cbPais.getSelectedItem().toString();
                 clientes.add(temp);
                 dispose();
             }

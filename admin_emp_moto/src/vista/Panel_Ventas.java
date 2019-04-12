@@ -173,7 +173,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
 
         btnClienteAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(35x35)btnAgregar2.png"))); // NOI18N
         btnClienteAgregar.setToolTipText("");
-        btnClienteAgregar.setCurve(15);
+        btnClienteAgregar.setCurve(40);
         btnClienteAgregar.setMaximumSize(new java.awt.Dimension(40, 40));
         btnClienteAgregar.setMinimumSize(new java.awt.Dimension(40, 40));
         btnClienteAgregar.setPreferredSize(new java.awt.Dimension(40, 40));
@@ -1199,7 +1199,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public modelo.CustomButtonShaped btnAlmacenBuscar;
-    private modelo.CustomButtonShaped btnClienteAgregar;
+    public modelo.CustomButtonShaped btnClienteAgregar;
     public modelo.CustomButtonShaped btnClienteBuscar;
     private javax.swing.JComboBox<String> cbTipoVenta;
     private custom.CustomButtonShaped customButtonShaped1;
@@ -1231,7 +1231,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable1;
     private javax.swing.JLabel lblAnhoFab;
     private javax.swing.JLabel lblCantidad;
     private javax.swing.JLabel lblCategoria;
@@ -1244,7 +1244,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private javax.swing.JLabel lblMarca;
     private javax.swing.JLabel lblModelo;
     private javax.swing.JLabel lblMoneda;
-    private javax.swing.JLabel lblNombreTrabajador;
+    public javax.swing.JLabel lblNombreTrabajador;
     private javax.swing.JLabel lblPrecioxMayor;
     private javax.swing.JLabel lblPrecioxUnidad;
     private javax.swing.JLabel lblTipoVenta;

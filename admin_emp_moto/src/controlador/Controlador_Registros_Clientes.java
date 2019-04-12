@@ -11,6 +11,7 @@ import modelo.Linked_List;
 import modelo.Linked_List.ResultadoClientes;
 import modelo.Modelo_Clientes;
 import vista.Emergente_Aviso;
+import vista.Emergente_Panel_Clientes;
 import vista.Panel_Registros_Clientes;
 import vista.Ventana_Admin;
 
@@ -71,11 +72,10 @@ public class Controlador_Registros_Clientes implements ActionListener {
                     String ciudad = ((Modelo_Clientes) clientes.get(i)).getCiudad();
                     String pais = ((Modelo_Clientes) clientes.get(i)).getPais();
 
-                    model.addRow(new Object[]{dni, nombres_apellido, dni_2, nombres_apellido_2,correo,direccion,ciudad,pais});
+                    model.addRow(new Object[]{dni, nombres_apellido, dni_2, nombres_apellido_2, correo, direccion, ciudad, pais});
 
                 }
                 this.panelClientes.jTable1.setModel(model);
-                
 
             } else {
                 Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el DNI");
@@ -83,17 +83,44 @@ public class Controlador_Registros_Clientes implements ActionListener {
             }
         }
         if (ae.getSource() == this.panelClientes.jButton9) {//boton agregar
-            Modelo_Clientes temp_model = this.leerDatosClientes();
-            Consultas_Clientes consultas = new Consultas_Clientes();
+            Emergente_Panel_Clientes panel = new Emergente_Panel_Clientes(ventanaAdmin, true);
+            panel.setVisible(true);
+            LinkedList<String> lista_agregada = panel.clientes;
+            if (lista_agregada == null) {
+                //Si se apreto el boton cancelar
 
-            if (consultas.create(temp_model)) {
-                lista_clientes.add(temp_model);
-                llenarTabla();
             } else {
-                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se agrego al trabajador");
-                mensaje.setVisible(true);
+                Modelo_Clientes temp_model = new Modelo_Clientes();
+                String temp_nombre = (String) lista_agregada.get(0);
+                String temp_nombre_2 = (String) lista_agregada.get(1);
+                String temp_dni = (String) lista_agregada.get(2);
+                String temp_dni_2 = (String) lista_agregada.get(3);
+                String temp_correo = (String) lista_agregada.get(4);
+                String temp_direccion = (String) lista_agregada.get(5);
+                String temp_telefono = (String) lista_agregada.get(6);
+                String temp_ciudad = (String) lista_agregada.get(7);
+                String temp_pais = (String) lista_agregada.get(8);
+                temp_model.setNombre_apellido(temp_nombre);
+                temp_model.setNombre_apellido_2(temp_nombre_2);
+                temp_model.setDni(temp_dni);
+                temp_model.setDni_2(temp_dni_2);
+                temp_model.setDireccion(temp_direccion);
+                temp_model.setTelefono(temp_telefono);
+                temp_model.setPais(temp_pais);
+                temp_model.setCiudad(temp_ciudad);
+                temp_model.setCorreo(temp_correo);
+                Consultas_Clientes consultas = new Consultas_Clientes();
+                if (consultas.create(temp_model)) {
+                    lista_clientes.add(temp_model);
+                    llenarTabla();
+                } else {
+                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se agrego al trabajador");
+                    mensaje.setVisible(true);
+
+                }
 
             }
+
         }
         if (ae.getSource() == this.panelClientes.jButton10) {// boton modificar
             if (this.panelClientes.jTable1.getSelectionModel().isSelectionEmpty() == false) {
