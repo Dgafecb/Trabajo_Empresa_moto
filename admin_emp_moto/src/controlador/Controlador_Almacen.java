@@ -59,7 +59,7 @@ public class Controlador_Almacen implements ActionListener {
             Emergente_Panel panel = new Emergente_Panel(ventanaAdmin, true);
             panel.setVisible(true);
             LinkedList<String> listaAgregar = panel.inventario;
-            if (listaAgregar.isEmpty()) {// caso que presiono cancelar
+            if (listaAgregar == null) {// caso que presiono cancelar
 
             } else {
                 String id = listaAgregar.get(0);
