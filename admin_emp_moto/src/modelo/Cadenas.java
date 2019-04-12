@@ -21,7 +21,9 @@ public class Cadenas {
     public static String VENTAS_CUOTA_INICIAL = "Ingres cuota inicial";
     
     //TRABAJADORES    
-    public static String TRABAJADORES_BUSCAR= "Buscar por DNI";
+    public static String TRABAJADORES_BUSCAR = "Buscar por DNI";
+    
+    public static String ASISTENCIA_CALENDARIO_RUTA = "/recursos/(35x35)btnCalendar.png";
     
     
 }

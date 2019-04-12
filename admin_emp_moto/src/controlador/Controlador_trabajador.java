@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import modelo.Consultas_Trabajadores;
 import modelo.Modelo_Trabajadores;
+import vista.Panel_Resumen;
 import vista.Panel_Ventas;
 import vista.Ventana_Login;
 import vista.Ventana_Trabajador;
@@ -17,6 +18,7 @@ public class Controlador_trabajador implements ActionListener {
     private Ventana_Login view_login;
     private Consultas_Trabajadores consultas_login;
     private Controlador_login ctrl_login;
+    private Panel_Resumen panel_resumen;
     
     private Panel_Ventas panel_ventas;
 
@@ -27,7 +29,7 @@ public class Controlador_trabajador implements ActionListener {
     }
 
     private void llamarComponentes() {
-
+        ventanaTrabajador.menuTrabajador.btnInicio.addActionListener(this);
         ventanaTrabajador.menuTrabajador.btnCerrarSesion.addActionListener(this);
         ventanaTrabajador.menuTrabajador.btnVentas.addActionListener(this);
         //Agrega el nombre y apellido a la esquina superior derecha
@@ -37,6 +39,7 @@ public class Controlador_trabajador implements ActionListener {
     }
     private void limpiarSpContent(){
         this.panel_ventas = null;
+        this.panel_resumen = null;
     }
 
     @Override
@@ -45,8 +48,11 @@ public class Controlador_trabajador implements ActionListener {
             limpiarSpContent();
             panel_ventas = new Panel_Ventas();
             ventanaTrabajador.administrarPanel(this.ventanaTrabajador.spContent, panel_ventas);
-        }
-        if (e.getSource() == ventanaTrabajador.menuTrabajador.btnCerrarSesion) { // Reinstancia la ventana de login, permitiendo otro inicio de sesion
+        }else if(e.getSource() == ventanaTrabajador.menuTrabajador.btnInicio){
+            limpiarSpContent();
+            panel_resumen = new Panel_Resumen();
+            ventanaTrabajador.administrarPanel(this.ventanaTrabajador.spContent, panel_resumen);
+        }else if (e.getSource() == ventanaTrabajador.menuTrabajador.btnCerrarSesion) { // Reinstancia la ventana de login, permitiendo otro inicio de sesion
             cerrarSesion();
         }
 
