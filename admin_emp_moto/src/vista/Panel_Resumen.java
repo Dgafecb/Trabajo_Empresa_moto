@@ -2,12 +2,21 @@
 package vista;
 
 import com.github.lgooddatepicker.components.DatePicker;
+import com.github.lgooddatepicker.components.DatePickerSettings;
+import com.github.lgooddatepicker.optionalusertools.CalendarListener;
+import com.github.lgooddatepicker.zinternaltools.CalendarSelectionEvent;
+import com.github.lgooddatepicker.zinternaltools.YearMonthChangeEvent;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -16,55 +25,35 @@ import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
 import modelo.Cadenas;
 
-/**
- *
- * @author FuryMercury
- */
+
 public class Panel_Resumen extends javax.swing.JPanel {
 
-    
-    
+
     public Panel_Resumen() {
         initComponents();
-        
+        configPicker(datePicker1);
         this.updateUI();
     }
     
-    
-    
-    
-    /*
     private void configPicker(DatePicker datePicker){
-        BufferedImage master = null;
-        try {
-            master =ImageIO.read(Perfil_Usuario.class.getResourceAsStream(Cadenas.ASISTENCIA_CALENDARIO_RUTA));
-        } catch (IOException ex) {
-            Logger.getLogger(Panel_Resumen.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        Image img= new ImageIcon(master).getImage();
-        ImageIcon imgRedimensionada =new ImageIcon(img.getScaledInstance(30, 30, Image.SCALE_SMOOTH));
-        LineBorder line = new LineBorder(new Color(200,200,200));
-        Dimension dmnsn = new Dimension(40,40);
+        Font font = new Font("Tahoma",Font.PLAIN,14);
+        Color color = new Color(60,60,60);
+        datePicker.getSettings().setFontInvalidDate(font);
+        datePicker.getSettings().setFontClearLabel(font);
+        datePicker.getSettings().setFontValidDate(font);
+        datePicker.getSettings().setSizeTextFieldMinimumWidth(80);
         
-        
-        datePicker.getComponentToggleCalendarButton().setText(null);
-        datePicker.getComponentToggleCalendarButton().setBackground(new Color(60,60,60));
-        datePicker.getComponentToggleCalendarButton().setBorder(null);
-        datePicker.getComponentToggleCalendarButton().setBorderPainted(false);
-        datePicker.getComponentToggleCalendarButton().setContentAreaFilled(false);
-        datePicker.getComponentToggleCalendarButton().setFocusPainted(false);
-        datePicker.getComponentToggleCalendarButton().setOpaque(true);
-        datePicker.getComponentToggleCalendarButton().setIcon(imgRedimensionada);
-        datePicker.getComponentToggleCalendarButton().setMaximumSize(dmnsn);
-        datePicker.getComponentToggleCalendarButton().setMinimumSize(dmnsn);
-        datePicker.getComponentToggleCalendarButton().setPreferredSize(dmnsn);
-        datePicker.getComponentToggleCalendarButton().setSize(dmnsn);
-        
-        datePicker.getComponentDateTextField().setBorder(line);
-        datePicker.getComponentDateTextField().setFont(new Font("Tahoma", Font.PLAIN, 14));
-        datePicker.getComponentDateTextField().setForeground(new Color(60,60,60));
+        datePicker.getSettings().setColor(DatePickerSettings.DateArea.DatePickerTextInvalidDate,color);
+        datePicker.getSettings().setColor(DatePickerSettings.DateArea.DatePickerTextValidDate,color);
+        //datePicker.getSettings().getParentCalendarPanel().getNextMonthButton();
+        datePicker.getSettings();
     }
-    */
+    
+
+    
+
+    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -82,6 +71,8 @@ public class Panel_Resumen extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
+        datePicker2 = new com.github.lgooddatepicker.components.DatePicker();
 
         setBackground(new java.awt.Color(60, 60, 60));
         setForeground(new java.awt.Color(60, 60, 60));
@@ -92,16 +83,16 @@ public class Panel_Resumen extends javax.swing.JPanel {
         customPanel1.setOpaque(false);
         customPanel1.setLayout(new java.awt.GridBagLayout());
 
-        customButtonShaped1.setText("ASISTENCIA");
+        customButtonShaped1.setText("MARCAR ASISTENCIA");
         customButtonShaped1.setColorNormalGrad2(new java.awt.Color(20, 20, 20));
         customButtonShaped1.setColorPressedGrad1(new java.awt.Color(20, 20, 20));
         customButtonShaped1.setColorPressedGrad2(new java.awt.Color(60, 60, 60));
         customButtonShaped1.setColorTextPressed(new java.awt.Color(153, 153, 153));
-        customButtonShaped1.setCurve(200);
+        customButtonShaped1.setCurve(50);
         customButtonShaped1.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
-        customButtonShaped1.setMaximumSize(new java.awt.Dimension(200, 200));
-        customButtonShaped1.setMinimumSize(new java.awt.Dimension(200, 200));
-        customButtonShaped1.setPreferredSize(new java.awt.Dimension(200, 200));
+        customButtonShaped1.setMaximumSize(new java.awt.Dimension(300, 50));
+        customButtonShaped1.setMinimumSize(new java.awt.Dimension(300, 50));
+        customButtonShaped1.setPreferredSize(new java.awt.Dimension(300, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -133,7 +124,7 @@ public class Panel_Resumen extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(customPanel2, gridBagConstraints);
 
@@ -142,15 +133,17 @@ public class Panel_Resumen extends javax.swing.JPanel {
 
         pBuscar.setBackground(new java.awt.Color(255, 255, 255));
         pBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pBuscar.setMinimumSize(new java.awt.Dimension(522, 40));
+        pBuscar.setPreferredSize(new java.awt.Dimension(522, 40));
         pBuscar.setLayout(new java.awt.GridBagLayout());
 
         txfBuscar.setBorder(null);
         txfBuscar.setForeground(new java.awt.Color(60, 60, 60));
         txfBuscar.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        txfBuscar.setMaximumSize(new java.awt.Dimension(500, 39));
-        txfBuscar.setMinimumSize(new java.awt.Dimension(500, 39));
+        txfBuscar.setMaximumSize(new java.awt.Dimension(500, 38));
+        txfBuscar.setMinimumSize(new java.awt.Dimension(500, 38));
         txfBuscar.setPhColor(new java.awt.Color(60, 60, 60));
-        txfBuscar.setPreferredSize(new java.awt.Dimension(500, 39));
+        txfBuscar.setPreferredSize(new java.awt.Dimension(500, 38));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -164,7 +157,7 @@ public class Panel_Resumen extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(20, 20, 5, 0);
         customPanel3.add(pBuscar, gridBagConstraints);
 
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(35x35)btnBuscar.png"))); // NOI18N
@@ -175,7 +168,7 @@ public class Panel_Resumen extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 5, 20);
         customPanel3.add(btnBuscar, gridBagConstraints);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -199,7 +192,7 @@ public class Panel_Resumen extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 20, 20);
         customPanel3.add(jScrollPane1, gridBagConstraints);
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
@@ -218,9 +211,25 @@ public class Panel_Resumen extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(jLabel2, gridBagConstraints);
+
+        datePicker1.setMinimumSize(new java.awt.Dimension(250, 40));
+        datePicker1.setPreferredSize(new java.awt.Dimension(250, 40));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        jPanel1.add(datePicker1, gridBagConstraints);
+
+        datePicker2.setMaximumSize(new java.awt.Dimension(2147483647, 40));
+        datePicker2.setMinimumSize(new java.awt.Dimension(250, 40));
+        datePicker2.setPreferredSize(new java.awt.Dimension(250, 40));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        jPanel1.add(datePicker2, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -228,13 +237,16 @@ public class Panel_Resumen extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipady = 12;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 5, 20);
         customPanel3.add(jPanel1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(customPanel3, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
@@ -246,6 +258,8 @@ public class Panel_Resumen extends javax.swing.JPanel {
     private custom.CustomPanel customPanel1;
     private custom.CustomPanel customPanel2;
     private custom.CustomPanel customPanel3;
+    private com.github.lgooddatepicker.components.DatePicker datePicker1;
+    private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -254,4 +268,6 @@ public class Panel_Resumen extends javax.swing.JPanel {
     private javax.swing.JPanel pBuscar;
     public modelo.CustomTextField txfBuscar;
     // End of variables declaration//GEN-END:variables
+
+    
 }

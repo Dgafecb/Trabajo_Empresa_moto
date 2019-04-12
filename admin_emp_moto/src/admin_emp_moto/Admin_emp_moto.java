@@ -32,9 +32,6 @@ public class Admin_emp_moto {
         Ventana_Login view = new Ventana_Login();
         Controlador_login ctrl = new Controlador_login(view, user, consultas);
         
-        Emergente_Panel_Clientes panel = new Emergente_Panel_Clientes(view,true); 
-        panel.setVisible(true);
-        
         
         view.setVisible(true);
         
