@@ -58,86 +58,89 @@ public class Controlador_Ventas implements ActionListener {
         this.panelVentas.btnClienteBuscar.addActionListener(this);
         this.panelVentas.btnClienteAgregar.addActionListener(this);
         this.panelVentas.tAlmacen.getSelectionModel().addListSelectionListener(new ListSelectionListener() {// rellena los datos de abajo con la fila seleccionada de la tabla almacen
+            @Override
             public void valueChanged(ListSelectionEvent event) {
+                if (!event.getValueIsAdjusting() && panelVentas.tAlmacen.getSelectedRow() != -1) {
+                    System.out.println(panelVentas.tAlmacen.getValueAt(panelVentas.tAlmacen.getSelectedRow(), 0).toString());
+                    String selected_id = (String) panelVentas.tAlmacen.getValueAt(panelVentas.tAlmacen.getSelectedRow(), 0);
 
-                System.out.println(panelVentas.tAlmacen.getValueAt(panelVentas.tAlmacen.getSelectedRow(), 0).toString());
-                String selected_id = (String) panelVentas.tAlmacen.getValueAt(panelVentas.tAlmacen.getSelectedRow(), 0);
+                    Linked_List.InventarioTEMP temp = lista_vehiculos.findIndexId(lista_vehiculos, selected_id);
 
-                Linked_List.InventarioTEMP temp = lista_vehiculos.findIndexId(lista_vehiculos, selected_id);
+                    int index = (int) ((temp.getTemp()).peek());
 
-                int index = (int) ((temp.getTemp()).peek());
+                    String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getId();
+                    String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getTipo_vehiculo();
+                    String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getNombre_prod();
+                    int cantidad = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getCantidad();
+                    float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getPrecio();
+                    String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getMarca();
+                    String modelo = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getModelo();
+                    String color = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getColor();
+                    String motor = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getMotor();
+                    String chasis = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getChasis();
+                    String anho_fab = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getAnho_fab();
+                    String anhos_garantia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getAnhos_garantia();
+                    int advertencia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getLimite_advertencia();
 
-                String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getId();
-                String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getTipo_vehiculo();
-                String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getNombre_prod();
-                int cantidad = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getCantidad();
-                float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getPrecio();
-                String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getMarca();
-                String modelo = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getModelo();
-                String color = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getColor();
-                String motor = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getMotor();
-                String chasis = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getChasis();
-                String anho_fab = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getAnho_fab();
-                String anhos_garantia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getAnhos_garantia();
-                int advertencia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getLimite_advertencia();
+                    panelVentas.txfMarca.setText(marca);
+                    panelVentas.txfModelo.setText(modelo);
+                    panelVentas.txfPrecioUnidad.setText(Float.toString(precio));
+                    panelVentas.txfProductoID.setText(id);
+                    panelVentas.txfDescripcion.setText(descripcion);
+                    panelVentas.txfCategoria.setText(categoria);
+                    panelVentas.txfAnhoFab.setText(anho_fab);
+                    panelVentas.txfCantidad.setText(Integer.toString(cantidad));
+                    String dsctoMayor = ((Modelo_Ajustes) (lista_ajustes.get(5))).getValor();// 
+                    if (dsctoMayor.endsWith("%")) {
+                        dsctoMayor = dsctoMayor.substring(0, dsctoMayor.length() - 1);
 
-                panelVentas.txfMarca.setText(marca);
-                panelVentas.txfModelo.setText(modelo);
-                panelVentas.txfPrecioUnidad.setText(Float.toString(precio));
-                panelVentas.txfProductoID.setText(id);
-                panelVentas.txfDescripcion.setText(descripcion);
-                panelVentas.txfCategoria.setText(categoria);
-                panelVentas.txfAnhoFab.setText(anho_fab);
-                panelVentas.txfCantidad.setText(Integer.toString(cantidad));
-                String dsctoMayor = ((Modelo_Ajustes) (lista_ajustes.get(5))).getValor();// 
-                if (dsctoMayor.endsWith("%")) {
-                    dsctoMayor = dsctoMayor.substring(0, dsctoMayor.length() - 1);
-
+                    }
+                    float precioMayor = (Integer.valueOf(dsctoMayor) / 100.f) * precio;
+                    panelVentas.txfPrecioMayor.setText(Float.toString(precioMayor));
+                    modeloInventario = new Modelo_Inventario_Vehiculos();
+                    modeloInventario.setId(id);
+                    modeloInventario.setCantidad(cantidad);
+                    modeloInventario.setAnho_fab(anho_fab);
+                    modeloInventario.setAnhos_garantia(anhos_garantia);
+                    modeloInventario.setChasis(chasis);
+                    modeloInventario.setColor(color);
+                    modeloInventario.setLimite_advertencia(advertencia);
+                    modeloInventario.setMarca(marca);
+                    modeloInventario.setTipo_vehiculo(categoria);
+                    modeloInventario.setPrecio(precio);
+                    modeloInventario.setNombre_prod(descripcion);
+                    modeloInventario.setMotor(motor);
                 }
-                float precioMayor = (Integer.valueOf(dsctoMayor) / 100.f) * precio;
-                panelVentas.txfPrecioMayor.setText(Float.toString(precioMayor));
-                modeloInventario = new Modelo_Inventario_Vehiculos();
-                modeloInventario.setId(id);
-                modeloInventario.setCantidad(cantidad);
-                modeloInventario.setAnho_fab(anho_fab);
-                modeloInventario.setAnhos_garantia(anhos_garantia);
-                modeloInventario.setChasis(chasis);
-                modeloInventario.setColor(color);
-                modeloInventario.setLimite_advertencia(advertencia);
-                modeloInventario.setMarca(marca);
-                modeloInventario.setTipo_vehiculo(categoria);
-                modeloInventario.setPrecio(precio);
-                modeloInventario.setNombre_prod(descripcion);
-                modeloInventario.setMotor(motor);
-
             }
         });
-        this.panelVentas.tAlmacen.getSelectionModel().addListSelectionListener(new ListSelectionListener() {// crea un modelo clientes que sera verificado para la venta al registrar
+        this.panelVentas.jTable1.getSelectionModel().addListSelectionListener(new ListSelectionListener() {// crea un modelo clientes que sera verificado para la venta al registrar
             public void valueChanged(ListSelectionEvent event) {
-                modeloClientes = new Modelo_Clientes();
-                String dni_leido = (String) panelVentas.jTable1.getValueAt(panelVentas.jTable1.getSelectedRow(), 0);
-                Linked_List.ResultadoClientes resultado = lista_clientes.findClientes(lista_clientes, dni_leido);
+                if (!event.getValueIsAdjusting() && panelVentas.jTable1.getSelectedRow() != -1) {
+                    modeloClientes = new Modelo_Clientes();
+                    String dni_leido = (String) panelVentas.jTable1.getValueAt(panelVentas.jTable1.getSelectedRow(), 0);
+                    Linked_List.ResultadoClientes resultado = lista_clientes.findClientes(lista_clientes, dni_leido);
 
-                int i = (int) resultado.getTemp().peek();
-                int id = ((Modelo_Clientes) lista_clientes.get(i)).getId();
-                String dni = ((Modelo_Clientes) lista_clientes.get(i)).getDni();
-                String nombres_apellido = ((Modelo_Clientes) lista_clientes.get(i)).getNombre_apellido();
-                String dni_2 = ((Modelo_Clientes) lista_clientes.get(i)).getDni_2();
-                String nombres_apellido_2 = ((Modelo_Clientes) lista_clientes.get(i)).getNombre_apellido_2();
-                String correo = ((Modelo_Clientes) lista_clientes.get(i)).getCorreo();
-                String direccion = ((Modelo_Clientes) lista_clientes.get(i)).getDireccion();
-                String ciudad = ((Modelo_Clientes) lista_clientes.get(i)).getCiudad();
-                String pais = ((Modelo_Clientes) lista_clientes.get(i)).getPais();
+                    int i = (int) resultado.getTemp().peek();
+                    int id = ((Modelo_Clientes) lista_clientes.get(i)).getId();
+                    String dni = ((Modelo_Clientes) lista_clientes.get(i)).getDni();
+                    String nombres_apellido = ((Modelo_Clientes) lista_clientes.get(i)).getNombre_apellido();
+                    String dni_2 = ((Modelo_Clientes) lista_clientes.get(i)).getDni_2();
+                    String nombres_apellido_2 = ((Modelo_Clientes) lista_clientes.get(i)).getNombre_apellido_2();
+                    String correo = ((Modelo_Clientes) lista_clientes.get(i)).getCorreo();
+                    String direccion = ((Modelo_Clientes) lista_clientes.get(i)).getDireccion();
+                    String ciudad = ((Modelo_Clientes) lista_clientes.get(i)).getCiudad();
+                    String pais = ((Modelo_Clientes) lista_clientes.get(i)).getPais();
 
-                modeloClientes.setCiudad(ciudad);
-                modeloClientes.setCorreo(correo);
-                modeloClientes.setDireccion(direccion);
-                modeloClientes.setDni(dni);
-                modeloClientes.setNombre_apellido(nombres_apellido);
-                modeloClientes.setNombre_apellido_2(nombres_apellido_2);
-                modeloClientes.setDni_2(dni_2);
-                modeloClientes.setPais(pais);
-                modeloClientes.setId(id);
+                    modeloClientes.setCiudad(ciudad);
+                    modeloClientes.setCorreo(correo);
+                    modeloClientes.setDireccion(direccion);
+                    modeloClientes.setDni(dni);
+                    modeloClientes.setNombre_apellido(nombres_apellido);
+                    modeloClientes.setNombre_apellido_2(nombres_apellido_2);
+                    modeloClientes.setDni_2(dni_2);
+                    modeloClientes.setPais(pais);
+                    modeloClientes.setId(id);
+                }
             }
         });
     }
@@ -183,15 +186,15 @@ public class Controlador_Ventas implements ActionListener {
 
             } else {
                 Modelo_Clientes temp_model = new Modelo_Clientes();
-                String temp_nombre = (String)lista_agregada.get(0);
-                String temp_nombre_2 = (String)lista_agregada.get(1);
-                String temp_dni = (String)lista_agregada.get(2);
-                String temp_dni_2 = (String)lista_agregada.get(3);
-                String temp_correo = (String)lista_agregada.get(4);
-                String temp_direccion = (String)lista_agregada.get(5);
-                String temp_telefono = (String)lista_agregada.get(6);
-                String temp_ciudad = (String)lista_agregada.get(7);
-                String temp_pais = (String)lista_agregada.get(8);
+                String temp_nombre = (String) lista_agregada.get(0);
+                String temp_nombre_2 = (String) lista_agregada.get(1);
+                String temp_dni = (String) lista_agregada.get(2);
+                String temp_dni_2 = (String) lista_agregada.get(3);
+                String temp_correo = (String) lista_agregada.get(4);
+                String temp_direccion = (String) lista_agregada.get(5);
+                String temp_telefono = (String) lista_agregada.get(6);
+                String temp_ciudad = (String) lista_agregada.get(7);
+                String temp_pais = (String) lista_agregada.get(8);
                 temp_model.setNombre_apellido(temp_nombre);
                 temp_model.setNombre_apellido_2(temp_nombre_2);
                 temp_model.setDni(temp_dni);
@@ -208,14 +211,14 @@ public class Controlador_Ventas implements ActionListener {
                     lista_clientes.add(temp_model);
                     //Coloca el cliente agregado como unico en el modelo de tabla
                     DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos"}, 0);
-                    int i = (int)lista_clientes.findClientes(lista_clientes, temp_dni).getTemp().peek();
-                        String dni = ((Modelo_Clientes) lista_clientes.get(i)).getDni();
-                        String nombres_apellido = ((Modelo_Clientes) lista_clientes.get(i)).getNombre_apellido();
-                        String dni_2 = ((Modelo_Clientes) lista_clientes.get(i)).getDni_2();
-                        String nombres_apellido_2 = ((Modelo_Clientes) lista_clientes.get(i)).getNombre_apellido_2();
+                    int i = (int) lista_clientes.findClientes(lista_clientes, temp_dni).getTemp().peek();
+                    String dni = ((Modelo_Clientes) lista_clientes.get(i)).getDni();
+                    String nombres_apellido = ((Modelo_Clientes) lista_clientes.get(i)).getNombre_apellido();
+                    String dni_2 = ((Modelo_Clientes) lista_clientes.get(i)).getDni_2();
+                    String nombres_apellido_2 = ((Modelo_Clientes) lista_clientes.get(i)).getNombre_apellido_2();
 
-                        model.addRow(new Object[]{dni, nombres_apellido, dni_2, nombres_apellido_2});
-                  
+                    model.addRow(new Object[]{dni, nombres_apellido, dni_2, nombres_apellido_2});
+
                     this.panelVentas.jTable1.setModel(model);
 
                 } else {
@@ -228,6 +231,7 @@ public class Controlador_Ventas implements ActionListener {
 
         }
         if (e.getSource() == this.panelVentas.btnClienteBuscar) {
+
             String dni_leido = this.panelVentas.txfBuscar.getText();
             Linked_List.ResultadoClientes resultado = lista_clientes.findClientes(lista_clientes, dni_leido);
             if (resultado.isFunciona()) {
@@ -254,6 +258,7 @@ public class Controlador_Ventas implements ActionListener {
             }
         }
         if (e.getSource() == this.panelVentas.btnAlmacenBuscar) {//boton buscar del almacen
+            this.panelVentas.jTable1.clearSelection();
             if (this.panelVentas.rbCodigo.isSelected()) {// UNICO ID
                 String temp_id = this.panelVentas.txfAlmacenBuscar.getText();
                 Linked_List.InventarioTEMP temp = lista_vehiculos.findIndexId(lista_vehiculos, temp_id);
