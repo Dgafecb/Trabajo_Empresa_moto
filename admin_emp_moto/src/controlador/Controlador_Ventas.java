@@ -177,6 +177,20 @@ public class Controlador_Ventas implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == this.panelVentas.customButtonShaped1) {
+            //chequear si el string atributo de el boton agregar, la cantidad es distinto de nulo
+
+            // si es distinto de nulo
+            if (modeloInventario == null) {
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Seleccione la fila de la tabla almacen a agregar");
+                mensaje.setVisible(true);
+            } else {
+                
+                
+                
+            }
+
+        }
         if (e.getSource() == this.panelVentas.btnClienteAgregar) {
             Emergente_Panel_Clientes panel = new Emergente_Panel_Clientes(ventanaAdmin, true);
             panel.setVisible(true);

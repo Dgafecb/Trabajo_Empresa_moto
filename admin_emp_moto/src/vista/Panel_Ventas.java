@@ -1202,7 +1202,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
     public modelo.CustomButtonShaped btnClienteAgregar;
     public modelo.CustomButtonShaped btnClienteBuscar;
     private javax.swing.JComboBox<String> cbTipoVenta;
-    private custom.CustomButtonShaped customButtonShaped1;
+    public custom.CustomButtonShaped customButtonShaped1;
     private custom.CustomButtonShaped customButtonShaped2;
     private custom.CustomButtonShaped customButtonShaped3;
     private custom.CustomButtonShaped customButtonShaped4;
