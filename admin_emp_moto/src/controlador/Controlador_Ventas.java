@@ -148,6 +148,7 @@ public class Controlador_Ventas implements ActionListener {
     }
     private void iniciarTablaVentas(){
         DefaultTableModel model = new DefaultTableModel(new String[]{"Id","Descripcion","Cantidad","Precio unitario","Precio Total"}, 0);
+        this.panelVentas.tDatosVentas.setModel(model);
         
     }
     private void llenarTablaClientes() {

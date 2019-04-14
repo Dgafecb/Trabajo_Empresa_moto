@@ -1297,7 +1297,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
     public javax.swing.JScrollPane spDatosVentas;
     private javax.swing.JSpinner spnrCuotas;
     public javax.swing.JTable tAlmacen;
-    private javax.swing.JTable tDatosVentas;
+    public javax.swing.JTable tDatosVentas;
     public custom.CustomTextField txfAlmacenBuscar;
     public javax.swing.JTextField txfAnhoFab;
     public custom.CustomTextField txfBuscar;
