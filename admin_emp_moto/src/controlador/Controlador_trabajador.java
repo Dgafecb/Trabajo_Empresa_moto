@@ -21,6 +21,7 @@ public class Controlador_trabajador implements ActionListener {
     public Panel_Resumen panel_resumen;
     
     private Panel_Ventas panel_ventas;
+    public Modelo_Trabajadores modelo_Trabajador_Actual;
 
     public Controlador_trabajador(Ventana_Trabajador ventanaTrabajador, Modelo_Trabajadores model_user) {// Falta instanciar las demas variables a usar
         this.ventanaTrabajador = ventanaTrabajador;
@@ -33,6 +34,7 @@ public class Controlador_trabajador implements ActionListener {
         ventanaTrabajador.menuTrabajador.btnCerrarSesion.addActionListener(this);
         ventanaTrabajador.menuTrabajador.btnVentas.addActionListener(this);
         //Agrega el nombre y apellido a la esquina superior derecha
+        modelo_Trabajador_Actual = (Modelo_Trabajadores) lista_trabajadores.get(lista_trabajadores.findTrabajador(lista_trabajadores, this.model_user.getDni()));
         String nombre_apellido = ((Modelo_Trabajadores) lista_trabajadores.get(lista_trabajadores.findTrabajador(lista_trabajadores, this.model_user.getDni()))).getNombre();
         nombre_apellido = nombre_apellido + " " + ((Modelo_Trabajadores) lista_trabajadores.get(lista_trabajadores.findTrabajador(lista_trabajadores, this.model_user.getDni()))).getApellido();
         ventanaTrabajador.menuNotificaciones.perfil_Usuario1.lblEditUser.setText(nombre_apellido);

@@ -11,6 +11,7 @@ import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Consultas_Ventas;
+import modelo.Modelo_Asistencia;
 import modelo.Modelo_Ventas;
 import org.jfree.data.time.Day;
 import org.jfree.data.time.TimeSeries;
@@ -25,9 +26,11 @@ public class Controlador_Resumen implements ActionListener {
     private Ventana_Trabajador ventana_trabajador;
     private Controlador_trabajador controlador_Trabajador;
     private Consultas_Ventas consultas_ventas;
-    private Modelo_Ventas modelo_ventas;
+    private Modelo_Ventas modelo_Ventas;
     private Panel_Resumen panel_Resumen;
-    private LinkedList<Modelo_Ventas> lista_ventas;
+    private LinkedList<Modelo_Ventas> lista_Ventas;
+    private LinkedList<Modelo_Ventas> listaVentasTrabajador ;
+    private LinkedList<Modelo_Asistencia> lista_Asistencia ;
     
     public Controlador_Resumen(){
         
@@ -42,7 +45,9 @@ public class Controlador_Resumen implements ActionListener {
     }
     
     private void iniciarComponentes(){
-         this.panel_Resumen = this.controlador_Trabajador.panel_resumen;      
+         this.panel_Resumen = this.controlador_Trabajador.panel_resumen;
+         int id_trabajador = Integer.parseInt(controlador_Trabajador.modelo_Trabajador_Actual.getDni());
+         this.listaVentasTrabajador = crearListaTrabajadores(this.lista_Ventas,id_trabajador);
     }
     
     private void llamarComponentes(){
@@ -53,18 +58,29 @@ public class Controlador_Resumen implements ActionListener {
         
     }
     
-    private void actualizarGrafica(LinkedList<Modelo_Ventas> listaVentas,int id_trabajador){    
-        if(listaVentas!=null){
-            LinkedList<Modelo_Ventas> listaVentasTrabajador = new LinkedList<Modelo_Ventas>();
-            TimeSeriesCollection dataset = new TimeSeriesCollection();
-            TimeSeries series1 = new TimeSeries("Linea de Venta");
-            SimpleDateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
-            Double valortemp = 0.0 ; 
+    private LinkedList<Modelo_Ventas> crearListaTrabajadores(LinkedList<Modelo_Ventas> listaVentas,int id_trabajador){
+        LinkedList<Modelo_Ventas> listaxTrabajador = new LinkedList<Modelo_Ventas>();
+        if(listaVentasTrabajador!=null){
             for(int i = 0;i<listaVentas.size(); i++){
                 if(listaVentas.get(i).getId_trabajador()== id_trabajador){
                     listaVentasTrabajador.add(listaVentas.get(i));
                 }
             }
+        }else {
+           listaxTrabajador = null; 
+        }
+        
+        return listaxTrabajador;
+    }
+            
+            
+    private void actualizarGrafica(LinkedList<Modelo_Ventas> listaVentasTrabajador){    
+        if(listaVentasTrabajador!=null){
+            TimeSeriesCollection dataset = new TimeSeriesCollection();
+            TimeSeries series1 = new TimeSeries("Linea de Venta");
+            SimpleDateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+            Double valortemp = 0.0 ; 
+            
             Date date = null;
             for(int i = 0;i<listaVentasTrabajador.size();i++){
                 String dia = listaVentasTrabajador.get(i).getFecha_hora().substring(0, 2);
@@ -78,8 +94,7 @@ public class Controlador_Resumen implements ActionListener {
                 date = dateformat.parse(fecha);
                 } catch (ParseException ex) {
                 Logger.getLogger(Panel_Resumen.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                
+                }  
                 if(series1.getValue(new Day(date))!=null){
                     valortemp = (Double)series1.getValue(new Day(date)) + 1.0;
                 }else{
@@ -104,8 +119,19 @@ public class Controlador_Resumen implements ActionListener {
         
     }
     
-    private boolean verificacionAsistencia(){
-        return false;
+    private boolean verificacionAsistencia(String fecha,int id_trabajador){
+        if(lista_Asistencia!=null){
+            for(int i = 0; i < lista_Asistencia.size();i++ ){
+                if(lista_Asistencia.get(i).getDni().equals(String.valueOf(id_trabajador)) &&
+                        lista_Asistencia.get(i).getFecha().equals(fecha)){                    
+                    return true;
+                }
+            }
+            return false;   
+        }else{
+            return false;
+        }
+        
     }
     
     @Override
