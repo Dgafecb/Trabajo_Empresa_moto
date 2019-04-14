@@ -769,7 +769,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         customPanel4.add(lblDescuento, gridBagConstraints);
 
-        cbTipoVenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbTipoVenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EFECTIVO", "MAYOR", "CREDITO" }));
         cbTipoVenta.setFocusable(false);
         cbTipoVenta.setMaximumSize(new java.awt.Dimension(100, 20));
         cbTipoVenta.setMinimumSize(new java.awt.Dimension(100, 20));
@@ -874,13 +874,39 @@ public class Panel_Ventas extends javax.swing.JPanel {
         tDatosVentas.setForeground(new java.awt.Color(60, 60, 60));
         tDatosVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
             }
         ));
         tDatosVentas.setFocusable(false);
@@ -1201,12 +1227,12 @@ public class Panel_Ventas extends javax.swing.JPanel {
     public modelo.CustomButtonShaped btnAlmacenBuscar;
     public modelo.CustomButtonShaped btnClienteAgregar;
     public modelo.CustomButtonShaped btnClienteBuscar;
-    private javax.swing.JComboBox<String> cbTipoVenta;
+    public javax.swing.JComboBox<String> cbTipoVenta;
     public custom.CustomButtonShaped customButtonShaped1;
-    private custom.CustomButtonShaped customButtonShaped2;
-    private custom.CustomButtonShaped customButtonShaped3;
-    private custom.CustomButtonShaped customButtonShaped4;
-    private custom.CustomButtonShaped customButtonShaped5;
+    public custom.CustomButtonShaped customButtonShaped2;
+    public custom.CustomButtonShaped customButtonShaped3;
+    public custom.CustomButtonShaped customButtonShaped4;
+    public custom.CustomButtonShaped customButtonShaped5;
     private custom.CustomPanel customPanel1;
     private custom.CustomPanel customPanel2;
     private custom.CustomPanel customPanel3;
@@ -1221,13 +1247,13 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
+    public javax.swing.JLabel jLabel22;
+    public javax.swing.JLabel jLabel23;
+    public javax.swing.JLabel jLabel24;
+    public javax.swing.JLabel jLabel25;
+    public javax.swing.JLabel jLabel26;
+    public javax.swing.JLabel jLabel27;
+    public javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1243,12 +1269,12 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private javax.swing.JLabel lblFactura;
     private javax.swing.JLabel lblMarca;
     private javax.swing.JLabel lblModelo;
-    private javax.swing.JLabel lblMoneda;
+    public javax.swing.JLabel lblMoneda;
     public javax.swing.JLabel lblNombreTrabajador;
     private javax.swing.JLabel lblPrecioxMayor;
     private javax.swing.JLabel lblPrecioxUnidad;
     private javax.swing.JLabel lblTipoVenta;
-    private javax.swing.JLabel lblsgnoMoneda;
+    public javax.swing.JLabel lblsgnoMoneda;
     private javax.swing.JLabel numeroFactura;
     private custom.CustomPanel pAdicionalAlmacen;
     private custom.CustomPanel pAlmacen;
@@ -1268,7 +1294,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private javax.swing.JRadioButton rbFactura;
     public javax.swing.JRadioButton rbMarca;
     private javax.swing.JScrollPane spAlmacen;
-    private javax.swing.JScrollPane spDatosVentas;
+    public javax.swing.JScrollPane spDatosVentas;
     private javax.swing.JSpinner spnrCuotas;
     public javax.swing.JTable tAlmacen;
     private javax.swing.JTable tDatosVentas;
@@ -1283,7 +1309,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
     public javax.swing.JTextField txfPrecioMayor;
     public javax.swing.JTextField txfPrecioUnidad;
     public javax.swing.JTextField txfProductoID;
-    private custom.CustomTextField txfVCuotaInicial;
-    private custom.CustomTextField txfVDescuento;
+    public custom.CustomTextField txfVCuotaInicial;
+    public custom.CustomTextField txfVDescuento;
     // End of variables declaration//GEN-END:variables
 }

@@ -54,9 +54,11 @@ public class Controlador_Ventas implements ActionListener {
         this.panelVentas.lblNombreTrabajador.setText(nombre_trabajador);
         this.llenarTablaAlmacen();
         this.llenarTablaClientes();
+        this.iniciarTablaVentas();
         this.panelVentas.btnAlmacenBuscar.addActionListener(this);
         this.panelVentas.btnClienteBuscar.addActionListener(this);
         this.panelVentas.btnClienteAgregar.addActionListener(this);
+        this.panelVentas.customButtonShaped1.addActionListener(this);
         this.panelVentas.tAlmacen.getSelectionModel().addListSelectionListener(new ListSelectionListener() {// rellena los datos de abajo con la fila seleccionada de la tabla almacen
             @Override
             public void valueChanged(ListSelectionEvent event) {
@@ -144,7 +146,10 @@ public class Controlador_Ventas implements ActionListener {
             }
         });
     }
-
+    private void iniciarTablaVentas(){
+        DefaultTableModel model = new DefaultTableModel(new String[]{"Id","Descripcion","Cantidad","Precio unitario","Precio Total"}, 0);
+        
+    }
     private void llenarTablaClientes() {
         DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos"}, 0);
         for (int i = 0; i < lista_clientes.size(); i++) {
