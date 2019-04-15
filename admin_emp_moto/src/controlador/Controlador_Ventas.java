@@ -32,7 +32,15 @@ public class Controlador_Ventas implements ActionListener {
     private Modelo_Inventario_Vehiculos modeloInventario = null;
     private Modelo_Clientes modeloClientes = null;
     private Linked_List<Modelo_Inventario_Vehiculos> objetosAgregados = null;//lista que va a guardar los objetos agregados antes de venderlos
-
+    private DefaultTableModel modeloTablaVentas;
+    private float total_ventas = 0.00f;
+    private float sin_igv = 0.00f;
+    private float con_igv = 0.00f;
+    private float sin_dscto = 0.00f;
+    private float con_dscto = 0.00f;
+    private float cuota_mensual = 0.00f;
+    private int dscto = 1;
+    private int cuotas = 1;
     public Controlador_Ventas(Controlador_admin controladorAdmin, Ventana_Admin ventanaAdmin) {
         this.controladorAdmin = controladorAdmin;
         this.ventanaAdmin = ventanaAdmin;
@@ -59,6 +67,8 @@ public class Controlador_Ventas implements ActionListener {
         this.panelVentas.btnClienteBuscar.addActionListener(this);
         this.panelVentas.btnClienteAgregar.addActionListener(this);
         this.panelVentas.customButtonShaped1.addActionListener(this);
+        this.panelVentas.customButtonShaped2.addActionListener(this);
+        this.panelVentas.customButtonShaped5.addActionListener(this);
         this.panelVentas.tAlmacen.getSelectionModel().addListSelectionListener(new ListSelectionListener() {// rellena los datos de abajo con la fila seleccionada de la tabla almacen
             @Override
             public void valueChanged(ListSelectionEvent event) {
@@ -146,11 +156,13 @@ public class Controlador_Ventas implements ActionListener {
             }
         });
     }
-    private void iniciarTablaVentas(){
-        DefaultTableModel model = new DefaultTableModel(new String[]{"Id","Descripcion","Cantidad","Precio unitario","Precio Total"}, 0);
-        this.panelVentas.tDatosVentas.setModel(model);
-        
+
+    private void iniciarTablaVentas() {
+        modeloTablaVentas = new DefaultTableModel(new String[]{"Id", "Descripcion", "Cantidad", "Precio unitario", "Precio Total"}, 0);
+        this.panelVentas.tDatosVentas.setModel(modeloTablaVentas);
+
     }
+
     private void llenarTablaClientes() {
         DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos"}, 0);
         for (int i = 0; i < lista_clientes.size(); i++) {
@@ -183,20 +195,63 @@ public class Controlador_Ventas implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == this.panelVentas.customButtonShaped1) {
-            //chequear si el string atributo de el boton agregar, la cantidad es distinto de nulo
+        if (e.getSource() == this.panelVentas.customButtonShaped1) {// boton agregar
 
-            // si es distinto de nulo
             if (modeloInventario == null) {
                 Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Seleccione la fila de la tabla almacen a agregar");
                 mensaje.setVisible(true);
             } else {
-                
-                
+                //chequear si el string atributo de el boton agregar, la cantidad es distinto de nulo
+
+                //  si es distinto de nulo
+                String id = modeloInventario.getId();
+                String descripcion = modeloInventario.getNombre_prod();
+                String cantidad = "0"; // iniciar con el valor que recibe de el panel agregar
+                float precio_unitario = modeloInventario.getPrecio();//Falta verificar si la lista_ajustes(10) es distinto de 1 para cambiar ese valor
+                float precio_total = precio_unitario * Integer.valueOf(cantidad);
+
+                modeloTablaVentas.addRow(new Object[]{id, descripcion, cantidad, precio_unitario, precio_total});
+
+                this.panelVentas.tDatosVentas.setModel(modeloTablaVentas);
+//                System.out.println(this.panelVentas.tDatosVentas.getRowCount());//
+                this.total_ventas += precio_total;
+                this.con_dscto = this.total_ventas*this.dscto;
+                this.sin_dscto = this.total_ventas;
+                this.sin_igv = this.con_dscto;
+                this.con_igv = 0.18f*this.sin_igv;
+                this.total_ventas = this.con_igv;
+                this.cuota_mensual = this.total_ventas/(float)cuotas; 
+                this.panelVentas.jLabel22.setText(Float.toString(sin_igv));
+                this.panelVentas.jLabel23.setText(Float.toString(con_igv));
+                this.panelVentas.jLabel25.setText(Float.toString(sin_dscto));
+                this.panelVentas.jLabel26.setText(Float.toString(con_dscto));
+                this.panelVentas.jLabel27.setText(Float.toString(cuota_mensual));
+                this.panelVentas.jLabel28.setText(Float.toString(total_ventas));
                 
             }
 
         }
+        if (e.getSource() == this.panelVentas.customButtonShaped2) {// boton quitar 
+
+            if (this.panelVentas.tDatosVentas.getSelectionModel().isSelectionEmpty() == false) {
+
+                int[] rows = this.panelVentas.tDatosVentas.getSelectedRows();
+                for (int i = 0; i < rows.length; i++) {
+                    modeloTablaVentas.removeRow(rows[i] - i);
+                }
+//                System.out.println(this.panelVentas.tDatosVentas.getRowCount());
+            } else {
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Seleccione la fila que desea quitar");
+                mensaje.setVisible(true);
+
+            }
+
+        }
+        if (e.getSource() == this.panelVentas.customButtonShaped5) {//boton limpiar
+            this.iniciarTablaVentas();
+//            System.out.println(this.panelVentas.tDatosVentas.getRowCount()); 
+        }
+
         if (e.getSource() == this.panelVentas.btnClienteAgregar) {
             Emergente_Panel_Clientes panel = new Emergente_Panel_Clientes(ventanaAdmin, true);
             panel.setVisible(true);
@@ -250,6 +305,7 @@ public class Controlador_Ventas implements ActionListener {
             }
 
         }
+
         if (e.getSource() == this.panelVentas.btnClienteBuscar) {
 
             String dni_leido = this.panelVentas.txfBuscar.getText();
@@ -277,6 +333,7 @@ public class Controlador_Ventas implements ActionListener {
                 mensaje.setVisible(true);
             }
         }
+
         if (e.getSource() == this.panelVentas.btnAlmacenBuscar) {//boton buscar del almacen
             this.panelVentas.jTable1.clearSelection();
             if (this.panelVentas.rbCodigo.isSelected()) {// UNICO ID
