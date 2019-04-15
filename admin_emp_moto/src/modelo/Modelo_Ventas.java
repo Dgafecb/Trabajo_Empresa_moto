@@ -5,14 +5,16 @@ package modelo;
 public class Modelo_Ventas {
     
     private int id;
-    private int id_factura;  
-    private int id_prod;
+    private String id_factura;  
+    private String id_prod;
     private int id_trabajador;
     private int id_cliente;
     private String fecha_hora;
     private float monto_inicial;
     private int cuotas ;
     private int dscto;
+    private int cantidad;
+    private float total;
 
     public int getId() {
         return id;
@@ -22,20 +24,28 @@ public class Modelo_Ventas {
         this.id = id;
     }
 
-    public int getId_factura() {
+    public String getId_factura() {
         return id_factura;
     }
 
-    public void setId_factura(int id_factura) {
+    public void setId_factura(String id_factura) {
         this.id_factura = id_factura;
     }
 
-    public int getId_prod() {
+    public String getId_prod() {
         return id_prod;
     }
 
-    public void setId_prod(int id_prod) {
+    public void setId_prod(String id_prod) {
         this.id_prod = id_prod;
+    }
+
+    public int getId_trabajador() {
+        return id_trabajador;
+    }
+
+    public void setId_trabajador(int id_trabajador) {
+        this.id_trabajador = id_trabajador;
     }
 
     public int getId_cliente() {
@@ -78,12 +88,20 @@ public class Modelo_Ventas {
         this.dscto = dscto;
     }
 
-    public int getId_trabajador() {
-        return id_trabajador;
+    public int getCantidad() {
+        return cantidad;
     }
 
-    public void setId_trabajador(int id_trabajador) {
-        this.id_trabajador = id_trabajador;
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public float getTotal() {
+        return total;
+    }
+
+    public void setTotal(float total) {
+        this.total = total;
     }
     
     

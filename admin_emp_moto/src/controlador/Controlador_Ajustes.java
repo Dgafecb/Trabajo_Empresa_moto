@@ -36,6 +36,7 @@ public class Controlador_Ajustes implements ActionListener {
         initComponentes();
 
     }
+    
 
     private void initComponentes() {
         this.panelAjustes.txfEmpresaNombre.setText(ajustes.get(0).getValor());

@@ -15,10 +15,13 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import modelo.Consultas_Clientes;
+import modelo.Consultas_Inventario_Vehiculos;
 import modelo.Linked_List;
 import modelo.Modelo_Ajustes;
 import modelo.Modelo_Clientes;
 import modelo.Modelo_Inventario_Vehiculos;
+import modelo.Modelo_Trabajadores;
+import modelo.Modelo_Ventas;
 import vista.Emergente_Aviso;
 import vista.Emergente_Panel_Clientes;
 import vista.Emergente_Panel_Ventas;
@@ -130,6 +133,7 @@ public class Controlador_Ventas implements ActionListener {
             }
         });
         this.panelVentas.jTable1.getSelectionModel().addListSelectionListener(new ListSelectionListener() {// crea un modelo clientes que sera verificado para la venta al registrar
+            @Override
             public void valueChanged(ListSelectionEvent event) {
                 if (!event.getValueIsAdjusting() && panelVentas.jTable1.getSelectedRow() != -1) {
                     modeloClientes = new Modelo_Clientes();
@@ -200,6 +204,58 @@ public class Controlador_Ventas implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.panelVentas.customButtonShaped3) {// Boton registrar
+            if (this.panelVentas.tDatosVentas.getRowCount() != 0) {
+                if (this.modeloClientes != null) {
+                    // actualizar inventario y crear registro de la venta
+
+                    Consultas_Inventario_Vehiculos consultas_inventario = new Consultas_Inventario_Vehiculos();
+                    Thread hilo = new Thread() {// hilo para actualizar la cantidad de cada elemento del inventario
+                        @Override
+                        public void run() {
+                            for (int i = 0; i < panelVentas.tDatosVentas.getRowCount(); i++) {//Recorre toda la tabla de ventas
+                                //actualizamos el inventario
+                                Modelo_Inventario_Vehiculos temp_model_vehiculos;
+                                String id_prod = (String) panelVentas.tDatosVentas.getValueAt(i, 0);
+                                String cantidad = (String) panelVentas.tDatosVentas.getValueAt(i, 2);
+                                int index = lista_vehiculos.findInventario(lista_vehiculos, id_prod);
+                                temp_model_vehiculos = (Modelo_Inventario_Vehiculos) lista_vehiculos.get(index);
+                                temp_model_vehiculos.setCantidad(temp_model_vehiculos.getCantidad() - Integer.valueOf(cantidad));
+
+                                if (consultas_inventario.update(temp_model_vehiculos)) {
+
+                                } else {
+                                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se logro actualizar el inventario");
+                                    mensaje.setVisible(true);
+                                }
+                            }
+                            Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se actualizó el inventario");
+                            mensaje.setVisible(true);
+                            return;
+                        }
+
+                    };
+                    hilo.start();
+                    Modelo_Ventas temp_model = new Modelo_Ventas();
+                    int id_trabajador = this.controladorAdmin.getModel_user().getId();
+                    int index = lista_clientes.findClientes(lista_clientes, (String) this.panelVentas.jTable1.getValueAt(0, 0)).getTemp().peek();
+                    int id_cliente = ((Modelo_Clientes) lista_clientes.get(index)).getId();
+                    for (int i = 0; i < this.panelVentas.tDatosVentas.getRowCount(); i++) {//Recorre toda la tabla de ventas
+                        // creamos el registro de ventas para cada producto distinto
+
+                        String id_prod = (String) this.panelVentas.tDatosVentas.getValueAt(i, 0);
+                        String cantidad = (String) this.panelVentas.tDatosVentas.getValueAt(i, 2);
+
+                    }
+                    // Actualizar listas almacen y ventas
+                    // Actualizar tabla almacen
+                } else {
+                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Seleccione a un cliente de la tabla");
+                    mensaje.setVisible(true);
+                }
+            } else {
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Agregue un elemento a la tabla antes de registrarlo");
+                mensaje.setVisible(true);
+            }
 
         }
         if (e.getSource() == this.panelVentas.customButtonShaped1) {// boton agregar
