@@ -25,6 +25,7 @@ public class Emergente_Panel_Ventas extends javax.swing.JDialog {
     public JSlider slider ;
     private int maximo;
     
+    
 
     public Emergente_Panel_Ventas(java.awt.Frame parent, boolean modal,int maximo) {
         super(parent, modal);
@@ -33,6 +34,7 @@ public class Emergente_Panel_Ventas extends javax.swing.JDialog {
         initPanel();
         llamarComponentes();
     }
+    
 
     private void initDialog(){
         setMinimumSize(dmsn);
@@ -95,9 +97,7 @@ public class Emergente_Panel_Ventas extends javax.swing.JDialog {
         constraints.insets= new Insets(15,15,15,25);
         getContentPane().add (mensaje, constraints);
         
-        
-        
-        
+
         btnAceptar = new CustomButtonShaped();
         btnAceptar.setText("ACEPTAR");
         btnAceptar.setFocusPainted(false);
@@ -129,7 +129,12 @@ public class Emergente_Panel_Ventas extends javax.swing.JDialog {
     
     });
     
-   }
+    }
+    
+    public String getCantidad(){
+        String cantidad = mensaje.getText();
+        return cantidad;
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
