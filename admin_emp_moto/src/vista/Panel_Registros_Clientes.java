@@ -85,7 +85,7 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(20, 20, 5, 20);
         customPanel1.add(pClienteBuscar, gridBagConstraints);
 
         jTable1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
@@ -156,7 +156,7 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 20, 20, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 20, 20);
         customPanel1.add(jScrollPane1, gridBagConstraints);
 
         pCRUD.setBackground(new java.awt.Color(250, 250, 250));

@@ -185,9 +185,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         pMenuInventario.setBackground(new java.awt.Color(250, 250, 250));
         pMenuInventario.setLayout(new java.awt.GridBagLayout());
 
-        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(35x35)btnAgregar.png"))); // NOI18N
         btnAgregar.setText("AGREGAR");
-        btnAgregar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnAgregar.setMaximumSize(new java.awt.Dimension(150, 40));
         btnAgregar.setMinimumSize(new java.awt.Dimension(150, 40));
         btnAgregar.setPreferredSize(new java.awt.Dimension(150, 40));
@@ -197,9 +195,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pMenuInventario.add(btnAgregar, gridBagConstraints);
 
-        bntEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(35x35)btnBorrar.png"))); // NOI18N
         bntEliminar.setText("BORRAR");
-        bntEliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         bntEliminar.setMaximumSize(new java.awt.Dimension(150, 40));
         bntEliminar.setMinimumSize(new java.awt.Dimension(150, 40));
         bntEliminar.setPreferredSize(new java.awt.Dimension(150, 40));
