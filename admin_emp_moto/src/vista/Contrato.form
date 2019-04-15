@@ -159,8 +159,10 @@
                   <Font name="Monospaced" size="14" style="0"/>
                 </Property>
                 <Property name="lineWrap" type="boolean" value="true"/>
-                <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="Cliente:________________________________DNI:___________Telf:____________&#xa;Direcci&#xf3;n:_____________________________________Fecha:___________________&#xa;Conste por el presente documento y contrato de compra al cr&#xe9;dito que &#xa;celebra el representante legal TIENDAS Q&amp;V "/>
+                <Property name="rows" type="int" value="20"/>
+                <Property name="tabSize" type="int" value="10"/>
+                <Property name="text" type="java.lang.String" value="Cliente :@NOMBREA_PELLIDO@&#x9;&#x9;DNI :@DNI@&#x9;&#x9;Telf :@TELEFONO@&#xa;Direcci&#xf3;n:@DIRECCION@&#x9;&#x9;&#x9;&#x9;Fecha:@FECHA@&#xa;Conste por el presente documento y contrato de compra al cr&#xe9;dito que celebra el representante legal @EMPRESA@ Identificada con RUC:@RUC@, Declaran haber realizado la venta del vehiculo con las siguientes cararctetisticas:&#xa;Vehiculo:@VEHICULO@&#x9;&#x9;&#x9;MOTOR :@MOTOR@&#xa;Marca :@MARCA@&#x9;&#x9;&#x9;Chasis :@CHASIS@&#xa;Modelo :@MODELO@&#x9;&#x9;&#x9;A&#xf1;o de fab. :@ANHO@&#xa;Color :@COLOR@&#x9;&#x9;&#x9;Garantia del Vehiculo :5,000 km de recorrido.&#xa;Valorizado en @MONEDA1@@PRECIO@ @MONEDA2@.&#xa;Cancelando la cuota inicial de : @MONEDA1@@CUOTA_INICIAL@ @MONEDA2@, diferencia que sera cancelada&#xa;por un periodo de @CUOTAS@, en cuotas iguales de: @MONEDA1@@PRECIO_CUOTA@&#xa;"/>
+                <Property name="wrapStyleWord" type="boolean" value="true"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>

@@ -96,8 +96,10 @@ public class Contrato extends javax.swing.JPanel {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Cliente:________________________________DNI:___________Telf:____________\nDirección:_____________________________________Fecha:___________________\nConste por el presente documento y contrato de compra al crédito que \ncelebra el representante legal TIENDAS Q&V ");
+        jTextArea1.setRows(20);
+        jTextArea1.setTabSize(10);
+        jTextArea1.setText("Cliente :@NOMBREA_PELLIDO@\t\tDNI :@DNI@\t\tTelf :@TELEFONO@\nDirección:@DIRECCION@\t\t\t\tFecha:@FECHA@\nConste por el presente documento y contrato de compra al crédito que celebra el representante legal @EMPRESA@ Identificada con RUC:@RUC@, Declaran haber realizado la venta del vehiculo con las siguientes cararctetisticas:\nVehiculo:@VEHICULO@\t\t\tMOTOR :@MOTOR@\nMarca :@MARCA@\t\t\tChasis :@CHASIS@\nModelo :@MODELO@\t\t\tAño de fab. :@ANHO@\nColor :@COLOR@\t\t\tGarantia del Vehiculo :5,000 km de recorrido.\nValorizado en @MONEDA1@@PRECIO@ @MONEDA2@.\nCancelando la cuota inicial de : @MONEDA1@@CUOTA_INICIAL@ @MONEDA2@, diferencia que sera cancelada\npor un periodo de @CUOTAS@, en cuotas iguales de: @MONEDA1@@PRECIO_CUOTA@\n");
+        jTextArea1.setWrapStyleWord(true);
         jTextArea1.setBorder(null);
         jTextArea1.setDisabledTextColor(new java.awt.Color(60, 60, 60));
         jScrollPane1.setViewportView(jTextArea1);
