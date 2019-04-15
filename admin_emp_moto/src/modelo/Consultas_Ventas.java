@@ -10,38 +10,35 @@ import java.sql.SQLIntegrityConstraintViolationException;
 
 public class Consultas_Ventas extends ConexionSQL {
 
-    public int create(Modelo_Ventas ventas) {
+    public boolean create(Modelo_Ventas ventas) {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
         String query = "INSERT INTO Ventas "
-                + "( id, id_factura, id_prod,id_trabajador,id_cliente,fecha_hora,monto_inicial,cuotas,dscto, cantidad, total)"
-                + " values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + "( id_factura, id_prod,id_trabajador,id_cliente,fecha_hora,monto_inicial,cuotas,dscto, cantidad, total)"
+                + " values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             ps = con.prepareStatement(query);
-            ps.setInt(1, ventas.getId());
-            ps.setString(2, ventas.getId_factura());
-            ps.setString(3, ventas.getId_prod());
-            ps.setInt(4, ventas.getId_trabajador());
-            ps.setInt(5, ventas.getId_cliente());
-            ps.setString(6, ventas.getFecha_hora());
-            ps.setFloat(7,ventas.getMonto_inicial());
-            ps.setInt(8, ventas.getCuotas());
-            ps.setInt(9, ventas.getDscto());
-            ps.setInt(10, ventas.getCantidad());
-            ps.setFloat(11, ventas.getTotal());
+            
+            ps.setString(1, ventas.getId_factura());
+            ps.setString(2, ventas.getId_prod());
+            ps.setInt(3, ventas.getId_trabajador());
+            ps.setInt(4, ventas.getId_cliente());
+            ps.setString(5, ventas.getFecha_hora());
+            ps.setFloat(6,ventas.getMonto_inicial());
+            ps.setInt(7, ventas.getCuotas());
+            ps.setInt(8, ventas.getDscto());
+            ps.setInt(9, ventas.getCantidad());
+            ps.setFloat(10, ventas.getTotal());
             ps.execute();
             ps.close();
-            return 2;
+            return true;
 
         }
-        catch(SQLIntegrityConstraintViolationException e){
+        catch (SQLException e) {
             System.err.println(e);
-            return 0;
-        }catch (SQLException e) {
-            System.err.println(e);
-            return 1;
+            return false;
         } finally {
             try {
                 con.close();

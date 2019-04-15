@@ -1309,7 +1309,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
     public javax.swing.JTextField txfPrecioMayor;
     public javax.swing.JTextField txfPrecioUnidad;
     public javax.swing.JTextField txfProductoID;
-    private custom.CustomTextField txfVCuotaInicial;
+    public custom.CustomTextField txfVCuotaInicial;
     private custom.CustomTextField txfVDescuento;
     // End of variables declaration//GEN-END:variables
 }
