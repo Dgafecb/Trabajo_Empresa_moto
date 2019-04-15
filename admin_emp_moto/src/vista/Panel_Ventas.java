@@ -769,7 +769,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         customPanel4.add(lblDescuento, gridBagConstraints);
 
-        cbTipoVenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EFECTIVO", "MAYOR", "CREDITO" }));
+        cbTipoVenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbTipoVenta.setFocusable(false);
         cbTipoVenta.setMaximumSize(new java.awt.Dimension(100, 20));
         cbTipoVenta.setMinimumSize(new java.awt.Dimension(100, 20));
@@ -1227,7 +1227,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
     public modelo.CustomButtonShaped btnAlmacenBuscar;
     public modelo.CustomButtonShaped btnClienteAgregar;
     public modelo.CustomButtonShaped btnClienteBuscar;
-    public javax.swing.JComboBox<String> cbTipoVenta;
+    private javax.swing.JComboBox<String> cbTipoVenta;
     public custom.CustomButtonShaped customButtonShaped1;
     public custom.CustomButtonShaped customButtonShaped2;
     public custom.CustomButtonShaped customButtonShaped3;
@@ -1287,14 +1287,14 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private javax.swing.JPanel pTipoFactura;
     private javax.swing.JPanel pVCuotaInicial;
     private javax.swing.JPanel pVDescuento;
-    private javax.swing.JRadioButton rbBoleta;
+    public javax.swing.JRadioButton rbBoleta;
     public javax.swing.JRadioButton rbCodigo;
-    private javax.swing.JRadioButton rbContrato;
+    public javax.swing.JRadioButton rbContrato;
     public javax.swing.JRadioButton rbDescripcion;
-    private javax.swing.JRadioButton rbFactura;
+    public javax.swing.JRadioButton rbFactura;
     public javax.swing.JRadioButton rbMarca;
     private javax.swing.JScrollPane spAlmacen;
-    public javax.swing.JScrollPane spDatosVentas;
+    private javax.swing.JScrollPane spDatosVentas;
     private javax.swing.JSpinner spnrCuotas;
     public javax.swing.JTable tAlmacen;
     public javax.swing.JTable tDatosVentas;
@@ -1309,7 +1309,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
     public javax.swing.JTextField txfPrecioMayor;
     public javax.swing.JTextField txfPrecioUnidad;
     public javax.swing.JTextField txfProductoID;
-    public custom.CustomTextField txfVCuotaInicial;
-    public custom.CustomTextField txfVDescuento;
+    private custom.CustomTextField txfVCuotaInicial;
+    private custom.CustomTextField txfVDescuento;
     // End of variables declaration//GEN-END:variables
 }

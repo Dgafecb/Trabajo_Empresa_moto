@@ -7,6 +7,7 @@ import static controlador.Controlador_login.lista_trabajadores;
 import static controlador.Controlador_login.lista_vehiculos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,6 +21,7 @@ import modelo.Modelo_Clientes;
 import modelo.Modelo_Inventario_Vehiculos;
 import vista.Emergente_Aviso;
 import vista.Emergente_Panel_Clientes;
+import vista.Emergente_Panel_Ventas;
 import vista.Panel_Ventas;
 
 import vista.Ventana_Admin;
@@ -41,6 +43,7 @@ public class Controlador_Ventas implements ActionListener {
     private float cuota_mensual = 0.00f;
     private int dscto = 1;
     private int cuotas = 1;
+
     public Controlador_Ventas(Controlador_admin controladorAdmin, Ventana_Admin ventanaAdmin) {
         this.controladorAdmin = controladorAdmin;
         this.ventanaAdmin = ventanaAdmin;
@@ -69,6 +72,7 @@ public class Controlador_Ventas implements ActionListener {
         this.panelVentas.customButtonShaped1.addActionListener(this);
         this.panelVentas.customButtonShaped2.addActionListener(this);
         this.panelVentas.customButtonShaped5.addActionListener(this);
+        this.panelVentas.customButtonShaped3.addActionListener(this);
         this.panelVentas.tAlmacen.getSelectionModel().addListSelectionListener(new ListSelectionListener() {// rellena los datos de abajo con la fila seleccionada de la tabla almacen
             @Override
             public void valueChanged(ListSelectionEvent event) {
@@ -195,6 +199,9 @@ public class Controlador_Ventas implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == this.panelVentas.customButtonShaped3) {// Boton registrar
+
+        }
         if (e.getSource() == this.panelVentas.customButtonShaped1) {// boton agregar
 
             if (modeloInventario == null) {
@@ -202,11 +209,19 @@ public class Controlador_Ventas implements ActionListener {
                 mensaje.setVisible(true);
             } else {
                 //chequear si el string atributo de el boton agregar, la cantidad es distinto de nulo
+//                String max = ((Modelo_Ajustes)lista_ajustes.get(14)).getValor();
+//                if(max.endsWith("%")){
+//                    max = max.substring(0,max.length()-1);
+//                }
+//                int dscto_maximo = Integer.valueOf(max);
+                int cantidad_maxima = this.modeloInventario.getCantidad();
+                Emergente_Panel_Ventas panel = new Emergente_Panel_Ventas(this.ventanaAdmin, true, cantidad_maxima);
+                panel.setVisible(true);
+                String cantidad = panel.mensaje.getText();
 
-                //  si es distinto de nulo
                 String id = modeloInventario.getId();
                 String descripcion = modeloInventario.getNombre_prod();
-                String cantidad = "0"; // iniciar con el valor que recibe de el panel agregar
+
                 float precio_unitario = modeloInventario.getPrecio();//Falta verificar si la lista_ajustes(10) es distinto de 1 para cambiar ese valor
                 float precio_total = precio_unitario * Integer.valueOf(cantidad);
 
@@ -214,31 +229,44 @@ public class Controlador_Ventas implements ActionListener {
 
                 this.panelVentas.tDatosVentas.setModel(modeloTablaVentas);
 //                System.out.println(this.panelVentas.tDatosVentas.getRowCount());//
-                this.total_ventas += precio_total;
-                this.con_dscto = this.total_ventas*this.dscto;
-                this.sin_dscto = this.total_ventas;
+                this.sin_dscto += precio_total;
+                this.con_dscto = this.sin_dscto * this.dscto;
                 this.sin_igv = this.con_dscto;
-                this.con_igv = 0.18f*this.sin_igv;
+                this.con_igv = 1.18f * this.sin_igv;
                 this.total_ventas = this.con_igv;
-                this.cuota_mensual = this.total_ventas/(float)cuotas; 
-                this.panelVentas.jLabel22.setText(Float.toString(sin_igv));
-                this.panelVentas.jLabel23.setText(Float.toString(con_igv));
-                this.panelVentas.jLabel25.setText(Float.toString(sin_dscto));
-                this.panelVentas.jLabel26.setText(Float.toString(con_dscto));
-                this.panelVentas.jLabel27.setText(Float.toString(cuota_mensual));
-                this.panelVentas.jLabel28.setText(Float.toString(total_ventas));
-                
+                this.cuota_mensual = this.total_ventas / (float) cuotas;
+                DecimalFormat numberFormat = new DecimalFormat("#.00");
+                this.panelVentas.jLabel22.setText(numberFormat.format(sin_igv));
+                this.panelVentas.jLabel23.setText(numberFormat.format(con_igv));
+                this.panelVentas.jLabel25.setText(numberFormat.format(sin_dscto));
+                this.panelVentas.jLabel26.setText(numberFormat.format(con_dscto));
+                this.panelVentas.jLabel27.setText(numberFormat.format(cuota_mensual));
+                this.panelVentas.jLabel28.setText(numberFormat.format(this.total_ventas));
+
             }
 
         }
         if (e.getSource() == this.panelVentas.customButtonShaped2) {// boton quitar 
 
             if (this.panelVentas.tDatosVentas.getSelectionModel().isSelectionEmpty() == false) {
-
+                float temp_total = (float) this.panelVentas.tDatosVentas.getValueAt(this.panelVentas.tDatosVentas.getSelectedRow(), 4);
                 int[] rows = this.panelVentas.tDatosVentas.getSelectedRows();
                 for (int i = 0; i < rows.length; i++) {
                     modeloTablaVentas.removeRow(rows[i] - i);
                 }
+                this.sin_dscto = this.sin_dscto - temp_total;
+                this.con_dscto = this.sin_dscto * this.dscto;
+                this.sin_igv = this.con_dscto;
+                this.con_igv = 1.18f * this.sin_igv;
+                this.total_ventas = this.con_igv;
+                this.cuota_mensual = this.total_ventas / (float) cuotas;
+                DecimalFormat numberFormat = new DecimalFormat("#.00");
+                this.panelVentas.jLabel22.setText(numberFormat.format(sin_igv));
+                this.panelVentas.jLabel23.setText(numberFormat.format(con_igv));
+                this.panelVentas.jLabel25.setText(numberFormat.format(sin_dscto));
+                this.panelVentas.jLabel26.setText(numberFormat.format(con_dscto));
+                this.panelVentas.jLabel27.setText(numberFormat.format(cuota_mensual));
+                this.panelVentas.jLabel28.setText(numberFormat.format(this.total_ventas));
 //                System.out.println(this.panelVentas.tDatosVentas.getRowCount());
             } else {
                 Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Seleccione la fila que desea quitar");
@@ -249,6 +277,19 @@ public class Controlador_Ventas implements ActionListener {
         }
         if (e.getSource() == this.panelVentas.customButtonShaped5) {//boton limpiar
             this.iniciarTablaVentas();
+            total_ventas = 0.00f;
+            sin_igv = 0.00f;
+            con_igv = 0.00f;
+            sin_dscto = 0.00f;
+            con_dscto = 0.00f;
+            cuota_mensual = 0.00f;
+            DecimalFormat numberFormat = new DecimalFormat("#.00");
+            this.panelVentas.jLabel22.setText(numberFormat.format(sin_igv));
+            this.panelVentas.jLabel23.setText(numberFormat.format(con_igv));
+            this.panelVentas.jLabel25.setText(numberFormat.format(sin_dscto));
+            this.panelVentas.jLabel26.setText(numberFormat.format(con_dscto));
+            this.panelVentas.jLabel27.setText(numberFormat.format(cuota_mensual));
+            this.panelVentas.jLabel28.setText(numberFormat.format(this.total_ventas));
 //            System.out.println(this.panelVentas.tDatosVentas.getRowCount()); 
         }
 
