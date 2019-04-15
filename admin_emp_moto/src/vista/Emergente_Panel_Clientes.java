@@ -103,19 +103,19 @@ public class Emergente_Panel_Clientes extends javax.swing.JDialog {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 String temp = null;
-                temp = (pClientesRegistrosAgregar.txfCNombre1.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCNombre1.getText() : null;
+                temp = (pClientesRegistrosAgregar.txfCNombre1.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCNombre1.getText() : "";
                 clientes.add(temp);
-                temp = (pClientesRegistrosAgregar.txfCNombre2.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCNombre2.getText() : null;
+                temp = (pClientesRegistrosAgregar.txfCNombre2.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCNombre2.getText() : "";
                 clientes.add(temp);
-                temp = (pClientesRegistrosAgregar.txfCDNI1.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCDNI1.getText() : null;
+                temp = (pClientesRegistrosAgregar.txfCDNI1.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCDNI1.getText() : "";
                 clientes.add(temp);
-                temp = (pClientesRegistrosAgregar.txfCDNI2.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCDNI2.getText() : null;
+                temp = (pClientesRegistrosAgregar.txfCDNI2.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCDNI2.getText() : "";
                 clientes.add(temp);
-                temp = (pClientesRegistrosAgregar.txfCCorreo.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCCorreo.getText() : null;
+                temp = (pClientesRegistrosAgregar.txfCCorreo.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCCorreo.getText() : "";
                 clientes.add(temp);
-                temp = (pClientesRegistrosAgregar.txfCDireccion.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCDireccion.getText() : null;
+                temp = (pClientesRegistrosAgregar.txfCDireccion.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCDireccion.getText() : "";
                 clientes.add(temp);
-                temp = (pClientesRegistrosAgregar.txfCTelefono.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCTelefono.getText() : null;
+                temp = (pClientesRegistrosAgregar.txfCTelefono.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCTelefono.getText() : "";
                 clientes.add(temp);
                 temp = pClientesRegistrosAgregar.cbCiudad.getSelectedItem().toString();
                 clientes.add(temp);
