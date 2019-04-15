@@ -13,6 +13,13 @@ import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.InputVerifier;
+import javax.swing.SpinnerModel;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
@@ -34,6 +41,7 @@ import vista.Ventana_Admin;
 
 public class Controlador_Ventas implements ActionListener {
 
+    public static int dscto_maximo;
     private Controlador_admin controladorAdmin;
     private Ventana_Admin ventanaAdmin;
     private Panel_Ventas panelVentas;
@@ -49,19 +57,27 @@ public class Controlador_Ventas implements ActionListener {
     private float cuota_mensual = 0.00f;
     private int dscto = 1;
     private int cuotas = 1;
+    private int tipo_venta = 0;//0 para efectivo,1 para credito y  2 para por mayor
+    private String[] temp_costo;
+    private float cambio_moneda;
 
     public Controlador_Ventas(Controlador_admin controladorAdmin, Ventana_Admin ventanaAdmin) {
         this.controladorAdmin = controladorAdmin;
         this.ventanaAdmin = ventanaAdmin;
         this.iniciarComponentes();
         this.llamarComponentes();
-
+        
     }
 
     private void iniciarComponentes() {
         this.ventanaAdmin = controladorAdmin.getVentanaAdmin();
         this.panelVentas = controladorAdmin.getPanelVentas();
-
+        this.setearDsctoMaximo();
+        this.setearCuotasBox();
+        this.setearCambioMoneda();
+        this.setearTemp_costo();
+        this.panelVentas.jSlider1.setMaximum(controlador.Controlador_Ventas.dscto_maximo);
+        this.panelVentas.jSlider1.setMinimum(0);
     }
 
     private void llamarComponentes() {
@@ -79,6 +95,37 @@ public class Controlador_Ventas implements ActionListener {
         this.panelVentas.customButtonShaped2.addActionListener(this);
         this.panelVentas.customButtonShaped5.addActionListener(this);
         this.panelVentas.customButtonShaped3.addActionListener(this);
+        this.panelVentas.spnrCuotas.addChangeListener(new ChangeListener(){
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                cuotas = (int)panelVentas.spnrCuotas.getValue();
+                System.out.println("cuotas: "+cuotas);
+                panelVentas.jLabel27.setText(String.valueOf(total_ventas/(float)cuotas));
+            }
+        })
+                ;
+        this.panelVentas.cbTipoVenta.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (panelVentas.cbTipoVenta.getSelectedItem().toString().compareTo("EFECTIVO") == 0) {
+                    tipo_venta = 0;
+                    String total = String.valueOf(total_ventas*Integer.valueOf(temp_costo[0])/100.f);
+                    panelVentas.jLabel28.setText(total);
+                }
+                if (panelVentas.cbTipoVenta.getSelectedItem().toString().compareTo("CREDITO") == 0) {
+                    tipo_venta = 1;
+                     String total = String.valueOf(total_ventas*Integer.valueOf(temp_costo[1])/100.f);
+                    panelVentas.jLabel28.setText(total);
+                }
+                if (panelVentas.cbTipoVenta.getSelectedItem().toString().compareTo("POR MAYOR") == 0) {
+                    tipo_venta = 2;
+                    String total = String.valueOf(total_ventas*Integer.valueOf(temp_costo[2])/100.f);
+                    panelVentas.jLabel28.setText(total);
+                }
+            }
+
+        });
+
         this.panelVentas.tAlmacen.getSelectionModel().addListSelectionListener(new ListSelectionListener() {// rellena los datos de abajo con la fila seleccionada de la tabla almacen
             @Override
             public void valueChanged(ListSelectionEvent event) {
@@ -168,6 +215,31 @@ public class Controlador_Ventas implements ActionListener {
         });
     }
 
+    private void setearDsctoMaximo() {
+        String max = ((Modelo_Ajustes) lista_ajustes.get(14)).getValor();
+        if (max.endsWith("%")) {
+            max = max.substring(0, max.length() - 1);
+        }
+        dscto_maximo = Integer.valueOf(max);
+    }
+
+    private void setearTemp_costo() {
+        this.temp_costo = new String[3];
+        this.temp_costo[0] = ((Modelo_Ajustes) lista_ajustes.get(6)).getValor();
+        temp_costo[0] = temp_costo[0].substring(0, temp_costo[0].length()-1);
+        this.temp_costo[1] = ((Modelo_Ajustes) lista_ajustes.get(7)).getValor();
+         temp_costo[1] = temp_costo[1].substring(0, temp_costo[1].length()-1);
+        this.temp_costo[2] = ((Modelo_Ajustes) lista_ajustes.get(5)).getValor();
+         temp_costo[2] = temp_costo[2].substring(0, temp_costo[2].length()-1);
+
+    }
+    private void setearCambioMoneda(){
+        this.cambio_moneda = Float.valueOf(((Modelo_Ajustes) lista_ajustes.get(10)).getValor());
+        if(cambio_moneda!=1){
+            this.panelVentas.lblMoneda.setText("DOLARES");
+            this.panelVentas.lblsgnoMoneda.setText("$");
+        }
+    }
     private void iniciarTablaVentas() {
         modeloTablaVentas = new DefaultTableModel(new String[]{"Id", "Descripcion", "Cantidad", "Precio unitario", "Precio Total"}, 0);
         this.panelVentas.tDatosVentas.setModel(modeloTablaVentas);
@@ -201,6 +273,14 @@ public class Controlador_Ventas implements ActionListener {
             model.addRow(new Object[]{id, descripcion, marca, precio});
         }
         this.panelVentas.tAlmacen.setModel(model);
+
+    }
+
+    private void setearCuotasBox() {
+
+        SpinnerModel model = new SpinnerNumberModel(1, 1, 36, 1);
+
+        this.panelVentas.spnrCuotas.setModel(model);
 
     }
 
@@ -255,6 +335,7 @@ public class Controlador_Ventas implements ActionListener {
                             String id_factura = id_prod + Integer.toString(id_trabajador) + Integer.toString(id_cliente);
                             String fecha_hora = new SimpleDateFormat("ddMMyyyy_HHmmss").format(Calendar.getInstance().getTime());
                             float monto_inicial = Float.valueOf(this.panelVentas.txfVCuotaInicial.getText());
+                            this.dscto = this.panelVentas.jSlider1.getValue();
                             temp_model.setId_prod(id_prod);
                             temp_model.setId_factura(id_factura);
                             temp_model.setId_prod(id_prod);
@@ -263,6 +344,23 @@ public class Controlador_Ventas implements ActionListener {
                             temp_model.setFecha_hora(fecha_hora);
                             temp_model.setMonto_inicial(monto_inicial);
                             temp_model.setCantidad(Integer.valueOf(cantidad));
+                            switch (tipo_venta) {
+                                case 0:
+                                    total*= Integer.valueOf(this.temp_costo[0]);
+                                    total = total/100.f;
+                                    break;
+                                case 1:
+                                    total*= Integer.valueOf(this.temp_costo[1]);
+                                    total = total/100.f;
+                                    break;
+                                case 2:
+                                    total*= Integer.valueOf(this.temp_costo[2]);
+                                    total = total/100.f;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            
                             temp_model.setTotal(total);
                             temp_model.setDscto(this.dscto);
                             temp_model.setCuotas(this.cuotas);
@@ -331,8 +429,10 @@ public class Controlador_Ventas implements ActionListener {
 
                 this.panelVentas.tDatosVentas.setModel(modeloTablaVentas);
 //                System.out.println(this.panelVentas.tDatosVentas.getRowCount());//
+                this.dscto = this.panelVentas.jSlider1.getValue();
+
                 this.sin_dscto += precio_total;
-                this.con_dscto = this.sin_dscto * this.dscto;
+                this.con_dscto = this.sin_dscto * this.dscto / 100.f;
                 this.sin_igv = this.con_dscto;
                 this.con_igv = 1.18f * this.sin_igv;
                 this.total_ventas = this.con_igv;
@@ -356,8 +456,9 @@ public class Controlador_Ventas implements ActionListener {
                 for (int i = 0; i < rows.length; i++) {
                     modeloTablaVentas.removeRow(rows[i] - i);
                 }
+                this.dscto = this.panelVentas.jSlider1.getValue();
                 this.sin_dscto = this.sin_dscto - temp_total;
-                this.con_dscto = this.sin_dscto * this.dscto;
+                this.con_dscto = this.sin_dscto * this.dscto / 100.f;
                 this.sin_igv = this.con_dscto;
                 this.con_igv = 1.18f * this.sin_igv;
                 this.total_ventas = this.con_igv;

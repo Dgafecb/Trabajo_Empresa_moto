@@ -47,6 +47,7 @@ public class Controlador_Ajustes implements ActionListener {
         this.panelAjustes.txfVentaEfectivo.setText((String) ajustes.get(6).getValor());
         this.panelAjustes.txfVentaCredito.setText((String) ajustes.get(7).getValor());
         this.panelAjustes.txfIGV.setText((String) ajustes.get(8).getValor());
+        this.panelAjustes.txfCambioMoneda.setText((String) ajustes.get(10).getValor());
         this.panelAjustes.txfComision.setText((String) ajustes.get(11).getValor());
         this.panelAjustes.txfHoraEntrada.setText((String) ajustes.get(12).getValor());
         this.panelAjustes.txfTolerancia.setText((String) ajustes.get(13).getValor());
@@ -169,12 +170,20 @@ public class Controlador_Ajustes implements ActionListener {
                     consultasAjustes.update(misAjustes);
                     cambios++;
                 }
-                if(ajustes.get(10).getValor().equals(panelAjustes.jComboBox1.getSelectedItem())!= true){
-                    misAjustes.setId(11);
-                    misAjustes.setDato("moneda");
+                if(ajustes.get(9).getValor().equals(panelAjustes.jComboBox1.getSelectedItem())!= true){
+                    misAjustes.setId(10);
+                    misAjustes.setDato("simbolo_moneda");
                     misAjustes.setValor(panelAjustes.jComboBox1.getSelectedItem().toString());
                     consultasAjustes.update(misAjustes);
                     cambios++;
+                }
+                if(ajustes.get(10).getValor().equals(panelAjustes.txfCambioMoneda.getText())!=true){
+                    misAjustes.setId(11);
+                    misAjustes.setDato("moneda");
+                    misAjustes.setValor(panelAjustes.txfCambioMoneda.getText());
+                    consultasAjustes.update(misAjustes);
+                    cambios++;
+                    
                 }
 
                 if (cambios != 0) {

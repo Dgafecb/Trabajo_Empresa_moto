@@ -2,6 +2,8 @@ package vista;
 
 import java.awt.Color;
 import java.awt.event.ItemEvent;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 import modelo.Cadenas;
 
 public class Panel_Ventas extends javax.swing.JPanel {
@@ -79,10 +81,10 @@ public class Panel_Ventas extends javax.swing.JPanel {
         lblDescuento = new javax.swing.JLabel();
         cbTipoVenta = new javax.swing.JComboBox<>();
         spnrCuotas = new javax.swing.JSpinner();
-        pVDescuento = new javax.swing.JPanel();
-        txfVDescuento = new custom.CustomTextField();
         pVCuotaInicial = new javax.swing.JPanel();
         txfVCuotaInicial = new custom.CustomTextField();
+        jSlider1 = new javax.swing.JSlider();
+        jLabel1 = new javax.swing.JLabel();
         pDatosVenta = new custom.CustomPanel();
         spDatosVentas = new javax.swing.JScrollPane();
         tDatosVentas = new javax.swing.JTable();
@@ -99,14 +101,12 @@ public class Panel_Ventas extends javax.swing.JPanel {
         customPanel1 = new custom.CustomPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
@@ -731,7 +731,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         lblNombreTrabajador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombreTrabajador.setText("SELLER : DEFAULT WORKER");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -751,7 +751,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
 
         lblCuotaInicial.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblCuotaInicial.setForeground(new java.awt.Color(60, 60, 60));
-        lblCuotaInicial.setText("Cuota Inicial:");
+        lblCuotaInicial.setText("Monto Inicial:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
@@ -769,7 +769,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         customPanel4.add(lblDescuento, gridBagConstraints);
 
-        cbTipoVenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbTipoVenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EFECTIVO", "CREDITO", "POR MAYOR" }));
         cbTipoVenta.setFocusable(false);
         cbTipoVenta.setMaximumSize(new java.awt.Dimension(100, 20));
         cbTipoVenta.setMinimumSize(new java.awt.Dimension(100, 20));
@@ -790,39 +790,6 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         customPanel4.add(spnrCuotas, gridBagConstraints);
-
-        pVDescuento.setBackground(new java.awt.Color(255, 255, 255));
-        pVDescuento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
-        pVDescuento.setMaximumSize(new java.awt.Dimension(100, 30));
-        pVDescuento.setMinimumSize(new java.awt.Dimension(100, 30));
-        pVDescuento.setPreferredSize(new java.awt.Dimension(100, 30));
-        pVDescuento.setLayout(new java.awt.GridBagLayout());
-
-        txfVDescuento.setBorder(null);
-        txfVDescuento.setForeground(new java.awt.Color(60, 60, 60));
-        txfVDescuento.setCaretColor(new java.awt.Color(60, 60, 60));
-        txfVDescuento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfVDescuento.setMaximumSize(new java.awt.Dimension(200, 28));
-        txfVDescuento.setMinimumSize(new java.awt.Dimension(200, 28));
-        txfVDescuento.setPhColor(new java.awt.Color(60, 60, 60));
-        txfVDescuento.setPlaceholder(Cadenas.VENTAS_DESCUENTO);
-        txfVDescuento.setPreferredSize(new java.awt.Dimension(200, 28));
-        txfVDescuento.setSelectionColor(new java.awt.Color(60, 60, 60));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
-        pVDescuento.add(txfVDescuento, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        customPanel4.add(pVDescuento, gridBagConstraints);
 
         pVCuotaInicial.setBackground(new java.awt.Color(255, 255, 255));
         pVCuotaInicial.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
@@ -854,8 +821,25 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 102);
         customPanel4.add(pVCuotaInicial, gridBagConstraints);
+
+        jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider1StateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        customPanel4.add(jSlider1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        customPanel4.add(jLabel1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -1065,16 +1049,6 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
         customPanel1.add(jLabel16, gridBagConstraints);
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel17.setText("Cuota Inicial :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
-        customPanel1.add(jLabel17, gridBagConstraints);
-
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel18.setText("TOTAL :");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1137,17 +1111,6 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         customPanel1.add(jLabel23, gridBagConstraints);
 
-        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel24.setText("0.00");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        customPanel1.add(jLabel24, gridBagConstraints);
-
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel25.setText("0.00");
@@ -1193,7 +1156,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
 
         lblsgnoMoneda.setFont(new java.awt.Font("Tahoma", 0, 32)); // NOI18N
         lblsgnoMoneda.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblsgnoMoneda.setText("$");
+        lblsgnoMoneda.setText("S./");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -1204,7 +1167,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
 
         lblMoneda.setFont(new java.awt.Font("Tahoma", 0, 32)); // NOI18N
         lblMoneda.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblMoneda.setText("MONEDA");
+        lblMoneda.setText("SOLES");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
@@ -1222,12 +1185,16 @@ public class Panel_Ventas extends javax.swing.JPanel {
         add(customPanel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
+        this.jLabel1.setText(Integer.toString(this.jSlider1.getValue())+" %");
+    }//GEN-LAST:event_jSlider1StateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public modelo.CustomButtonShaped btnAlmacenBuscar;
     public modelo.CustomButtonShaped btnClienteAgregar;
     public modelo.CustomButtonShaped btnClienteBuscar;
-    private javax.swing.JComboBox<String> cbTipoVenta;
+    public javax.swing.JComboBox<String> cbTipoVenta;
     public custom.CustomButtonShaped customButtonShaped1;
     public custom.CustomButtonShaped customButtonShaped2;
     public custom.CustomButtonShaped customButtonShaped3;
@@ -1240,16 +1207,15 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private javax.swing.ButtonGroup grupoAlmacen;
     private javax.swing.ButtonGroup grupoEmision;
     private javax.swing.JLabel iconProductDefault;
+    public javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     public javax.swing.JLabel jLabel22;
     public javax.swing.JLabel jLabel23;
-    public javax.swing.JLabel jLabel24;
     public javax.swing.JLabel jLabel25;
     public javax.swing.JLabel jLabel26;
     public javax.swing.JLabel jLabel27;
@@ -1257,6 +1223,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JSlider jSlider1;
     public javax.swing.JTable jTable1;
     private javax.swing.JLabel lblAnhoFab;
     private javax.swing.JLabel lblCantidad;
@@ -1286,7 +1253,6 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private custom.CustomPanel pDatosVenta;
     private javax.swing.JPanel pTipoFactura;
     private javax.swing.JPanel pVCuotaInicial;
-    private javax.swing.JPanel pVDescuento;
     public javax.swing.JRadioButton rbBoleta;
     public javax.swing.JRadioButton rbCodigo;
     public javax.swing.JRadioButton rbContrato;
@@ -1295,7 +1261,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
     public javax.swing.JRadioButton rbMarca;
     private javax.swing.JScrollPane spAlmacen;
     private javax.swing.JScrollPane spDatosVentas;
-    private javax.swing.JSpinner spnrCuotas;
+    public javax.swing.JSpinner spnrCuotas;
     public javax.swing.JTable tAlmacen;
     public javax.swing.JTable tDatosVentas;
     public custom.CustomTextField txfAlmacenBuscar;
@@ -1310,6 +1276,5 @@ public class Panel_Ventas extends javax.swing.JPanel {
     public javax.swing.JTextField txfPrecioUnidad;
     public javax.swing.JTextField txfProductoID;
     public custom.CustomTextField txfVCuotaInicial;
-    private custom.CustomTextField txfVDescuento;
     // End of variables declaration//GEN-END:variables
 }
