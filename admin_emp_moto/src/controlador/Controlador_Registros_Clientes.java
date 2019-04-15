@@ -57,7 +57,20 @@ public class Controlador_Registros_Clientes implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == this.panelClientes.btnClienteBuscar) {// boton buscar
-            String dni_leido = this.panelClientes.txfBuscar.getText();
+            Buscar();
+        }else if (ae.getSource() == this.panelClientes.jButton9) {//boton agregar
+            Agregar();
+        }else if (ae.getSource() == this.panelClientes.jButton10) {// boton modificar
+            
+        }
+        if (ae.getSource() == this.panelClientes.jButton11) {// boton eliminar
+            Eliminar();
+        }
+    }
+
+    
+    private void Buscar(){
+      String dni_leido = this.panelClientes.txfBuscar.getText();
             ResultadoClientes resultado = clientes.findClientes(clientes, dni_leido);
             if (resultado.isFunciona()) {
                 DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos", "Correo", "Direccion", "Ciudad", "Pais"}, 0);
@@ -80,10 +93,11 @@ public class Controlador_Registros_Clientes implements ActionListener {
             } else {
                 Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el DNI");
                 mensaje.setVisible(true);
-            }
-        }
-        if (ae.getSource() == this.panelClientes.jButton9) {//boton agregar
-            Emergente_Panel_Clientes panel = new Emergente_Panel_Clientes(ventanaAdmin, true);
+            }  
+    }
+    
+    private void Agregar(){
+         Emergente_Panel_Clientes panel = new Emergente_Panel_Clientes(ventanaAdmin, true);
             panel.setVisible(true);
             LinkedList<String> lista_agregada = panel.clientes;
             if (lista_agregada == null) {
@@ -120,33 +134,14 @@ public class Controlador_Registros_Clientes implements ActionListener {
                 }
 
             }
-
-        }
-        if (ae.getSource() == this.panelClientes.jButton10) {// boton modificar
-            if (this.panelClientes.jTable1.getSelectionModel().isSelectionEmpty() == false) {
-                Modelo_Clientes temp_model = this.leerDatosClientes();
-                Consultas_Clientes consultas = new Consultas_Clientes();
-                String temp_dni = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 0);
-                int index = (lista_clientes.findClientes(lista_clientes, temp_dni).getTemp()).peek();
-                temp_model.setId(((Modelo_Clientes) lista_clientes.get(index)).getId());
-                if (consultas.update(temp_model)) {
-                    lista_clientes.remove(index);
-                    lista_clientes.add(index, temp_model);
-                    llenarTabla();
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se actualizo el registro");
-                    mensaje.setVisible(true);
-                } else {
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo actualizar el registro");
-                    mensaje.setVisible(true);
-                }
-
-            } else {
-                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Seleccione una fila a eliminar");
-                mensaje.setVisible(true);
-            }
-        }
-        if (ae.getSource() == this.panelClientes.jButton11) {// boton eliminar
-            if (this.panelClientes.jTable1.getSelectionModel().isSelectionEmpty() == false) {
+    }
+    
+    private void Modificar(){
+        
+    }
+    
+    private void Eliminar(){
+        if (this.panelClientes.jTable1.getSelectionModel().isSelectionEmpty() == false) {
                 Modelo_Clientes temp_model = new Modelo_Clientes();
                 String temp_dni = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 0);
                 int index = (lista_clientes.findClientes(lista_clientes, temp_dni).getTemp()).peek();
@@ -164,10 +159,9 @@ public class Controlador_Registros_Clientes implements ActionListener {
             } else {
                 Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Seleccione una fila a eliminar");
                 mensaje.setVisible(true);
-            }
-        }
+            } 
     }
-
+    
     private void llenarTabla() {
         DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos", "Correo", "Direccion", "Ciudad", "Pais"}, 0);
         for (int i = 0; i < clientes.size(); i++) {
@@ -185,33 +179,6 @@ public class Controlador_Registros_Clientes implements ActionListener {
 
     }
 
-    private Modelo_Clientes leerDatosClientes() {//lee los datos los textfield
-
-        Modelo_Clientes temp_model = new Modelo_Clientes();
-        temp_model.setCiudad(this.panelClientes.cbCiudad.getSelectedItem().toString());
-        temp_model.setCorreo(this.panelClientes.txfCorreo.getText());
-        temp_model.setDireccion(this.panelClientes.txfDireccion.getText());
-        temp_model.setPais(this.panelClientes.cbPais.getSelectedItem().toString());
-        temp_model.setTelefono(this.panelClientes.txfTelefono.getText());
-        String nombre_2 = this.panelClientes.txfCliente2Nombre.getText();
-
-        String nombre_1 = this.panelClientes.txfCliente1Nombre.getText();
-        String dni_2 = this.panelClientes.txfDNI2.getText();
-        String dni_1 = this.panelClientes.txfDNI1.getText();
-        if (dni_1.length() != 8) {
-            Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "La longitud del DNI es incorrecta");
-            mensaje.setVisible(true);
-        }
-        if (nombre_2.compareTo("") != 0 && dni_2.length() != 8) {
-            Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "La longitud del DNI es incorrecta");
-            mensaje.setVisible(true);
-        }
-        temp_model.setNombre_apellido(nombre_1);
-        temp_model.setNombre_apellido_2(nombre_2);
-        temp_model.setDni(dni_1);
-        temp_model.setDni_2(dni_2);
-
-        return temp_model;
-    }
+  
 
 }
