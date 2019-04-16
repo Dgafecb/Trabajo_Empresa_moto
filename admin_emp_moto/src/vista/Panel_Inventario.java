@@ -56,6 +56,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
 
+        jTable1.setAutoCreateRowSorter(true);
         jTable1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -164,10 +165,11 @@ public class Panel_Inventario extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setColumnSelectionAllowed(true);
         jTable1.setFocusable(false);
         jTable1.setMaximumSize(new java.awt.Dimension(1200, 80));
         jTable1.setMinimumSize(new java.awt.Dimension(9000, 80));
-        jTable1.setPreferredSize(new java.awt.Dimension(900, 80));
+        jTable1.setPreferredSize(new java.awt.Dimension(900, 700));
         jTable1.setSelectionBackground(new java.awt.Color(102, 102, 102));
         jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jTable1);

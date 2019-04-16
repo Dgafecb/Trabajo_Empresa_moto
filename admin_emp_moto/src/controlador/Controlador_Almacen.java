@@ -315,6 +315,7 @@ public class Controlador_Almacen implements ActionListener {
             int advertencia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getLimite_advertencia();
             model.addRow(new Object[]{id, categoria, descripcion, cantidad, precio, marca, modelo, color, motor, chasis, anho_fab, anhos_garantia, advertencia});
         }
+        
         this.panelInventario.jTable1.setModel(model);
     }
 }

@@ -4,6 +4,35 @@ import java.util.LinkedList;
 
 public class Linked_List<T> extends LinkedList {
 
+    public funcionaAlmacenado findAlmacenado(LinkedList<Almacenado> list, String id) {
+
+        funcionaAlmacenado temp = new funcionaAlmacenado();
+        if (list != null) {
+            int index = -1;
+            for (int i = 0; i < list.size(); i++) {
+                if (((Almacenado) list.get(i)).getId().compareTo(id) == 0) {
+                    index = i;
+                }
+            }
+
+            if (index == -1) {
+                temp.setI(0);
+                temp.setFunciona(false);
+                return temp;
+
+            } else {
+                temp.setI(index);
+                temp.setFunciona(true);
+                return temp;
+            }
+
+        } else {
+            temp.setFunciona(false);
+            temp.setI(0);
+            return temp;    
+        }
+    }
+
     public int findTrabajador(Linked_List<Modelo_Trabajadores> list, String dni) {
         for (int i = 0; i < list.size(); i++) {
             if (((Modelo_Trabajadores) list.get(i)).getDni().compareTo(dni) == 0) {
@@ -13,7 +42,8 @@ public class Linked_List<T> extends LinkedList {
         System.out.println("No se encontro el dni");
         return 0;
     }
-    public int findInventario(Linked_List<Modelo_Inventario_Vehiculos> list, String id){
+
+    public int findInventario(Linked_List<Modelo_Inventario_Vehiculos> list, String id) {
         for (int i = 0; i < list.size(); i++) {
             if (((Modelo_Inventario_Vehiculos) list.get(i)).getId().compareTo(id) == 0) {
                 return i;
@@ -21,12 +51,13 @@ public class Linked_List<T> extends LinkedList {
         }
         return 0;
     }
-    public InventarioTEMP findIndexId(Linked_List<Modelo_Inventario_Vehiculos> list, String id){
+
+    public InventarioTEMP findIndexId(Linked_List<Modelo_Inventario_Vehiculos> list, String id) {
         InventarioTEMP TEMP = new InventarioTEMP();
         LinkedList<Integer> temp = new LinkedList<>();
-        
+
         for (int i = 0; i < list.size(); i++) {
-            if (((Modelo_Inventario_Vehiculos) list.get(i)).getId().equalsIgnoreCase(id)==true) {
+            if (((Modelo_Inventario_Vehiculos) list.get(i)).getId().equalsIgnoreCase(id) == true) {
                 temp.add(i);
             }
         }
@@ -34,21 +65,22 @@ public class Linked_List<T> extends LinkedList {
             TEMP.setTemp(temp);
             TEMP.setFunciona(true);
             return TEMP;
-            
+
         } else {
             System.out.println("No se encontro el id");
             TEMP.setTemp(temp);
             TEMP.setFunciona(false);
             return TEMP;
         }
-    
-       
-    }public InventarioTEMP findIndexNombre(Linked_List<Modelo_Inventario_Vehiculos> list, String nombre){
+
+    }
+
+    public InventarioTEMP findIndexNombre(Linked_List<Modelo_Inventario_Vehiculos> list, String nombre) {
         InventarioTEMP TEMP = new InventarioTEMP();
         LinkedList<Integer> temp = new LinkedList<>();
-        
+
         for (int i = 0; i < list.size(); i++) {
-            if (((Modelo_Inventario_Vehiculos) list.get(i)).getNombre_prod().equalsIgnoreCase(nombre)==true) {
+            if (((Modelo_Inventario_Vehiculos) list.get(i)).getNombre_prod().equalsIgnoreCase(nombre) == true) {
                 temp.add(i);
             }
         }
@@ -56,20 +88,20 @@ public class Linked_List<T> extends LinkedList {
             TEMP.setTemp(temp);
             TEMP.setFunciona(true);
             return TEMP;
-            
+
         } else {
             System.out.println("No se encontro el nombre");
             TEMP.setTemp(temp);
             TEMP.setFunciona(false);
             return TEMP;
         }
-    
-       
+
     }
-    public InventarioTEMP findIndexMarca(Linked_List<Modelo_Inventario_Vehiculos> list, String marca){
+
+    public InventarioTEMP findIndexMarca(Linked_List<Modelo_Inventario_Vehiculos> list, String marca) {
         InventarioTEMP TEMP = new InventarioTEMP();
         LinkedList<Integer> temp = new LinkedList<>();
-        
+
         for (int i = 0; i < list.size(); i++) {
             if (((Modelo_Inventario_Vehiculos) list.get(i)).getMarca().equalsIgnoreCase(marca) == true) {
                 temp.add(i);
@@ -79,21 +111,21 @@ public class Linked_List<T> extends LinkedList {
             TEMP.setTemp(temp);
             TEMP.setFunciona(true);
             return TEMP;
-            
+
         } else {
             System.out.println("No se encontro la marca");
             TEMP.setTemp(temp);
             TEMP.setFunciona(false);
             return TEMP;
         }
-    
-       
+
     }
+
     public ResultadoClientes findClientes(Linked_List<Modelo_Clientes> list, String dni) {
-         LinkedList<Integer> temp = new LinkedList<>();
+        LinkedList<Integer> temp = new LinkedList<>();
         ResultadoClientes resultado = new ResultadoClientes();
         for (int i = 0; i < list.size(); i++) {
-            if (((Modelo_Clientes) list.get(i)).getDni().compareTo(dni) == 0 ||((Modelo_Clientes) list.get(i)).getDni_2().compareTo(dni) == 0 ) {
+            if (((Modelo_Clientes) list.get(i)).getDni().compareTo(dni) == 0 || ((Modelo_Clientes) list.get(i)).getDni_2().compareTo(dni) == 0) {
                 temp.add(i);
             }
         }
@@ -108,6 +140,7 @@ public class Linked_List<T> extends LinkedList {
             return resultado;
         }
     }
+
     public ResultadoDNITrabajador findDNI(Linked_List<Modelo_Trabajadores> list, String dni) {
         ResultadoDNITrabajador resultado = new ResultadoDNITrabajador();
         for (int i = 0; i < list.size(); i++) {
@@ -122,6 +155,7 @@ public class Linked_List<T> extends LinkedList {
         resultado.setResultado(false);
         return resultado;
     }
+
     public int findAsistencia(Linked_List<Modelo_Asistencia> list, String dni) {
         for (int i = 0; i < list.size(); i++) {
             if (((Modelo_Asistencia) list.get(i)).getDni().compareTo(dni) == 0) {
@@ -131,7 +165,7 @@ public class Linked_List<T> extends LinkedList {
         System.out.println("No se encontro el dni");
         return 0;
     }
-    
+
     public ResultadoListaAsistenciaDNI findAsistenciaList(Linked_List<Modelo_Asistencia> list, String dni) {//Devuelve todos los indices en que el dni coincide
         LinkedList<Integer> temp = new LinkedList<>();
         ResultadoListaAsistenciaDNI resultado = new ResultadoListaAsistenciaDNI();
@@ -151,7 +185,55 @@ public class Linked_List<T> extends LinkedList {
             return resultado;
         }
     }
-    public class ResultadoClientes{
+
+    public static class funcionaAlmacenado {
+
+        int i;
+        boolean funciona;
+
+        public int getI() {
+            return i;
+        }
+
+        public void setI(int i) {
+            this.i = i;
+        }
+
+        public boolean isFunciona() {
+            return funciona;
+        }
+
+        public void setFunciona(boolean funciona) {
+            this.funciona = funciona;
+        }
+
+    }
+
+    public static class Almacenado {
+
+        String id;
+        int cantidad;
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public int getCantidad() {
+            return cantidad;
+        }
+
+        public void setCantidad(int cantidad) {
+            this.cantidad = cantidad;
+        }
+
+    }
+
+    public class ResultadoClientes {
+
         LinkedList<Integer> temp;
         boolean funciona;
 
@@ -170,10 +252,12 @@ public class Linked_List<T> extends LinkedList {
         public void setFunciona(boolean funciona) {
             this.funciona = funciona;
         }
-        
+
     }
-    public class InventarioTEMP{
-         LinkedList<Integer> temp;
+
+    public class InventarioTEMP {
+
+        LinkedList<Integer> temp;
         boolean funciona;
 
         public LinkedList<Integer> getTemp() {
@@ -191,9 +275,11 @@ public class Linked_List<T> extends LinkedList {
         public void setFunciona(boolean funciona) {
             this.funciona = funciona;
         }
-        
+
     }
-    public class ResultadoDNITrabajador{
+
+    public class ResultadoDNITrabajador {
+
         int i;
         boolean resultado;
 
@@ -212,8 +298,9 @@ public class Linked_List<T> extends LinkedList {
         public void setResultado(boolean resultado) {
             this.resultado = resultado;
         }
-        
+
     }
+
     public class ResultadoListaAsistenciaDNI {
 
         LinkedList<Integer> temp;

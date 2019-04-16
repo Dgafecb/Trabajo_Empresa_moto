@@ -178,7 +178,7 @@ public class Controlador_Registros_Clientes implements ActionListener {
         this.panelClientes.jTable1.setModel(model);
 
     }
-
+    
   
 
 }

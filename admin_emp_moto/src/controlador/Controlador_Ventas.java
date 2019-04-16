@@ -36,7 +36,8 @@ import vista.Emergente_Aviso;
 import vista.Emergente_Panel_Clientes;
 import vista.Emergente_Panel_Ventas;
 import vista.Panel_Ventas;
-
+import modelo.Linked_List.Almacenado;
+import modelo.Linked_List.funcionaAlmacenado;
 import vista.Ventana_Admin;
 
 public class Controlador_Ventas implements ActionListener {
@@ -60,13 +61,14 @@ public class Controlador_Ventas implements ActionListener {
     private int tipo_venta = 0;//0 para efectivo,1 para credito y  2 para por mayor
     private String[] temp_costo;
     private float cambio_moneda;
+    private Linked_List<Almacenado> temp_list = null;//lista que se almacenara con el id y cantidad temporales de los objetos agregados
 
     public Controlador_Ventas(Controlador_admin controladorAdmin, Ventana_Admin ventanaAdmin) {
         this.controladorAdmin = controladorAdmin;
         this.ventanaAdmin = ventanaAdmin;
         this.iniciarComponentes();
         this.llamarComponentes();
-        
+
     }
 
     private void iniciarComponentes() {
@@ -78,6 +80,7 @@ public class Controlador_Ventas implements ActionListener {
         this.setearTemp_costo();
         this.panelVentas.jSlider1.setMaximum(controlador.Controlador_Ventas.dscto_maximo);
         this.panelVentas.jSlider1.setMinimum(0);
+        temp_list = new Linked_List<>();
     }
 
     private void llamarComponentes() {
@@ -95,33 +98,31 @@ public class Controlador_Ventas implements ActionListener {
         this.panelVentas.customButtonShaped2.addActionListener(this);
         this.panelVentas.customButtonShaped5.addActionListener(this);
         this.panelVentas.customButtonShaped3.addActionListener(this);
-        this.panelVentas.spnrCuotas.addChangeListener(new ChangeListener(){
-        
-            
-        @Override
-        public void stateChanged(ChangeEvent e) {
-                cuotas = (int)panelVentas.spnrCuotas.getValue();
-                System.out.println("cuotas: "+cuotas);
-                panelVentas.jLabel27.setText(String.valueOf(total_ventas/(float)cuotas));
+        this.panelVentas.spnrCuotas.addChangeListener(new ChangeListener() {
+
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                cuotas = (int) panelVentas.spnrCuotas.getValue();
+                System.out.println("cuotas: " + cuotas);
+                panelVentas.jLabel27.setText(String.valueOf(total_ventas / (float) cuotas));
             }
-        })
-                ;
+        });
         this.panelVentas.cbTipoVenta.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (panelVentas.cbTipoVenta.getSelectedItem().toString().compareTo("EFECTIVO") == 0) {
                     tipo_venta = 0;
-                    String total = String.valueOf(total_ventas*Integer.valueOf(temp_costo[0])/100.f);
+                    String total = String.valueOf(total_ventas * Integer.valueOf(temp_costo[0]) / 100.f);
                     panelVentas.jLabel28.setText(total);
                 }
                 if (panelVentas.cbTipoVenta.getSelectedItem().toString().compareTo("CREDITO") == 0) {
                     tipo_venta = 1;
-                     String total = String.valueOf(total_ventas*Integer.valueOf(temp_costo[1])/100.f);
+                    String total = String.valueOf(total_ventas * Integer.valueOf(temp_costo[1]) / 100.f);
                     panelVentas.jLabel28.setText(total);
                 }
                 if (panelVentas.cbTipoVenta.getSelectedItem().toString().compareTo("POR MAYOR") == 0) {
                     tipo_venta = 2;
-                    String total = String.valueOf(total_ventas*Integer.valueOf(temp_costo[2])/100.f);
+                    String total = String.valueOf(total_ventas * Integer.valueOf(temp_costo[2]) / 100.f);
                     panelVentas.jLabel28.setText(total);
                 }
             }
@@ -228,22 +229,22 @@ public class Controlador_Ventas implements ActionListener {
     private void setearTemp_costo() {
         this.temp_costo = new String[3];
         this.temp_costo[0] = ((Modelo_Ajustes) lista_ajustes.get(6)).getValor();
-        temp_costo[0] = temp_costo[0].substring(0, temp_costo[0].length()-1);
+        temp_costo[0] = temp_costo[0].substring(0, temp_costo[0].length() - 1);
         this.temp_costo[1] = ((Modelo_Ajustes) lista_ajustes.get(7)).getValor();
-         temp_costo[1] = temp_costo[1].substring(0, temp_costo[1].length()-1);
+        temp_costo[1] = temp_costo[1].substring(0, temp_costo[1].length() - 1);
         this.temp_costo[2] = ((Modelo_Ajustes) lista_ajustes.get(5)).getValor();
-         temp_costo[2] = temp_costo[2].substring(0, temp_costo[2].length()-1);
+        temp_costo[2] = temp_costo[2].substring(0, temp_costo[2].length() - 1);
 
     }
-    
-    private void setearCambioMoneda(){
+
+    private void setearCambioMoneda() {
         this.cambio_moneda = Float.valueOf(((Modelo_Ajustes) lista_ajustes.get(10)).getValor());
-        if(cambio_moneda!=1){
+        if (cambio_moneda != 1) {
             this.panelVentas.lblMoneda.setText("DOLARES");
             this.panelVentas.lblsgnoMoneda.setText("$");
         }
     }
-    
+
     private void iniciarTablaVentas() {
         modeloTablaVentas = new DefaultTableModel(new String[]{"Id", "Descripcion", "Cantidad", "Precio unitario", "Precio Total"}, 0);
         this.panelVentas.tDatosVentas.setModel(modeloTablaVentas);
@@ -287,200 +288,224 @@ public class Controlador_Ventas implements ActionListener {
         this.panelVentas.spnrCuotas.setModel(model);
 
     }
-    
-    
-    private void Registrar(){
+
+    private void Registrar() {
         // Boton registrar
-            if (this.panelVentas.txfVCuotaInicial.getText().isEmpty()) {
-                this.panelVentas.txfVCuotaInicial.setText("0");
-            }
-            if (this.panelVentas.tDatosVentas.getRowCount() > 0) {
-                    if (this.modeloClientes != null) {
-                        // actualizar inventario y crear registro de la venta
+        if (this.panelVentas.txfVCuotaInicial.getText().isEmpty()) {
+            this.panelVentas.txfVCuotaInicial.setText("0");
+        }
+        if (this.panelVentas.tDatosVentas.getRowCount() > 0) {
+            if (this.modeloClientes != null) {
+                // actualizar inventario y crear registro de la venta
 
-                        Consultas_Inventario_Vehiculos consultas_inventario = new Consultas_Inventario_Vehiculos();
-                        Thread hilo = new Thread() {// hilo para actualizar la cantidad de cada elemento del inventario
-                            @Override
-                            public void run() {
-                                    int rowCount = -1;//Inicializado en -1 para que entre al while ( = do{}while())
-                                    int logCount = 0;//Cuenta los errores al actualizar
-                                     while(rowCount <= 0){//Verifica que getRowCount no genere un -1
-                                        rowCount = panelVentas.tDatosVentas.getRowCount();
-                                        }
-                                for (int i = 0; i < rowCount; i++) {//Recorre toda la tabla de ventas
-                                    
-                                    //actualizamos el inventario
-                                    Modelo_Inventario_Vehiculos temp_model_vehiculos;
-                                    String id_prod = (String) panelVentas.tDatosVentas.getValueAt(i, 0);
-                                    String cantidad = (String) panelVentas.tDatosVentas.getValueAt(i, 2);
-                                    int index = lista_vehiculos.findInventario(lista_vehiculos, id_prod);
-                                    temp_model_vehiculos = (Modelo_Inventario_Vehiculos) lista_vehiculos.get(index);
-                                    temp_model_vehiculos.setCantidad(temp_model_vehiculos.getCantidad() - Integer.valueOf(cantidad));
-
-                                    if (consultas_inventario.update(temp_model_vehiculos)) {
-                                        System.out.println("Actuaizacion de inventario "+i+" realizada con exito");
-                                    } else {
-                                        System.out.println("Error en actuaizacion de inventario "+i);
-                                        logCount++;
-                                    }
-                                }if(logCount!=0){
-                                   mensaje("ERROR AL INTENTAR ACTUALIZAR EL INVENTARIO"); 
-                                }else{
-                                   mensaje("SE ACTUALIZO EL INVENTARIO"); 
-                                }
-                                
-                                return;
-                            }
-                        };
-                        hilo.start();
-
-                        Modelo_Ventas temp_model = new Modelo_Ventas();
-                        Consultas_Ventas consulta_venta = new Consultas_Ventas();
-                        int id_trabajador = this.controladorAdmin.getModel_user().getId();
-                        int index = lista_clientes.findClientes(lista_clientes, (String) this.panelVentas.jTable1.getValueAt(0, 0)).getTemp().peek();
-                        int id_cliente = ((Modelo_Clientes) lista_clientes.get(index)).getId();
-                        int logCount = 0;
-                        int rowCount = -1;
-                        while(rowCount <= 0){
+                Consultas_Inventario_Vehiculos consultas_inventario = new Consultas_Inventario_Vehiculos();
+                Thread hilo = new Thread() {// hilo para actualizar la cantidad de cada elemento del inventario
+                    @Override
+                    public void run() {
+                        int rowCount = -1;//Inicializado en -1 para que entre al while ( = do{}while())
+                        int logCount = 0;//Cuenta los errores al actualizar
+                        while (rowCount <= 0) {//Verifica que getRowCount no genere un -1
                             rowCount = panelVentas.tDatosVentas.getRowCount();
-                            }
+                        }
                         for (int i = 0; i < rowCount; i++) {//Recorre toda la tabla de ventas
-                            // creamos el registro de ventas para cada producto distinto
 
-                            String id_prod = (String) this.panelVentas.tDatosVentas.getValueAt(i, 0);
-                            String cantidad = (String) this.panelVentas.tDatosVentas.getValueAt(i, 2);
-                            float total = (float) this.panelVentas.tDatosVentas.getValueAt(i, 4);
-                            String id_factura = id_prod + Integer.toString(id_trabajador) + Integer.toString(id_cliente);
-                            String fecha_hora = new SimpleDateFormat("ddMMyyyy_HHmmss").format(Calendar.getInstance().getTime());
-                            float monto_inicial = Float.valueOf(this.panelVentas.txfVCuotaInicial.getText());
-                            this.dscto = this.panelVentas.jSlider1.getValue();
-                            temp_model.setId_prod(id_prod);
-                            temp_model.setId_factura(id_factura);
-                            temp_model.setId_prod(id_prod);
-                            temp_model.setId_trabajador(id_trabajador);
-                            temp_model.setId_cliente(id_cliente);
-                            temp_model.setFecha_hora(fecha_hora);
-                            temp_model.setMonto_inicial(monto_inicial);
-                            temp_model.setCantidad(Integer.valueOf(cantidad));
-                            switch (tipo_venta) {
-                                case 0:
-                                    total*= Integer.valueOf(this.temp_costo[0]);
-                                    total = total/100.f;
-                                    break;
-                                case 1:
-                                    total*= Integer.valueOf(this.temp_costo[1]);
-                                    total = total/100.f;
-                                    break;
-                                case 2:
-                                    total*= Integer.valueOf(this.temp_costo[2]);
-                                    total = total/100.f;
-                                    break;
-                                default:
-                                    break;
-                            }
-                            
-                            temp_model.setTotal(total);
-                            temp_model.setDscto(this.dscto);
-                            temp_model.setCuotas(this.cuotas);
-                            if (consulta_venta.create(temp_model)) {
-                                System.out.println("Registro de venta "+i+" realizada con exito");
+                            //actualizamos el inventario
+                            Modelo_Inventario_Vehiculos temp_model_vehiculos;
+                            String id_prod = (String) panelVentas.tDatosVentas.getValueAt(i, 0);
+                            String cantidad = (String) panelVentas.tDatosVentas.getValueAt(i, 2);
+                            int index = lista_vehiculos.findInventario(lista_vehiculos, id_prod);
+                            temp_model_vehiculos = (Modelo_Inventario_Vehiculos) lista_vehiculos.get(index);
+                            temp_model_vehiculos.setCantidad(temp_model_vehiculos.getCantidad() - Integer.valueOf(cantidad));
+
+                            if (consultas_inventario.update(temp_model_vehiculos)) {
+                                System.out.println("Actuaizacion de inventario " + i + " realizada con exito");
                             } else {
-                                System.out.println("Error al registrar la venta "+i);
+                                System.out.println("Error en actuaizacion de inventario " + i);
                                 logCount++;
                             }
-
-                        }if(logCount!=0){
-                            mensaje("ERROR AL INTENTAR REALIZAR LA OPERACION");
-                        }else{
-                            mensaje("SE REALIZO EXITOSAMENTE LA OPERACION");
-                            
                         }
-                        
-                        // Actualizar listas almacen y ventas
-                        // Actualizar tabla almacen
-                        Thread hilo2 = new Thread() {// hilo para actualizar las listas y volver a llenar las tablas
-                            @Override
-                            public void run() {
-                                Consultas_Inventario_Vehiculos consulta_vehiculo = new Consultas_Inventario_Vehiculos();
-                                Consultas_Clientes consulta_cliente = new Consultas_Clientes();
-                                lista_clientes = consulta_cliente.readAll();
-                                lista_vehiculos = consulta_vehiculo.readAll();
-                                llenarTablaAlmacen();
-                                llenarTablaClientes();
-                                return;
-                            }
+                        if (logCount != 0) {
+                            mensaje("ERROR AL INTENTAR ACTUALIZAR EL INVENTARIO");
+                        } else {
+                            mensaje("SE ACTUALIZO EL INVENTARIO");
+                        }
 
-                        };
-                        hilo2.start();
-                    } else {
-                        mensaje("NO SE SELECCIONO NINGUN CLIENTE");
+                        return;
                     }
-                } else {
-                    mensaje("NO HAY ELEMENTOS AGREGADOS");
-                }
-    }
-    
-    
+                };
+                hilo.start();
 
-    private void Agregar(){
+                Modelo_Ventas temp_model = new Modelo_Ventas();
+                Consultas_Ventas consulta_venta = new Consultas_Ventas();
+                int id_trabajador = this.controladorAdmin.getModel_user().getId();
+                int index = lista_clientes.findClientes(lista_clientes, (String) this.panelVentas.jTable1.getValueAt(0, 0)).getTemp().peek();
+                int id_cliente = ((Modelo_Clientes) lista_clientes.get(index)).getId();
+                int logCount = 0;
+                int rowCount = -1;
+                while (rowCount <= 0) {
+                    rowCount = panelVentas.tDatosVentas.getRowCount();
+                }
+                for (int i = 0; i < rowCount; i++) {//Recorre toda la tabla de ventas
+                    // creamos el registro de ventas para cada producto distinto
+
+                    String id_prod = (String) this.panelVentas.tDatosVentas.getValueAt(i, 0);
+                    String cantidad = (String) this.panelVentas.tDatosVentas.getValueAt(i, 2);
+                    float total = (float) this.panelVentas.tDatosVentas.getValueAt(i, 4);
+                    String id_factura = id_prod + Integer.toString(id_trabajador) + Integer.toString(id_cliente);
+                    String fecha_hora = new SimpleDateFormat("ddMMyyyy_HHmmss").format(Calendar.getInstance().getTime());
+                    float monto_inicial = Float.valueOf(this.panelVentas.txfVCuotaInicial.getText());
+                    this.dscto = this.panelVentas.jSlider1.getValue();
+                    temp_model.setId_prod(id_prod);
+                    temp_model.setId_factura(id_factura);
+                    temp_model.setId_prod(id_prod);
+                    temp_model.setId_trabajador(id_trabajador);
+                    temp_model.setId_cliente(id_cliente);
+                    temp_model.setFecha_hora(fecha_hora);
+                    temp_model.setMonto_inicial(monto_inicial);
+                    temp_model.setCantidad(Integer.valueOf(cantidad));
+                    switch (tipo_venta) {
+                        case 0:
+                            total *= Integer.valueOf(this.temp_costo[0]);
+                            total = total / 100.f;
+                            break;
+                        case 1:
+                            total *= Integer.valueOf(this.temp_costo[1]);
+                            total = total / 100.f;
+                            break;
+                        case 2:
+                            total *= Integer.valueOf(this.temp_costo[2]);
+                            total = total / 100.f;
+                            break;
+                        default:
+                            break;
+                    }
+
+                    temp_model.setTotal(total);
+                    temp_model.setDscto(this.dscto);
+                    temp_model.setCuotas(this.cuotas);
+                    if (consulta_venta.create(temp_model)) {
+                        System.out.println("Registro de venta " + i + " realizada con exito");
+                    } else {
+                        System.out.println("Error al registrar la venta " + i);
+                        logCount++;
+                    }
+
+                }
+                if (logCount != 0) {
+                    mensaje("ERROR AL INTENTAR REALIZAR LA OPERACION");
+                } else {
+                    mensaje("SE REALIZO EXITOSAMENTE LA OPERACION");
+
+                }
+
+                // Actualizar listas almacen y ventas
+                // Actualizar tabla almacen
+                Thread hilo2 = new Thread() {// hilo para actualizar las listas y volver a llenar las tablas
+                    @Override
+                    public void run() {
+                        Consultas_Inventario_Vehiculos consulta_vehiculo = new Consultas_Inventario_Vehiculos();
+                        Consultas_Clientes consulta_cliente = new Consultas_Clientes();
+                        lista_clientes = consulta_cliente.readAll();
+                        lista_vehiculos = consulta_vehiculo.readAll();
+                        llenarTablaAlmacen();
+                        llenarTablaClientes();
+                        return;
+                    }
+
+                };
+                hilo2.start();
+            } else {
+                mensaje("NO SE SELECCIONO NINGUN CLIENTE");
+            }
+        } else {
+            mensaje("NO HAY ELEMENTOS AGREGADOS");
+        }
+    }
+
+    private void Agregar() {
         if (modeloInventario != null) {
-                int cantidad_maxima = this.modeloInventario.getCantidad();
+            int cantidad_maxima;
+            String id = modeloInventario.getId();
+
+            funcionaAlmacenado temp_funciona = temp_list.findAlmacenado(temp_list, id);
+            if (temp_funciona.isFunciona()) {
+
+                cantidad_maxima = ((Almacenado) temp_list.get(temp_funciona.getI())).getCantidad();
+
+            } else {
+                cantidad_maxima = this.modeloInventario.getCantidad();
+
+            }
+            if (cantidad_maxima > 0) {
                 Emergente_Panel_Ventas panel_cantidad = new Emergente_Panel_Ventas(this.ventanaAdmin, true, cantidad_maxima);
                 panel_cantidad.setVisible(true);
-                
+
                 String cantidad = panel_cantidad.getCantidad();
-                if(!panel_cantidad.getCantidad().equals("0")){
-                    String id = modeloInventario.getId();
+                if (!panel_cantidad.getCantidad().equals("0")) {
+
                     String descripcion = modeloInventario.getNombre_prod();
                     float precio_unitario = modeloInventario.getPrecio();//Falta verificar si la lista_ajustes(10) es distinto de 1 para cambiar ese valor
-                    float precio_total = precio_unitario * Integer.valueOf(cantidad);     
+                    float precio_total = precio_unitario * Integer.valueOf(cantidad);
                     llenar_Tabla_Ventas(id, descripcion, cantidad, precio_unitario, precio_total);
                     llenar_Adicional_Ventas(precio_total);
-                }else{
+                    Almacenado temp_almacenado = new Almacenado();
+                    if (temp_funciona.isFunciona()) {
+                        temp_almacenado.setId(id);
+                        temp_almacenado.setCantidad(cantidad_maxima - Integer.valueOf(cantidad));
+                        temp_list.remove(temp_funciona.getI());
+                        temp_list.add(temp_funciona.getI(), temp_almacenado);
+                    } else {
+                        temp_almacenado.setId(id);
+                        temp_almacenado.setCantidad(cantidad_maxima - Integer.valueOf(cantidad));
+                        temp_list.add(temp_almacenado);
+                    }
+                } else {
                     mensaje("SELECCIONE UNA CANTIDAD VALIDA A AGREGAR");
                 }
-                
             } else {
-                mensaje("SELECCIONE EN LA TABLA EL PRODUCTO A AGREGAR");
+                mensaje("NO HAY STOCK DEL OBJETO SELECCIONADO");
+
             }
+        } else {
+            mensaje("SELECCIONE EN LA TABLA EL PRODUCTO A AGREGAR");
+        }
+
     }
-    
-    private void llenar_Tabla_Ventas(String id, String descripcion, String cantidad, Float precio_unitario, Float precio_total){
+
+    private void llenar_Tabla_Ventas(String id, String descripcion, String cantidad, Float precio_unitario, Float precio_total) {
         modeloTablaVentas.addRow(new Object[]{id, descripcion, cantidad, precio_unitario, precio_total});
         panelVentas.tDatosVentas.setModel(modeloTablaVentas);
     }
-    
-    private void llenar_Adicional_Ventas(Float precio_total){
-                this.dscto = this.panelVentas.jSlider1.getValue();
-                this.sin_dscto += precio_total;
-                this.con_dscto = this.sin_dscto *(100- this.dscto) / 100.f;
-                this.sin_igv = this.con_dscto;
-                this.con_igv = 1.18f * this.sin_igv;
-                this.total_ventas = this.con_igv;
-                this.cuota_mensual = this.total_ventas / (float) cuotas;
-                DecimalFormat numberFormat = new DecimalFormat("#.00");
-                this.panelVentas.jLabel22.setText(numberFormat.format(sin_igv));
-                this.panelVentas.jLabel23.setText(numberFormat.format(con_igv));
-                this.panelVentas.jLabel25.setText(numberFormat.format(sin_dscto));
-                this.panelVentas.jLabel26.setText(numberFormat.format(con_dscto));
-                this.panelVentas.jLabel27.setText(numberFormat.format(cuota_mensual));
-                this.panelVentas.jLabel28.setText(numberFormat.format(this.total_ventas));
-    }
-    
 
-    private void mensaje(String msg){
+    private void llenar_Adicional_Ventas(Float precio_total) {
+        this.dscto = this.panelVentas.jSlider1.getValue();
+        this.sin_dscto += precio_total;
+        this.con_dscto = this.sin_dscto * (100 - this.dscto) / 100.f;
+        this.sin_igv = this.con_dscto;
+        this.con_igv = 1.18f * this.sin_igv;
+        this.total_ventas = this.con_igv;
+        this.cuota_mensual = this.total_ventas / (float) cuotas;
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
+        this.panelVentas.jLabel22.setText(numberFormat.format(sin_igv));
+        this.panelVentas.jLabel23.setText(numberFormat.format(con_igv));
+        this.panelVentas.jLabel25.setText(numberFormat.format(sin_dscto));
+        this.panelVentas.jLabel26.setText(numberFormat.format(con_dscto));
+        this.panelVentas.jLabel27.setText(numberFormat.format(cuota_mensual));
+        this.panelVentas.jLabel28.setText(numberFormat.format(this.total_ventas));
+    }
+
+    private void mensaje(String msg) {
         Emergente_Aviso mensajes = new Emergente_Aviso(ventanaAdmin, true, msg);
         mensajes.setVisible(true);
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.panelVentas.customButtonShaped3) {
-            this.Registrar();    
+            this.Registrar();
         }
         if (e.getSource() == this.panelVentas.customButtonShaped1) {// boton agregar
             this.Agregar();
-            
 
         }
         if (e.getSource() == this.panelVentas.customButtonShaped2) {// boton quitar 
