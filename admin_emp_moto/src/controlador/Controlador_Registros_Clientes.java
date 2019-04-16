@@ -163,8 +163,22 @@ public class Controlador_Registros_Clientes implements ActionListener {
     }
     
     private void llenarTabla() {
-        DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos", "Correo", "Direccion", "Ciudad", "Pais"}, 0);
+        DefaultTableModel model = new DefaultTableModel(new String[]{"ID","DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos", "Correo", "Direccion", "Ciudad", "Pais"}, 0){
+            @Override
+             public boolean isCellEditable(int row, int column)
+            {
+            switch (column) {
+            case 0:
+                return false;
+            default:
+                return true;
+                }
+            }
+        };
+    
+        
         for (int i = 0; i < clientes.size(); i++) {
+            int id = ((Modelo_Clientes) clientes.get(i)).getId();
             String dni = ((Modelo_Clientes) clientes.get(i)).getDni();
             String nombres_apellido = ((Modelo_Clientes) clientes.get(i)).getNombre_apellido();
             String dni_2 = ((Modelo_Clientes) clientes.get(i)).getDni_2();
@@ -173,7 +187,7 @@ public class Controlador_Registros_Clientes implements ActionListener {
             String direccion = ((Modelo_Clientes) clientes.get(i)).getDireccion();
             String ciudad = ((Modelo_Clientes) clientes.get(i)).getCiudad();
             String pais = ((Modelo_Clientes) clientes.get(i)).getPais();
-            model.addRow(new Object[]{dni, nombres_apellido, dni_2, nombres_apellido_2, correo, direccion, ciudad, pais});
+            model.addRow(new Object[]{id,dni, nombres_apellido, dni_2, nombres_apellido_2, correo, direccion, ciudad, pais});
         }
         this.panelClientes.jTable1.setModel(model);
 
