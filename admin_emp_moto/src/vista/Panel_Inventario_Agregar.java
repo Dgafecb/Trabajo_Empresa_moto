@@ -4,10 +4,10 @@ package vista;
 import java.awt.event.ItemEvent;
 
 
-public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
+public class Panel_Inventario_Agregar extends javax.swing.JPanel {
 
 
-    public Panel_Inventario_Ingresar() {
+    public Panel_Inventario_Agregar() {
         initComponents();
     }
 
@@ -343,7 +343,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(txfAdvertencia, gridBagConstraints);
 
-        cbxVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vehiculo", "Repuestos" }));
+        cbxVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "VEHICULO", "REPUESTO" }));
         cbxVehiculo.setFocusable(false);
         cbxVehiculo.setMaximumSize(new java.awt.Dimension(250, 20));
         cbxVehiculo.setMinimumSize(new java.awt.Dimension(250, 20));
@@ -436,7 +436,7 @@ public class Panel_Inventario_Ingresar extends javax.swing.JPanel {
     private void cbxVehiculoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxVehiculoItemStateChanged
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             Object item = evt.getItem();
-            if (item.toString().equals("Repuestos")) {
+            if (item.toString().equals("REPUESTO")) {
                 this.txfModelo.setText("");
                 this.txfModelo.setEnabled(false);
                 this.txfColor.setText("");

@@ -12,16 +12,16 @@ import modelo.CustomButtonShaped;
 import modelo.Modelo_Inventario_Repuestos;
 
 
-public class Emergente_Panel extends javax.swing.JDialog {
+public class Emergente_Panel_Almacen extends javax.swing.JDialog {
 
     private Dimension resolucionDialogo = new Dimension (500,650);
     public Borde_Ventana bordeVentana;
     public CustomButtonShaped btnAceptar,btnCancelar;
-    public Panel_Inventario_Ingresar pInventarioAgregar;
+    public Panel_Inventario_Agregar pInventarioAgregar;
     public LinkedList<String> inventario;
     
     
-    public Emergente_Panel(java.awt.Frame parent, boolean modal) {
+    public Emergente_Panel_Almacen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initDialog();
         initPanel(); 
@@ -56,7 +56,7 @@ public class Emergente_Panel extends javax.swing.JDialog {
         constraints.insets= new Insets(0,0,0,0);
         getContentPane().add (bordeVentana, constraints);
         
-        pInventarioAgregar = new Panel_Inventario_Ingresar();
+        pInventarioAgregar = new Panel_Inventario_Agregar();
         constraints.gridx = 0;
         constraints.gridy = 1;
         constraints.gridwidth = 2;
@@ -105,32 +105,31 @@ public class Emergente_Panel extends javax.swing.JDialog {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 String temp = null;
-                temp = (pInventarioAgregar.txfID.getText().compareTo("") != 0) ? pInventarioAgregar.txfID.getText() : null;
+                temp = (pInventarioAgregar.txfID.getText().compareTo("") != 0) ? pInventarioAgregar.txfID.getText().toUpperCase() : null;
                 inventario.add(temp);
-                temp = (pInventarioAgregar.cbxVehiculo.getSelectedItem().equals("Vehiculo")) ? "Vehiculo" : "Repuesto";
+                temp = (pInventarioAgregar.cbxVehiculo.getSelectedItem().equals("VEHICULO")) ? "VEHICULO" : "REPUESTO";
                 inventario.add(temp);
-                temp = (pInventarioAgregar.txfDescripicion.getText().compareTo("") != 0) ? pInventarioAgregar.txfDescripicion.getText() : null;
+                temp = (pInventarioAgregar.txfDescripicion.getText().compareTo("") != 0) ? pInventarioAgregar.txfDescripicion.getText().toUpperCase() : "DESCONOCIDO";
                 inventario.add(temp);
-                temp = (pInventarioAgregar.txfMarca.getText().compareTo("") != 0) ? pInventarioAgregar.txfMarca.getText() : null;
+                temp = (pInventarioAgregar.txfMarca.getText().compareTo("") != 0) ? pInventarioAgregar.txfMarca.getText().toUpperCase() : "DESCONOCIDO";
                 inventario.add(temp);
-                temp = (pInventarioAgregar.txfModelo.getText().compareTo("") != 0) ? pInventarioAgregar.txfModelo.getText() : "-";
+                temp = (pInventarioAgregar.txfModelo.getText().compareTo("") != 0) ? pInventarioAgregar.txfModelo.getText().toUpperCase() : "DESCONOCIDO";
                 inventario.add(temp);
-                temp = (pInventarioAgregar.txfColor.getText().compareTo("") != 0) ? pInventarioAgregar.txfColor.getText() : "-";
+                temp = (pInventarioAgregar.txfColor.getText().compareTo("") != 0) ? pInventarioAgregar.txfColor.getText().toUpperCase() : "DESCONOCIDO";
                 inventario.add(temp);
-                temp = (pInventarioAgregar.txfMotor.getText().compareTo("") != 0) ? pInventarioAgregar.txfMotor.getText() : "-";
+                temp = (pInventarioAgregar.txfMotor.getText().compareTo("") != 0) ? pInventarioAgregar.txfMotor.getText().toUpperCase() : "DESCONOCIDO";
                 inventario.add(temp);
-                temp = (pInventarioAgregar.txfChasis.getText().compareTo("") != 0) ? pInventarioAgregar.txfChasis.getText() : "-";
+                temp = (pInventarioAgregar.txfChasis.getText().compareTo("") != 0) ? pInventarioAgregar.txfChasis.getText().toUpperCase() : "DESCONOCIDO";
                 inventario.add(temp);
-                temp = (pInventarioAgregar.txfFab.getText().compareTo("") != 0) ? pInventarioAgregar.txfFab.getText() : null;
+                temp = (pInventarioAgregar.txfFab.getText().compareTo("") != 0) ? pInventarioAgregar.txfFab.getText().toUpperCase() : "2000";
                 inventario.add(temp);
-                temp = (pInventarioAgregar.txfGarantia.getText().compareTo("") != 0) ? pInventarioAgregar.txfGarantia.getText() : null;
+                temp = (pInventarioAgregar.txfGarantia.getText().compareTo("") != 0) ? pInventarioAgregar.txfGarantia.getText().toUpperCase() : "0";
                 inventario.add(temp);
-                temp = (pInventarioAgregar.txfCantidad.getText().compareTo("") != 0) ? pInventarioAgregar.txfCantidad.getText() : null;
+                temp = (pInventarioAgregar.txfCantidad.getText().compareTo("") != 0) ? pInventarioAgregar.txfCantidad.getText().toUpperCase() : "0";
                 inventario.add(temp);
-                temp = (pInventarioAgregar.txfPrecio.getText().compareTo("") != 0) ? pInventarioAgregar.txfPrecio.getText() : null;
+                temp = (pInventarioAgregar.txfPrecio.getText().compareTo("") != 0) ? pInventarioAgregar.txfPrecio.getText().toUpperCase() : "0.0";
                 inventario.add(temp);
-
-                temp = (pInventarioAgregar.txfAdvertencia.getText().compareTo("") != 0) ? pInventarioAgregar.txfAdvertencia.getText() : null;
+                temp = (pInventarioAgregar.txfAdvertencia.getText().compareTo("") != 0) ? pInventarioAgregar.txfAdvertencia.getText().toUpperCase() : "0";
                 inventario.add(temp);
                 dispose();
             }

@@ -13,7 +13,7 @@ import modelo.Linked_List.InventarioTEMP;
 import modelo.Modelo_Inventario_Repuestos;
 import modelo.Modelo_Inventario_Vehiculos;
 import vista.Emergente_Aviso;
-import vista.Emergente_Panel;
+import vista.Emergente_Panel_Almacen;
 import vista.Panel_Inventario;
 import vista.Ventana_Admin;
 
@@ -54,7 +54,7 @@ public class Controlador_Almacen implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.panelInventario.btnAgregar) {
-            Emergente_Panel panel = new Emergente_Panel(ventanaAdmin, true);
+            Emergente_Panel_Almacen panel = new Emergente_Panel_Almacen(ventanaAdmin, true);
             panel.setVisible(true);
             LinkedList<String> listaAgregar = panel.inventario;
             if (listaAgregar == null) {// caso que presiono cancelar

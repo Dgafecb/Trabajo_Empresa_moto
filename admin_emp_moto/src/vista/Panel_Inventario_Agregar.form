@@ -636,8 +636,8 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="2">
-            <StringItem index="0" value="Vehiculo"/>
-            <StringItem index="1" value="Repuestos"/>
+            <StringItem index="0" value="VEHICULO"/>
+            <StringItem index="1" value="REPUESTO"/>
           </StringArray>
         </Property>
         <Property name="focusable" type="boolean" value="false"/>

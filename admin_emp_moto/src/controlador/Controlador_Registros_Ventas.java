@@ -3,7 +3,11 @@ package controlador;
 import static controlador.Controlador_login.lista_ventas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import modelo.Linked_List;
 import modelo.Modelo_Ventas;
 import vista.Emergente_Aviso;
@@ -41,7 +45,7 @@ public class Controlador_Registros_Ventas implements ActionListener{
     private void fillTable(){
         DefaultTableModel model = new DefaultTableModel(new String[]{"ID DE VENTA" , 
             "ID PRODUCTO ", "ID VENDEDOR", "ID CLIENTE", "FECHA", "HORA", "MONTO INICIAL",
-            "DESCUENTO", "CUOTAS","CANTIDAD","MONTO TOTAL"}, 0) {
+            "DESCUENTO", "CUOTAS","CANTIDAD","MONTO UNITARIO","MONTO TOTAL"}, 0) {
             
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -66,13 +70,35 @@ public class Controlador_Registros_Ventas implements ActionListener{
             Integer cuotas = ((Modelo_Ventas) listaVentas.get(i)).getCuotas();
             Integer cantidad = ((Modelo_Ventas) listaVentas.get(i)).getCantidad();
             Float monto_total = ((Modelo_Ventas) listaVentas.get(i)).getTotal();
+            Float monto_unitario = monto_total/cantidad;
             
             String fecha = fecha_hora.substring(0,2)+"/"+fecha_hora.substring(2,4)+"/"+fecha_hora.substring(4, 8);
             String hora = fecha_hora.substring(9,11)+":"+fecha_hora.substring(11,13)+":"+fecha_hora.substring(13, 15);
             
-            model.addRow(new Object[]{id_venta, id_producto , id_trabajador, id_cliente, fecha, hora, monto_inicial,dscto, cuotas, cantidad, monto_total});
+            model.addRow(new Object[]{id_venta, id_producto , id_trabajador, id_cliente, fecha,
+                hora, monto_inicial,dscto, cuotas, cantidad, monto_unitario ,monto_total});
         }
         panelVentas.jTable1.setModel(model);
+        
+        //CONFIGURACION DE TABLA
+        JTableHeader jtableHeader = new JTableHeader();
+        DefaultTableCellRenderer render = (DefaultTableCellRenderer) panelVentas.jTable1.getTableHeader().getDefaultRenderer();
+        render.setHorizontalAlignment(JLabel.CENTER);
+        jtableHeader.setDefaultRenderer(render);
+        
+        DefaultTableCellRenderer tcrCenter = new DefaultTableCellRenderer();
+        tcrCenter.setHorizontalAlignment(SwingConstants.CENTER);
+        panelVentas.jTable1.getColumnModel().getColumn(4).setCellRenderer(tcrCenter);
+        panelVentas.jTable1.getColumnModel().getColumn(5).setCellRenderer(tcrCenter);
+        panelVentas.jTable1.getColumnModel().getColumn(7).setCellRenderer(tcrCenter);
+        panelVentas.jTable1.getColumnModel().getColumn(8).setCellRenderer(tcrCenter);
+        panelVentas.jTable1.getColumnModel().getColumn(9).setCellRenderer(tcrCenter);
+        
+        DefaultTableCellRenderer tcrRight = new DefaultTableCellRenderer();
+        tcrRight.setHorizontalAlignment(SwingConstants.RIGHT);
+        panelVentas.jTable1.getColumnModel().getColumn(6).setCellRenderer(tcrRight);
+        panelVentas.jTable1.getColumnModel().getColumn(10).setCellRenderer(tcrRight);
+        panelVentas.jTable1.getColumnModel().getColumn(11).setCellRenderer(tcrRight);
     }
     
     private void buscar(String referencia){

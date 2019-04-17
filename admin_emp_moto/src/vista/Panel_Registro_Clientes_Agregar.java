@@ -19,39 +19,39 @@ public class Panel_Registro_Clientes_Agregar extends javax.swing.JPanel {
         cbCiudad.removeAllItems();
         switch (i) {
             case 0:{
-                cbCiudad.addItem("Amazonas");
-                cbCiudad.addItem("Áncash");
-                cbCiudad.addItem("Apurímac");
-                cbCiudad.addItem("Arequipa");
-                cbCiudad.addItem("Ayacucho");
-                cbCiudad.addItem("Cajamarca");
-                cbCiudad.addItem("Callao");
-                cbCiudad.addItem("Cusco");
-                cbCiudad.addItem("Huancavelica");
-                cbCiudad.addItem("Huánuco");
-                cbCiudad.addItem("Ica");
-                cbCiudad.addItem("Junín");
-                cbCiudad.addItem("La Libertad");
-                cbCiudad.addItem("Lambayeque");
-                cbCiudad.addItem("Lima");
-                cbCiudad.addItem("Loreto");
-                cbCiudad.addItem("Madre de Dios");
-                cbCiudad.addItem("Moquegua");
-                cbCiudad.addItem("Pasco");
-                cbCiudad.addItem("Piura");
-                cbCiudad.addItem("Puno");
-                cbCiudad.addItem("Pasco");
-                cbCiudad.addItem("San Martín");
-                cbCiudad.addItem("Tacna"); 
-                cbCiudad.addItem("Tumbes");
-                cbCiudad.addItem("Ucayali");
+                cbCiudad.addItem("AMAZONAS");
+                cbCiudad.addItem("ÁNCASH");
+                cbCiudad.addItem("APURIMAC");
+                cbCiudad.addItem("AREQUIPA");
+                cbCiudad.addItem("AYACUCHO");
+                cbCiudad.addItem("CAJAMARCA");
+                cbCiudad.addItem("CALLAO");
+                cbCiudad.addItem("CUSCO");
+                cbCiudad.addItem("HUANCAVELICA");
+                cbCiudad.addItem("HUÁNUCO");
+                cbCiudad.addItem("ICA");
+                cbCiudad.addItem("JUNÍN");
+                cbCiudad.addItem("LA LIBERTAD");
+                cbCiudad.addItem("LAMBAYEQUE");
+                cbCiudad.addItem("LIMA");
+                cbCiudad.addItem("LORETO");
+                cbCiudad.addItem("MADRE DE DIOS");
+                cbCiudad.addItem("MOQUEGUA");
+                cbCiudad.addItem("PASCO");
+                cbCiudad.addItem("PIURA");
+                cbCiudad.addItem("PUNO");
+                cbCiudad.addItem("PASCO");
+                cbCiudad.addItem("SAN MARTÍN");
+                cbCiudad.addItem("TACNA"); 
+                cbCiudad.addItem("TUMBES");
+                cbCiudad.addItem("UCAYALI");
                 break;
                 }
             case 1:
                 break;
             case 2:
                 break;
-            default:cbCiudad.addItem("Ingresa Pais");
+            default:cbCiudad.addItem("INGRESA PAIS");
                 break;
         }
     }
