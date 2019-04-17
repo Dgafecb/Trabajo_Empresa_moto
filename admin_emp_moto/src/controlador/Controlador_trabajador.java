@@ -18,6 +18,7 @@ public class Controlador_trabajador implements ActionListener {
     public Ventana_Login view_login;
     public Consultas_Trabajadores consultas_login;
     public Controlador_login ctrl_login;
+    public Controlador_Resumen ctrl_resumen;
     public Panel_Resumen panel_resumen;
     
     private Panel_Ventas panel_ventas;
@@ -53,6 +54,7 @@ public class Controlador_trabajador implements ActionListener {
         }else if(e.getSource() == ventanaTrabajador.menuTrabajador.btnInicio){
             limpiarSpContent();
             panel_resumen = new Panel_Resumen();
+            ctrl_resumen = new Controlador_Resumen(this.ventanaTrabajador, this);
             ventanaTrabajador.administrarPanel(this.ventanaTrabajador.spContent, panel_resumen);
         }else if (e.getSource() == ventanaTrabajador.menuTrabajador.btnCerrarSesion) { // Reinstancia la ventana de login, permitiendo otro inicio de sesion
             cerrarSesion();

@@ -132,7 +132,7 @@ public class Consultas_Asistencia extends ConexionSQL {
     }
 
     public Linked_List readAll() {
-        Linked_List<Modelo_Trabajadores> listaTrabajadores = new Linked_List();
+        Linked_List<Modelo_Asistencia> listaTrabajadores = new Linked_List();
         Modelo_Asistencia asistencia = null;
         PreparedStatement ps = null;
         ResultSet rs = null;

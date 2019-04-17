@@ -324,7 +324,7 @@ public class Panel_Resumen extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private custom.CustomButtonShaped btnBuscar;
-    private custom.CustomButtonShaped customButtonShaped1;
+    public custom.CustomButtonShaped customButtonShaped1;
     private custom.CustomPanel customPanel1;
     private custom.CustomPanel customPanel2;
     private custom.CustomPanel customPanel3;

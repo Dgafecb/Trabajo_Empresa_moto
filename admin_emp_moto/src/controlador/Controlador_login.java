@@ -35,7 +35,9 @@ public class Controlador_login implements ActionListener, KeyListener {
 
     public static Linked_List<Modelo_Trabajadores> lista_trabajadores;
     public static Linked_List<Modelo_Asistencia> lista_asistencia;
+    public static Linked_List<Modelo_Marcas> lista_marcas;
     public static Linked_List<Modelo_Inventario_Vehiculos> lista_vehiculos;
+    public static Linked_List<Modelo_Inventario_Repuestos> lista_repuestos;
     public static Linked_List<Modelo_Ajustes> lista_ajustes;
     public static Linked_List<Modelo_Clientes> lista_clientes;
     public static Linked_List<Modelo_Ventas> lista_ventas;
@@ -108,14 +110,15 @@ public class Controlador_login implements ActionListener, KeyListener {
                     lista_trabajadores = consultas_trabajadores.readAll();
                     Consultas_Asistencia consultas_asistencia = new Consultas_Asistencia();
                     lista_asistencia = consultas_asistencia.readAll();
-                    Consultas_Ventas  consultas_ventas = new Consultas_Ventas();
-                    lista_ventas = consultas_ventas.readAll();
+                    Consultas_Marca consultas_marca = new Consultas_Marca();
+                    lista_marcas = consultas_marca.readAll();
 
                     return;
                 }
             };
             hilo.start();
-
+            Consultas_Ventas consultas_ventas = new Consultas_Ventas();
+            lista_ventas = consultas_ventas.readAll();
             Consultas_Clientes consultas_clientes = new Consultas_Clientes();
             lista_clientes = consultas_clientes.readAll();
             Consultas_Inventario_Vehiculos consultas_vehiculos = new Consultas_Inventario_Vehiculos();
@@ -132,6 +135,8 @@ public class Controlador_login implements ActionListener, KeyListener {
         } else if (privilege == 0) {
             Consultas_Trabajadores consultas_trabajadores = new Consultas_Trabajadores();
             lista_trabajadores = consultas_trabajadores.readAll();
+            Consultas_Asistencia consultas_asistencia = new Consultas_Asistencia();
+            lista_asistencia = consultas_asistencia.readAll();
             message("Bienvenido Trabajador");
             view.setVisible(false);
             view.dispose();
