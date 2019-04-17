@@ -4,7 +4,54 @@ import java.util.LinkedList;
 
 public class Linked_List<T> extends LinkedList {
 
-    public funcionaClientes findIdClientes(LinkedList<Modelo_Clientes> list, int id) {
+    public int findIdVentas(Linked_List<Modelo_Ventas> list, int id) {
+        int index = -1;
+        for (int i = 0; i < list.size(); i++) {
+            if (((Modelo_Ventas) list.get(i)).getId() == id) {
+                index = i;
+            }
+        }
+
+        return index;
+    }
+
+    public LinkedList<Integer> findIdVendedor(Linked_List<Modelo_Ventas> list, int id) {
+        LinkedList<Integer> temp = null;
+        for (int i = 0; i < list.size(); i++) {
+            if (((Modelo_Ventas) list.get(i)).getId_trabajador() == id) {
+                temp = new LinkedList();
+                temp.add(i);
+            }
+        }
+
+        return temp;
+    }
+
+    public LinkedList<Integer> findIdProducto(Linked_List<Modelo_Ventas> list, String id) {
+        LinkedList<Integer> temp = null;
+        for (int i = 0; i < list.size(); i++) {
+            if (((Modelo_Ventas) list.get(i)).getId_prod().compareTo(id) == 0) {
+                temp = new LinkedList();
+                temp.add(i);
+            }
+        }
+
+        return temp;
+    }
+
+    public LinkedList<Integer> findIdCliente(Linked_List<Modelo_Ventas> list, int id) {
+        LinkedList<Integer> temp = null;
+        for (int i = 0; i < list.size(); i++) {
+            if (((Modelo_Ventas) list.get(i)).getId_cliente() == id) {
+                temp = new LinkedList();
+                temp.add(i);
+            }
+        }
+
+        return temp;
+    }
+
+    public funcionaClientes findIdClientes(Linked_List<Modelo_Clientes> list, int id) {
         funcionaClientes temp = new funcionaClientes();
         int index = -1;
         for (int i = 0; i < list.size(); i++) {
@@ -23,7 +70,7 @@ public class Linked_List<T> extends LinkedList {
         }
     }
 
-    public funcionaAlmacenado findAlmacenado(LinkedList<Almacenado> list, String id) {
+    public funcionaAlmacenado findAlmacenado(Linked_List<Almacenado> list, String id) {
 
         funcionaAlmacenado temp = new funcionaAlmacenado();
         if (list != null) {

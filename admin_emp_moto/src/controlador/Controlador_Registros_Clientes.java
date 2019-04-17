@@ -71,7 +71,7 @@ public class Controlador_Registros_Clientes implements ActionListener {
 
     private void Buscar() {
         String dni_leido = this.panelClientes.txfBuscar.getText();
-        ResultadoClientes resultado = clientes.findClientes(clientes, dni_leido);
+        ResultadoClientes resultado = lista_clientes.findClientes(lista_clientes, dni_leido);
         if (resultado.isFunciona()) {
             DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos", "Correo", "Direccion", "Telefono", "Ciudad", "Pais"}, 0) {
 
@@ -86,21 +86,21 @@ public class Controlador_Registros_Clientes implements ActionListener {
                 }
             };
             for (int i = 0; i < resultado.getTemp().size(); i++) {
-                int id = ((Modelo_Clientes) clientes.get(i)).getId();
-                String dni = ((Modelo_Clientes) clientes.get(i)).getDni();
-                String nombres_apellido = ((Modelo_Clientes) clientes.get(i)).getNombre_apellido();
-                String dni_2 = ((Modelo_Clientes) clientes.get(i)).getDni_2();
-                String nombres_apellido_2 = ((Modelo_Clientes) clientes.get(i)).getNombre_apellido_2();
-                String correo = ((Modelo_Clientes) clientes.get(i)).getCorreo();
-                String direccion = ((Modelo_Clientes) clientes.get(i)).getDireccion();
-                String telefono = ((Modelo_Clientes) clientes.get(i)).getTelefono();
-                String ciudad = ((Modelo_Clientes) clientes.get(i)).getCiudad();
-                String pais = ((Modelo_Clientes) clientes.get(i)).getPais();
+                int index = (int)resultado.getTemp().get(i);
+                int id = ((Modelo_Clientes) lista_clientes.get(index)).getId();
+                String dni = ((Modelo_Clientes) lista_clientes.get(index)).getDni();
+                String nombres_apellido = ((Modelo_Clientes) lista_clientes.get(index)).getNombre_apellido();
+                String dni_2 = ((Modelo_Clientes) lista_clientes.get(index)).getDni_2();
+                String nombres_apellido_2 = ((Modelo_Clientes) lista_clientes.get(index)).getNombre_apellido_2();
+                String correo = ((Modelo_Clientes) lista_clientes.get(index)).getCorreo();
+                String direccion = ((Modelo_Clientes) lista_clientes.get(index)).getDireccion();
+                String telefono = ((Modelo_Clientes) lista_clientes.get(index)).getTelefono();
+                String ciudad = ((Modelo_Clientes) lista_clientes.get(index)).getCiudad();
+                String pais = ((Modelo_Clientes) lista_clientes.get(index)).getPais();
 
                 model.addRow(new Object[]{id, dni, nombres_apellido, dni_2, nombres_apellido_2, correo, direccion, telefono, ciudad, pais});
-
-            }
-            this.panelClientes.jTable1.setModel(model);
+        }
+        this.panelClientes.jTable1.setModel(model);
 
         } else {
             Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el DNI");
