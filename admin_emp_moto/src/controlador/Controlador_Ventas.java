@@ -2,7 +2,6 @@ package controlador;
 
 import static controlador.Controlador_login.lista_ajustes;
 import static controlador.Controlador_login.lista_clientes;
-import static controlador.Controlador_login.lista_repuestos;
 import static controlador.Controlador_login.lista_trabajadores;
 import static controlador.Controlador_login.lista_vehiculos;
 import java.awt.event.ActionEvent;

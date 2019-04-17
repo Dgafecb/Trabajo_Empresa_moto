@@ -218,8 +218,9 @@ public class Controlador_Registros_Clientes implements ActionListener {
     }
 
     private void llenarTabla() {
-        DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos", "Correo", "Direccion", "Telefono", "Ciudad", "Pais"}, 0) {
-
+        DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "DNI", "Nombres y Apellidos", "DNI", 
+            "Nombres y Apellidos", "Correo", "Direccion", "Telefono", "Ciudad", "Pais"}, 0) {
+            
             @Override
             public boolean isCellEditable(int row, int column) {
                 switch (column) {

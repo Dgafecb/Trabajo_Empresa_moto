@@ -1,6 +1,5 @@
 package controlador;
 
-import static controlador.Controlador_login.lista_repuestos;
 import static controlador.Controlador_login.lista_vehiculos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,7 +36,6 @@ public class Controlador_Almacen implements ActionListener {
         this.ventanaAdmin = controladorAdmin.getVentanaAdmin();
         this.panelInventario = controladorAdmin.getPanelInventario();
         vehiculos = lista_vehiculos;
-        repuestos = lista_repuestos;
     }
 
     private void llamarComponentes() {

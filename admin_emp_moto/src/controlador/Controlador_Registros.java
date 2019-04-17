@@ -77,6 +77,7 @@ public class Controlador_Registros implements ActionListener {
         }else if(ae.getSource() == panelRegistros.subBtnVentas){
             limpiarSpContenido();
             panelRegistrosVentas = new Panel_Registros_Ventas();
+            Controlador_Registros_Ventas ctrl_Reg_Ventas = new Controlador_Registros_Ventas(this.controladorAdmin,this.ventanaAdmin,this.panelRegistrosVentas);
             panelRegistros.administrarPanel(panelRegistros.spContenidoRegistros, panelRegistrosVentas);
         }
     }

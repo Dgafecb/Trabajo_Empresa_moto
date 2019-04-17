@@ -16,6 +16,7 @@ import modelo.Consultas_Marca;
 
 import modelo.Modelo_Trabajadores;
 import modelo.Consultas_Trabajadores;
+import modelo.Consultas_Ventas;
 import modelo.Linked_List;
 import modelo.Modelo_Ajustes;
 import modelo.Modelo_Asistencia;
@@ -23,6 +24,7 @@ import modelo.Modelo_Clientes;
 import modelo.Modelo_Inventario_Repuestos;
 import modelo.Modelo_Inventario_Vehiculos;
 import modelo.Modelo_Marcas;
+import modelo.Modelo_Ventas;
 import vista.Emergente_Aviso;
 import vista.Panel_Login;
 import vista.Ventana_Admin;
@@ -33,11 +35,10 @@ public class Controlador_login implements ActionListener, KeyListener {
 
     public static Linked_List<Modelo_Trabajadores> lista_trabajadores;
     public static Linked_List<Modelo_Asistencia> lista_asistencia;
-    public static Linked_List<Modelo_Marcas> lista_marcas;
     public static Linked_List<Modelo_Inventario_Vehiculos> lista_vehiculos;
-    public static Linked_List<Modelo_Inventario_Repuestos> lista_repuestos;
     public static Linked_List<Modelo_Ajustes> lista_ajustes;
     public static Linked_List<Modelo_Clientes> lista_clientes;
+    public static Linked_List<Modelo_Ventas> lista_ventas;
     private Ventana_Login view;
     private Modelo_Trabajadores model;
     private Consultas_Trabajadores consultas;
@@ -107,8 +108,8 @@ public class Controlador_login implements ActionListener, KeyListener {
                     lista_trabajadores = consultas_trabajadores.readAll();
                     Consultas_Asistencia consultas_asistencia = new Consultas_Asistencia();
                     lista_asistencia = consultas_asistencia.readAll();
-                    Consultas_Marca consultas_marca = new Consultas_Marca();
-                    lista_marcas = consultas_marca.readAll();
+                    Consultas_Ventas  consultas_ventas = new Consultas_Ventas();
+                    lista_ventas = consultas_ventas.readAll();
 
                     return;
                 }
