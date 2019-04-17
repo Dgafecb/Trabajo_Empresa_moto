@@ -128,15 +128,13 @@ public class Controlador_Resumen implements ActionListener {
 
     private boolean verificacionAsistencia(String fecha, String dni) {
 
-        int id_trabajador;
+       
 
         if (lista_asistencia != null) {
             Linked_List.ResultadoDNITrabajador resultado = Controlador_login.lista_trabajadores.findDNI(Controlador_login.lista_trabajadores, dni);
             if (resultado.isResultado()) {
-                id_trabajador = ((Modelo_Trabajadores) Controlador_login.lista_trabajadores.get(resultado.getI())).getId();
-
                 for (int i = 0; i < lista_asistencia.size(); i++) {
-                    if (((Modelo_Asistencia) lista_asistencia.get(i)).getId() == id_trabajador && ((Modelo_Asistencia) lista_asistencia.get(i)).getFecha().equals(fecha)) {
+                    if (((Modelo_Asistencia) lista_asistencia.get(i)).getDni().compareTo(dni)==0 && ((Modelo_Asistencia) lista_asistencia.get(i)).getFecha().equals(fecha)) {
                         return true;
                     }
                 }
