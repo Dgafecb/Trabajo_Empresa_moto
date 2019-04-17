@@ -4,6 +4,25 @@ import java.util.LinkedList;
 
 public class Linked_List<T> extends LinkedList {
 
+    public funcionaClientes findIdClientes(LinkedList<Modelo_Clientes> list, int id) {
+        funcionaClientes temp = new funcionaClientes();
+        int index = -1;
+        for (int i = 0; i < list.size(); i++) {
+            if (((Modelo_Clientes) list.get(i)).getId() == id) {
+                index = i;
+            }
+        }
+        if (index != -1) {
+            temp.setI(index);
+            temp.setFunciona(true);
+            return temp;
+        } else {
+            temp.setI(index);
+            temp.setFunciona(false);
+            return temp;
+        }
+    }
+
     public funcionaAlmacenado findAlmacenado(LinkedList<Almacenado> list, String id) {
 
         funcionaAlmacenado temp = new funcionaAlmacenado();
@@ -29,7 +48,7 @@ public class Linked_List<T> extends LinkedList {
         } else {
             temp.setFunciona(false);
             temp.setI(0);
-            return temp;    
+            return temp;
         }
     }
 
@@ -186,6 +205,28 @@ public class Linked_List<T> extends LinkedList {
         }
     }
 
+    public static class funcionaClientes {
+
+        int i;
+        boolean funciona;
+
+        public int getI() {
+            return i;
+        }
+
+        public void setI(int i) {
+            this.i = i;
+        }
+
+        public boolean isFunciona() {
+            return funciona;
+        }
+
+        public void setFunciona(boolean funciona) {
+            this.funciona = funciona;
+        }
+
+    }
 
     public static class funcionaAlmacenado {
 
