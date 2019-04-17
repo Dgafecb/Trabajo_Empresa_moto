@@ -298,7 +298,15 @@ public class Controlador_Almacen implements ActionListener {
     private void llenarTablaAlmacen() {
 
         DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoria", "Descripcion", "Cantidad", "Precio", "Marca", "Modelo", "Color", "Motor", "Chasis", "Año de Fabricacion",
-            "Años de Garantia", "Advertencia"}, 0);
+            "Años de Garantia", "Advertencia"}, 0){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                switch (column) {
+                    case 0:return false;
+                    default:return true;
+                    }
+                }
+            };
         for (int i = 0; i < lista_vehiculos.size(); i++) {
             String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
             String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getTipo_vehiculo();

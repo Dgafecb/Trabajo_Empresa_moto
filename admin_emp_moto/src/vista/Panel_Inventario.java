@@ -165,7 +165,6 @@ public class Panel_Inventario extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.setColumnSelectionAllowed(true);
         jTable1.setFocusable(false);
         jTable1.setMaximumSize(new java.awt.Dimension(1200, 80));
         jTable1.setMinimumSize(new java.awt.Dimension(9000, 80));

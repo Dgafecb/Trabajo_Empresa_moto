@@ -186,6 +186,7 @@ public class Linked_List<T> extends LinkedList {
         }
     }
 
+
     public static class funcionaAlmacenado {
 
         int i;

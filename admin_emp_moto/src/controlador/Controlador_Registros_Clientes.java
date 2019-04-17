@@ -1,6 +1,7 @@
 package controlador;
 
 import static controlador.Controlador_login.lista_clientes;
+import static controlador.Controlador_login.lista_vehiculos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.LinkedList;
@@ -61,7 +62,7 @@ public class Controlador_Registros_Clientes implements ActionListener {
         }else if (ae.getSource() == this.panelClientes.jButton9) {//boton agregar
             Agregar();
         }else if (ae.getSource() == this.panelClientes.jButton10) {// boton modificar
-            
+            Modificar();
         }
         if (ae.getSource() == this.panelClientes.jButton11) {// boton eliminar
             Eliminar();
@@ -137,7 +138,49 @@ public class Controlador_Registros_Clientes implements ActionListener {
     }
     
     private void Modificar(){
-        
+        if (this.panelClientes.jTable1.getSelectionModel().isSelectionEmpty() == false){
+            if (this.panelClientes.jTable1.isEditing()){
+                this.panelClientes.jTable1.getCellEditor().stopCellEditing();
+                Integer id = (Integer) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 0);
+                String temp_nombre = (String)  this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 1);
+                String temp_nombre_2 = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 2);
+                String temp_dni = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 3);
+                String temp_dni_2 = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 4);
+                String temp_correo = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 5);
+                String temp_direccion = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 6);
+                String temp_telefono = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 7);
+                String temp_ciudad = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 8);
+                String temp_pais = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 9);
+                
+                Modelo_Clientes temp_model = new Modelo_Clientes();
+                temp_model.setNombre_apellido(temp_nombre);
+                temp_model.setNombre_apellido_2(temp_nombre_2);
+                temp_model.setDni(temp_dni);
+                temp_model.setDni_2(temp_dni_2);
+                temp_model.setDireccion(temp_direccion);
+                temp_model.setTelefono(temp_telefono);
+                temp_model.setPais(temp_pais);
+                temp_model.setCiudad(temp_ciudad);
+                temp_model.setCorreo(temp_correo);
+                
+                Consultas_Clientes consultas = new Consultas_Clientes();
+                if (consultas.update(temp_model)){
+                    int index = (lista_clientes.findClientes(lista_clientes, temp_dni).getTemp()).peek();
+                    lista_clientes.remove(index);
+                    lista_clientes.add(index, temp_model);
+                    this.llenarTabla();
+                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se actualizo el registro");
+                    mensaje.setVisible(true);
+                }else {
+                        Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo actualizar el registro");
+                        mensaje.setVisible(true);
+                    }
+            }
+        }else {
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "SELECCIONAR FILA A ELIMINAR");
+                mensaje.setVisible(true);
+
+            }
     }
     
     private void Eliminar(){
@@ -164,19 +207,14 @@ public class Controlador_Registros_Clientes implements ActionListener {
     
     private void llenarTabla() {
         DefaultTableModel model = new DefaultTableModel(new String[]{"ID","DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos", "Correo", "Direccion", "Ciudad", "Pais"}, 0){
-            @Override
-             public boolean isCellEditable(int row, int column)
-            {
+        @Override
+            public boolean isCellEditable(int row, int column){
             switch (column) {
-            case 0:
-                return false;
-            default:
-                return true;
+                case 0:return false;
+                default:return true;
                 }
             }
         };
-    
-        
         for (int i = 0; i < clientes.size(); i++) {
             int id = ((Modelo_Clientes) clientes.get(i)).getId();
             String dni = ((Modelo_Clientes) clientes.get(i)).getDni();

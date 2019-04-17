@@ -153,6 +153,8 @@ public class Panel_Ventas extends javax.swing.JPanel {
         pClientes.setBackground(new java.awt.Color(250, 250, 250));
         pClientes.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "CLIENTES", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Monospaced", 0, 18), new java.awt.Color(60, 60, 60))); // NOI18N
         pClientes.setForeground(new java.awt.Color(60, 60, 60));
+        pClientes.setMaximumSize(new java.awt.Dimension(350, 250));
+        pClientes.setMinimumSize(new java.awt.Dimension(350, 250));
         pClientes.setOpaque(false);
         pClientes.setLayout(new java.awt.GridBagLayout());
 
@@ -220,7 +222,9 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pClientes.add(pBuscarCliente, gridBagConstraints);
 
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(352, 302));
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(350, 250));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(350, 250));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(350, 250));
 
         jTable1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         jTable1.setForeground(new java.awt.Color(60, 60, 60));
@@ -251,6 +255,8 @@ public class Panel_Ventas extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setFocusable(false);
+        jTable1.setSelectionBackground(new java.awt.Color(60, 60, 60));
         jScrollPane1.setViewportView(jTable1);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -277,7 +283,6 @@ public class Panel_Ventas extends javax.swing.JPanel {
         spAlmacen.setMinimumSize(new java.awt.Dimension(150, 100));
         spAlmacen.setPreferredSize(new java.awt.Dimension(150, 100));
 
-        tAlmacen.setBackground(new java.awt.Color(250, 250, 250));
         tAlmacen.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         tAlmacen.setForeground(new java.awt.Color(60, 60, 60));
         tAlmacen.setModel(new javax.swing.table.DefaultTableModel(
@@ -785,11 +790,12 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         customPanel4.add(lblDescuento, gridBagConstraints);
 
+        cbTipoVenta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbTipoVenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EFECTIVO", "CREDITO", "POR MAYOR" }));
         cbTipoVenta.setFocusable(false);
-        cbTipoVenta.setMaximumSize(new java.awt.Dimension(100, 20));
-        cbTipoVenta.setMinimumSize(new java.awt.Dimension(100, 20));
-        cbTipoVenta.setPreferredSize(new java.awt.Dimension(100, 20));
+        cbTipoVenta.setMaximumSize(new java.awt.Dimension(100, 30));
+        cbTipoVenta.setMinimumSize(new java.awt.Dimension(100, 30));
+        cbTipoVenta.setPreferredSize(new java.awt.Dimension(100, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -797,9 +803,10 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         customPanel4.add(cbTipoVenta, gridBagConstraints);
 
-        spnrCuotas.setMaximumSize(new java.awt.Dimension(100, 20));
-        spnrCuotas.setMinimumSize(new java.awt.Dimension(100, 20));
-        spnrCuotas.setPreferredSize(new java.awt.Dimension(100, 20));
+        spnrCuotas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        spnrCuotas.setMaximumSize(new java.awt.Dimension(100, 30));
+        spnrCuotas.setMinimumSize(new java.awt.Dimension(100, 30));
+        spnrCuotas.setPreferredSize(new java.awt.Dimension(100, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -809,9 +816,9 @@ public class Panel_Ventas extends javax.swing.JPanel {
 
         pVCuotaInicial.setBackground(new java.awt.Color(255, 255, 255));
         pVCuotaInicial.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
-        pVCuotaInicial.setMaximumSize(new java.awt.Dimension(100, 30));
-        pVCuotaInicial.setMinimumSize(new java.awt.Dimension(100, 30));
-        pVCuotaInicial.setPreferredSize(new java.awt.Dimension(100, 30));
+        pVCuotaInicial.setMaximumSize(new java.awt.Dimension(230, 30));
+        pVCuotaInicial.setMinimumSize(new java.awt.Dimension(230, 30));
+        pVCuotaInicial.setPreferredSize(new java.awt.Dimension(230, 30));
         pVCuotaInicial.setLayout(new java.awt.GridBagLayout());
 
         txfVCuotaInicial.setBorder(null);
@@ -835,11 +842,18 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 102);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         customPanel4.add(pVCuotaInicial, gridBagConstraints);
 
+        jSlider1.setBackground(new java.awt.Color(250, 250, 250));
+        jSlider1.setPaintTicks(true);
+        jSlider1.setSnapToTicks(true);
+        jSlider1.setFocusable(false);
+        jSlider1.setMaximumSize(new java.awt.Dimension(230, 30));
+        jSlider1.setMinimumSize(new java.awt.Dimension(230, 30));
+        jSlider1.setPreferredSize(new java.awt.Dimension(230, 30));
         jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSlider1StateChanged(evt);
@@ -848,12 +862,18 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         customPanel4.add(jSlider1, gridBagConstraints);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(30, 30));
+        jLabel1.setMinimumSize(new java.awt.Dimension(30, 30));
+        jLabel1.setPreferredSize(new java.awt.Dimension(30, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         customPanel4.add(jLabel1, gridBagConstraints);
 
@@ -1223,7 +1243,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private javax.swing.ButtonGroup grupoAlmacen;
     private javax.swing.ButtonGroup grupoEmision;
     private javax.swing.JLabel iconProductDefault;
-    public javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
