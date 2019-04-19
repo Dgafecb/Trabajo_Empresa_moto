@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package vista;
 
 import java.awt.Color;
@@ -10,24 +15,26 @@ import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import modelo.CustomButtonShaped;
 
-
-public class Emergente_Panel_Clientes extends javax.swing.JDialog {
+/**
+ *
+ * @author FuryMercury
+ */
+public class Emergente_Panel_Ventas2 extends javax.swing.JDialog {
 
     private Dimension resolucionDialogo = new Dimension (500,530);
     public Borde_Ventana bordeVentana;
     public CustomButtonShaped btnAceptar,btnCancelar;
-    public Panel_Registro_Clientes_Agregar pClientesRegistrosAgregar;
-    public LinkedList<String> clientes;
+    public Panel_Registro_Ventas_Agregar pRegistrosVentasAgregar;
+    public LinkedList<String> ventas;
     
-    public Emergente_Panel_Clientes(java.awt.Frame parent, boolean modal) {
+    public Emergente_Panel_Ventas2(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initDialog();
         initPanel(); 
         llamarComponentes();
-        
     }
     
-    private void initDialog(){
+        private void initDialog(){
         setMinimumSize(new Dimension(resolucionDialogo));
         setMaximumSize(new Dimension(resolucionDialogo));
         setSize(new Dimension(resolucionDialogo));
@@ -55,7 +62,7 @@ public class Emergente_Panel_Clientes extends javax.swing.JDialog {
         constraints.insets= new Insets(0,0,0,0);
         getContentPane().add (bordeVentana, constraints);
         
-        pClientesRegistrosAgregar = new Panel_Registro_Clientes_Agregar();
+        pRegistrosVentasAgregar = new Panel_Registro_Ventas_Agregar();
         constraints.gridx = 0;
         constraints.gridy = 1;
         constraints.gridwidth = 2;
@@ -65,7 +72,7 @@ public class Emergente_Panel_Clientes extends javax.swing.JDialog {
         constraints.fill = GridBagConstraints.NONE;
         constraints.anchor = GridBagConstraints.CENTER;
         constraints.insets= new Insets(15,15,15,15);
-        getContentPane().add (pClientesRegistrosAgregar, constraints);
+        getContentPane().add (pRegistrosVentasAgregar, constraints);
         
         btnAceptar = new CustomButtonShaped();
         btnAceptar.setText("ACEPTAR");
@@ -97,32 +104,13 @@ public class Emergente_Panel_Clientes extends javax.swing.JDialog {
         
         
     }
-    
+
    private void llamarComponentes() {
-        clientes = new LinkedList<String>();
+        ventas = new LinkedList<String>();
         btnAceptar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                String temp = null;
-                temp = (pClientesRegistrosAgregar.txfCNombre1.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCNombre1.getText().toUpperCase() : "";
-                clientes.add(temp);
-                temp = (pClientesRegistrosAgregar.txfCNombre2.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCNombre2.getText().toUpperCase() : "";
-                clientes.add(temp);
-                temp = (pClientesRegistrosAgregar.txfCDNI1.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCDNI1.getText().toUpperCase() : "";
-                clientes.add(temp);
-                temp = (pClientesRegistrosAgregar.txfCDNI2.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCDNI2.getText().toUpperCase() : "";
-                clientes.add(temp);
-                temp = (pClientesRegistrosAgregar.txfCCorreo.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCCorreo.getText().toUpperCase() : "DESCONOCIDO";
-                clientes.add(temp);
-                temp = (pClientesRegistrosAgregar.txfCDireccion.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCDireccion.getText().toUpperCase() : "DESCONOCIDO";
-                clientes.add(temp);
-                temp = (pClientesRegistrosAgregar.txfCTelefono.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCTelefono.getText().toUpperCase() : "DESCONOCIDO";
-                clientes.add(temp);
-                temp = pClientesRegistrosAgregar.cbCiudad.getSelectedItem().toString();
-                clientes.add(temp);
-                temp = pClientesRegistrosAgregar.cbPais.getSelectedItem().toString();
-                clientes.add(temp);
-                dispose();
+
             }
         });
         
@@ -130,7 +118,7 @@ public class Emergente_Panel_Clientes extends javax.swing.JDialog {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 String temp = null;
-                clientes = null;
+                ventas = null;
                 dispose();
             }
         });
@@ -138,12 +126,13 @@ public class Emergente_Panel_Clientes extends javax.swing.JDialog {
         bordeVentana.btnCerrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                clientes = null;
+                ventas = null;
                 dispose();
             }
         });
     }
-
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -167,7 +156,44 @@ public class Emergente_Panel_Clientes extends javax.swing.JDialog {
     /**
      * @param args the command line arguments
      */
-  
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Emergente_Panel_Ventas2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Emergente_Panel_Ventas2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Emergente_Panel_Ventas2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Emergente_Panel_Ventas2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the dialog */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                Emergente_Panel_Ventas2 dialog = new Emergente_Panel_Ventas2(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
