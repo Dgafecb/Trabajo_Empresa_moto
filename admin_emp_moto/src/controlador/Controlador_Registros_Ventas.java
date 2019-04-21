@@ -40,6 +40,7 @@ public class Controlador_Registros_Ventas implements ActionListener{
         panelVentas.jButton9.addActionListener(this);
         panelVentas.jButton10.addActionListener(this);
         panelVentas.jButton11.addActionListener(this);
+        panelVentas.btnClienteBuscar.addActionListener(this);
     }
     
     private void updateComp(){
@@ -123,11 +124,20 @@ public class Controlador_Registros_Ventas implements ActionListener{
                 }
                 if(listaBusqueda!=null){
                     fillTable(listaBusqueda);
+                    System.out.println(listaBusqueda.size());
                 }else{
                     fillTable(lista_ventas);
+                    
                 }
                 break;
             }
+            case 2:{
+                break;
+            }
+            case 3:{
+                break;
+            }
+            default: break;
         }
     }
     
@@ -248,7 +258,9 @@ public class Controlador_Registros_Ventas implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if(ae.getSource()==panelVentas.jButton9){
+        if(ae.getSource()==panelVentas.btnClienteBuscar){
+            buscar(panelVentas.txfBuscar.getText(),1);
+        }else if(ae.getSource()==panelVentas.jButton9){
             Thread hilo = new Thread(){
                 @Override
                 public void run() {
