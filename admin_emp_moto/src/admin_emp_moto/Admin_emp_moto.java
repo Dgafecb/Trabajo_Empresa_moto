@@ -7,8 +7,9 @@ import javax.swing.UIManager;
 import modelo.Consultas_Trabajadores;
 import modelo.Consultas_Trabajadores_meta;
 import modelo.Modelo_Trabajadores_meta;
-import vista.Emergente_Panel_Clientes;
+import vista.Emergente_Panel_RClientes;
 import modelo.Modelo_Trabajadores;
+import vista.Emergente_Panel_RVentas;
 
 import vista.Ventana_Login;
 

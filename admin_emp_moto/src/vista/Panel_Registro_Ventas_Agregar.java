@@ -26,8 +26,8 @@ public class Panel_Registro_Ventas_Agregar extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        pCNombre1 = new javax.swing.JPanel();
-        txfCNombre1 = new custom.CustomTextField();
+        pVProducto = new javax.swing.JPanel();
+        txfVProducto = new custom.CustomTextField();
         pCNombre2 = new javax.swing.JPanel();
         txfCNombre2 = new custom.CustomTextField();
         pCNombre3 = new javax.swing.JPanel();
@@ -166,36 +166,36 @@ public class Panel_Registro_Ventas_Agregar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(jLabel9, gridBagConstraints);
 
-        pCNombre1.setBackground(new java.awt.Color(255, 255, 255));
-        pCNombre1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
-        pCNombre1.setMaximumSize(new java.awt.Dimension(200, 30));
-        pCNombre1.setMinimumSize(new java.awt.Dimension(200, 30));
-        pCNombre1.setPreferredSize(new java.awt.Dimension(200, 30));
-        pCNombre1.setLayout(new java.awt.GridBagLayout());
+        pVProducto.setBackground(new java.awt.Color(255, 255, 255));
+        pVProducto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pVProducto.setMaximumSize(new java.awt.Dimension(200, 30));
+        pVProducto.setMinimumSize(new java.awt.Dimension(200, 30));
+        pVProducto.setPreferredSize(new java.awt.Dimension(200, 30));
+        pVProducto.setLayout(new java.awt.GridBagLayout());
 
-        txfCNombre1.setBorder(null);
-        txfCNombre1.setCaretColor(new java.awt.Color(60, 60, 60));
-        txfCNombre1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfCNombre1.setMaximumSize(new java.awt.Dimension(200, 28));
-        txfCNombre1.setMinimumSize(new java.awt.Dimension(200, 28));
-        txfCNombre1.setPhColor(new java.awt.Color(60, 60, 60));
-        txfCNombre1.setPlaceholder(Cadenas.CLIENTES_NOMBRE1);
-        txfCNombre1.setPreferredSize(new java.awt.Dimension(200, 28));
-        txfCNombre1.setSelectionColor(new java.awt.Color(60, 60, 60));
+        txfVProducto.setBorder(null);
+        txfVProducto.setCaretColor(new java.awt.Color(60, 60, 60));
+        txfVProducto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfVProducto.setMaximumSize(new java.awt.Dimension(200, 28));
+        txfVProducto.setMinimumSize(new java.awt.Dimension(200, 28));
+        txfVProducto.setPhColor(new java.awt.Color(60, 60, 60));
+        txfVProducto.setPlaceholder(Cadenas.CLIENTES_NOMBRE1);
+        txfVProducto.setPreferredSize(new java.awt.Dimension(200, 28));
+        txfVProducto.setSelectionColor(new java.awt.Color(60, 60, 60));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
-        pCNombre1.add(txfCNombre1, gridBagConstraints);
+        pVProducto.add(txfVProducto, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(pCNombre1, gridBagConstraints);
+        add(pVProducto, gridBagConstraints);
 
         pCNombre2.setBackground(new java.awt.Color(255, 255, 255));
         pCNombre2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
@@ -442,7 +442,7 @@ public class Panel_Registro_Ventas_Agregar extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.github.lgooddatepicker.components.DatePicker datePicker1;
+    public com.github.lgooddatepicker.components.DatePicker datePicker1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -453,7 +453,6 @@ public class Panel_Registro_Ventas_Agregar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel pCNombre1;
     private javax.swing.JPanel pCNombre2;
     private javax.swing.JPanel pCNombre3;
     private javax.swing.JPanel pCNombre4;
@@ -461,8 +460,8 @@ public class Panel_Registro_Ventas_Agregar extends javax.swing.JPanel {
     private javax.swing.JPanel pCNombre6;
     private javax.swing.JPanel pCNombre7;
     private javax.swing.JPanel pCNombre8;
-    private com.github.lgooddatepicker.components.TimePicker timePicker1;
-    public custom.CustomTextField txfCNombre1;
+    private javax.swing.JPanel pVProducto;
+    public com.github.lgooddatepicker.components.TimePicker timePicker1;
     public custom.CustomTextField txfCNombre2;
     public custom.CustomTextField txfCNombre3;
     public custom.CustomTextField txfCNombre4;
@@ -470,5 +469,6 @@ public class Panel_Registro_Ventas_Agregar extends javax.swing.JPanel {
     public custom.CustomTextField txfCNombre6;
     public custom.CustomTextField txfCNombre7;
     public custom.CustomTextField txfCNombre8;
+    public custom.CustomTextField txfVProducto;
     // End of variables declaration//GEN-END:variables
 }

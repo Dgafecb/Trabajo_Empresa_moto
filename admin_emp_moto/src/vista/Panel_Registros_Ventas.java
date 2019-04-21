@@ -201,7 +201,7 @@ public class Panel_Registros_Ventas extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 6);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(customPanel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 

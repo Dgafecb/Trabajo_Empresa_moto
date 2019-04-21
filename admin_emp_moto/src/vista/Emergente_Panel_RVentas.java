@@ -7,27 +7,28 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.LinkedList;
 import modelo.CustomButtonShaped;
 
 
-public class Emergente_Panel_Clientes extends javax.swing.JDialog {
+public class Emergente_Panel_RVentas extends javax.swing.JDialog {
 
     private Dimension resolucionDialogo = new Dimension (500,530);
     public Borde_Ventana bordeVentana;
     public CustomButtonShaped btnAceptar,btnCancelar;
-    public Panel_Registro_Clientes_Agregar pClientesRegistrosAgregar;
-    public LinkedList<String> clientes;
+    public Panel_Registro_Ventas_Agregar pRegistrosVentasAgregar;
+    public LinkedList<String> ventas;
     
-    public Emergente_Panel_Clientes(java.awt.Frame parent, boolean modal) {
+    public Emergente_Panel_RVentas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initDialog();
         initPanel(); 
         llamarComponentes();
-        
     }
     
-    private void initDialog(){
+        private void initDialog(){
         setMinimumSize(new Dimension(resolucionDialogo));
         setMaximumSize(new Dimension(resolucionDialogo));
         setSize(new Dimension(resolucionDialogo));
@@ -55,7 +56,7 @@ public class Emergente_Panel_Clientes extends javax.swing.JDialog {
         constraints.insets= new Insets(0,0,0,0);
         getContentPane().add (bordeVentana, constraints);
         
-        pClientesRegistrosAgregar = new Panel_Registro_Clientes_Agregar();
+        pRegistrosVentasAgregar = new Panel_Registro_Ventas_Agregar();
         constraints.gridx = 0;
         constraints.gridy = 1;
         constraints.gridwidth = 2;
@@ -65,7 +66,7 @@ public class Emergente_Panel_Clientes extends javax.swing.JDialog {
         constraints.fill = GridBagConstraints.NONE;
         constraints.anchor = GridBagConstraints.CENTER;
         constraints.insets= new Insets(15,15,15,15);
-        getContentPane().add (pClientesRegistrosAgregar, constraints);
+        getContentPane().add (pRegistrosVentasAgregar, constraints);
         
         btnAceptar = new CustomButtonShaped();
         btnAceptar.setText("ACEPTAR");
@@ -97,53 +98,72 @@ public class Emergente_Panel_Clientes extends javax.swing.JDialog {
         
         
     }
-    
+
    private void llamarComponentes() {
-        clientes = new LinkedList<String>();
-        btnAceptar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                String temp = null;
-                temp = (pClientesRegistrosAgregar.txfCNombre1.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCNombre1.getText().toUpperCase() : "";
-                clientes.add(temp);
-                temp = (pClientesRegistrosAgregar.txfCNombre2.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCNombre2.getText().toUpperCase() : "";
-                clientes.add(temp);
-                temp = (pClientesRegistrosAgregar.txfCDNI1.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCDNI1.getText().toUpperCase() : "";
-                clientes.add(temp);
-                temp = (pClientesRegistrosAgregar.txfCDNI2.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCDNI2.getText().toUpperCase() : "";
-                clientes.add(temp);
-                temp = (pClientesRegistrosAgregar.txfCCorreo.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCCorreo.getText().toUpperCase() : "DESCONOCIDO";
-                clientes.add(temp);
-                temp = (pClientesRegistrosAgregar.txfCDireccion.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCDireccion.getText().toUpperCase() : "DESCONOCIDO";
-                clientes.add(temp);
-                temp = (pClientesRegistrosAgregar.txfCTelefono.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCTelefono.getText().toUpperCase() : "DESCONOCIDO";
-                clientes.add(temp);
-                temp = pClientesRegistrosAgregar.cbCiudad.getSelectedItem().toString();
-                clientes.add(temp);
-                temp = pClientesRegistrosAgregar.cbPais.getSelectedItem().toString();
-                clientes.add(temp);
-                dispose();
+        ventas = new LinkedList<String>();
+        btnAceptar.addActionListener((ActionEvent ae) -> {
+            String temp = null;
+            temp = (pRegistrosVentasAgregar.txfVProducto.getText().compareTo("")!=0)?pRegistrosVentasAgregar.txfVProducto.getText().toUpperCase():"";
+            ventas.add(temp);
+            temp = (pRegistrosVentasAgregar.txfCNombre2.getText().compareTo("")!=0)?pRegistrosVentasAgregar.txfCNombre2.getText().toUpperCase():"";
+            ventas.add(temp);
+            temp = (pRegistrosVentasAgregar.txfCNombre3.getText().compareTo("")!=0)?pRegistrosVentasAgregar.txfCNombre3.getText().toUpperCase():"";
+            ventas.add(temp);
+            
+            if(pRegistrosVentasAgregar.datePicker1.getText().compareTo("")!=0){
+                LocalDate date =pRegistrosVentasAgregar.datePicker1.getDate();
+                String Dia = String.valueOf(date.getDayOfMonth());
+                String Mes = String.valueOf(date.getMonthValue());
+                String Anho = String.valueOf(date.getYear());
+                if(Dia.length()!=2) Dia="0"+Dia;
+                if(Mes.length()!=2) Mes="0"+Mes;
+                temp = Dia+Mes+Anho; 
+                ventas.add(temp);
+            }else{
+                temp = "31121997";
+                ventas.add(temp);
             }
+            
+            if(pRegistrosVentasAgregar.timePicker1.getText().compareTo("")!=0){
+                LocalTime time =pRegistrosVentasAgregar.timePicker1.getTime();
+                String Hora = String.valueOf(time.getHour());
+                String Minuto = String.valueOf(time.getMinute());
+                String Segundo = String.valueOf(time.getSecond());
+                if(Hora.length()!=2) Hora="0"+Hora;
+                if(Minuto.length()!=2) Minuto="0"+Minuto;
+                if(Segundo.length()!=2) Segundo="00";
+                temp = Hora+Minuto+Segundo; 
+                ventas.add(temp);
+            }else{
+                temp = "235959";
+                ventas.add(temp);
+            }
+            
+            temp = (pRegistrosVentasAgregar.txfCNombre4.getText().compareTo("")!=0)?pRegistrosVentasAgregar.txfCNombre4.getText().toUpperCase():"";
+            ventas.add(temp);
+            temp = (pRegistrosVentasAgregar.txfCNombre5.getText().compareTo("")!=0)?pRegistrosVentasAgregar.txfCNombre5.getText().toUpperCase():"";
+            ventas.add(temp);
+            temp = (pRegistrosVentasAgregar.txfCNombre6.getText().compareTo("")!=0)?pRegistrosVentasAgregar.txfCNombre6.getText().toUpperCase():"";
+            ventas.add(temp);
+            temp = (pRegistrosVentasAgregar.txfCNombre7.getText().compareTo("")!=0)?pRegistrosVentasAgregar.txfCNombre7.getText().toUpperCase():"";
+            ventas.add(temp);
+            temp = (pRegistrosVentasAgregar.txfCNombre8.getText().compareTo("")!=0)?pRegistrosVentasAgregar.txfCNombre8.getText().toUpperCase():"";
+            ventas.add(temp);
+            dispose();
         });
         
-        btnCancelar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                String temp = null;
-                clientes = null;
-                dispose();
-            }
+        btnCancelar.addActionListener((ActionEvent ae) -> {
+            ventas = null;
+            dispose();
         });
         
-        bordeVentana.btnCerrar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                clientes = null;
-                dispose();
-            }
+        bordeVentana.btnCerrar.addActionListener((ActionEvent ae) -> {
+            ventas = null;
+            dispose();
         });
     }
-
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -164,10 +184,6 @@ public class Emergente_Panel_Clientes extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

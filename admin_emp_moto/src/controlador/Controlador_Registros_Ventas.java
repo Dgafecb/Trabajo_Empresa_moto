@@ -1,7 +1,5 @@
 package controlador;
 
-import static controlador.Controlador_login.lista_clientes;
-import static controlador.Controlador_login.lista_vehiculos;
 import static controlador.Controlador_login.lista_ventas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,13 +8,11 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import modelo.Consultas_Clientes;
-import modelo.Consultas_Inventario_Vehiculos;
 import modelo.Consultas_Ventas;
 import modelo.Linked_List;
-import modelo.Modelo_Inventario_Vehiculos;
 import modelo.Modelo_Ventas;
 import vista.Emergente_Aviso;
+import vista.Emergente_Panel_RVentas;
 import vista.Panel_Registros_Ventas;
 import vista.Ventana_Admin;
 
@@ -47,10 +43,10 @@ public class Controlador_Registros_Ventas implements ActionListener{
     }
     
     private void updateComp(){
-        fillTable();
+        fillTable(listaVentas);
     }
     
-    private void fillTable(){
+    private void fillTable(Linked_List<Modelo_Ventas> listaVentas){
         DefaultTableModel model = new DefaultTableModel(new String[]{"ID DE VENTA" , 
             "ID PRODUCTO ", "ID VENDEDOR", "ID CLIENTE", "FECHA", "HORA", "MONTO INICIAL",
             "DESCUENTO", "CUOTAS","CANTIDAD","MONTO UNITARIO","MONTO TOTAL"}, 0) {
@@ -109,12 +105,67 @@ public class Controlador_Registros_Ventas implements ActionListener{
         panelVentas.jTable1.getColumnModel().getColumn(11).setCellRenderer(tcrRight);
     }
     
-    private void buscar(String referencia){
-        
+    private void buscar(String referencia,int caso){
+        String buscar ;
+        Linked_List<Modelo_Ventas> listaBusqueda ;
+        switch(caso){
+            case 1:{
+                listaBusqueda  = new Linked_List<Modelo_Ventas>();
+                int tamanho = lista_ventas.size();
+                for(int i = 0 ;i<tamanho;i++){
+                   buscar = ((Modelo_Ventas)lista_ventas.get(i)).getId_prod();
+                   String[] palabras = referencia.split("\\s+");
+                    for (String palabra : palabras) {
+                        if (buscar.contains(palabra)) {
+                            listaBusqueda.add(lista_ventas.get(i));
+                        }
+                    }
+                }
+                if(listaBusqueda!=null){
+                    fillTable(listaBusqueda);
+                }else{
+                    fillTable(lista_ventas);
+                }
+                break;
+            }
+        }
     }
     
-    private void agregar(){
-        
+    private boolean agregar(){
+        Emergente_Panel_RVentas panelAdd = new Emergente_Panel_RVentas(ventanaAdmin,true);
+        panelAdd.setVisible(true);
+        if(panelAdd.ventas!=null){
+            String id_producto = panelAdd.ventas.get(0);
+            Integer id_trabajador = Integer.valueOf(panelAdd.ventas.get(1));
+            Integer id_cliente = Integer.valueOf(panelAdd.ventas.get(2));;
+            String fecha_hora = panelAdd.ventas.get(3)+"_"+panelAdd.ventas.get(4);
+            Float monto_inicial = Float.valueOf(panelAdd.ventas.get(5));
+            Integer dscto = Integer.valueOf(panelAdd.ventas.get(6));
+            Integer cuotas = Integer.valueOf(panelAdd.ventas.get(7));
+            Integer cantidad = Integer.valueOf(panelAdd.ventas.get(8));
+            Float monto_total = Float.valueOf(panelAdd.ventas.get(9))/cantidad;
+            
+            Modelo_Ventas venta_temp = new Modelo_Ventas();
+            venta_temp.setId_factura("0");
+            venta_temp.setId_prod(id_producto);
+            venta_temp.setId_trabajador(id_trabajador);
+            venta_temp.setId_cliente(id_cliente);
+            venta_temp.setFecha_hora(fecha_hora);
+            venta_temp.setMonto_inicial(monto_inicial );
+            venta_temp.setDscto(dscto);
+            venta_temp.setCuotas(cuotas);
+            venta_temp.setCantidad(cantidad );
+            venta_temp.setTotal(monto_total);
+            
+            Consultas_Ventas consultas = new Consultas_Ventas();
+            if (consultas.create(venta_temp)) {
+                    lista_ventas.add(venta_temp);
+                    fillTable(listaVentas);
+            }
+            return true;
+        }else{
+            return false;
+        }
     }
     
     private boolean modificar(){
@@ -161,7 +212,7 @@ public class Controlador_Registros_Ventas implements ActionListener{
                     int index = (lista_ventas.findIdVentas(lista_ventas, id_venta));
                     lista_ventas.remove(index);
                     lista_ventas.add(index, venta_temp);
-                    fillTable();
+                    fillTable(listaVentas);
                     state = true;
                 }else{
                     state =  false;
@@ -181,7 +232,7 @@ public class Controlador_Registros_Ventas implements ActionListener{
         Consultas_Ventas consultas = new Consultas_Ventas();
             if (consultas.delete(temp_model)) {
                 lista_ventas.remove(index);
-                fillTable();
+                fillTable(listaVentas);
                 state = true;
             }else{
                 state = false;
@@ -197,7 +248,17 @@ public class Controlador_Registros_Ventas implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if(ae.getSource()==panelVentas.jButton10){
+        if(ae.getSource()==panelVentas.jButton9){
+            Thread hilo = new Thread(){
+                @Override
+                public void run() {
+                   if(agregar()) mensaje("OPERACION REALIZADA");
+                   else mensaje("OPERACION FALLIDA");
+                    return ;
+                }
+            };
+            hilo.start();
+        }else if(ae.getSource()==panelVentas.jButton10){
             Thread hilo = new Thread(){
                 @Override
                 public void run() {
@@ -207,7 +268,7 @@ public class Controlador_Registros_Ventas implements ActionListener{
                 }
             };
             hilo.start();
-        }if(ae.getSource()==panelVentas.jButton11){
+        }else if(ae.getSource()==panelVentas.jButton11){
             Thread hilo = new Thread(){
                 @Override
                 public void run() {

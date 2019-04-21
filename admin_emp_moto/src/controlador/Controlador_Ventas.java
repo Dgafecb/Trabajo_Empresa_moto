@@ -32,7 +32,7 @@ import modelo.Modelo_Inventario_Vehiculos;
 import modelo.Modelo_Trabajadores;
 import modelo.Modelo_Ventas;
 import vista.Emergente_Aviso;
-import vista.Emergente_Panel_Clientes;
+import vista.Emergente_Panel_RClientes;
 import vista.Emergente_Panel_Ventas;
 import vista.Panel_Ventas;
 import modelo.Linked_List.Almacenado;
@@ -556,7 +556,7 @@ public class Controlador_Ventas implements ActionListener {
         }
 
         if (e.getSource() == this.panelVentas.btnClienteAgregar) {
-            Emergente_Panel_Clientes panel = new Emergente_Panel_Clientes(ventanaAdmin, true);
+            Emergente_Panel_RClientes panel = new Emergente_Panel_RClientes(ventanaAdmin, true);
             panel.setVisible(true);
             LinkedList<String> lista_agregada = panel.clientes;
             if (lista_agregada == null) {

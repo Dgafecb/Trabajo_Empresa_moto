@@ -12,7 +12,7 @@ import modelo.Linked_List;
 import modelo.Linked_List.ResultadoClientes;
 import modelo.Modelo_Clientes;
 import vista.Emergente_Aviso;
-import vista.Emergente_Panel_Clientes;
+import vista.Emergente_Panel_RClientes;
 import vista.Panel_Registros_Clientes;
 import vista.Ventana_Admin;
 
@@ -109,7 +109,7 @@ public class Controlador_Registros_Clientes implements ActionListener {
     }
 
     private void Agregar() {
-        Emergente_Panel_Clientes panel = new Emergente_Panel_Clientes(ventanaAdmin, true);
+        Emergente_Panel_RClientes panel = new Emergente_Panel_RClientes(ventanaAdmin, true);
         panel.setVisible(true);
         LinkedList<String> lista_agregada = panel.clientes;
         if (lista_agregada == null) {
