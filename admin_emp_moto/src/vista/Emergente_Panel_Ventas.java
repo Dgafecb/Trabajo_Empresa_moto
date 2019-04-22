@@ -22,7 +22,7 @@ public class Emergente_Panel_Ventas extends javax.swing.JDialog {
     public Borde_Ventana bordeVentana;
     public CustomButtonShaped btnAceptar,btnSi,btnNo;
     public JLabel mensaje;
-    public Dimension dmsn  = new Dimension (400,150);
+    public Dimension dmsn  = new Dimension (400,160);
     public JSlider slider ;
     private int maximo;
     

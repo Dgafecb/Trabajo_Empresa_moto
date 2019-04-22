@@ -326,12 +326,6 @@ public class Controlador_Ventas implements ActionListener, KeyListener{
                                 logCount++;
                             }
                         }
-                        if (logCount != 0) {
-                            mensaje("ERROR AL INTENTAR ACTUALIZAR EL INVENTARIO");
-                        } else {
-                            mensaje("SE ACTUALIZO EL INVENTARIO");
-                        }
-
                         return;
                     }
                 };

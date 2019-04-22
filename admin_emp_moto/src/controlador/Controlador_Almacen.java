@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import modelo.Consultas_Inventario_Vehiculos;
+import modelo.CustomRenderAsistencia;
 import modelo.Linked_List;
 import modelo.Linked_List.InventarioTEMP;
 import modelo.Modelo_Inventario_Repuestos;
@@ -318,5 +319,6 @@ public class Controlador_Almacen implements ActionListener {
         }
         
         this.panelInventario.jTable1.setModel(model);
+        this.panelInventario.jTable1.setDefaultRenderer (Object.class, new CustomRenderAsistencia());
     }
 }
