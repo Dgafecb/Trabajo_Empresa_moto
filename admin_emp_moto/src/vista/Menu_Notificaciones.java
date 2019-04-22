@@ -90,6 +90,7 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
 
         btnMenu = new javax.swing.JButton();
         perfil_Usuario1 = new vista.Perfil_Usuario();
+        customButtonMarcar2 = new custom.CustomButtonMarcar();
 
         setBackground(new java.awt.Color(60, 60, 60));
         setLayout(new java.awt.GridBagLayout());
@@ -113,9 +114,15 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
         perfil_Usuario1.setMinimumSize(new java.awt.Dimension(150, 40));
         perfil_Usuario1.setPreferredSize(new java.awt.Dimension(200, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 20, 0, 20);
         add(perfil_Usuario1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        add(customButtonMarcar2, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
@@ -138,6 +145,7 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnMenu;
+    private custom.CustomButtonMarcar customButtonMarcar2;
     public vista.Perfil_Usuario perfil_Usuario1;
     // End of variables declaration//GEN-END:variables
 }
