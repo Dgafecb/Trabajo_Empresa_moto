@@ -114,6 +114,27 @@ public class Controlador_Registros_Ventas implements ActionListener{
                 listaBusqueda  = new Linked_List<Modelo_Ventas>();
                 int tamanho = lista_ventas.size();
                 for(int i = 0 ;i<tamanho;i++){
+                   buscar = String.valueOf(((Modelo_Ventas)lista_ventas.get(i)).getId());
+                   String[] palabras = referencia.split("\\s+");
+                    for (String palabra : palabras) {
+                        if (buscar.contains(palabra)) {
+                            listaBusqueda.add(lista_ventas.get(i));
+                        }
+                    }
+                }
+                if(listaBusqueda!=null){
+                    fillTable(listaBusqueda);
+                }else{
+                    fillTable(lista_ventas);
+                    
+                }
+                break;
+            }
+            
+            case 2:{
+                listaBusqueda  = new Linked_List<Modelo_Ventas>();
+                int tamanho = lista_ventas.size();
+                for(int i = 0 ;i<tamanho;i++){
                    buscar = ((Modelo_Ventas)lista_ventas.get(i)).getId_prod();
                    String[] palabras = referencia.split("\\s+");
                     for (String palabra : palabras) {
@@ -131,13 +152,31 @@ public class Controlador_Registros_Ventas implements ActionListener{
                 }
                 break;
             }
-            case 2:{
-                break;
-            }
             case 3:{
+                listaBusqueda  = new Linked_List<Modelo_Ventas>();
+                int tamanho = lista_ventas.size();
+                for(int i = 0 ;i<tamanho;i++){
+                   buscar = String.valueOf(((Modelo_Ventas)lista_ventas.get(i)).getId_trabajador());
+                   String[] palabras = referencia.split("\\s+");
+                    for (String palabra : palabras) {
+                        if (buscar.contains(palabra)) {
+                            listaBusqueda.add(lista_ventas.get(i));
+                        }
+                    }
+                }
+                if(listaBusqueda!=null){
+                    fillTable(listaBusqueda);
+                    System.out.println(listaBusqueda.size());
+                }else{
+                    fillTable(lista_ventas);
+                    
+                }
                 break;
             }
-            default: break;
+            default:{
+                fillTable(lista_ventas);
+                break;
+            }
         }
     }
     
@@ -259,7 +298,14 @@ public class Controlador_Registros_Ventas implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getSource()==panelVentas.btnClienteBuscar){
-            buscar(panelVentas.txfBuscar.getText(),1);
+            if(panelVentas.jRadioButton1.isSelected()){
+                buscar(panelVentas.txfBuscar.getText(),1);
+            }else if(panelVentas.jRadioButton2.isSelected()){
+                buscar(panelVentas.txfBuscar.getText(),2);
+            }else if(panelVentas.jRadioButton3.isSelected()){
+                buscar(panelVentas.txfBuscar.getText(),3);
+            }
+            
         }else if(ae.getSource()==panelVentas.jButton9){
             Thread hilo = new Thread(){
                 @Override

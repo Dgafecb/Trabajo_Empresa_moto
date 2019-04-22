@@ -95,54 +95,86 @@ public class Controlador_login implements ActionListener, KeyListener {
         }
     }
 
-    public void accionBtnIngresar() {
+    public void accionBtnIngresar() throws InterruptedException {
         int privilege;
         String user;
         model.setDni(view.panelLogin.txtUsuario.getText());
         model.setPassword(view.panelLogin.txtContr.getText());
         privilege = this.verificacion(model, view.panelLogin.txtContr.getText());
-        if (privilege == 2) {
-            message("Bienvenido Admin");
-            Thread hilo = new Thread() {
+        if (privilege == 2) { //ADMIN
+
+            Thread hilo1 = new Thread() {
                 @Override
                 public void run() {
                     Consultas_Trabajadores consultas_trabajadores = new Consultas_Trabajadores();
                     lista_trabajadores = consultas_trabajadores.readAll();
                     Consultas_Asistencia consultas_asistencia = new Consultas_Asistencia();
                     lista_asistencia = consultas_asistencia.readAll();
-                    Consultas_Marca consultas_marca = new Consultas_Marca();
-                    lista_marcas = consultas_marca.readAll();
-
+                    Consultas_Ventas consultas_ventas = new Consultas_Ventas();
+                    lista_ventas = consultas_ventas.readAll();
                     return;
                 }
             };
-            hilo.start();
-            Consultas_Ventas consultas_ventas = new Consultas_Ventas();
-            lista_ventas = consultas_ventas.readAll();
-            Consultas_Clientes consultas_clientes = new Consultas_Clientes();
-            lista_clientes = consultas_clientes.readAll();
-            Consultas_Inventario_Vehiculos consultas_vehiculos = new Consultas_Inventario_Vehiculos();
-            lista_vehiculos = consultas_vehiculos.readAll();
-
-            Consultas_Ajustes consultas_ajustes = new Consultas_Ajustes();
-            lista_ajustes = consultas_ajustes.readAll();
-
+            hilo1.start();
+            
+            Thread hilo2 = new Thread() {
+                @Override
+                public void run() {
+                    Consultas_Clientes consultas_clientes = new Consultas_Clientes();
+                    lista_clientes = consultas_clientes.readAll();
+                    Consultas_Inventario_Vehiculos consultas_vehiculos = new Consultas_Inventario_Vehiculos();
+                    lista_vehiculos = consultas_vehiculos.readAll();
+                    Consultas_Ajustes consultas_ajustes = new Consultas_Ajustes();
+                    lista_ajustes = consultas_ajustes.readAll();
+                return;
+                }
+            };
+            hilo2.start();
+            Thread.sleep(4000);
             view.setVisible(false);
             view.dispose();
             view_admin = new Ventana_Admin();
             controlador_admin = new Controlador_admin(view_admin, model);
             view_admin.setVisible(true);
         } else if (privilege == 0) {
-            Consultas_Trabajadores consultas_trabajadores = new Consultas_Trabajadores();
-            lista_trabajadores = consultas_trabajadores.readAll();
-            Consultas_Asistencia consultas_asistencia = new Consultas_Asistencia();
-            lista_asistencia = consultas_asistencia.readAll();
-            message("Bienvenido Trabajador");
+            //TRABAJADOR
+            Thread hilo1 = new Thread() {
+                @Override
+                public void run() {
+                    Consultas_Trabajadores consultas_trabajadores = new Consultas_Trabajadores();
+                    lista_trabajadores = consultas_trabajadores.readAll();
+                    Consultas_Asistencia consultas_asistencia = new Consultas_Asistencia();
+                    lista_asistencia = consultas_asistencia.readAll();
+                    Consultas_Ventas consultas_ventas = new Consultas_Ventas();
+                    lista_ventas = consultas_ventas.readAll();
+                    return;
+                }
+            };
+            hilo1.start();
+            
+            Thread hilo2 = new Thread() {
+                @Override
+                public void run() {
+                    Consultas_Clientes consultas_clientes = new Consultas_Clientes();
+                    lista_clientes = consultas_clientes.readAll();
+                    Consultas_Inventario_Vehiculos consultas_vehiculos = new Consultas_Inventario_Vehiculos();
+                    lista_vehiculos = consultas_vehiculos.readAll();
+                    Consultas_Ajustes consultas_ajustes = new Consultas_Ajustes();
+                    lista_ajustes = consultas_ajustes.readAll();
+                return;
+                }
+            };
+            hilo2.start();
+            Thread.sleep(4000);
             view.setVisible(false);
             view.dispose();
             view_trabajador = new Ventana_Trabajador();
             ctrl_trabajador = new Controlador_trabajador(view_trabajador, model);
             view_trabajador.setVisible(true);
+        }else if(privilege == -1){
+            message("ACCESO DENEGADO");
+        }else if(privilege == -2){
+            message("DATOS INVALIDOS");
         }
     }
 
@@ -155,31 +187,28 @@ public class Controlador_login implements ActionListener, KeyListener {
 
     private int verificacion(Modelo_Trabajadores model, String password) {
         if (model.getDni().equals("") != true && model.getPassword().equals("") != true) {
-            System.out.println(model.getPassword());
             if (consultas.read(model)) {
-                message("Usuario existe");
+                //USUARIO EXISTE
                 if (password.equals(model.getPassword())) {
-                    message("Contrasena Correcta");
+                    //CONTRASEÑA CORRECTA
                     return model.getPrivilege();
                 } else {
-                    Emergente_Aviso mensaje = new Emergente_Aviso(view, true, "Contrasena incorrecta");
-                    mensaje.setVisible(true);
+                    //CONTRASEÑA INCORRECTA
                     return -1;
                 }
             } else {
-                Emergente_Aviso mensaje = new Emergente_Aviso(view, true, "Usuario no existe");
-                mensaje.setVisible(true);
+                //USUARIO NO EXISTE
                 return -1;
             }
         } else {
-            Emergente_Aviso mensaje = new Emergente_Aviso(view, true, "Ingresar datos validos");
-            mensaje.setVisible(true);
-            return -1;
+            //DATOS INVALIDOS
+            return -2;
         }
     }
 
     private void message(String msg) {
-        System.out.println("- " + msg);
+        Emergente_Aviso mensaje = new Emergente_Aviso(view, true, msg);
+        mensaje.setVisible(true);
     }
 
     // Metodos abstractos obligatorios

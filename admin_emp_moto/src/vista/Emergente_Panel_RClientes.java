@@ -8,6 +8,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.LinkedList;
+import javax.swing.BorderFactory;
 import modelo.CustomButtonShaped;
 
 
@@ -36,6 +37,7 @@ public class Emergente_Panel_RClientes extends javax.swing.JDialog {
         setUndecorated(true);
         getContentPane().setBackground(new Color(250,250,250));
         getContentPane().setLayout (new GridBagLayout());
+        getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(60,60,60)));
         pack();
     }
     

@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import modelo.CustomButtonShaped;
 import modelo.MiPrintable;
@@ -42,6 +43,7 @@ public class Emergente_Imprimir extends javax.swing.JDialog {
         setUndecorated(true);
         getContentPane().setBackground(new Color(250,250,250));
         getContentPane().setLayout (new GridBagLayout());
+        getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(60,60,60)));
     }
 
     

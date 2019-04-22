@@ -14,6 +14,7 @@ public class Panel_Registros_Ventas extends javax.swing.JPanel {
         bgVentas.add(jRadioButton1);
         bgVentas.add(jRadioButton2);
         bgVentas.add(jRadioButton3);
+        jRadioButton1.setSelected(true);
     }
 
 
@@ -183,6 +184,7 @@ public class Panel_Registros_Ventas extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setFocusable(false);
         jTable1.setSelectionBackground(new java.awt.Color(60, 60, 60));
         jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jTable1);

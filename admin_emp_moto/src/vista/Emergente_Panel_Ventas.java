@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
@@ -45,6 +46,7 @@ public class Emergente_Panel_Ventas extends javax.swing.JDialog {
         setUndecorated(true);
         getContentPane().setBackground(new Color(250,250,250));
         getContentPane().setLayout (new GridBagLayout());
+        getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(60,60,60)));
     }
     
     private void initPanel(){
