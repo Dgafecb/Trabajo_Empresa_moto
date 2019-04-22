@@ -1065,27 +1065,30 @@ public class Panel_Ventas extends javax.swing.JPanel {
         customPanel1.setOpaque(false);
         customPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(60, 60, 60));
         jLabel15.setText("Precio sin IGV :");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
         customPanel1.add(jLabel15, gridBagConstraints);
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(60, 60, 60));
         jLabel16.setText("Precio con IGV :");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
         customPanel1.add(jLabel16, gridBagConstraints);
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(60, 60, 60));
         jLabel18.setText("TOTAL :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1095,27 +1098,30 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
         customPanel1.add(jLabel18, gridBagConstraints);
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(60, 60, 60));
         jLabel19.setText("Precio sin Descuento :");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         customPanel1.add(jLabel19, gridBagConstraints);
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(60, 60, 60));
         jLabel20.setText("Precio con Descuento :");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         customPanel1.add(jLabel20, gridBagConstraints);
 
-        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(60, 60, 60));
         jLabel21.setText("Cuota Mensual :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -1126,10 +1132,11 @@ public class Panel_Ventas extends javax.swing.JPanel {
         customPanel1.add(jLabel21, gridBagConstraints);
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(60, 60, 60));
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText("0.00");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
@@ -1137,10 +1144,11 @@ public class Panel_Ventas extends javax.swing.JPanel {
         customPanel1.add(jLabel22, gridBagConstraints);
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(60, 60, 60));
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setText("0.00");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
@@ -1148,10 +1156,11 @@ public class Panel_Ventas extends javax.swing.JPanel {
         customPanel1.add(jLabel23, gridBagConstraints);
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(60, 60, 60));
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel25.setText("0.00");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
@@ -1159,10 +1168,11 @@ public class Panel_Ventas extends javax.swing.JPanel {
         customPanel1.add(jLabel25, gridBagConstraints);
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(60, 60, 60));
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText("0.00");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
@@ -1170,6 +1180,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         customPanel1.add(jLabel26, gridBagConstraints);
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(60, 60, 60));
         jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel27.setText("0.00");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1181,6 +1192,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         customPanel1.add(jLabel27, gridBagConstraints);
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(60, 60, 60));
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel28.setText("0.00");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1191,6 +1203,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         customPanel1.add(jLabel28, gridBagConstraints);
 
         lblsgnoMoneda.setFont(new java.awt.Font("Tahoma", 0, 32)); // NOI18N
+        lblsgnoMoneda.setForeground(new java.awt.Color(60, 60, 60));
         lblsgnoMoneda.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblsgnoMoneda.setText("S./");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1202,6 +1215,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         customPanel1.add(lblsgnoMoneda, gridBagConstraints);
 
         lblMoneda.setFont(new java.awt.Font("Tahoma", 0, 32)); // NOI18N
+        lblMoneda.setForeground(new java.awt.Color(60, 60, 60));
         lblMoneda.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblMoneda.setText("SOLES");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1243,7 +1257,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private javax.swing.ButtonGroup grupoAlmacen;
     private javax.swing.ButtonGroup grupoEmision;
     private javax.swing.JLabel iconProductDefault;
-    private javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;

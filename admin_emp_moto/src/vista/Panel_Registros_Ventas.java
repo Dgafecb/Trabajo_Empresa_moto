@@ -140,7 +140,7 @@ public class Panel_Registros_Ventas extends javax.swing.JPanel {
         jRadioButton1.setBackground(new java.awt.Color(250, 250, 250));
         jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jRadioButton1.setForeground(new java.awt.Color(60, 60, 60));
-        jRadioButton1.setText("ID");
+        jRadioButton1.setText("ID PRODUCTO");
         jRadioButton1.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
@@ -149,7 +149,7 @@ public class Panel_Registros_Ventas extends javax.swing.JPanel {
         jRadioButton2.setBackground(new java.awt.Color(250, 250, 250));
         jRadioButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jRadioButton2.setForeground(new java.awt.Color(60, 60, 60));
-        jRadioButton2.setText("ID PRODUCTO");
+        jRadioButton2.setText("ID TRABAJADOR");
         jRadioButton2.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
@@ -158,7 +158,7 @@ public class Panel_Registros_Ventas extends javax.swing.JPanel {
         jRadioButton3.setBackground(new java.awt.Color(250, 250, 250));
         jRadioButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jRadioButton3.setForeground(new java.awt.Color(60, 60, 60));
-        jRadioButton3.setText("ID VENDEDOR");
+        jRadioButton3.setText("ID CLIENTE");
         jRadioButton3.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;

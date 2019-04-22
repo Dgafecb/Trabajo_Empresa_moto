@@ -7,7 +7,11 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.LinkedList;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import modelo.Consultas_Asistencia;
 import modelo.Consultas_Trabajadores;
 import modelo.Linked_List;
@@ -32,6 +36,7 @@ public class Controlador_Registros_Trabajadores implements ActionListener{
         this.ventanaAdmin = ventanaAdmin;
         this.panelRegistrosTrabajadores = panelRegistrosTrabajadores;
         iniciarComponentes();
+        updateComp();
         llamarComponentes();
     }
     
@@ -40,6 +45,10 @@ public class Controlador_Registros_Trabajadores implements ActionListener{
         trabajadores = lista_trabajadores;
         asistencia = lista_asistencia;
 
+    }
+    
+    private void updateComp(){
+        fillTablelAsistencia(asistencia);
     }
 
     private void llamarComponentes() {
@@ -52,7 +61,7 @@ public class Controlador_Registros_Trabajadores implements ActionListener{
         panelRegistrosTrabajadores.btnAsistenciaBuscar.addActionListener(this);
         panelRegistrosTrabajadores.btnAsistenciaBorrar.addActionListener(this);
         panelRegistrosTrabajadores.jTable2.setModel(this.tableModelTrabajadores(trabajadores));// Inicializa tabla trabajadores
-        panelRegistrosTrabajadores.jTable1.setModel(this.tableModelAsistencia(asistencia));// Inicializa tabla asistencia
+        
     }
     
     @Override
@@ -75,7 +84,7 @@ public class Controlador_Registros_Trabajadores implements ActionListener{
             }
             lista_trabajadores = consultasTrabajadores.readAll();
             this.panelRegistrosTrabajadores.jTable2.setModel(this.tableModelTrabajadores(lista_trabajadores));
-            this.panelRegistrosTrabajadores.jTable1.setModel(this.tableModelAsistencia(lista_asistencia));
+            updateComp();
 
         }
 
@@ -178,7 +187,7 @@ public class Controlador_Registros_Trabajadores implements ActionListener{
                 mensaje.setVisible(true);
             }
             lista_asistencia = consultasAsistencia.readAll();
-            this.panelRegistrosTrabajadores.jTable1.setModel(this.tableModelAsistencia(lista_asistencia));
+            updateComp();
 
         }
         if (ae.getSource() == this.panelRegistrosTrabajadores.btnAsistenciaModificar) {// boton eliminar del panel Registro asistencia
@@ -193,7 +202,7 @@ public class Controlador_Registros_Trabajadores implements ActionListener{
                     System.out.println("Se actualizo el registro");
                     lista_asistencia.remove(index_seleccionado);
                     lista_asistencia.add(index_seleccionado, temp_model);
-                    this.panelRegistrosTrabajadores.jTable1.setModel(this.tableModelAsistencia(lista_asistencia));
+                    updateComp();
 
                 } else {
                     Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo actualizar el registro");
@@ -259,7 +268,7 @@ public class Controlador_Registros_Trabajadores implements ActionListener{
                 };
                 lista_asistencia.remove(index_seleccionado);
                 hilo_consulta_tabla.start();
-                this.panelRegistrosTrabajadores.jTable1.setModel(this.tableModelAsistencia(lista_asistencia));
+                updateComp();
 
             } else {
                 Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Selecciona una fila a eliminar de la tabla asistencia");
@@ -314,8 +323,18 @@ public class Controlador_Registros_Trabajadores implements ActionListener{
     }
     
     
-    public DefaultTableModel tableModelAsistencia(LinkedList<Modelo_Asistencia> listaAsistencia) {
-        DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "DNI", "Fecha", "Hora de Entrada"}, 0);
+    public void fillTablelAsistencia(LinkedList<Modelo_Asistencia> listaAsistencia) {
+        DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "DNI TRABAJADOR", "FECHA", "HORA REGISTRADA"}, 0){
+            
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                switch (column) {
+                    case 0: return false;
+                    case 1: return false;
+                    default:return true;
+                }
+            }
+        };
         for (int i = 0; i < listaAsistencia.size(); i++) {
             int id = listaAsistencia.get(i).getId();
             String dni = listaAsistencia.get(i).getDni();
@@ -325,8 +344,29 @@ public class Controlador_Registros_Trabajadores implements ActionListener{
             hora_entrada = hora_entrada.substring(0, 2) + ":" + hora_entrada.substring(2, 4) + ":" + hora_entrada.substring(4, hora_entrada.length());
             model.addRow(new Object[]{id, dni, fecha, hora_entrada});
         }
-
-        return model;
+        
+        panelRegistrosTrabajadores.jTable1.setModel(model);
+        
+        //CONFIGURACION DE TABLA
+        JTableHeader jtableHeader = new JTableHeader();
+        DefaultTableCellRenderer render = (DefaultTableCellRenderer) panelRegistrosTrabajadores.jTable1.getTableHeader().getDefaultRenderer();
+        render.setHorizontalAlignment(JLabel.CENTER);
+        jtableHeader.setDefaultRenderer(render);
+        
+        DefaultTableCellRenderer tcrCenter = new DefaultTableCellRenderer();
+        tcrCenter.setHorizontalAlignment(SwingConstants.CENTER);
+        panelRegistrosTrabajadores.jTable1.getColumnModel().getColumn(0).setCellRenderer(tcrCenter);
+        panelRegistrosTrabajadores.jTable1.getColumnModel().getColumn(1).setCellRenderer(tcrCenter);
+        panelRegistrosTrabajadores.jTable1.getColumnModel().getColumn(2).setCellRenderer(tcrCenter);
+        panelRegistrosTrabajadores.jTable1.getColumnModel().getColumn(3).setCellRenderer(tcrCenter);
+        
+        panelRegistrosTrabajadores.jTable1.getColumnModel().getColumn(0).setMaxWidth(0);
+        panelRegistrosTrabajadores.jTable1.getColumnModel().getColumn(0).setMinWidth(0);
+        panelRegistrosTrabajadores.jTable1.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+        panelRegistrosTrabajadores.jTable1.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
+        
+        
+        
     }
 
     public DefaultTableModel tableModelTrabajadores(LinkedList<Modelo_Trabajadores> listaTrabajadores) { // devuelve un modelo para el Jtable Trabajadores

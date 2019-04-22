@@ -49,7 +49,7 @@ public class Controlador_Registros_Ventas implements ActionListener{
     
     private void fillTable(Linked_List<Modelo_Ventas> listaVentas){
         DefaultTableModel model = new DefaultTableModel(new String[]{"ID DE VENTA" , 
-            "ID PRODUCTO ", "ID VENDEDOR", "ID CLIENTE", "FECHA", "HORA", "MONTO INICIAL",
+            "ID PRODUCTO ", "ID TRABAJADOR", "ID CLIENTE", "FECHA", "HORA", "MONTO INICIAL",
             "DESCUENTO", "CUOTAS","CANTIDAD","MONTO UNITARIO","MONTO TOTAL"}, 0) {
             
             @Override
@@ -104,6 +104,11 @@ public class Controlador_Registros_Ventas implements ActionListener{
         panelVentas.jTable1.getColumnModel().getColumn(6).setCellRenderer(tcrRight);
         panelVentas.jTable1.getColumnModel().getColumn(10).setCellRenderer(tcrRight);
         panelVentas.jTable1.getColumnModel().getColumn(11).setCellRenderer(tcrRight);
+        
+        panelVentas.jTable1.getColumnModel().getColumn(0).setMaxWidth(0);
+        panelVentas.jTable1.getColumnModel().getColumn(0).setMinWidth(0);
+        panelVentas.jTable1.getTableHeader().getColumnModel().getColumn(0).setMaxWidth(0);
+        panelVentas.jTable1.getTableHeader().getColumnModel().getColumn(0).setMinWidth(0);
     }
     
     private void buscar(String referencia,int caso){
@@ -114,45 +119,27 @@ public class Controlador_Registros_Ventas implements ActionListener{
                 listaBusqueda  = new Linked_List<Modelo_Ventas>();
                 int tamanho = lista_ventas.size();
                 for(int i = 0 ;i<tamanho;i++){
-                   buscar = String.valueOf(((Modelo_Ventas)lista_ventas.get(i)).getId());
-                   String[] palabras = referencia.split("\\s+");
-                    for (String palabra : palabras) {
-                        if (buscar.contains(palabra)) {
-                            listaBusqueda.add(lista_ventas.get(i));
-                        }
-                    }
-                }
-                if(listaBusqueda!=null){
-                    fillTable(listaBusqueda);
-                }else{
-                    fillTable(lista_ventas);
-                    
-                }
-                break;
-            }
-            
-            case 2:{
-                listaBusqueda  = new Linked_List<Modelo_Ventas>();
-                int tamanho = lista_ventas.size();
-                for(int i = 0 ;i<tamanho;i++){
                    buscar = ((Modelo_Ventas)lista_ventas.get(i)).getId_prod();
                    String[] palabras = referencia.split("\\s+");
                     for (String palabra : palabras) {
                         if (buscar.contains(palabra)) {
                             listaBusqueda.add(lista_ventas.get(i));
                         }
+                            
+                        
                     }
                 }
-                if(listaBusqueda!=null){
+                if(listaBusqueda.size()>0){
                     fillTable(listaBusqueda);
-                    System.out.println(listaBusqueda.size());
                 }else{
+                    mensaje("NO SE ENCONTRARON COINCIDENCIAS");
                     fillTable(lista_ventas);
                     
                 }
                 break;
             }
-            case 3:{
+      
+            case 2:{
                 listaBusqueda  = new Linked_List<Modelo_Ventas>();
                 int tamanho = lista_ventas.size();
                 for(int i = 0 ;i<tamanho;i++){
@@ -164,10 +151,31 @@ public class Controlador_Registros_Ventas implements ActionListener{
                         }
                     }
                 }
-                if(listaBusqueda!=null){
+                if(listaBusqueda.size()>0){
                     fillTable(listaBusqueda);
-                    System.out.println(listaBusqueda.size());
                 }else{
+                    mensaje("NO SE ENCONTRARON COINCIDENCIAS");
+                    fillTable(lista_ventas);
+                    
+                }
+                break;
+            }
+            case 3:{
+                listaBusqueda  = new Linked_List<Modelo_Ventas>();
+                int tamanho = lista_ventas.size();
+                for(int i = 0 ;i<tamanho;i++){
+                   buscar = String.valueOf(((Modelo_Ventas)lista_ventas.get(i)).getId_cliente());
+                   String[] palabras = referencia.split("\\s+");
+                    for (String palabra : palabras) {
+                        if (buscar.contains(palabra)) {
+                            listaBusqueda.add(lista_ventas.get(i));
+                        }
+                    }
+                }
+                if(listaBusqueda.size()>0){
+                    fillTable(listaBusqueda);
+                }else{
+                    mensaje("NO SE ENCONTRARON COINCIDENCIAS");
                     fillTable(lista_ventas);
                     
                 }
