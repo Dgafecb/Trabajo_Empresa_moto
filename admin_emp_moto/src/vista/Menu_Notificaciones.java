@@ -145,7 +145,7 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnMenu;
-    private custom.CustomButtonMarcar customButtonMarcar2;
+    public custom.CustomButtonMarcar customButtonMarcar2;
     public vista.Perfil_Usuario perfil_Usuario1;
     // End of variables declaration//GEN-END:variables
 }
