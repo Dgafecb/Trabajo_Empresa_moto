@@ -49,134 +49,46 @@ public class Controlador_Registros_Trabajadores implements ActionListener{
     
     private void updateComp(){
         fillTablelAsistencia(asistencia);
+        fillTableTrabajadores(trabajadores);
     }
 
     private void llamarComponentes() {
         panelRegistrosTrabajadores.btnTrabajadorAgregar.addActionListener(this);
         panelRegistrosTrabajadores.btnTrabajadorModificar.addActionListener(this);
         panelRegistrosTrabajadores.btnTrabajadorBorrar.addActionListener(this);
-        panelRegistrosTrabajadores.btnTrabajadoresBuscar.addActionListener(this);
         panelRegistrosTrabajadores.btnAsistenciaAgregar.addActionListener(this);
         panelRegistrosTrabajadores.btnAsistenciaModificar.addActionListener(this);
         panelRegistrosTrabajadores.btnAsistenciaBuscar.addActionListener(this);
         panelRegistrosTrabajadores.btnAsistenciaBorrar.addActionListener(this);
-        panelRegistrosTrabajadores.jTable2.setModel(this.tableModelTrabajadores(trabajadores));// Inicializa tabla trabajadores
+        
+    }
+    
+    private boolean agregarTrabajador(){
+        return false;
+    }
+    
+    private boolean modificarTrabajador(){
+        return false;
+    }
+    
+    private boolean eliminarTrabajador(){
+        return false;
+    }
+    
+    private void buscarTrabajador(String referencia, int i){
         
     }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadorAgregar) { // boton Agregar del Panel Registro Trabajadores
-            Consultas_Trabajadores consultasTrabajadores = new Consultas_Trabajadores();
-            Modelo_Trabajadores temp_model = this.PanelRegistroTrabajadores();
-            int resultadoConsulta = consultasTrabajadores.create(temp_model);
-            if (resultadoConsulta == 2) {
-                System.out.println("Se agrego al trabajador");
-            } else {
-                if (resultadoConsulta == 1) {
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Ya existe ese DNI");
-                    mensaje.setVisible(true);
-                } else {
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo agregar al trabajador");
-                    mensaje.setVisible(true);
-                }
 
-            }
-            lista_trabajadores = consultasTrabajadores.readAll();
-            this.panelRegistrosTrabajadores.jTable2.setModel(this.tableModelTrabajadores(lista_trabajadores));
-            updateComp();
+        }else if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadorModificar) { // boton Actualizar del Panel Registro Trabajadores
+            
+        }else if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadorBorrar) {//boton elimnar del panel Registro trabajadores
 
         }
-
-        if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadorModificar) { // boton Actualizar del Panel Registro Trabajadores
-            if (this.panelRegistrosTrabajadores.jTable2.getSelectionModel().isSelectionEmpty() == false) {
-                Modelo_Trabajadores temp_model = this.PanelRegistroTrabajadores();
-                String tempdni = (String) this.panelRegistrosTrabajadores.jTable2.getValueAt(this.panelRegistrosTrabajadores.jTable2.getSelectedRow(), 1);   //             
-                Consultas_Trabajadores consultaActualizar = new Consultas_Trabajadores();
-                int index_seleccionado = lista_trabajadores.findTrabajador(lista_trabajadores, tempdni);//consigo el indice del id
-                temp_model.setId(((Modelo_Trabajadores) lista_trabajadores.get(index_seleccionado)).getId());
-                Thread hilo_consulta_tabla = new Thread() {
-                    @Override
-                    public void run() {
-                        if (consultaActualizar.update(temp_model)) {
-                            System.out.println("Se actualizo al trabajador");
-                        } else {
-                            Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo actualizar al trabajador");
-                            mensaje.setVisible(true);
-                        }
-
-                    }
-                };
-                lista_trabajadores.remove(index_seleccionado);
-                lista_trabajadores.add(index_seleccionado, temp_model);
-                hilo_consulta_tabla.start();
-                this.panelRegistrosTrabajadores.jTable2.setModel(this.tableModelTrabajadores(lista_trabajadores));
-
-            } else {
-                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Selecciona una fila de la tabla trabajadores a modificar");
-                mensaje.setVisible(true);
-            }
-        }
-        if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadorBorrar) {//boton elimnar del panel Registro trabajadores
-            if (this.panelRegistrosTrabajadores.jTable2.getSelectionModel().isSelectionEmpty() == false) {
-                Modelo_Trabajadores temp_model = new Modelo_Trabajadores();
-                String tempdni = (String) this.panelRegistrosTrabajadores.jTable2.getValueAt(this.panelRegistrosTrabajadores.jTable2.getSelectedRow(), 1);   //             
-                Consultas_Trabajadores consultaEliminar = new Consultas_Trabajadores();
-                int index_seleccionado = lista_trabajadores.findTrabajador(lista_trabajadores, tempdni);//consigo el indice del id
-
-                temp_model.setId(((Modelo_Trabajadores) lista_trabajadores.get(index_seleccionado)).getId());
-
-                Thread hilo_consulta_tabla = new Thread() {
-                    @Override
-                    public void run() {
-                        if (consultaEliminar.delete(temp_model)) {
-                            System.out.println("Se elimino al trabajador");
-                        } else {
-                            Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo eliminar al trabajador");
-                            mensaje.setVisible(true);
-                        }
-
-                    }
-                };
-                lista_trabajadores.remove(index_seleccionado);
-                hilo_consulta_tabla.start();
-                this.panelRegistrosTrabajadores.jTable2.setModel(this.tableModelTrabajadores(lista_trabajadores));
-
-            } else {
-                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Selecciona una fila a eliminar de la tabla trabajadores");
-                mensaje.setVisible(true);
-            }
-
-        }
-        if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadoresBuscar) {//boton buscar del panel Registro trabajadores
-
-            String temp_dni = this.panelRegistrosTrabajadores.txfBuscar.getText();
-            Modelo_Trabajadores temp_model;
-            Linked_List.ResultadoDNITrabajador temp_resultado = lista_trabajadores.findDNI(lista_trabajadores, temp_dni);
-            if (temp_resultado.isResultado()) {
-                temp_model = (Modelo_Trabajadores) lista_trabajadores.get(temp_resultado.getI());
-
-                DefaultTableModel model = new DefaultTableModel(new String[]{"Nombres y Apellidos", "dni", "Privilegio", "Sueldo"}, 0);
-                String nombre = temp_model.getNombre();
-                String apellido = temp_model.getApellido();
-                String nombreyApellido = nombre + " " + apellido;
-                String dni = temp_model.getDni();
-                int privilege = temp_model.getPrivilege();
-                String privilegio;
-                if (privilege == 0) {
-                    privilegio = "Trabajador";
-                } else {
-                    privilegio = "Administrador";
-                }
-
-                Float sueldo = temp_model.getSueldo();
-                model.addRow(new Object[]{nombreyApellido, dni, privilegio, sueldo});
-                this.panelRegistrosTrabajadores.jTable2.setModel(model);
-            } else {
-                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el DNI");
-                mensaje.setVisible(true);
-            }
-        }
+        
         if (ae.getSource() == this.panelRegistrosTrabajadores.btnAsistenciaAgregar) {// boton agregar del panel Registro asistencia
             Consultas_Asistencia consultasAsistencia = new Consultas_Asistencia();
             Modelo_Asistencia temp_model = this.PanelRegistroAsistencia();
@@ -279,7 +191,7 @@ public class Controlador_Registros_Trabajadores implements ActionListener{
     
     public Modelo_Asistencia PanelRegistroAsistencia() {
         Modelo_Asistencia modelo_asistencia = new Modelo_Asistencia();
-        if (this.panelRegistrosTrabajadores.txfDNI.getText().length() == 8) {
+        if (this.panelRegistrosTrabajadores.txfDatosDNI.getText().length() == 8) {
             modelo_asistencia.setDni(this.panelRegistrosTrabajadores.txfDatosDNI.getText());
             }
         String[] temp_fecha = this.panelRegistrosTrabajadores.txfDatosFecha.getText().split("/");
@@ -289,38 +201,6 @@ public class Controlador_Registros_Trabajadores implements ActionListener{
         return modelo_asistencia;
     }
     
-    public Modelo_Trabajadores PanelRegistroTrabajadores() { // Devuelve un modelo con los valores rellenados en el panel registro trabajadores
-        
-        Modelo_Trabajadores modelo_trabajadores = new Modelo_Trabajadores();
-
-        if (this.panelRegistrosTrabajadores.txfDNI.getText().length() == 8) {
-            modelo_trabajadores.setDni(this.panelRegistrosTrabajadores.txfDNI.getText());
-            }
-        modelo_trabajadores.setNombre(this.panelRegistrosTrabajadores.txfNombre.getText());
-        modelo_trabajadores.setApellido(this.panelRegistrosTrabajadores.txfApellidos.getText());
-        if (this.panelRegistrosTrabajadores.txfPassword.getText().compareTo(this.panelRegistrosTrabajadores.txfValidatePassword.getText()) == 0
-                && this.panelRegistrosTrabajadores.txfPassword.getText().length() > 5) {
-            modelo_trabajadores.setPassword(this.panelRegistrosTrabajadores.txfPassword.getText());
-            }
-        if (this.panelRegistrosTrabajadores.cbPrivilegio.getSelectedItem().toString().compareTo("Admin") == 0) {
-            modelo_trabajadores.setPrivilege(2);
-        }else {
-            modelo_trabajadores.setPrivilege(0);
-            }
-        try {
-            if (Float.valueOf(this.panelRegistrosTrabajadores.txfSueldo.getText()) < 930.00) {
-                modelo_trabajadores.setSueldo(930.00f);
-                }else {
-                modelo_trabajadores.setSueldo(Float.valueOf(this.panelRegistrosTrabajadores.txfSueldo.getText()));
-                }
-        } catch (NumberFormatException e) {
-           modelo_trabajadores.setSueldo(0.00f);
-        }
-        String time_date = new SimpleDateFormat("ddMMyyyy").format(Calendar.getInstance().getTime());
-        modelo_trabajadores.setFecha_creacion(time_date);
-        return modelo_trabajadores;
-
-    }
     
     
     public void fillTablelAsistencia(LinkedList<Modelo_Asistencia> listaAsistencia) {
@@ -369,25 +249,28 @@ public class Controlador_Registros_Trabajadores implements ActionListener{
         
     }
 
-    public DefaultTableModel tableModelTrabajadores(LinkedList<Modelo_Trabajadores> listaTrabajadores) { // devuelve un modelo para el Jtable Trabajadores
-        DefaultTableModel model = new DefaultTableModel(new String[]{"Nombres y Apellidos", "DNI", "Privilegio", "Sueldo"}, 0);
+    public void fillTableTrabajadores(LinkedList<Modelo_Trabajadores> listaTrabajadores) { // devuelve un modelo para el Jtable Trabajadores
+        DefaultTableModel model = new DefaultTableModel(new String[]{"ID","DNI","PASSWORD","NOMBRES",
+            "APELLIDOS", "PRIVILEGIO","FECHA DE CREACION" ,"SUELDO"}, 0);
         for (int i = 0; i < listaTrabajadores.size(); i++) {
-            String nombre = listaTrabajadores.get(i).getNombre();
-            String apellido = listaTrabajadores.get(i).getApellido();
-            String nombreyApellido = nombre + " " + apellido;
-            String dni = listaTrabajadores.get(i).getDni();
+            String ID = String.valueOf(listaTrabajadores.get(i).getId());
+            String DNI = listaTrabajadores.get(i).getDni();
+            String password = listaTrabajadores.get(i).getPassword();
+            String nombres = listaTrabajadores.get(i).getNombre();
+            String apellidos = listaTrabajadores.get(i).getApellido();
             int privilege = listaTrabajadores.get(i).getPrivilege();
             String privilegio;
             if (privilege == 0) {
-                privilegio = "Trabajador";
+                privilegio = "TRABAJADOR";
             } else {
-                privilegio = "Administrador";
+                privilegio = "ADMIN";
             }
+            String fecha = listaTrabajadores.get(i).getFecha_creacion();
+            
             Float sueldo = listaTrabajadores.get(i).getSueldo();
-            model.addRow(new Object[]{nombreyApellido, dni, privilegio, sueldo});
+            model.addRow(new Object[]{ID, DNI,password,nombres,apellidos, privilegio,fecha, sueldo});
         }
-
-        return model;
+        panelRegistrosTrabajadores.jTable2.setModel(model);
     }
     
     private void message(String msg){
