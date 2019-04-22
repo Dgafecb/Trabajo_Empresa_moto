@@ -253,11 +253,11 @@ public class Controlador_Registros_Trabajadores implements ActionListener{
         DefaultTableModel model = new DefaultTableModel(new String[]{"ID","DNI","PASSWORD","NOMBRES",
             "APELLIDOS", "PRIVILEGIO","FECHA DE CREACION" ,"SUELDO"}, 0);
         for (int i = 0; i < listaTrabajadores.size(); i++) {
-            String ID = String.valueOf(listaTrabajadores.get(i).getId());
-            String DNI = listaTrabajadores.get(i).getDni();
+            String ID = String.valueOf(listaTrabajadores.get(i).getId()).toUpperCase();
+            String DNI = listaTrabajadores.get(i).getDni().toUpperCase();
             String password = listaTrabajadores.get(i).getPassword();
-            String nombres = listaTrabajadores.get(i).getNombre();
-            String apellidos = listaTrabajadores.get(i).getApellido();
+            String nombres = listaTrabajadores.get(i).getNombre().toUpperCase();
+            String apellidos = listaTrabajadores.get(i).getApellido().toUpperCase();
             int privilege = listaTrabajadores.get(i).getPrivilege();
             String privilegio;
             if (privilege == 0) {

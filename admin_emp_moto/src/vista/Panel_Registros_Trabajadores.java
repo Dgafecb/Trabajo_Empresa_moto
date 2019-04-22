@@ -156,6 +156,7 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         pTrabajadores.add(pVentasBuscar, gridBagConstraints);
 
         jTable2.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        jTable2.setForeground(new java.awt.Color(60, 60, 60));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

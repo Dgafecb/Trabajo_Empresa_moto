@@ -62,16 +62,12 @@ public class Controlador_trabajador implements ActionListener {
         this.panel_resumen = null;
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == this.ventanaTrabajador.menuNotificaciones.customButtonMarcar2) {
-            String dni = this.model_user.getDni();
+    private void  marcarAsistencia(){
+         String dni = this.model_user.getDni();
             String fecha = new SimpleDateFormat("ddMMyyyy").format(Calendar.getInstance().getTime());
-            System.out.println(fecha + " " + dni);
             if (verificacionAsistencia(fecha, dni)) {
                 this.ventanaTrabajador.menuNotificaciones.customButtonMarcar2.setMarcarDisp(false);
                 mensaje("Ya marcó asistencia");
-                System.out.println("bandera2");
             } else {
                 Consultas_Asistencia consultas = new Consultas_Asistencia();
                 String hora_entrada = new SimpleDateFormat("HHmmss").format(Calendar.getInstance().getTime());
@@ -83,14 +79,23 @@ public class Controlador_trabajador implements ActionListener {
                     lista_asistencia = consultas.readAll();
                     mensaje("Logró marcar asistencia");
                     this.ventanaTrabajador.menuNotificaciones.customButtonMarcar2.setMarcarDisp(false);
-                    System.out.println("bandera3");
                 } else {
                     mensaje("No pudo marcar asistencia");
-                    System.out.println("bandera4");
                 }
-
             }
-
+    }
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == this.ventanaTrabajador.menuNotificaciones.customButtonMarcar2) {
+           Thread hilo = new Thread(){
+                @Override
+                public void run() {
+                   marcarAsistencia();
+                    return ;
+                }
+            };
+            hilo.start();
         }
         if (e.getSource() == ventanaTrabajador.menuTrabajador.btnVentas) {
             limpiarSpContent();
@@ -108,7 +113,6 @@ public class Controlador_trabajador implements ActionListener {
     }
 
     private boolean verificacionAsistencia(String fecha, String dni) {
-
         if (lista_asistencia != null) {
             Linked_List.ResultadoDNITrabajador resultado = Controlador_login.lista_trabajadores.findDNI(Controlador_login.lista_trabajadores, dni);
             if (resultado.isResultado()) {
