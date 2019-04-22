@@ -4,8 +4,11 @@ import static controlador.Controlador_login.lista_ajustes;
 import static controlador.Controlador_login.lista_clientes;
 import static controlador.Controlador_login.lista_trabajadores;
 import static controlador.Controlador_login.lista_vehiculos;
+import static controlador.Controlador_login.lista_ventas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -39,7 +42,7 @@ import modelo.Linked_List.Almacenado;
 import modelo.Linked_List.funcionaAlmacenado;
 import vista.Ventana_Admin;
 
-public class Controlador_Ventas implements ActionListener {
+public class Controlador_Ventas implements ActionListener, KeyListener{
 
     public static int dscto_maximo;
     private Controlador_admin controladorAdmin;
@@ -87,9 +90,10 @@ public class Controlador_Ventas implements ActionListener {
         String nombre_trabajador = controladorAdmin.getModel_user().getNombre();
         nombre_trabajador = "SELLER: " + nombre_trabajador + " " + controladorAdmin.getModel_user().getApellido();
         this.panelVentas.lblNombreTrabajador.setText(nombre_trabajador);
-        this.llenarTablaAlmacen();
+        this.llenarTablaAlmacen(lista_vehiculos);
         this.llenarTablaClientes();
         this.iniciarTablaVentas();
+        this.panelVentas.txfAlmacenBuscar.addKeyListener(this);
         this.panelVentas.btnAlmacenBuscar.addActionListener(this);
         this.panelVentas.btnClienteBuscar.addActionListener(this);
         this.panelVentas.btnClienteAgregar.addActionListener(this);
@@ -132,7 +136,6 @@ public class Controlador_Ventas implements ActionListener {
             @Override
             public void valueChanged(ListSelectionEvent event) {
                 if (!event.getValueIsAdjusting() && panelVentas.tAlmacen.getSelectedRow() != -1) {
-                    System.out.println(panelVentas.tAlmacen.getValueAt(panelVentas.tAlmacen.getSelectedRow(), 0).toString());
                     String selected_id = (String) panelVentas.tAlmacen.getValueAt(panelVentas.tAlmacen.getSelectedRow(), 0);
 
                     Linked_List.InventarioTEMP temp = lista_vehiculos.findIndexId(lista_vehiculos, selected_id);
@@ -263,7 +266,7 @@ public class Controlador_Ventas implements ActionListener {
         this.panelVentas.jTable1.setModel(model);
     }
 
-    private void llenarTablaAlmacen() {
+    private void llenarTablaAlmacen(Linked_List<Modelo_Inventario_Vehiculos> lista_vehiculos) {
 
         DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Descripcion", "Marca", "Precio",}, 0);
         for (int i = 0; i < lista_vehiculos.size(); i++) {
@@ -406,7 +409,7 @@ public class Controlador_Ventas implements ActionListener {
                         Consultas_Clientes consulta_cliente = new Consultas_Clientes();
                         lista_clientes = consulta_cliente.readAll();
                         lista_vehiculos = consulta_vehiculo.readAll();
-                        llenarTablaAlmacen();
+                        llenarTablaAlmacen(lista_vehiculos);
                         llenarTablaClientes();
                         return;
                     }
@@ -469,6 +472,91 @@ public class Controlador_Ventas implements ActionListener {
             mensaje("SELECCIONE EN LA TABLA EL PRODUCTO A AGREGAR");
         }
 
+    }
+    
+    private void buscarAlmacen(String referencia, int numero){
+
+        String buscar ;
+        Linked_List<Modelo_Inventario_Vehiculos> listaBusqueda ;
+        switch(numero){
+            case 1:{
+                listaBusqueda  = new Linked_List<Modelo_Inventario_Vehiculos>();
+                int tamanho = lista_vehiculos.size();
+                for(int i = 0 ;i<tamanho;i++){
+                   buscar = ((Modelo_Inventario_Vehiculos)lista_vehiculos.get(i)).getId();
+                   String[] palabras = referencia.split("\\s+");
+                    for (String palabra : palabras) {
+                        if (buscar.contains(palabra)) {
+                            listaBusqueda.add(lista_vehiculos.get(i));
+                        }
+                    }
+                }
+                if(listaBusqueda.size()>0){
+                    llenarTablaAlmacen(listaBusqueda);
+                    panelVentas.tAlmacen.setRowSelectionInterval(0, 0);
+                }else{
+                    mensaje("NO SE ENCONTRARON COINCIDENCIAS");
+                    panelVentas.txfAlmacenBuscar.setText("");
+                    panelVentas.tAlmacen.clearSelection();
+                    llenarTablaAlmacen(lista_vehiculos);  
+                }
+                if(referencia.equals("")){
+                   this.panelVentas.tAlmacen.clearSelection();
+                }
+                break;
+            }
+            case 2:{
+                listaBusqueda  = new Linked_List<Modelo_Inventario_Vehiculos>();
+                int tamanho = lista_vehiculos.size();
+                for(int i = 0 ;i<tamanho;i++){
+                   buscar = ((Modelo_Inventario_Vehiculos)lista_vehiculos.get(i)).getNombre_prod();
+                   String[] palabras = referencia.split("\\s+");
+                    for (String palabra : palabras) {
+                        if (buscar.contains(palabra)) {
+                            listaBusqueda.add(lista_vehiculos.get(i));
+                        }
+                    }
+                }
+                if(listaBusqueda.size()>0){
+                    llenarTablaAlmacen(listaBusqueda);
+                    panelVentas.tAlmacen.setRowSelectionInterval(0, 0);
+                }else{
+                    mensaje("NO SE ENCONTRARON COINCIDENCIAS");
+                    panelVentas.txfAlmacenBuscar.setText("");
+                    panelVentas.tAlmacen.clearSelection();
+                    
+                    llenarTablaAlmacen(lista_vehiculos);  
+                }
+                break;
+            }
+            case 3:{
+                listaBusqueda  = new Linked_List<Modelo_Inventario_Vehiculos>();
+                int tamanho = lista_vehiculos.size();
+                for(int i = 0 ;i<tamanho;i++){
+                   buscar = ((Modelo_Inventario_Vehiculos)lista_vehiculos.get(i)).getMarca();
+                   String[] palabras = referencia.split("\\s+");
+                    for (String palabra : palabras) {
+                        if (buscar.contains(palabra)) {
+                            listaBusqueda.add(lista_vehiculos.get(i));
+                        }
+                    }
+                }
+                if(listaBusqueda.size()>0){
+                    llenarTablaAlmacen(listaBusqueda);
+                    panelVentas.tAlmacen.setRowSelectionInterval(0, 0);
+                }else{
+                    mensaje("NO SE ENCONTRARON COINCIDENCIAS");
+                    panelVentas.txfAlmacenBuscar.setText("");
+                    panelVentas.tAlmacen.clearSelection();
+                    
+                    llenarTablaAlmacen(lista_vehiculos);  
+                }
+                break;
+            }
+            default : break;
+        }
+           
+            
     }
 
     private void llenar_Tabla_Ventas(String id, String descripcion, String cantidad, Float precio_unitario, Float precio_total) {
@@ -638,83 +726,35 @@ public class Controlador_Ventas implements ActionListener {
         }
 
         if (e.getSource() == this.panelVentas.btnAlmacenBuscar) {//boton buscar del almacen
-            this.panelVentas.jTable1.clearSelection();
-            if (this.panelVentas.rbCodigo.isSelected()) {// UNICO ID
-                String temp_id = this.panelVentas.txfAlmacenBuscar.getText();
-                Linked_List.InventarioTEMP temp = lista_vehiculos.findIndexId(lista_vehiculos, temp_id);
-                if (temp.isFunciona()) {
-                    int index = (int) ((temp.getTemp()).peek());
-
-                    DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Descripcion", "Marca", "Precio",}, 0);
-                    String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getId();
-
-                    String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getNombre_prod();
-
-                    float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getPrecio();
-                    String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getMarca();
-
-                    model.addRow(new Object[]{id, descripcion, marca, precio});
-
-                    this.panelVentas.tAlmacen.setModel(model);
-
-                } else {
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el articulo con ese ID");
-                    mensaje.setVisible(true);
-                }
-            }
-            if (this.panelVentas.rbDescripcion.isSelected()) { // DESCRIPCION
-                String temp_id = this.panelVentas.txfAlmacenBuscar.getText();
-                Linked_List.InventarioTEMP temp = lista_vehiculos.findIndexNombre(lista_vehiculos, temp_id);
-                if (temp.isFunciona()) {
-
-                    LinkedList<Integer> temp_list = temp.getTemp();
-                    DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Descripcion", "Marca", "Precio",}, 0);
-                    for (int j = 0; j < temp_list.size(); j++) {
-                        int i = (int) temp.getTemp().get(j);
-                        String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
-
-                        String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getNombre_prod();
-
-                        float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getPrecio();
-                        String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMarca();
-
-                        model.addRow(new Object[]{id, descripcion, marca, precio});
-
-                    }
-
-                    this.panelVentas.tAlmacen.setModel(model);
-                } else {
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el articulo con esa descripción");
-                    mensaje.setVisible(true);
-                }
-            }
-            if (this.panelVentas.rbMarca.isSelected()) { // MARCA
-                String temp_id = this.panelVentas.txfAlmacenBuscar.getText();
-                Linked_List.InventarioTEMP temp = lista_vehiculos.findIndexMarca(lista_vehiculos, temp_id);
-                if (temp.isFunciona()) {
-
-                    LinkedList<Integer> temp_list = temp.getTemp();
-                    DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Descripcion", "Marca", "Precio",}, 0);
-                    for (int j = 0; j < temp_list.size(); j++) {
-                        int i = (int) temp.getTemp().get(j);
-                        String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
-
-                        String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getNombre_prod();
-
-                        float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getPrecio();
-                        String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMarca();
-
-                        model.addRow(new Object[]{id, descripcion, marca, precio});
-
-                    }
-                    this.panelVentas.tAlmacen.setModel(model);
-                } else {
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el articulo con esa marca");
-                    mensaje.setVisible(true);
-                }
-            }
+           if(panelVentas.rbCodigo.isSelected()){
+              buscarAlmacen(panelVentas.txfAlmacenBuscar.getText(),0); 
+           }
+            
 
         }
 
+    }
+
+    @Override
+    public void keyTyped(KeyEvent ke) {
+        
+    }
+
+    @Override
+    public void keyPressed(KeyEvent ke) {
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent ke) {
+       if(ke.getSource()== panelVentas.txfAlmacenBuscar){
+            if(panelVentas.rbCodigo.isSelected()){
+              buscarAlmacen(panelVentas.txfAlmacenBuscar.getText().toUpperCase(),1); 
+           }else if(panelVentas.rbDescripcion.isSelected()){
+              buscarAlmacen(panelVentas.txfAlmacenBuscar.getText().toUpperCase(),2); 
+           }else if(panelVentas.rbMarca.isSelected()){
+              buscarAlmacen(panelVentas.txfAlmacenBuscar.getText().toUpperCase(),3); 
+           }
+        } 
     }
 }

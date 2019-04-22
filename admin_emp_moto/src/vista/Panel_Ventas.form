@@ -1539,7 +1539,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JRadioButton" name="rbBoleta">
+            <Component class="javax.swing.JRadioButton" name="rbIndefinido">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="fa" green="fa" red="fa" type="rgb"/>
@@ -1550,7 +1550,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="3c" green="3c" red="3c" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Boleta"/>
+                <Property name="text" type="java.lang.String" value="SIN ASIGNAR"/>
                 <Property name="focusPainted" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -1583,7 +1583,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="3c" green="3c" red="3c" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Contrato"/>
+                <Property name="text" type="java.lang.String" value="CONTRATO"/>
                 <Property name="focusPainted" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -1616,7 +1616,8 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="3c" green="3c" red="3c" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Factura"/>
+                <Property name="text" type="java.lang.String" value="FACTURA"/>
+                <Property name="enabled" type="boolean" value="false"/>
                 <Property name="focusPainted" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">

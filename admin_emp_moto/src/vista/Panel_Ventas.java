@@ -17,10 +17,12 @@ public class Panel_Ventas extends javax.swing.JPanel {
         grupoAlmacen.add(rbCodigo);
         grupoAlmacen.add(rbDescripcion);
         grupoAlmacen.add(rbMarca);
+        rbCodigo.setSelected(true);
         
-        grupoEmision.add(rbBoleta);
+        grupoEmision.add(rbIndefinido);
         grupoEmision.add(rbContrato);
         grupoEmision.add(rbFactura);
+        rbIndefinido.setSelected(true);
     }
     
     @SuppressWarnings("unchecked")
@@ -90,7 +92,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         tDatosVentas = new javax.swing.JTable();
         customPanel3 = new custom.CustomPanel();
         pTipoFactura = new javax.swing.JPanel();
-        rbBoleta = new javax.swing.JRadioButton();
+        rbIndefinido = new javax.swing.JRadioButton();
         rbContrato = new javax.swing.JRadioButton();
         rbFactura = new javax.swing.JRadioButton();
         customButtonShaped1 = new custom.CustomButtonShaped();
@@ -961,23 +963,23 @@ public class Panel_Ventas extends javax.swing.JPanel {
         pTipoFactura.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tipo de Emision", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(60, 60, 60))); // NOI18N
         pTipoFactura.setLayout(new java.awt.GridBagLayout());
 
-        rbBoleta.setBackground(new java.awt.Color(250, 250, 250));
-        rbBoleta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        rbBoleta.setForeground(new java.awt.Color(60, 60, 60));
-        rbBoleta.setText("Boleta");
-        rbBoleta.setFocusPainted(false);
-        rbBoleta.setFocusable(false);
-        rbBoleta.setMaximumSize(new java.awt.Dimension(120, 25));
-        rbBoleta.setMinimumSize(new java.awt.Dimension(120, 25));
-        rbBoleta.setPreferredSize(new java.awt.Dimension(120, 25));
+        rbIndefinido.setBackground(new java.awt.Color(250, 250, 250));
+        rbIndefinido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        rbIndefinido.setForeground(new java.awt.Color(60, 60, 60));
+        rbIndefinido.setText("SIN ASIGNAR");
+        rbIndefinido.setFocusPainted(false);
+        rbIndefinido.setFocusable(false);
+        rbIndefinido.setMaximumSize(new java.awt.Dimension(120, 25));
+        rbIndefinido.setMinimumSize(new java.awt.Dimension(120, 25));
+        rbIndefinido.setPreferredSize(new java.awt.Dimension(120, 25));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        pTipoFactura.add(rbBoleta, gridBagConstraints);
+        pTipoFactura.add(rbIndefinido, gridBagConstraints);
 
         rbContrato.setBackground(new java.awt.Color(250, 250, 250));
         rbContrato.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rbContrato.setForeground(new java.awt.Color(60, 60, 60));
-        rbContrato.setText("Contrato");
+        rbContrato.setText("CONTRATO");
         rbContrato.setFocusPainted(false);
         rbContrato.setFocusable(false);
         rbContrato.setMaximumSize(new java.awt.Dimension(120, 25));
@@ -992,7 +994,8 @@ public class Panel_Ventas extends javax.swing.JPanel {
         rbFactura.setBackground(new java.awt.Color(250, 250, 250));
         rbFactura.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rbFactura.setForeground(new java.awt.Color(60, 60, 60));
-        rbFactura.setText("Factura");
+        rbFactura.setText("FACTURA");
+        rbFactura.setEnabled(false);
         rbFactura.setFocusPainted(false);
         rbFactura.setFocusable(false);
         rbFactura.setMaximumSize(new java.awt.Dimension(120, 25));
@@ -1303,11 +1306,11 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private custom.CustomPanel pDatosVenta;
     private javax.swing.JPanel pTipoFactura;
     private javax.swing.JPanel pVCuotaInicial;
-    public javax.swing.JRadioButton rbBoleta;
     public javax.swing.JRadioButton rbCodigo;
     public javax.swing.JRadioButton rbContrato;
     public javax.swing.JRadioButton rbDescripcion;
     public javax.swing.JRadioButton rbFactura;
+    public javax.swing.JRadioButton rbIndefinido;
     public javax.swing.JRadioButton rbMarca;
     private javax.swing.JScrollPane spAlmacen;
     private javax.swing.JScrollPane spDatosVentas;

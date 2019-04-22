@@ -125,8 +125,6 @@ public class Controlador_Registros_Ventas implements ActionListener{
                         if (buscar.contains(palabra)) {
                             listaBusqueda.add(lista_ventas.get(i));
                         }
-                            
-                        
                     }
                 }
                 if(listaBusqueda.size()>0){
