@@ -26,6 +26,7 @@ public class Controlador_trabajador implements ActionListener {
     public Consultas_Trabajadores consultas_login;
     public Controlador_login ctrl_login;
     public Controlador_Resumen ctrl_resumen;
+    public Controlador_Ventas_Trabajador controlador_Ventas_Trabajador;
     public Panel_Resumen panel_resumen;
 
     private Panel_Ventas panel_ventas;
@@ -55,6 +56,86 @@ public class Controlador_trabajador implements ActionListener {
         String nombre_apellido = ((Modelo_Trabajadores) lista_trabajadores.get(lista_trabajadores.findTrabajador(lista_trabajadores, this.model_user.getDni()))).getNombre();
         nombre_apellido = nombre_apellido + " " + ((Modelo_Trabajadores) lista_trabajadores.get(lista_trabajadores.findTrabajador(lista_trabajadores, this.model_user.getDni()))).getApellido();
         ventanaTrabajador.menuNotificaciones.perfil_Usuario1.lblEditUser.setText(nombre_apellido);
+    }
+
+    public Ventana_Trabajador getVentanaTrabajador() {
+        return ventanaTrabajador;
+    }
+
+    public void setVentanaTrabajador(Ventana_Trabajador ventanaTrabajador) {
+        this.ventanaTrabajador = ventanaTrabajador;
+    }
+
+    public Modelo_Trabajadores getModel_user() {
+        return model_user;
+    }
+
+    public void setModel_user(Modelo_Trabajadores model_user) {
+        this.model_user = model_user;
+    }
+
+    public Ventana_Login getView_login() {
+        return view_login;
+    }
+
+    public void setView_login(Ventana_Login view_login) {
+        this.view_login = view_login;
+    }
+
+    public Consultas_Trabajadores getConsultas_login() {
+        return consultas_login;
+    }
+
+    public void setConsultas_login(Consultas_Trabajadores consultas_login) {
+        this.consultas_login = consultas_login;
+    }
+
+    public Controlador_login getCtrl_login() {
+        return ctrl_login;
+    }
+
+    public void setCtrl_login(Controlador_login ctrl_login) {
+        this.ctrl_login = ctrl_login;
+    }
+
+    public Controlador_Resumen getCtrl_resumen() {
+        return ctrl_resumen;
+    }
+
+    public void setCtrl_resumen(Controlador_Resumen ctrl_resumen) {
+        this.ctrl_resumen = ctrl_resumen;
+    }
+
+    public Controlador_Ventas_Trabajador getControlador_Ventas_Trabajador() {
+        return controlador_Ventas_Trabajador;
+    }
+
+    public void setControlador_Ventas_Trabajador(Controlador_Ventas_Trabajador controlador_Ventas_Trabajador) {
+        this.controlador_Ventas_Trabajador = controlador_Ventas_Trabajador;
+    }
+
+    public Panel_Resumen getPanel_resumen() {
+        return panel_resumen;
+    }
+
+    public void setPanel_resumen(Panel_Resumen panel_resumen) {
+        this.panel_resumen = panel_resumen;
+    }
+
+    public Panel_Ventas getPanel_ventas() {
+        return panel_ventas;
+    }
+
+    public void setPanel_ventas(Panel_Ventas panel_ventas) {
+        this.panel_ventas = panel_ventas;
+    }
+
+    public Modelo_Trabajadores getModelo_Trabajador_Actual() {
+        return modelo_Trabajador_Actual;
+    }
+
+    public void setModelo_Trabajador_Actual(Modelo_Trabajadores modelo_Trabajador_Actual) {
+        this.modelo_Trabajador_Actual = modelo_Trabajador_Actual;
     }
 
     private void limpiarSpContent() {
@@ -100,6 +181,7 @@ public class Controlador_trabajador implements ActionListener {
         if (e.getSource() == ventanaTrabajador.menuTrabajador.btnVentas) {
             limpiarSpContent();
             panel_ventas = new Panel_Ventas();
+            controlador_Ventas_Trabajador = new Controlador_Ventas_Trabajador(this, this.ventanaTrabajador);
             ventanaTrabajador.administrarPanel(this.ventanaTrabajador.spContent, panel_ventas);
         } else if (e.getSource() == ventanaTrabajador.menuTrabajador.btnInicio) {
             limpiarSpContent();

@@ -42,7 +42,7 @@ import modelo.Linked_List.Almacenado;
 import modelo.Linked_List.funcionaAlmacenado;
 import vista.Ventana_Admin;
 
-public class Controlador_Ventas implements ActionListener, KeyListener{
+public class Controlador_Ventas implements ActionListener, KeyListener {
 
     public static int dscto_maximo;
     private Controlador_admin controladorAdmin;
@@ -61,6 +61,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener{
     private int dscto = 1;
     private int cuotas = 1;
     private int tipo_venta = 0;//0 para efectivo,1 para credito y  2 para por mayor
+    private int tipo_temp = 0;
     private String[] temp_costo;
     private float cambio_moneda;
     private Linked_List<Almacenado> temp_list = null;//lista que se almacenara con el id y cantidad temporales de los objetos agregados
@@ -101,32 +102,47 @@ public class Controlador_Ventas implements ActionListener, KeyListener{
         this.panelVentas.customButtonShaped2.addActionListener(this);
         this.panelVentas.customButtonShaped5.addActionListener(this);
         this.panelVentas.customButtonShaped3.addActionListener(this);
-        this.panelVentas.spnrCuotas.addChangeListener(new ChangeListener() {
+        this.panelVentas.jSlider1.addChangeListener(new ChangeListener() {//DESCUENTO
+
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                dscto = panelVentas.jSlider1.getValue();
+                System.out.println(dscto);
+                //actualizar el precio con dscto
+                llenar_Adicional_Ventas_2(0.f, tipo_venta);
+            }
+        });
+        this.panelVentas.spnrCuotas.addChangeListener(new ChangeListener() {//CUOTAS
 
             @Override
             public void stateChanged(ChangeEvent e) {
                 cuotas = (int) panelVentas.spnrCuotas.getValue();
                 System.out.println("cuotas: " + cuotas);
                 panelVentas.jLabel27.setText(String.valueOf(total_ventas / (float) cuotas));
+                llenar_Adicional_Ventas_2(0.f, tipo_venta);
             }
         });
         this.panelVentas.cbTipoVenta.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 if (panelVentas.cbTipoVenta.getSelectedItem().toString().compareTo("EFECTIVO") == 0) {
                     tipo_venta = 0;
-                    String total = String.valueOf(total_ventas * Integer.valueOf(temp_costo[0]) / 100.f);
+                    String total = String.valueOf(total_ventas * Float.valueOf(temp_costo[0]));
                     panelVentas.jLabel28.setText(total);
+                    llenar_Adicional_Ventas_2(0.f, tipo_venta);
                 }
                 if (panelVentas.cbTipoVenta.getSelectedItem().toString().compareTo("CREDITO") == 0) {
                     tipo_venta = 1;
-                    String total = String.valueOf(total_ventas * Integer.valueOf(temp_costo[1]) / 100.f);
+                    String total = String.valueOf(total_ventas * Float.valueOf(temp_costo[1]));
                     panelVentas.jLabel28.setText(total);
+                    llenar_Adicional_Ventas_2(0.f, tipo_venta);
                 }
                 if (panelVentas.cbTipoVenta.getSelectedItem().toString().compareTo("POR MAYOR") == 0) {
                     tipo_venta = 2;
-                    String total = String.valueOf(total_ventas * Integer.valueOf(temp_costo[2]) / 100.f);
+                    String total = String.valueOf(total_ventas * Float.valueOf(temp_costo[2]));
                     panelVentas.jLabel28.setText(total);
+                    llenar_Adicional_Ventas_2(0.f, tipo_venta);
                 }
             }
 
@@ -232,11 +248,13 @@ public class Controlador_Ventas implements ActionListener, KeyListener{
         this.temp_costo = new String[3];
         this.temp_costo[0] = ((Modelo_Ajustes) lista_ajustes.get(6)).getValor();
         temp_costo[0] = temp_costo[0].substring(0, temp_costo[0].length() - 1);
+        temp_costo[0] = String.valueOf(Float.valueOf(temp_costo[0]) / 100.f);
         this.temp_costo[1] = ((Modelo_Ajustes) lista_ajustes.get(7)).getValor();
         temp_costo[1] = temp_costo[1].substring(0, temp_costo[1].length() - 1);
+        temp_costo[1] = String.valueOf(Float.valueOf(temp_costo[1]) / 100.f);
         this.temp_costo[2] = ((Modelo_Ajustes) lista_ajustes.get(5)).getValor();
         temp_costo[2] = temp_costo[2].substring(0, temp_costo[2].length() - 1);
-
+        temp_costo[2] = String.valueOf(Float.valueOf(temp_costo[2]) / 100.f);
     }
 
     private void setearCambioMoneda() {
@@ -320,9 +338,9 @@ public class Controlador_Ventas implements ActionListener, KeyListener{
                             temp_model_vehiculos.setCantidad(temp_model_vehiculos.getCantidad() - Integer.valueOf(cantidad));
 
                             if (consultas_inventario.update(temp_model_vehiculos)) {
-                                System.out.println("Actuaizacion de inventario " + i + " realizada con exito");
+                                System.out.println("Actualizacion de inventario " + i + " realizada con exito");
                             } else {
-                                System.out.println("Error en actuaizacion de inventario " + i);
+                                System.out.println("Error en actualizacion de inventario " + i);
                                 logCount++;
                             }
                         }
@@ -334,7 +352,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener{
                 Modelo_Ventas temp_model = new Modelo_Ventas();
                 Consultas_Ventas consulta_venta = new Consultas_Ventas();
                 int id_trabajador = this.controladorAdmin.getModel_user().getId();
-                int index = lista_clientes.findClientes(lista_clientes, (String) this.panelVentas.jTable1.getValueAt(0, 0)).getTemp().peek();
+                int index = lista_clientes.findClientes(lista_clientes, (String) this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 0)).getTemp().peek();
                 int id_cliente = ((Modelo_Clientes) lista_clientes.get(index)).getId();
                 int logCount = 0;
                 int rowCount = -1;
@@ -361,22 +379,26 @@ public class Controlador_Ventas implements ActionListener, KeyListener{
                     temp_model.setCantidad(Integer.valueOf(cantidad));
                     switch (tipo_venta) {
                         case 0:
-                            total *= Integer.valueOf(this.temp_costo[0]);
-                            total = total / 100.f;
+                            total *= Float.valueOf(this.temp_costo[0]);
+
                             break;
                         case 1:
-                            total *= Integer.valueOf(this.temp_costo[1]);
-                            total = total / 100.f;
+                            total *= Float.valueOf(this.temp_costo[1]);
+
                             break;
                         case 2:
-                            total *= Integer.valueOf(this.temp_costo[2]);
-                            total = total / 100.f;
+                            total *= Float.valueOf(this.temp_costo[2]);
+
                             break;
                         default:
                             break;
                     }
 
-                    temp_model.setTotal(total);
+                    this.dscto = this.panelVentas.jSlider1.getValue();
+                    float temp;
+                    temp = total * (100 - this.dscto) / 100.f;
+                    temp = temp * 1.18f;
+                    temp_model.setTotal(temp);
                     temp_model.setDscto(this.dscto);
                     temp_model.setCuotas(this.cuotas);
                     if (consulta_venta.create(temp_model)) {
@@ -391,7 +413,21 @@ public class Controlador_Ventas implements ActionListener, KeyListener{
                     mensaje("ERROR AL INTENTAR REALIZAR LA OPERACION");
                 } else {
                     mensaje("SE REALIZO EXITOSAMENTE LA OPERACION");
-
+                    this.iniciarTablaVentas();
+                    total_ventas = 0.00f;
+                    sin_igv = 0.00f;
+                    con_igv = 0.00f;
+                    sin_dscto = 0.00f;
+                    con_dscto = 0.00f;
+                    cuota_mensual = 0.00f;
+                    DecimalFormat numberFormat = new DecimalFormat("0.00");
+                    this.panelVentas.jLabel22.setText(numberFormat.format(sin_igv));
+                    this.panelVentas.jLabel23.setText(numberFormat.format(con_igv));
+                    this.panelVentas.jLabel25.setText(numberFormat.format(sin_dscto));
+                    this.panelVentas.jLabel26.setText(numberFormat.format(con_dscto));
+                    this.panelVentas.jLabel27.setText(numberFormat.format(cuota_mensual));
+                    this.panelVentas.jLabel28.setText(numberFormat.format(this.total_ventas));
+                    temp_list = new Linked_List<>();
                 }
 
                 // Actualizar listas almacen y ventas
@@ -405,6 +441,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener{
                         lista_vehiculos = consulta_vehiculo.readAll();
                         llenarTablaAlmacen(lista_vehiculos);
                         llenarTablaClientes();
+
                         return;
                     }
 
@@ -443,7 +480,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener{
                     float precio_unitario = modeloInventario.getPrecio();//Falta verificar si la lista_ajustes(10) es distinto de 1 para cambiar ese valor
                     float precio_total = precio_unitario * Integer.valueOf(cantidad);
                     llenar_Tabla_Ventas(id, descripcion, cantidad, precio_unitario, precio_total);
-                    llenar_Adicional_Ventas(precio_total);
+                    llenar_Adicional_Ventas_2(precio_total, tipo_venta);
                     Almacenado temp_almacenado = new Almacenado();
                     if (temp_funciona.isFunciona()) {
                         temp_almacenado.setId(id);
@@ -467,96 +504,96 @@ public class Controlador_Ventas implements ActionListener, KeyListener{
         }
 
     }
-    
-    private void buscarAlmacen(String referencia, int numero){
 
-        String buscar ;
-        Linked_List<Modelo_Inventario_Vehiculos> listaBusqueda ;
-        switch(numero){
-            case 1:{
-                listaBusqueda  = new Linked_List<Modelo_Inventario_Vehiculos>();
+    private void buscarAlmacen(String referencia, int numero) {
+
+        String buscar;
+        Linked_List<Modelo_Inventario_Vehiculos> listaBusqueda;
+        switch (numero) {
+            case 1: {
+                listaBusqueda = new Linked_List<Modelo_Inventario_Vehiculos>();
                 int tamanho = lista_vehiculos.size();
-                for(int i = 0 ;i<tamanho;i++){
-                    int tamanhoRef = ((Modelo_Inventario_Vehiculos)lista_vehiculos.get(i)).getId().length() + 1;
-                    String palabra = ((Modelo_Inventario_Vehiculos)lista_vehiculos.get(i)).getId();
-                    for(int j = 1 ; j<tamanhoRef ;j++){
-                        if(referencia.equalsIgnoreCase(palabra)){
+                for (int i = 0; i < tamanho; i++) {
+                    int tamanhoRef = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId().length() + 1;
+                    String palabra = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
+                    for (int j = 1; j < tamanhoRef; j++) {
+                        if (referencia.equalsIgnoreCase(palabra)) {
                             // BUSQUEDA PERFECTA CODIGO AQUI
                             panelVentas.customButtonShaped1.doClick();
                             listaBusqueda.add(lista_vehiculos.get(i));
                             break;
-                        }else if(referencia.equalsIgnoreCase(palabra.substring(0, j))){
+                        } else if (referencia.equalsIgnoreCase(palabra.substring(0, j))) {
                             listaBusqueda.add(lista_vehiculos.get(i));
                             break;
                         }
                     }
                 }
-                if(listaBusqueda.size()>0){
+                if (listaBusqueda.size() > 0) {
                     llenarTablaAlmacen(listaBusqueda);
                     panelVentas.tAlmacen.setRowSelectionInterval(0, 0);
-                }else{
+                } else {
                     mensaje("NO SE ENCONTRARON COINCIDENCIAS");
                     panelVentas.txfAlmacenBuscar.setText("");
                     panelVentas.tAlmacen.clearSelection();
-                    llenarTablaAlmacen(lista_vehiculos);  
+                    llenarTablaAlmacen(lista_vehiculos);
                 }
-                if(referencia.equals("")){
-                   this.panelVentas.tAlmacen.clearSelection();
+                if (referencia.equals("")) {
+                    this.panelVentas.tAlmacen.clearSelection();
                 }
                 break;
             }
-            case 2:{
-                listaBusqueda  = new Linked_List<Modelo_Inventario_Vehiculos>();
+            case 2: {
+                listaBusqueda = new Linked_List<Modelo_Inventario_Vehiculos>();
                 int tamanho = lista_vehiculos.size();
-                for(int i = 0 ;i<tamanho;i++){
-                   buscar = ((Modelo_Inventario_Vehiculos)lista_vehiculos.get(i)).getNombre_prod();
-                   String[] palabras = referencia.split("\\s+");
+                for (int i = 0; i < tamanho; i++) {
+                    buscar = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getNombre_prod();
+                    String[] palabras = referencia.split("\\s+");
                     for (String palabra : palabras) {
                         if (buscar.contains(palabra)) {
                             listaBusqueda.add(lista_vehiculos.get(i));
                         }
                     }
                 }
-                if(listaBusqueda.size()>0){
+                if (listaBusqueda.size() > 0) {
                     llenarTablaAlmacen(listaBusqueda);
                     panelVentas.tAlmacen.setRowSelectionInterval(0, 0);
-                }else{
+                } else {
                     mensaje("NO SE ENCONTRARON COINCIDENCIAS");
                     panelVentas.txfAlmacenBuscar.setText("");
                     panelVentas.tAlmacen.clearSelection();
-                    
-                    llenarTablaAlmacen(lista_vehiculos);  
+
+                    llenarTablaAlmacen(lista_vehiculos);
                 }
                 break;
             }
-            case 3:{
-                listaBusqueda  = new Linked_List<Modelo_Inventario_Vehiculos>();
+            case 3: {
+                listaBusqueda = new Linked_List<Modelo_Inventario_Vehiculos>();
                 int tamanho = lista_vehiculos.size();
-                for(int i = 0 ;i<tamanho;i++){
-                   buscar = ((Modelo_Inventario_Vehiculos)lista_vehiculos.get(i)).getMarca();
-                   String[] palabras = referencia.split("\\s+");
+                for (int i = 0; i < tamanho; i++) {
+                    buscar = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMarca();
+                    String[] palabras = referencia.split("\\s+");
                     for (String palabra : palabras) {
                         if (buscar.contains(palabra)) {
                             listaBusqueda.add(lista_vehiculos.get(i));
                         }
                     }
                 }
-                if(listaBusqueda.size()>0){
+                if (listaBusqueda.size() > 0) {
                     llenarTablaAlmacen(listaBusqueda);
                     panelVentas.tAlmacen.setRowSelectionInterval(0, 0);
-                }else{
+                } else {
                     mensaje("NO SE ENCONTRARON COINCIDENCIAS");
                     panelVentas.txfAlmacenBuscar.setText("");
                     panelVentas.tAlmacen.clearSelection();
-                    
-                    llenarTablaAlmacen(lista_vehiculos);  
+
+                    llenarTablaAlmacen(lista_vehiculos);
                 }
                 break;
             }
-            default : break;
+            default:
+                break;
         }
-           
-            
+
     }
 
     private void llenar_Tabla_Ventas(String id, String descripcion, String cantidad, Float precio_unitario, Float precio_total) {
@@ -579,6 +616,28 @@ public class Controlador_Ventas implements ActionListener, KeyListener{
         this.panelVentas.jLabel26.setText(numberFormat.format(con_dscto));
         this.panelVentas.jLabel27.setText(numberFormat.format(cuota_mensual));
         this.panelVentas.jLabel28.setText(numberFormat.format(this.total_ventas));
+    }
+
+    private void llenar_Adicional_Ventas_2(Float precio_total, int nuevo_tipo) {
+
+        this.dscto = this.panelVentas.jSlider1.getValue();
+        //this.sin_dscto = (this.sin_dscto) / (Float.valueOf(this.temp_costo[this.tipo_venta]));
+
+        this.sin_dscto += precio_total;
+        float temp = this.sin_dscto * Float.valueOf(this.temp_costo[nuevo_tipo]);
+        this.con_dscto = temp * (100 - this.dscto) / 100.f;
+        this.sin_igv = this.con_dscto;
+        this.con_igv = 1.18f * this.sin_igv;
+        this.total_ventas = this.con_igv;
+        this.cuota_mensual = this.total_ventas / (float) cuotas;
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
+        this.panelVentas.jLabel22.setText(numberFormat.format(sin_igv));
+        this.panelVentas.jLabel23.setText(numberFormat.format(con_igv));
+        this.panelVentas.jLabel25.setText(numberFormat.format(temp));
+        this.panelVentas.jLabel26.setText(numberFormat.format(con_dscto));
+        this.panelVentas.jLabel27.setText(numberFormat.format(cuota_mensual));
+        this.panelVentas.jLabel28.setText(numberFormat.format(this.total_ventas));
+
     }
 
     private void mensaje(String msg) {
@@ -605,19 +664,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener{
                 }
                 this.dscto = this.panelVentas.jSlider1.getValue();
                 this.sin_dscto = this.sin_dscto - temp_total;
-                this.con_dscto = this.sin_dscto * this.dscto / 100.f;
-                this.sin_igv = this.con_dscto;
-                this.con_igv = 1.18f * this.sin_igv;
-                this.total_ventas = this.con_igv;
-                this.cuota_mensual = this.total_ventas / (float) cuotas;
-                DecimalFormat numberFormat = new DecimalFormat("#.00");
-                this.panelVentas.jLabel22.setText(numberFormat.format(sin_igv));
-                this.panelVentas.jLabel23.setText(numberFormat.format(con_igv));
-                this.panelVentas.jLabel25.setText(numberFormat.format(sin_dscto));
-                this.panelVentas.jLabel26.setText(numberFormat.format(con_dscto));
-                this.panelVentas.jLabel27.setText(numberFormat.format(cuota_mensual));
-                this.panelVentas.jLabel28.setText(numberFormat.format(this.total_ventas));
-//                System.out.println(this.panelVentas.tDatosVentas.getRowCount());
+                this.llenar_Adicional_Ventas_2(0.f, tipo_venta);
             } else {
                 Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Seleccione la fila que desea quitar");
                 mensaje.setVisible(true);
@@ -633,7 +680,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener{
             sin_dscto = 0.00f;
             con_dscto = 0.00f;
             cuota_mensual = 0.00f;
-            DecimalFormat numberFormat = new DecimalFormat("#.00");
+            DecimalFormat numberFormat = new DecimalFormat("0.00");
             this.panelVentas.jLabel22.setText(numberFormat.format(sin_igv));
             this.panelVentas.jLabel23.setText(numberFormat.format(con_igv));
             this.panelVentas.jLabel25.setText(numberFormat.format(sin_dscto));
@@ -641,6 +688,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener{
             this.panelVentas.jLabel27.setText(numberFormat.format(cuota_mensual));
             this.panelVentas.jLabel28.setText(numberFormat.format(this.total_ventas));
 //            System.out.println(this.panelVentas.tDatosVentas.getRowCount()); 
+            temp_list = new Linked_List<>();
         }
 
         if (e.getSource() == this.panelVentas.btnClienteAgregar) {
@@ -726,10 +774,9 @@ public class Controlador_Ventas implements ActionListener, KeyListener{
         }
 
         if (e.getSource() == this.panelVentas.btnAlmacenBuscar) {//boton buscar del almacen
-           if(panelVentas.rbCodigo.isSelected()){
-              buscarAlmacen(panelVentas.txfAlmacenBuscar.getText(),0); 
-           }
-            
+            if (panelVentas.rbCodigo.isSelected()) {
+                buscarAlmacen(panelVentas.txfAlmacenBuscar.getText(), 0);
+            }
 
         }
 
@@ -737,24 +784,24 @@ public class Controlador_Ventas implements ActionListener, KeyListener{
 
     @Override
     public void keyTyped(KeyEvent ke) {
-        
+
     }
 
     @Override
     public void keyPressed(KeyEvent ke) {
-        
+
     }
 
     @Override
     public void keyReleased(KeyEvent ke) {
-       if(ke.getSource()== panelVentas.txfAlmacenBuscar){
-            if(panelVentas.rbCodigo.isSelected()){
-              buscarAlmacen(panelVentas.txfAlmacenBuscar.getText().toUpperCase(),1); 
-           }else if(panelVentas.rbDescripcion.isSelected()){
-              buscarAlmacen(panelVentas.txfAlmacenBuscar.getText().toUpperCase(),2); 
-           }else if(panelVentas.rbMarca.isSelected()){
-              buscarAlmacen(panelVentas.txfAlmacenBuscar.getText().toUpperCase(),3); 
-           }
-        } 
+        if (ke.getSource() == panelVentas.txfAlmacenBuscar) {
+            if (panelVentas.rbCodigo.isSelected()) {
+                buscarAlmacen(panelVentas.txfAlmacenBuscar.getText().toUpperCase(), 1);
+            } else if (panelVentas.rbDescripcion.isSelected()) {
+                buscarAlmacen(panelVentas.txfAlmacenBuscar.getText().toUpperCase(), 2);
+            } else if (panelVentas.rbMarca.isSelected()) {
+                buscarAlmacen(panelVentas.txfAlmacenBuscar.getText().toUpperCase(), 3);
+            }
+        }
     }
 }
