@@ -338,9 +338,9 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                             temp_model_vehiculos.setCantidad(temp_model_vehiculos.getCantidad() - Integer.valueOf(cantidad));
 
                             if (consultas_inventario.update(temp_model_vehiculos)) {
-                                System.out.println("Actuaizacion de inventario " + i + " realizada con exito");
+                                System.out.println("Actualizacion de inventario " + i + " realizada con exito");
                             } else {
-                                System.out.println("Error en actuaizacion de inventario " + i);
+                                System.out.println("Error en actualizacion de inventario " + i);
                                 logCount++;
                             }
                         }
@@ -352,7 +352,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                 Modelo_Ventas temp_model = new Modelo_Ventas();
                 Consultas_Ventas consulta_venta = new Consultas_Ventas();
                 int id_trabajador = this.controladorAdmin.getModel_user().getId();
-                int index = lista_clientes.findClientes(lista_clientes, (String) this.panelVentas.jTable1.getValueAt(0, 0)).getTemp().peek();
+                int index = lista_clientes.findClientes(lista_clientes, (String) this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 0)).getTemp().peek();
                 int id_cliente = ((Modelo_Clientes) lista_clientes.get(index)).getId();
                 int logCount = 0;
                 int rowCount = -1;
@@ -379,22 +379,26 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                     temp_model.setCantidad(Integer.valueOf(cantidad));
                     switch (tipo_venta) {
                         case 0:
-                            total *= Integer.valueOf(this.temp_costo[0]);
-                            total = total / 100.f;
+                            total *= Float.valueOf(this.temp_costo[0]);
+
                             break;
                         case 1:
-                            total *= Integer.valueOf(this.temp_costo[1]);
-                            total = total / 100.f;
+                            total *= Float.valueOf(this.temp_costo[1]);
+
                             break;
                         case 2:
-                            total *= Integer.valueOf(this.temp_costo[2]);
-                            total = total / 100.f;
+                            total *= Float.valueOf(this.temp_costo[2]);
+
                             break;
                         default:
                             break;
                     }
 
-                    temp_model.setTotal(total);
+                    this.dscto = this.panelVentas.jSlider1.getValue();
+                    float temp;
+                    temp = total * (100 - this.dscto) / 100.f;
+                    temp = temp * 1.18f;
+                    temp_model.setTotal(temp);
                     temp_model.setDscto(this.dscto);
                     temp_model.setCuotas(this.cuotas);
                     if (consulta_venta.create(temp_model)) {
@@ -409,7 +413,21 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                     mensaje("ERROR AL INTENTAR REALIZAR LA OPERACION");
                 } else {
                     mensaje("SE REALIZO EXITOSAMENTE LA OPERACION");
-
+                    this.iniciarTablaVentas();
+                    total_ventas = 0.00f;
+                    sin_igv = 0.00f;
+                    con_igv = 0.00f;
+                    sin_dscto = 0.00f;
+                    con_dscto = 0.00f;
+                    cuota_mensual = 0.00f;
+                    DecimalFormat numberFormat = new DecimalFormat("0.00");
+                    this.panelVentas.jLabel22.setText(numberFormat.format(sin_igv));
+                    this.panelVentas.jLabel23.setText(numberFormat.format(con_igv));
+                    this.panelVentas.jLabel25.setText(numberFormat.format(sin_dscto));
+                    this.panelVentas.jLabel26.setText(numberFormat.format(con_dscto));
+                    this.panelVentas.jLabel27.setText(numberFormat.format(cuota_mensual));
+                    this.panelVentas.jLabel28.setText(numberFormat.format(this.total_ventas));
+                    temp_list = new Linked_List<>();
                 }
 
                 // Actualizar listas almacen y ventas
@@ -423,6 +441,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                         lista_vehiculos = consulta_vehiculo.readAll();
                         llenarTablaAlmacen(lista_vehiculos);
                         llenarTablaClientes();
+
                         return;
                     }
 
@@ -661,7 +680,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
             sin_dscto = 0.00f;
             con_dscto = 0.00f;
             cuota_mensual = 0.00f;
-            DecimalFormat numberFormat = new DecimalFormat("#.00");
+            DecimalFormat numberFormat = new DecimalFormat("0.00");
             this.panelVentas.jLabel22.setText(numberFormat.format(sin_igv));
             this.panelVentas.jLabel23.setText(numberFormat.format(con_igv));
             this.panelVentas.jLabel25.setText(numberFormat.format(sin_dscto));
