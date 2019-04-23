@@ -7,7 +7,9 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 
@@ -33,7 +35,9 @@ public class Ventana_Login extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout (new GridBagLayout());
         getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(60,60,60)));
-        
+        this.setTitle("Tiendas Q&V App");
+        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/recursos/(256x256px)Logo4.png"));
+        setIconImage(icon);
         pack();
     }
     
@@ -63,6 +67,7 @@ public class Ventana_Login extends javax.swing.JFrame {
         getContentPane().add (panelLogin, constraints);
     }
     
+ 
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

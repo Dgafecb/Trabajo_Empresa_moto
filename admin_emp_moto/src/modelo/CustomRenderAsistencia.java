@@ -17,15 +17,15 @@ public class CustomRenderAsistencia extends DefaultTableCellRenderer{
       super.getTableCellRendererComponent (table, value, isSelected, hasFocus, row, column);
       int cantidad = Integer.parseInt(table.getModel().getValueAt(row,3).toString());
       int advertencia = Integer.parseInt(table.getModel().getValueAt(row,12).toString());
-      if ( cantidad == advertencia ){
-         this.setOpaque(true);
-         this.setBackground(Cadenas.COLOR_DEFAULT_RED);
-         this.setForeground(Color.WHITE);
-      }else if ( cantidad - advertencia < 3){
+      if ( cantidad - advertencia <= 2 && cantidad - advertencia > 0 ){
          this.setOpaque(true);
          this.setBackground(Cadenas.COLOR_DEFAULT_YELLOW);
          this.setForeground(Cadenas.COLOR_DEFAULT_BLACK);
-      }else {
+      }else if ( cantidad - advertencia <=0){
+         this.setOpaque(true);
+         this.setBackground(Cadenas.COLOR_DEFAULT_RED);
+         this.setForeground(Color.WHITE);
+        }else {
          this.setOpaque(false);
          this.setBackground(Color.WHITE);
          this.setForeground(Cadenas.COLOR_DEFAULT_BLACK);
