@@ -90,7 +90,7 @@ public class Panel_Registros_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         pCRUD.add(jButton12, gridBagConstraints);
 
-        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(40x40px)btnRegistros.png"))); // NOI18N
+        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(40x40px)btnUpdate.png"))); // NOI18N
         jButton13.setMaximumSize(new java.awt.Dimension(50, 35));
         jButton13.setMinimumSize(new java.awt.Dimension(50, 35));
         jButton13.setPreferredSize(new java.awt.Dimension(50, 35));

@@ -316,7 +316,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pMenuInventario.add(btnExportar, gridBagConstraints);
 
-        btnupdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(40x40px)btnRegistros.png"))); // NOI18N
+        btnupdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(40x40px)btnUpdate.png"))); // NOI18N
         btnupdate.setMaximumSize(new java.awt.Dimension(50, 40));
         btnupdate.setMinimumSize(new java.awt.Dimension(50, 40));
         btnupdate.setPreferredSize(new java.awt.Dimension(50, 40));

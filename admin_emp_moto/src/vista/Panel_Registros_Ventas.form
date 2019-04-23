@@ -139,7 +139,7 @@
             <Component class="custom.CustomButtonShaped" name="jButton13">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/recursos/(40x40px)btnRegistros.png"/>
+                  <Image iconType="3" name="/recursos/(40x40px)btnUpdate.png"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[50, 35]"/>

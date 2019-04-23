@@ -9,12 +9,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.LinkedList;
+import java.util.List;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.SwingConstants;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -22,6 +29,7 @@ import modelo.Consultas_Asistencia;
 import modelo.Consultas_Clientes;
 import modelo.Consultas_Trabajadores;
 import modelo.Consultas_Ventas;
+import modelo.Exporter;
 import modelo.Linked_List;
 import modelo.Modelo_Ajustes;
 import modelo.Modelo_Asistencia;
@@ -73,7 +81,9 @@ public class Controlador_Registros_Trabajadores implements ActionListener,MouseL
         panelRegistrosTrabajadores.btnTrabajadorBorrar.addActionListener(this);
         panelRegistrosTrabajadores.btnAsistenciaModificar.addActionListener(this);
         panelRegistrosTrabajadores.btnAsistenciaBorrar.addActionListener(this);
-        this.panelRegistrosTrabajadores.jTable2.addMouseListener(this);
+        panelRegistrosTrabajadores.btnTrabajadorAgregar1.addActionListener(this);
+        panelRegistrosTrabajadores.btnTrabajadorAgregar2.addActionListener(this);
+        panelRegistrosTrabajadores.jTable2.addMouseListener(this);
         
         //TEMPORAL
         
@@ -297,6 +307,33 @@ public class Controlador_Registros_Trabajadores implements ActionListener,MouseL
         }
     }
     
+    private void exportar(JTable jTable1){
+         if (jTable1.getRowCount() > 0) {
+            JFileChooser chooser = new JFileChooser();
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de excel", "xls");
+            chooser.setFileFilter(filter);
+            chooser.setDialogTitle("Guardar archivo");
+            chooser.setAcceptAllFileFilterUsed(false);
+        if (chooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+            List tb = new ArrayList();
+            List nom = new ArrayList();
+            tb.add(jTable1);
+            nom.add("Compras por factura");
+            String file = chooser.getSelectedFile().toString().concat(".xls");
+            try {
+                Exporter e = new Exporter(new File(file), tb, nom);
+                if (e.export()) {
+                     JOptionPane.showMessageDialog(null, "Los datos fueron exportados a excel en el directorio seleccionado", "Mensaje de Informacion", JOptionPane.INFORMATION_MESSAGE);
+                }
+            } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Hubo un error " + e.getMessage(), " Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        }else{
+            JOptionPane.showMessageDialog(ventanaAdmin, "No hay datos para exportar","Mensaje de error",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadorAgregar) { 
@@ -337,7 +374,25 @@ public class Controlador_Registros_Trabajadores implements ActionListener,MouseL
             
         }else if (ae.getSource() == this.panelRegistrosTrabajadores.btnAsistenciaBorrar) {//boton eliminar del panel Registro asistencia
             
-        }
+        }else if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadorAgregar2) {
+                Thread hilo = new Thread(){
+                    @Override
+                    public void run() {
+                        Consultas_Trabajadores consulta1 = new Consultas_Trabajadores();
+                        Consultas_Asistencia consulta2 = new Consultas_Asistencia();
+                        lista_trabajadores = consulta1.readAll();
+                        lista_asistencia = consulta2.readAll();
+                        fillTableTrabajadores(lista_trabajadores);
+                        fillTableAsistencia(lista_asistencia);
+                        mensaje("OPERACION REALIZADA");
+                        return ;
+                    }
+                };
+            hilo.start();
+            
+        }else if(ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadorAgregar1){
+            exportar(panelRegistrosTrabajadores.jTable2);
+        } 
     }
 
     @Override

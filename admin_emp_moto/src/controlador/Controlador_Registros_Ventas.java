@@ -3,12 +3,20 @@ package controlador;
 import static controlador.Controlador_login.lista_ventas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.SwingConstants;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import modelo.Consultas_Ventas;
+import modelo.Exporter;
 import modelo.Linked_List;
 import modelo.Modelo_Ventas;
 import vista.Emergente_Aviso;
@@ -40,6 +48,8 @@ public class Controlador_Registros_Ventas implements ActionListener{
         panelVentas.jButton9.addActionListener(this);
         panelVentas.jButton10.addActionListener(this);
         panelVentas.jButton11.addActionListener(this);
+        panelVentas.jButton12.addActionListener(this);
+        panelVentas.jButton13.addActionListener(this);
         panelVentas.btnClienteBuscar.addActionListener(this);
     }
     
@@ -301,6 +311,33 @@ public class Controlador_Registros_Ventas implements ActionListener{
         mi_mensaje.setVisible(true);
     }
 
+    private void exportar(JTable jTable1){
+         if (jTable1.getRowCount() > 0) {
+            JFileChooser chooser = new JFileChooser();
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de excel", "xls");
+            chooser.setFileFilter(filter);
+            chooser.setDialogTitle("Guardar archivo");
+            chooser.setAcceptAllFileFilterUsed(false);
+        if (chooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+            List tb = new ArrayList();
+            List nom = new ArrayList();
+            tb.add(jTable1);
+            nom.add("Compras por factura");
+            String file = chooser.getSelectedFile().toString().concat(".xls");
+            try {
+                Exporter e = new Exporter(new File(file), tb, nom);
+                if (e.export()) {
+                     JOptionPane.showMessageDialog(null, "Los datos fueron exportados a excel en el directorio seleccionado", "Mensaje de Informacion", JOptionPane.INFORMATION_MESSAGE);
+                }
+            } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Hubo un error " + e.getMessage(), " Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        }else{
+            JOptionPane.showMessageDialog(ventanaAdmin, "No hay datos para exportar","Mensaje de error",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getSource()==panelVentas.btnClienteBuscar){
@@ -338,6 +375,21 @@ public class Controlador_Registros_Ventas implements ActionListener{
                 public void run() {
                    if(eliminar()) mensaje("OPERACION REALIZADA");
                    else mensaje("OPERACION FALLIDA");
+                    return ;
+                }
+            };
+            hilo.start();
+        }else if(ae.getSource()==panelVentas.jButton12){
+            exportar(panelVentas.jTable1);
+        }else if(ae.getSource()==panelVentas.jButton13){
+            Thread hilo = new Thread(){
+                @Override
+                public void run() {
+                    Consultas_Ventas consulta = new Consultas_Ventas();
+                    listaVentas = consulta.readAll();
+                    fillTable(listaVentas);
+                    mensaje("OPERACION REALIZADA");
+                   
                     return ;
                 }
             };

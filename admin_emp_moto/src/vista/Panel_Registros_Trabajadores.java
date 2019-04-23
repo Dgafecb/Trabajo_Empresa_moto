@@ -106,6 +106,7 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
         pCRUD.add(btnTrabajadorAgregar1, gridBagConstraints);
 
+        btnTrabajadorAgregar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(40x40px)btnUpdate.png"))); // NOI18N
         btnTrabajadorAgregar2.setMaximumSize(new java.awt.Dimension(50, 35));
         btnTrabajadorAgregar2.setMinimumSize(new java.awt.Dimension(50, 35));
         btnTrabajadorAgregar2.setPreferredSize(new java.awt.Dimension(50, 35));
