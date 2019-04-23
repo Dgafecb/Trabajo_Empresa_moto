@@ -84,28 +84,27 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         btnTrabajadorAgregar.setMinimumSize(new java.awt.Dimension(100, 35));
         btnTrabajadorAgregar.setPreferredSize(new java.awt.Dimension(120, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         pCRUD.add(btnTrabajadorAgregar, gridBagConstraints);
 
         btnTrabajadorModificar.setText("EDITAR");
         btnTrabajadorModificar.setMinimumSize(new java.awt.Dimension(100, 35));
         btnTrabajadorModificar.setPreferredSize(new java.awt.Dimension(120, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         pCRUD.add(btnTrabajadorModificar, gridBagConstraints);
 
         btnTrabajadorBorrar.setText("BORRAR");
         btnTrabajadorBorrar.setMinimumSize(new java.awt.Dimension(100, 35));
         btnTrabajadorBorrar.setPreferredSize(new java.awt.Dimension(120, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         pCRUD.add(btnTrabajadorBorrar, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 5, 20);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         pTrabajadores.add(pCRUD, gridBagConstraints);
 
         pVentasBuscar.setBackground(new java.awt.Color(250, 250, 250));
@@ -151,8 +150,8 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 5, 20);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         pTrabajadores.add(pVentasBuscar, gridBagConstraints);
 
         jTable2.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
@@ -177,12 +176,14 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         pTrabajadores.add(jScrollPane2, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(20, 20, 5, 20);
         customPanel1.add(pTrabajadores, gridBagConstraints);
@@ -197,28 +198,27 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         btnAsistenciaAgregar.setMinimumSize(new java.awt.Dimension(100, 35));
         btnAsistenciaAgregar.setPreferredSize(new java.awt.Dimension(120, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         pDatosBotones.add(btnAsistenciaAgregar, gridBagConstraints);
 
         btnAsistenciaModificar.setText("EDITAR");
         btnAsistenciaModificar.setMinimumSize(new java.awt.Dimension(100, 35));
         btnAsistenciaModificar.setPreferredSize(new java.awt.Dimension(120, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         pDatosBotones.add(btnAsistenciaModificar, gridBagConstraints);
 
         btnAsistenciaBorrar.setText("BORRAR");
         btnAsistenciaBorrar.setMinimumSize(new java.awt.Dimension(100, 35));
         btnAsistenciaBorrar.setPreferredSize(new java.awt.Dimension(120, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         pDatosBotones.add(btnAsistenciaBorrar, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 5, 20);
         pAsistencia.add(pDatosBotones, gridBagConstraints);
 
         jTable1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
@@ -488,7 +488,6 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(20, 20, 5, 20);
         pAsistencia.add(pVentasBuscar1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();

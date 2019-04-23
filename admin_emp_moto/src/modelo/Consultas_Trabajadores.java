@@ -9,7 +9,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 
 public class Consultas_Trabajadores extends ConexionSQL {
 
-    public int create(Modelo_Trabajadores user) {
+    public boolean create(Modelo_Trabajadores user) {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
@@ -28,15 +28,15 @@ public class Consultas_Trabajadores extends ConexionSQL {
             ps.setFloat(7, user.getSueldo());
             ps.execute();
             ps.close();
-            return 2;
+            return true;
 
         }
         catch(SQLIntegrityConstraintViolationException e){
             System.err.println(e);
-            return 0;
+            return false;
         }catch (SQLException e) {
             System.err.println(e);
-            return 1;
+            return false;
         } finally {
             try {
                 con.close();
