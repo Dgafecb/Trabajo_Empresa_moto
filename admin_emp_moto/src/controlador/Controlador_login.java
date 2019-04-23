@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.SwingWorker;
 import modelo.Consultas_Ajustes;
@@ -76,21 +78,23 @@ public class Controlador_login implements ActionListener, KeyListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == view.panelLogin.btnAcceder) {
-            SwingWorker sw = new SwingWorker() {
+            Thread hilo1 = new Thread() {
                 @Override
-                protected Object doInBackground() throws Exception {
-                    view.panelLogin.pbLogin.setIndeterminate(true);
-                    accionBtnIngresar();
-                    return null;
-                }
-
-                @Override
-                public void done() {
-                    view.panelLogin.pbLogin.setIndeterminate(false);
-                    view.panelLogin.pbLogin.setValue(0); // 100%
+                public void run() {
+                    try {
+                        view.panelLogin.btnAcceder.setVisible(false);
+                        view.panelLogin.loading.setVisible(true);
+                        accionBtnIngresar();
+                        
+                        view.panelLogin.btnAcceder.setVisible(true);
+                        view.panelLogin.loading.setVisible(false);
+                        return;
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Controlador_login.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             };
-            sw.execute();
+            hilo1.start();
 
         }
     }
