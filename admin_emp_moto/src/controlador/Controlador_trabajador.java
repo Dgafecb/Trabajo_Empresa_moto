@@ -41,6 +41,10 @@ public class Controlador_trabajador implements ActionListener {
         this.llamarComponentes();
         //temporal
         ventanaTrabajador.menuTrabajador.btnInicio.setVisible(false);
+        limpiarSpContent();
+        panel_almacen = new Panel_Inventario();
+        ctrl_almacen = new Controlador_Almacen_Trabajadores(this, this.ventanaTrabajador);
+        ventanaTrabajador.administrarPanel(this.ventanaTrabajador.spContent, panel_almacen);
     }
 
     private void llamarComponentes() {

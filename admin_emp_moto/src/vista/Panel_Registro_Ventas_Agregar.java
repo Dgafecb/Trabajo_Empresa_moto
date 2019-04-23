@@ -179,7 +179,7 @@ public class Panel_Registro_Ventas_Agregar extends javax.swing.JPanel {
         txfVProducto.setMaximumSize(new java.awt.Dimension(200, 28));
         txfVProducto.setMinimumSize(new java.awt.Dimension(200, 28));
         txfVProducto.setPhColor(new java.awt.Color(60, 60, 60));
-        txfVProducto.setPlaceholder(Cadenas.CLIENTES_NOMBRE1);
+        txfVProducto.setPlaceholder("Ingresar ID de producto");
         txfVProducto.setPreferredSize(new java.awt.Dimension(200, 28));
         txfVProducto.setSelectionColor(new java.awt.Color(60, 60, 60));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -210,7 +210,7 @@ public class Panel_Registro_Ventas_Agregar extends javax.swing.JPanel {
         txfCNombre2.setMaximumSize(new java.awt.Dimension(200, 28));
         txfCNombre2.setMinimumSize(new java.awt.Dimension(200, 28));
         txfCNombre2.setPhColor(new java.awt.Color(60, 60, 60));
-        txfCNombre2.setPlaceholder(Cadenas.CLIENTES_NOMBRE1);
+        txfCNombre2.setPlaceholder("Ingresar ID de trabajador");
         txfCNombre2.setPreferredSize(new java.awt.Dimension(200, 28));
         txfCNombre2.setSelectionColor(new java.awt.Color(60, 60, 60));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -241,7 +241,7 @@ public class Panel_Registro_Ventas_Agregar extends javax.swing.JPanel {
         txfCNombre3.setMaximumSize(new java.awt.Dimension(200, 28));
         txfCNombre3.setMinimumSize(new java.awt.Dimension(200, 28));
         txfCNombre3.setPhColor(new java.awt.Color(60, 60, 60));
-        txfCNombre3.setPlaceholder(Cadenas.CLIENTES_NOMBRE1);
+        txfCNombre3.setPlaceholder("Ingresar ID de cliente");
         txfCNombre3.setPreferredSize(new java.awt.Dimension(200, 28));
         txfCNombre3.setSelectionColor(new java.awt.Color(60, 60, 60));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -272,7 +272,7 @@ public class Panel_Registro_Ventas_Agregar extends javax.swing.JPanel {
         txfCNombre4.setMaximumSize(new java.awt.Dimension(200, 28));
         txfCNombre4.setMinimumSize(new java.awt.Dimension(200, 28));
         txfCNombre4.setPhColor(new java.awt.Color(60, 60, 60));
-        txfCNombre4.setPlaceholder(Cadenas.CLIENTES_NOMBRE1);
+        txfCNombre4.setPlaceholder("Ingresar monto Inicial");
         txfCNombre4.setPreferredSize(new java.awt.Dimension(200, 28));
         txfCNombre4.setSelectionColor(new java.awt.Color(60, 60, 60));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -303,7 +303,7 @@ public class Panel_Registro_Ventas_Agregar extends javax.swing.JPanel {
         txfCNombre5.setMaximumSize(new java.awt.Dimension(200, 28));
         txfCNombre5.setMinimumSize(new java.awt.Dimension(200, 28));
         txfCNombre5.setPhColor(new java.awt.Color(60, 60, 60));
-        txfCNombre5.setPlaceholder(Cadenas.CLIENTES_NOMBRE1);
+        txfCNombre5.setPlaceholder("Ingresar dscto en %");
         txfCNombre5.setPreferredSize(new java.awt.Dimension(200, 28));
         txfCNombre5.setSelectionColor(new java.awt.Color(60, 60, 60));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -334,7 +334,7 @@ public class Panel_Registro_Ventas_Agregar extends javax.swing.JPanel {
         txfCNombre6.setMaximumSize(new java.awt.Dimension(200, 28));
         txfCNombre6.setMinimumSize(new java.awt.Dimension(200, 28));
         txfCNombre6.setPhColor(new java.awt.Color(60, 60, 60));
-        txfCNombre6.setPlaceholder(Cadenas.CLIENTES_NOMBRE1);
+        txfCNombre6.setPlaceholder("Ingresar nro. cuotas");
         txfCNombre6.setPreferredSize(new java.awt.Dimension(200, 28));
         txfCNombre6.setSelectionColor(new java.awt.Color(60, 60, 60));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -365,7 +365,7 @@ public class Panel_Registro_Ventas_Agregar extends javax.swing.JPanel {
         txfCNombre7.setMaximumSize(new java.awt.Dimension(200, 28));
         txfCNombre7.setMinimumSize(new java.awt.Dimension(200, 28));
         txfCNombre7.setPhColor(new java.awt.Color(60, 60, 60));
-        txfCNombre7.setPlaceholder(Cadenas.CLIENTES_NOMBRE1);
+        txfCNombre7.setPlaceholder("Ingresar Cantidad");
         txfCNombre7.setPreferredSize(new java.awt.Dimension(200, 28));
         txfCNombre7.setSelectionColor(new java.awt.Color(60, 60, 60));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -396,7 +396,7 @@ public class Panel_Registro_Ventas_Agregar extends javax.swing.JPanel {
         txfCNombre8.setMaximumSize(new java.awt.Dimension(200, 28));
         txfCNombre8.setMinimumSize(new java.awt.Dimension(200, 28));
         txfCNombre8.setPhColor(new java.awt.Color(60, 60, 60));
-        txfCNombre8.setPlaceholder(Cadenas.CLIENTES_NOMBRE1);
+        txfCNombre8.setPlaceholder("Ingresar Precio Unitario");
         txfCNombre8.setPreferredSize(new java.awt.Dimension(200, 28));
         txfCNombre8.setSelectionColor(new java.awt.Color(60, 60, 60));
         gridBagConstraints = new java.awt.GridBagConstraints();

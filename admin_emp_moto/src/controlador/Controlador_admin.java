@@ -48,6 +48,12 @@ public class Controlador_admin implements ActionListener {
         this.ventanaAdmin = view_admin;
         this.model_user = model_user;
         this.llamarComponentes();
+        //temporal
+        ventanaAdmin.menuAdmin.btnEstadisticas.setVisible(false);
+        limpiarSpContent();
+        panelInventario = new Panel_Inventario();
+        controladorAlmacen = new Controlador_Almacen(this,this.ventanaAdmin);
+        ventanaAdmin.administrarPanel(ventanaAdmin.spContent, panelInventario);
     }
 
     public Panel_Inventario getPanelInventario() {
