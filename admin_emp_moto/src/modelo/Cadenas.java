@@ -7,8 +7,8 @@ public class Cadenas {
 
     public static final Color COLOR_DEFAULT_BLACK = new Color(60,60,60);
     public static final Color COLOR_DEFAULT_WHITE = new Color(250,250,250);
-    public static final Color COLOR_DEFAULT_RED = new Color(230,0,0);
-    public static final Color COLOR_DEFAULT_YELLOW = new Color(255,255,0);
+    public static final Color COLOR_DEFAULT_RED = new Color(238,59,37);
+    public static final Color COLOR_DEFAULT_YELLOW = new Color(249,190,21);
     
     public static final String INVENTARIO_BUSCAR= "Buscar por descripcion";
     

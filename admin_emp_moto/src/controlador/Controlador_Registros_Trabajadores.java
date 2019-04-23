@@ -60,6 +60,7 @@ public class Controlador_Registros_Trabajadores implements ActionListener{
         panelRegistrosTrabajadores.btnAsistenciaModificar.addActionListener(this);
         panelRegistrosTrabajadores.btnAsistenciaBuscar.addActionListener(this);
         panelRegistrosTrabajadores.btnAsistenciaBorrar.addActionListener(this);
+        panelRegistrosTrabajadores.btnClienteBuscar.addActionListener(this);
         
     }
     
@@ -75,8 +76,38 @@ public class Controlador_Registros_Trabajadores implements ActionListener{
         return false;
     }
     
-    private void buscarTrabajador(String referencia, int i){
-        
+    private void buscarTrabajador(String referencia, int numero){
+        switch(numero){
+            case 1 :{
+                Linked_List<Modelo_Trabajadores> listaBusqueda = new Linked_List<Modelo_Trabajadores> (); 
+                int tamanho = trabajadores.size();
+                for (int i = 0 ; i < tamanho ; i++){
+                    int tamanhoRef = trabajadores.get(i).getDni().length()+1;
+                    String palabra = trabajadores.get(i).getDni();
+                    for(int j = 1 ; j<tamanhoRef ;j++){
+                        if(referencia.equalsIgnoreCase(palabra)){
+                            // BUSQUEDA PERFECTA CODIGO AQUI
+                            System.out.print("perfecto");
+                            listaBusqueda.add(trabajadores.get(i));
+                            break;
+                        }else if(referencia.equalsIgnoreCase(palabra.substring(0, j))){
+                            listaBusqueda.add(trabajadores.get(i));
+                            break;
+                        }
+                    }
+                }
+                if(listaBusqueda.size()>0){
+                    fillTableTrabajadores(listaBusqueda);
+                }else{
+                    message("NO SE ENCONTRARON COINCIDENCIAS");
+                    panelRegistrosTrabajadores.txfBuscar1.setText("");
+                    fillTableTrabajadores(trabajadores);
+                }
+                
+                break;
+            }
+            default : break;
+        }
     }
     
     @Override
@@ -87,6 +118,8 @@ public class Controlador_Registros_Trabajadores implements ActionListener{
             
         }else if (ae.getSource() == this.panelRegistrosTrabajadores.btnTrabajadorBorrar) {//boton elimnar del panel Registro trabajadores
 
+        }else if (ae.getSource() == this.panelRegistrosTrabajadores.btnClienteBuscar){
+            buscarTrabajador(panelRegistrosTrabajadores.txfBuscar1.getText(),1);
         }
         
         if (ae.getSource() == this.panelRegistrosTrabajadores.btnAsistenciaAgregar) {// boton agregar del panel Registro asistencia

@@ -268,7 +268,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener{
 
     private void llenarTablaAlmacen(Linked_List<Modelo_Inventario_Vehiculos> lista_vehiculos) {
 
-        DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Descripcion", "Marca", "Precio",}, 0);
+        DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Descripcion", "Marca",}, 0);
         for (int i = 0; i < lista_vehiculos.size(); i++) {
             String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
 
@@ -277,7 +277,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener{
             float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getPrecio();
             String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMarca();
 
-            model.addRow(new Object[]{id, descripcion, marca, precio});
+            model.addRow(new Object[]{id, descripcion, marca});
         }
         this.panelVentas.tAlmacen.setModel(model);
 
@@ -477,11 +477,17 @@ public class Controlador_Ventas implements ActionListener, KeyListener{
                 listaBusqueda  = new Linked_List<Modelo_Inventario_Vehiculos>();
                 int tamanho = lista_vehiculos.size();
                 for(int i = 0 ;i<tamanho;i++){
-                   buscar = ((Modelo_Inventario_Vehiculos)lista_vehiculos.get(i)).getId();
-                   String[] palabras = referencia.split("\\s+");
-                    for (String palabra : palabras) {
-                        if (buscar.contains(palabra)) {
+                    int tamanhoRef = ((Modelo_Inventario_Vehiculos)lista_vehiculos.get(i)).getId().length() + 1;
+                    String palabra = ((Modelo_Inventario_Vehiculos)lista_vehiculos.get(i)).getId();
+                    for(int j = 1 ; j<tamanhoRef ;j++){
+                        if(referencia.equalsIgnoreCase(palabra)){
+                            // BUSQUEDA PERFECTA CODIGO AQUI
+                            panelVentas.customButtonShaped1.doClick();
                             listaBusqueda.add(lista_vehiculos.get(i));
+                            break;
+                        }else if(referencia.equalsIgnoreCase(palabra.substring(0, j))){
+                            listaBusqueda.add(lista_vehiculos.get(i));
+                            break;
                         }
                     }
                 }
