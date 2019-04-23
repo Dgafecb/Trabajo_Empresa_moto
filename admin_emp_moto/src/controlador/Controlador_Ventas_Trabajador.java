@@ -274,7 +274,19 @@ public class Controlador_Ventas_Trabajador implements ActionListener, KeyListene
     }
 
     private void llenarTablaClientes() {
-        DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos"}, 0);
+        DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos"}, 0){
+            
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                switch (column) {
+                    case 0: return false;
+                    case 1: return false;
+                    case 2: return false;
+                    case 3: return false;
+                    default:return true;
+                }
+            }
+        };
         for (int i = 0; i < lista_clientes.size(); i++) {
             String dni = ((Modelo_Clientes) lista_clientes.get(i)).getDni();
             String nombres_apellido = ((Modelo_Clientes) lista_clientes.get(i)).getNombre_apellido();
@@ -288,7 +300,18 @@ public class Controlador_Ventas_Trabajador implements ActionListener, KeyListene
 
     private void llenarTablaAlmacen(Linked_List<Modelo_Inventario_Vehiculos> lista_vehiculos) {
 
-        DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Descripcion", "Marca",}, 0);
+        DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Descripcion", "Marca",}, 0){
+            
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                switch (column) {
+                    case 0: return false;
+                    case 1: return false;
+                    case 2: return false;
+                    default:return true;
+                }
+            }
+        };
         for (int i = 0; i < lista_vehiculos.size(); i++) {
             String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
 

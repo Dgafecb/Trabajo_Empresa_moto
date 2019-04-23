@@ -19,7 +19,7 @@ public class Emergente_Panel_RTrabajador extends javax.swing.JDialog {
     public CustomButtonShaped btnAceptar,btnCancelar;
     public Panel_Registro_Trabajadores_Agregar pRTrabajadoresAgregar;
     public LinkedList<String> listatrabajadores; 
-    private Dimension resolucionDialogo = new Dimension (500,500);
+    private Dimension resolucionDialogo = new Dimension (500,450);
    
     public Emergente_Panel_RTrabajador(java.awt.Frame parent, boolean modal) {
         super(parent, modal);

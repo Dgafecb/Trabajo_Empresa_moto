@@ -18,7 +18,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         grupoBuscarFiltro.add(rbMarca);
         grupoBuscarFiltro.add(rbDescripcion);
         jScrollPane1.getViewport().setBackground(Color.WHITE);
-        
+        rbId.setSelected(true);
        
 
     }
@@ -45,6 +45,8 @@ public class Panel_Inventario extends javax.swing.JPanel {
         rbId = new javax.swing.JRadioButton();
         rbMarca = new javax.swing.JRadioButton();
         rbDescripcion = new javax.swing.JRadioButton();
+        btnExportar = new modelo.CustomButtonShaped();
+        btnupdate = new modelo.CustomButtonShaped();
 
         setBackground(new java.awt.Color(60, 60, 60));
         setLayout(new java.awt.GridBagLayout());
@@ -191,7 +193,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         btnAgregar.setMinimumSize(new java.awt.Dimension(150, 40));
         btnAgregar.setPreferredSize(new java.awt.Dimension(150, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pMenuInventario.add(btnAgregar, gridBagConstraints);
@@ -201,7 +203,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         bntEliminar.setMinimumSize(new java.awt.Dimension(150, 40));
         bntEliminar.setPreferredSize(new java.awt.Dimension(150, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pMenuInventario.add(bntEliminar, gridBagConstraints);
@@ -212,7 +214,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         btnBuscar.setMinimumSize(new java.awt.Dimension(40, 40));
         btnBuscar.setPreferredSize(new java.awt.Dimension(40, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 0;
         pMenuInventario.add(btnBuscar, gridBagConstraints);
 
@@ -221,8 +223,9 @@ public class Panel_Inventario extends javax.swing.JPanel {
         btnModificar.setMinimumSize(new java.awt.Dimension(150, 40));
         btnModificar.setPreferredSize(new java.awt.Dimension(150, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pMenuInventario.add(btnModificar, gridBagConstraints);
 
         pBuscar.setBackground(new java.awt.Color(255, 255, 255));
@@ -246,7 +249,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         pBuscar.add(txfBuscar, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
@@ -303,6 +306,26 @@ public class Panel_Inventario extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         pMenuInventario.add(jPanel1, gridBagConstraints);
 
+        btnExportar.setText("EXPORTAR");
+        btnExportar.setMaximumSize(new java.awt.Dimension(150, 40));
+        btnExportar.setMinimumSize(new java.awt.Dimension(150, 40));
+        btnExportar.setPreferredSize(new java.awt.Dimension(150, 40));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pMenuInventario.add(btnExportar, gridBagConstraints);
+
+        btnupdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(40x40px)btnRegistros.png"))); // NOI18N
+        btnupdate.setMaximumSize(new java.awt.Dimension(50, 40));
+        btnupdate.setMinimumSize(new java.awt.Dimension(50, 40));
+        btnupdate.setPreferredSize(new java.awt.Dimension(50, 40));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pMenuInventario.add(btnupdate, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -324,7 +347,9 @@ public class Panel_Inventario extends javax.swing.JPanel {
     public modelo.CustomButtonShaped bntEliminar;
     public modelo.CustomButtonShaped btnAgregar;
     public modelo.CustomButtonShaped btnBuscar;
+    public modelo.CustomButtonShaped btnExportar;
     public custom.CustomButtonShaped btnModificar;
+    public modelo.CustomButtonShaped btnupdate;
     private custom.CustomPanel customPanel1;
     private javax.swing.ButtonGroup grupoBuscarFiltro;
     private javax.swing.JLabel jLabel1;

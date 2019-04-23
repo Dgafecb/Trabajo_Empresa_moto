@@ -165,7 +165,7 @@ public class Consultas_Trabajadores extends ConexionSQL {
                 trabajador.setNombre(rs.getString("nombre"));
                 trabajador.setApellido(rs.getString("apellido"));
                 trabajador.setSueldo(rs.getFloat("sueldo"));
-                trabajador.setFecha_creacion("fecha_creacion");
+                trabajador.setFecha_creacion(rs.getString("fecha_creacion"));
                 trabajador.setPrivilege(rs.getInt("privilege"));
                 listaTrabajadores.add(trabajador);
 

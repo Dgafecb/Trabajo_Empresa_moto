@@ -980,6 +980,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         rbContrato.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rbContrato.setForeground(new java.awt.Color(60, 60, 60));
         rbContrato.setText("CONTRATO");
+        rbContrato.setEnabled(false);
         rbContrato.setFocusPainted(false);
         rbContrato.setFocusable(false);
         rbContrato.setMaximumSize(new java.awt.Dimension(120, 25));
