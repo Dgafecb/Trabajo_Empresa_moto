@@ -5,8 +5,10 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JScrollPane;
@@ -35,6 +37,9 @@ public class Ventana_Admin extends javax.swing.JFrame{
         setUndecorated(true);
         getContentPane().setBackground(new Color(235,235,235));
         getContentPane().setLayout (new GridBagLayout());
+        this.setTitle("Tiendas Q&V App");
+        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/recursos/(256x256px)Logo4.png"));
+        setIconImage(icon);
         
     }
     

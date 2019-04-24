@@ -16,9 +16,6 @@ import modelo.Linked_List;
 import modelo.Modelo_Asistencia;
 import modelo.Modelo_Trabajadores;
 import modelo.Modelo_Ventas;
-import org.jfree.data.time.Day;
-import org.jfree.data.time.TimeSeries;
-import org.jfree.data.time.TimeSeriesCollection;
 import vista.Emergente_Aviso;
 import vista.Panel_Resumen;
 import vista.Ventana_Trabajador;
@@ -80,7 +77,7 @@ public class Controlador_Resumen implements ActionListener {
 
         return listaxTrabajador;
     }
-
+    /*
     private void actualizarGrafica(LinkedList<Modelo_Ventas> listaVentasTrabajador) {
         if (listaVentasTrabajador != null) {
             TimeSeriesCollection dataset = new TimeSeriesCollection();
@@ -117,7 +114,7 @@ public class Controlador_Resumen implements ActionListener {
         }
 
     }
-
+*/
     private void iniciarTabla() {
 
     }

@@ -3,12 +3,20 @@ package controlador;
 import static controlador.Controlador_login.lista_vehiculos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import modelo.Consultas_Inventario_Vehiculos;
 import modelo.CustomRenderAsistencia;
+import modelo.Exporter;
 import modelo.Linked_List;
 import modelo.Linked_List.InventarioTEMP;
 import modelo.Modelo_Inventario_Repuestos;
@@ -44,9 +52,134 @@ public class Controlador_Almacen implements ActionListener {
         this.panelInventario.bntEliminar.addActionListener(this);
         this.panelInventario.btnBuscar.addActionListener(this);
         this.panelInventario.btnModificar.addActionListener(this);
-        this.llenarTablaAlmacen();
+        this.panelInventario.btnupdate.addActionListener(this);
+        this.panelInventario.btnExportar.addActionListener(this);
+        this.llenarTablaAlmacen(lista_vehiculos);
     }
+    
+    private void buscarAlmacen(String referencia, int numero) {
 
+        String buscar;
+        Linked_List<Modelo_Inventario_Vehiculos> listaBusqueda;
+        switch (numero) {
+            case 1: {
+                listaBusqueda = new Linked_List<Modelo_Inventario_Vehiculos>();
+                int tamanho = lista_vehiculos.size();
+                for (int i = 0; i < tamanho; i++) {
+                    int tamanhoRef = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId().length() + 1;
+                    String palabra = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
+                    for (int j = 1; j < tamanhoRef; j++) {
+                        if (referencia.equalsIgnoreCase(palabra)) {
+                            // BUSQUEDA PERFECTA CODIGO AQUI
+                            listaBusqueda.add(lista_vehiculos.get(i));
+                            break;
+                        } else if (referencia.equalsIgnoreCase(palabra.substring(0, j))) {
+                            listaBusqueda.add(lista_vehiculos.get(i));
+                            break;
+                        }
+                    }
+                }
+                if (listaBusqueda.size() > 0) {
+                    llenarTablaAlmacen(listaBusqueda);
+                    panelInventario.jTable1.setRowSelectionInterval(0, 0);
+                } else {
+                    mensaje("NO SE ENCONTRARON COINCIDENCIAS");
+                    panelInventario.txfBuscar.setText("");
+                    panelInventario.jTable1.clearSelection();
+                    llenarTablaAlmacen(lista_vehiculos);
+                }
+                if (referencia.equals("")) {
+                    this.panelInventario.jTable1.clearSelection();
+                }
+                break;
+            }
+            case 2: {
+                listaBusqueda = new Linked_List<Modelo_Inventario_Vehiculos>();
+                int tamanho = lista_vehiculos.size();
+                for (int i = 0; i < tamanho; i++) {
+                    buscar = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getNombre_prod();
+                    String[] palabras = referencia.split("\\s+");
+                    for (String palabra : palabras) {
+                        if (buscar.contains(palabra)) {
+                            listaBusqueda.add(lista_vehiculos.get(i));
+                        }
+                    }
+                }
+                if (listaBusqueda.size() > 0) {
+                    llenarTablaAlmacen(listaBusqueda);
+                    panelInventario.jTable1.setRowSelectionInterval(0, 0);
+                } else {
+                    mensaje("NO SE ENCONTRARON COINCIDENCIAS");
+                    panelInventario.txfBuscar.setText("");
+                    panelInventario.jTable1.clearSelection();
+
+                    llenarTablaAlmacen(lista_vehiculos);
+                }
+                break;
+            }
+            case 3: {
+                listaBusqueda = new Linked_List<Modelo_Inventario_Vehiculos>();
+                int tamanho = lista_vehiculos.size();
+                for (int i = 0; i < tamanho; i++) {
+                    int tamanhoRef = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMarca().length() + 1;
+                    String palabra = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMarca();
+                    for (int j = 1; j < tamanhoRef; j++) {
+                        if (referencia.equalsIgnoreCase(palabra)) {
+                            // BUSQUEDA PERFECTA CODIGO AQUI
+                            listaBusqueda.add(lista_vehiculos.get(i));
+                            break;
+                        } else if (referencia.equalsIgnoreCase(palabra.substring(0, j))) {
+                            listaBusqueda.add(lista_vehiculos.get(i));
+                            break;
+                        }
+                    }
+                }
+                if (listaBusqueda.size() > 0) {
+                    llenarTablaAlmacen(listaBusqueda);
+                     panelInventario.jTable1.setRowSelectionInterval(0, 0);
+                } else {
+                    mensaje("NO SE ENCONTRARON COINCIDENCIAS");
+                    panelInventario.txfBuscar.setText("");
+                     panelInventario.jTable1.clearSelection();
+
+                    llenarTablaAlmacen(lista_vehiculos);
+                }
+                break;
+            }
+            default:
+                break;
+        }
+
+    }
+    
+    private void exportar(JTable jTable1){
+         if (jTable1.getRowCount() > 0) {
+            JFileChooser chooser = new JFileChooser();
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de excel", "xls");
+            chooser.setFileFilter(filter);
+            chooser.setDialogTitle("Guardar archivo");
+            chooser.setAcceptAllFileFilterUsed(false);
+        if (chooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+            List tb = new ArrayList();
+            List nom = new ArrayList();
+            tb.add(jTable1);
+            nom.add("Compras por factura");
+            String file = chooser.getSelectedFile().toString().concat(".xls");
+            try {
+                Exporter e = new Exporter(new File(file), tb, nom);
+                if (e.export()) {
+                     JOptionPane.showMessageDialog(null, "Los datos fueron exportados a excel en el directorio seleccionado", "Mensaje de Informacion", JOptionPane.INFORMATION_MESSAGE);
+                }
+            } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Hubo un error " + e.getMessage(), " Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        }else{
+            JOptionPane.showMessageDialog(ventanaAdmin, "No hay datos para exportar","Mensaje de error",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.panelInventario.btnAgregar) {
@@ -94,7 +227,7 @@ public class Controlador_Almacen implements ActionListener {
                     Consultas_Inventario_Vehiculos consultas = new Consultas_Inventario_Vehiculos();
                     if (consultas.create(temp_model)) {
                         lista_vehiculos.add(temp_model);
-                        this.llenarTablaAlmacen();
+                        this.llenarTablaAlmacen(lista_vehiculos);
                     } else {
                         Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo agregar al inventario");
                         mensaje.setVisible(true);
@@ -116,7 +249,7 @@ public class Controlador_Almacen implements ActionListener {
                 if (consultas.delete(temp_model)) {
 
                     lista_vehiculos.remove(index);
-                    this.llenarTablaAlmacen();
+                    this.llenarTablaAlmacen(lista_vehiculos);
                     Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se elimino del inventario");
                     mensaje.setVisible(true);
                 } else {
@@ -132,8 +265,7 @@ public class Controlador_Almacen implements ActionListener {
 
         }
 
-        if (e.getSource()
-                == this.panelInventario.btnModificar) {
+        if (e.getSource() == this.panelInventario.btnModificar) {
             if (this.panelInventario.jTable1.getSelectionModel().isSelectionEmpty() == false) {
                 if (this.panelInventario.jTable1.isEditing()) {
                     this.panelInventario.jTable1.getCellEditor().stopCellEditing();
@@ -171,7 +303,7 @@ public class Controlador_Almacen implements ActionListener {
                         int index = (lista_vehiculos.findIndexId(lista_vehiculos, id).getTemp()).peek();
                         lista_vehiculos.remove(index);
                         lista_vehiculos.add(index, temp_model);
-                        this.llenarTablaAlmacen();
+                        this.llenarTablaAlmacen(lista_vehiculos);
                         Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se actualizo el registro");
                         mensaje.setVisible(true);
                     } else {
@@ -185,111 +317,35 @@ public class Controlador_Almacen implements ActionListener {
 
             }
 
-        }
-
-        if (e.getSource() == this.panelInventario.btnBuscar) {
+        }else if (e.getSource() == this.panelInventario.btnBuscar) {
             if (this.panelInventario.rbId.isSelected()) {// UNICO ID
-                String temp_id = this.panelInventario.txfBuscar.getText();
-                InventarioTEMP temp = lista_vehiculos.findIndexId(lista_vehiculos, temp_id);
-                if (temp.isFunciona()) {
-                    int index = (int) ((temp.getTemp()).peek());
-
-                    DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoria", "Descripcion", "Cantidad", "Precio", "Marca", "Modelo", "Color", "Motor", "Chasis", "Año de Fabricacion",
-                        "Años de Garantia", "Advertencia"}, 0);
-                    String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getId();
-                    String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getTipo_vehiculo();
-                    String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getNombre_prod();
-                    int cantidad = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getCantidad();
-                    float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getPrecio();
-                    String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getMarca();
-                    String modelo = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getModelo();
-                    String color = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getColor();
-                    String motor = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getMotor();
-                    String chasis = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getChasis();
-                    String anho_fab = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getAnho_fab();
-                    String anhos_garantia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getAnhos_garantia();
-                    int advertencia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getLimite_advertencia();
-
-                    model.addRow(new Object[]{id, categoria, descripcion, cantidad, precio, marca, modelo, color, motor, chasis, anho_fab, anhos_garantia, advertencia});
-
-                    this.panelInventario.jTable1.setModel(model);
-                } else {
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el articulo con ese ID");
-                    mensaje.setVisible(true);
-                }
+                buscarAlmacen(panelInventario.txfBuscar.getText(), 1);
+            }else if (this.panelInventario.rbDescripcion.isSelected()) { // DESCRIPCION
+                buscarAlmacen(panelInventario.txfBuscar.getText(), 2);
+            }else if (this.panelInventario.rbMarca.isSelected()) {
+                buscarAlmacen(panelInventario.txfBuscar.getText(), 3);
             }
-            if (this.panelInventario.rbDescripcion.isSelected()) { // DESCRIPCION
-                String temp_id = this.panelInventario.txfBuscar.getText();
-                InventarioTEMP temp = lista_vehiculos.findIndexNombre(lista_vehiculos, temp_id);
-                if (temp.isFunciona()) {
-                    int index = (int) ((temp.getTemp()).peek());
-                    LinkedList<Integer> temp_list = temp.getTemp();
-                    DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoria", "Descripcion", "Cantidad", "Precio", "Marca", "Modelo", "Color", "Motor", "Chasis", "Año de Fabricacion",
-                        "Años de Garantia", "Advertencia"}, 0);
-                    for (int j = 0; j < temp_list.size(); j++) {
-                        int i = (int) temp.getTemp().get(j);
-                        String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
-                        String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getTipo_vehiculo();
-                        String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getNombre_prod();
-                        int cantidad = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getCantidad();
-                        float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getPrecio();
-                        String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMarca();
-                        String modelo = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getModelo();
-                        String color = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getColor();
-                        String motor = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMotor();
-                        String chasis = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getChasis();
-                        String anho_fab = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getAnho_fab();
-                        String anhos_garantia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getAnhos_garantia();
-                        int advertencia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getLimite_advertencia();
-
-                        model.addRow(new Object[]{id, categoria, descripcion, cantidad, precio, marca, modelo, color, motor, chasis, anho_fab, anhos_garantia, advertencia});
-
+        }else if (e.getSource() == this.panelInventario.btnupdate) {
+                Thread hilo = new Thread(){
+                    @Override
+                    public void run() {
+                        Consultas_Inventario_Vehiculos consulta = new Consultas_Inventario_Vehiculos();
+                        vehiculos = consulta.readAll();
+                         llenarTablaAlmacen(vehiculos);
+                        mensaje("OPERACION REALIZADA");
+                        return ;
                     }
-
-                    this.panelInventario.jTable1.setModel(model);
-                } else {
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el articulo con esa descripción");
-                    mensaje.setVisible(true);
-                }
-            }
-            if (this.panelInventario.rbMarca.isSelected()) {
-                String temp_id = this.panelInventario.txfBuscar.getText();
-                InventarioTEMP temp = lista_vehiculos.findIndexMarca(lista_vehiculos, temp_id);
-                if (temp.isFunciona()) {
-                    int index = (int) ((temp.getTemp()).peek());
-                    LinkedList<Integer> temp_list = temp.getTemp();
-                    DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoria", "Descripcion", "Cantidad", "Precio", "Marca", "Modelo", "Color", "Motor", "Chasis", "Año de Fabricacion",
-                        "Años de Garantia", "Advertencia"}, 0);
-                    for (int j = 0; j < temp_list.size(); j++) {
-                        int i = (int) temp.getTemp().get(j);
-                        String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
-                        String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getTipo_vehiculo();
-                        String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getNombre_prod();
-                        int cantidad = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getCantidad();
-                        float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getPrecio();
-                        String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMarca();
-                        String modelo = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getModelo();
-                        String color = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getColor();
-                        String motor = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMotor();
-                        String chasis = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getChasis();
-                        String anho_fab = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getAnho_fab();
-                        String anhos_garantia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getAnhos_garantia();
-                        int advertencia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getLimite_advertencia();
-
-                        model.addRow(new Object[]{id, categoria, descripcion, cantidad, precio, marca, modelo, color, motor, chasis, anho_fab, anhos_garantia, advertencia});
-                    }
-                    this.panelInventario.jTable1.setModel(model);
-                } else {
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el articulo con esa marca");
-                    mensaje.setVisible(true);
-                }
-            }
-
-        }
+                };
+            hilo.start();
+            
+        }else if(e.getSource() == this.panelInventario.btnExportar){
+            exportar(panelInventario.jTable1);
+        } 
+        
 
     }
 
-    private void llenarTablaAlmacen() {
+    private void llenarTablaAlmacen(Linked_List lista_vehiculos) {
 
         DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoria", "Descripcion", "Cantidad", "Precio", "Marca", "Modelo", "Color", "Motor", "Chasis", "Año de Fabricacion",
             "Años de Garantia", "Advertencia"}, 0){
@@ -321,4 +377,18 @@ public class Controlador_Almacen implements ActionListener {
         this.panelInventario.jTable1.setModel(model);
         this.panelInventario.jTable1.setDefaultRenderer (Object.class, new CustomRenderAsistencia());
     }
-}
+    
+    private void mensaje(String msg) {
+        Emergente_Aviso mensajes = new Emergente_Aviso(ventanaAdmin, true, msg);
+        mensajes.setVisible(true);
+    }
+    
+    
+    
+ }
+
+    
+    
+
+
+    

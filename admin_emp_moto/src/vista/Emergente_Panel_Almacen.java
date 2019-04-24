@@ -15,7 +15,7 @@ import modelo.Modelo_Inventario_Repuestos;
 
 public class Emergente_Panel_Almacen extends javax.swing.JDialog {
 
-    private Dimension resolucionDialogo = new Dimension (500,650);
+    private Dimension resolucionDialogo = new Dimension (500,730);
     public Borde_Ventana bordeVentana;
     public CustomButtonShaped btnAceptar,btnCancelar;
     public Panel_Inventario_Agregar pInventarioAgregar;

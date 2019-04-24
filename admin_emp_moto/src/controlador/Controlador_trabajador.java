@@ -13,6 +13,7 @@ import modelo.Linked_List;
 import modelo.Modelo_Asistencia;
 import modelo.Modelo_Trabajadores;
 import vista.Emergente_Aviso;
+import vista.Panel_Inventario;
 import vista.Panel_Resumen;
 import vista.Panel_Ventas;
 import vista.Ventana_Login;
@@ -26,8 +27,10 @@ public class Controlador_trabajador implements ActionListener {
     public Consultas_Trabajadores consultas_login;
     public Controlador_login ctrl_login;
     public Controlador_Resumen ctrl_resumen;
+    public Controlador_Almacen_Trabajadores ctrl_almacen;
     public Controlador_Ventas_Trabajador controlador_Ventas_Trabajador;
     public Panel_Resumen panel_resumen;
+    public Panel_Inventario panel_almacen;
 
     private Panel_Ventas panel_ventas;
     public Modelo_Trabajadores modelo_Trabajador_Actual;
@@ -36,12 +39,19 @@ public class Controlador_trabajador implements ActionListener {
         this.ventanaTrabajador = ventanaTrabajador;
         this.model_user = model_user;
         this.llamarComponentes();
+        //temporal
+        ventanaTrabajador.menuTrabajador.btnInicio.setVisible(false);
+        limpiarSpContent();
+        panel_almacen = new Panel_Inventario();
+        ctrl_almacen = new Controlador_Almacen_Trabajadores(this, this.ventanaTrabajador);
+        ventanaTrabajador.administrarPanel(this.ventanaTrabajador.spContent, panel_almacen);
     }
 
     private void llamarComponentes() {
         ventanaTrabajador.menuTrabajador.btnInicio.addActionListener(this);
         ventanaTrabajador.menuTrabajador.btnCerrarSesion.addActionListener(this);
         ventanaTrabajador.menuTrabajador.btnVentas.addActionListener(this);
+        ventanaTrabajador.menuTrabajador.btnAlmacen.addActionListener(this);
         ventanaTrabajador.menuNotificaciones.customButtonMarcar2.addActionListener(this);
         String dni = this.model_user.getDni();
         String fecha = new SimpleDateFormat("ddMMyyyy").format(Calendar.getInstance().getTime());
@@ -141,6 +151,7 @@ public class Controlador_trabajador implements ActionListener {
     private void limpiarSpContent() {
         this.panel_ventas = null;
         this.panel_resumen = null;
+        this.panel_almacen = null;
     }
 
     private void  marcarAsistencia(){
@@ -188,7 +199,13 @@ public class Controlador_trabajador implements ActionListener {
             panel_resumen = new Panel_Resumen();
             ctrl_resumen = new Controlador_Resumen(this.ventanaTrabajador, this);
             ventanaTrabajador.administrarPanel(this.ventanaTrabajador.spContent, panel_resumen);
+        }else if (e.getSource() == ventanaTrabajador.menuTrabajador.btnAlmacen) { // Reinstancia la ventana de login, permitiendo otro inicio de sesion
+            limpiarSpContent();
+            panel_almacen = new Panel_Inventario();
+            ctrl_almacen = new Controlador_Almacen_Trabajadores(this, this.ventanaTrabajador);
+            ventanaTrabajador.administrarPanel(this.ventanaTrabajador.spContent, panel_almacen);
         } else if (e.getSource() == ventanaTrabajador.menuTrabajador.btnCerrarSesion) { // Reinstancia la ventana de login, permitiendo otro inicio de sesion
+            limpiarSpContent();
             cerrarSesion();
         }
 

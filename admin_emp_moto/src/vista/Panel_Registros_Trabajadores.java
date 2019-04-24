@@ -29,6 +29,8 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         btnTrabajadorAgregar = new custom.CustomButtonShaped();
         btnTrabajadorModificar = new custom.CustomButtonShaped();
         btnTrabajadorBorrar = new custom.CustomButtonShaped();
+        btnTrabajadorAgregar1 = new custom.CustomButtonShaped();
+        btnTrabajadorAgregar2 = new custom.CustomButtonShaped();
         pVentasBuscar = new javax.swing.JPanel();
         btnClienteBuscar = new modelo.CustomButtonShaped();
         pBuscar1 = new javax.swing.JPanel();
@@ -44,8 +46,10 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         pAsistenciaDatos = new javax.swing.JPanel();
         lblDatosID = new javax.swing.JLabel();
         lblDatosDescuento = new javax.swing.JLabel();
-        txfDatosDNI = new javax.swing.JTextField();
+        txfTiempo = new javax.swing.JTextField();
         txfDescuento = new javax.swing.JTextField();
+        lblDatosID1 = new javax.swing.JLabel();
+        txfTardanza = new javax.swing.JTextField();
         pVentasBuscar1 = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
 
@@ -70,6 +74,8 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         btnTrabajadorAgregar.setMinimumSize(new java.awt.Dimension(100, 35));
         btnTrabajadorAgregar.setPreferredSize(new java.awt.Dimension(120, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
         pCRUD.add(btnTrabajadorAgregar, gridBagConstraints);
 
@@ -77,6 +83,8 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         btnTrabajadorModificar.setMinimumSize(new java.awt.Dimension(100, 35));
         btnTrabajadorModificar.setPreferredSize(new java.awt.Dimension(120, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         pCRUD.add(btnTrabajadorModificar, gridBagConstraints);
 
@@ -84,8 +92,29 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         btnTrabajadorBorrar.setMinimumSize(new java.awt.Dimension(100, 35));
         btnTrabajadorBorrar.setPreferredSize(new java.awt.Dimension(120, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         pCRUD.add(btnTrabajadorBorrar, gridBagConstraints);
+
+        btnTrabajadorAgregar1.setText("EXPORTAR");
+        btnTrabajadorAgregar1.setMinimumSize(new java.awt.Dimension(100, 35));
+        btnTrabajadorAgregar1.setPreferredSize(new java.awt.Dimension(120, 35));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
+        pCRUD.add(btnTrabajadorAgregar1, gridBagConstraints);
+
+        btnTrabajadorAgregar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(40x40px)btnUpdate.png"))); // NOI18N
+        btnTrabajadorAgregar2.setMaximumSize(new java.awt.Dimension(50, 35));
+        btnTrabajadorAgregar2.setMinimumSize(new java.awt.Dimension(50, 35));
+        btnTrabajadorAgregar2.setPreferredSize(new java.awt.Dimension(50, 35));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
+        pCRUD.add(btnTrabajadorAgregar2, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -240,7 +269,7 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         lblDatosID.setRequestFocusEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
@@ -255,27 +284,27 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         lblDatosDescuento.setRequestFocusEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pAsistenciaDatos.add(lblDatosDescuento, gridBagConstraints);
 
-        txfDatosDNI.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        txfDatosDNI.setForeground(new java.awt.Color(60, 60, 60));
-        txfDatosDNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txfDatosDNI.setText("00:00:00");
-        txfDatosDNI.setEnabled(false);
-        txfDatosDNI.setFocusable(false);
-        txfDatosDNI.setMaximumSize(new java.awt.Dimension(250, 40));
-        txfDatosDNI.setMinimumSize(new java.awt.Dimension(250, 40));
-        txfDatosDNI.setPreferredSize(new java.awt.Dimension(250, 40));
+        txfTiempo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        txfTiempo.setForeground(new java.awt.Color(60, 60, 60));
+        txfTiempo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txfTiempo.setText("00:00:00");
+        txfTiempo.setEnabled(false);
+        txfTiempo.setFocusable(false);
+        txfTiempo.setMaximumSize(new java.awt.Dimension(250, 40));
+        txfTiempo.setMinimumSize(new java.awt.Dimension(250, 40));
+        txfTiempo.setPreferredSize(new java.awt.Dimension(250, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAsistenciaDatos.add(txfDatosDNI, gridBagConstraints);
+        pAsistenciaDatos.add(txfTiempo, gridBagConstraints);
 
         txfDescuento.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         txfDescuento.setForeground(new java.awt.Color(60, 60, 60));
@@ -288,10 +317,41 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
         txfDescuento.setPreferredSize(new java.awt.Dimension(250, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pAsistenciaDatos.add(txfDescuento, gridBagConstraints);
+
+        lblDatosID1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblDatosID1.setForeground(new java.awt.Color(60, 60, 60));
+        lblDatosID1.setText("TARDANZAS TOTALES:");
+        lblDatosID1.setMaximumSize(new java.awt.Dimension(350, 40));
+        lblDatosID1.setMinimumSize(new java.awt.Dimension(300, 40));
+        lblDatosID1.setPreferredSize(new java.awt.Dimension(300, 40));
+        lblDatosID1.setRequestFocusEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAsistenciaDatos.add(lblDatosID1, gridBagConstraints);
+
+        txfTardanza.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        txfTardanza.setForeground(new java.awt.Color(60, 60, 60));
+        txfTardanza.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txfTardanza.setText("0");
+        txfTardanza.setEnabled(false);
+        txfTardanza.setFocusable(false);
+        txfTardanza.setMaximumSize(new java.awt.Dimension(250, 40));
+        txfTardanza.setMinimumSize(new java.awt.Dimension(250, 40));
+        txfTardanza.setPreferredSize(new java.awt.Dimension(250, 40));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAsistenciaDatos.add(txfTardanza, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -335,6 +395,8 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
     public modelo.CustomButtonShaped btnAsistenciaModificar;
     public modelo.CustomButtonShaped btnClienteBuscar;
     public custom.CustomButtonShaped btnTrabajadorAgregar;
+    public custom.CustomButtonShaped btnTrabajadorAgregar1;
+    public custom.CustomButtonShaped btnTrabajadorAgregar2;
     public custom.CustomButtonShaped btnTrabajadorBorrar;
     public custom.CustomButtonShaped btnTrabajadorModificar;
     private custom.CustomPanel customPanel1;
@@ -345,6 +407,7 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
     public javax.swing.JTable jTable2;
     private javax.swing.JLabel lblDatosDescuento;
     private javax.swing.JLabel lblDatosID;
+    private javax.swing.JLabel lblDatosID1;
     public javax.swing.JPanel pAsistencia;
     public javax.swing.JPanel pAsistenciaDatos;
     private javax.swing.JPanel pBuscar1;
@@ -354,7 +417,8 @@ public class Panel_Registros_Trabajadores extends javax.swing.JPanel {
     public javax.swing.JPanel pVentasBuscar;
     public javax.swing.JPanel pVentasBuscar1;
     public modelo.CustomTextField txfBuscar1;
-    public javax.swing.JTextField txfDatosDNI;
     public javax.swing.JTextField txfDescuento;
+    public javax.swing.JTextField txfTardanza;
+    public javax.swing.JTextField txfTiempo;
     // End of variables declaration//GEN-END:variables
 }

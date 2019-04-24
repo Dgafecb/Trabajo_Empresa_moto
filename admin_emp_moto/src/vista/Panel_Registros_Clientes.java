@@ -32,6 +32,8 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         jButton9 = new custom.CustomButtonShaped();
         jButton10 = new custom.CustomButtonShaped();
         jButton11 = new custom.CustomButtonShaped();
+        jButton12 = new custom.CustomButtonShaped();
+        jButton13 = new custom.CustomButtonShaped();
 
         setBackground(new java.awt.Color(60, 60, 60));
         setLayout(new java.awt.GridBagLayout());
@@ -121,6 +123,8 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         jButton9.setMinimumSize(new java.awt.Dimension(100, 35));
         jButton9.setPreferredSize(new java.awt.Dimension(120, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         pCRUD.add(jButton9, gridBagConstraints);
 
@@ -128,6 +132,8 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         jButton10.setMinimumSize(new java.awt.Dimension(100, 35));
         jButton10.setPreferredSize(new java.awt.Dimension(120, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         pCRUD.add(jButton10, gridBagConstraints);
 
@@ -135,8 +141,29 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
         jButton11.setMinimumSize(new java.awt.Dimension(100, 35));
         jButton11.setPreferredSize(new java.awt.Dimension(120, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         pCRUD.add(jButton11, gridBagConstraints);
+
+        jButton12.setText("EXPORTAR");
+        jButton12.setMinimumSize(new java.awt.Dimension(100, 35));
+        jButton12.setPreferredSize(new java.awt.Dimension(120, 35));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
+        pCRUD.add(jButton12, gridBagConstraints);
+
+        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(40x40px)btnUpdate.png"))); // NOI18N
+        jButton13.setMaximumSize(new java.awt.Dimension(50, 35));
+        jButton13.setMinimumSize(new java.awt.Dimension(50, 35));
+        jButton13.setPreferredSize(new java.awt.Dimension(50, 35));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
+        pCRUD.add(jButton13, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -159,6 +186,8 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
     private custom.CustomPanel customPanel1;
     public custom.CustomButtonShaped jButton10;
     public custom.CustomButtonShaped jButton11;
+    public custom.CustomButtonShaped jButton12;
+    public custom.CustomButtonShaped jButton13;
     public custom.CustomButtonShaped jButton9;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jTable1;

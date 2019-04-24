@@ -4,10 +4,18 @@ import static controlador.Controlador_login.lista_clientes;
 import static controlador.Controlador_login.lista_vehiculos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import modelo.Consultas_Clientes;
+import modelo.Exporter;
 import modelo.Linked_List;
 import modelo.Linked_List.ResultadoClientes;
 import modelo.Modelo_Clientes;
@@ -47,12 +55,41 @@ public class Controlador_Registros_Clientes implements ActionListener {
 
     private void llamarComponentes() {
 
-        this.llenarTabla();
+        this.llenarTabla(clientes);
         this.panelClientes.btnClienteBuscar.addActionListener(this);
         this.panelClientes.jButton10.addActionListener(this);
         this.panelClientes.jButton9.addActionListener(this);
         this.panelClientes.jButton11.addActionListener(this);
+        this.panelClientes.jButton12.addActionListener(this);
+        this.panelClientes.jButton13.addActionListener(this);
 
+    }
+    
+      private void exportar(JTable jTable1){
+         if (jTable1.getRowCount() > 0) {
+            JFileChooser chooser = new JFileChooser();
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de excel", "xls");
+            chooser.setFileFilter(filter);
+            chooser.setDialogTitle("Guardar archivo");
+            chooser.setAcceptAllFileFilterUsed(false);
+        if (chooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+            List tb = new ArrayList();
+            List nom = new ArrayList();
+            tb.add(jTable1);
+            nom.add("Compras por factura");
+            String file = chooser.getSelectedFile().toString().concat(".xls");
+            try {
+                Exporter e = new Exporter(new File(file), tb, nom);
+                if (e.export()) {
+                     JOptionPane.showMessageDialog(null, "Los datos fueron exportados a excel en el directorio seleccionado", "Mensaje de Informacion", JOptionPane.INFORMATION_MESSAGE);
+                }
+            } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Hubo un error " + e.getMessage(), " Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        }else{
+            JOptionPane.showMessageDialog(ventanaAdmin, "No hay datos para exportar","Mensaje de error",JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     @Override
@@ -60,13 +97,57 @@ public class Controlador_Registros_Clientes implements ActionListener {
         if (ae.getSource() == this.panelClientes.btnClienteBuscar) {// boton buscar
             Buscar();
         } else if (ae.getSource() == this.panelClientes.jButton9) {//boton agregar
-            Agregar();
+            Thread hilo = new Thread(){
+                    @Override
+                    public void run() {
+                        Agregar();
+                        mensaje("OPERACION REALIZADA");
+                        return ;
+                    }
+                };
+            hilo.start();
+            
         } else if (ae.getSource() == this.panelClientes.jButton10) {// boton modificar
-            Modificar();
-        }
-        if (ae.getSource() == this.panelClientes.jButton11) {// boton eliminar
-            Eliminar();
-        }
+            Thread hilo = new Thread(){
+                    @Override
+                    public void run() {
+                        Modificar();
+                        mensaje("OPERACION REALIZADA");
+                        return ;
+                    }
+                };
+            hilo.start();
+            
+        }else if (ae.getSource() == this.panelClientes.jButton11) {// boton eliminar
+            Thread hilo = new Thread(){
+                    @Override
+                    public void run() {
+                        Eliminar();
+                        mensaje("OPERACION REALIZADA");
+                        return ;
+                    }
+                };
+            hilo.start();
+            
+            
+        }else if (ae.getSource() == this.panelClientes.jButton13) {
+                Thread hilo = new Thread(){
+                    @Override
+                    public void run() {
+                        Consultas_Clientes consulta = new Consultas_Clientes();
+                        clientes = consulta.readAll();
+                        llenarTabla(clientes);
+                        mensaje("OPERACION REALIZADA");
+                        return ;
+                    }
+                };
+            hilo.start();
+            
+            
+            
+        }else if(ae.getSource() == this.panelClientes.jButton12){
+            exportar(this.panelClientes.jTable1);
+        } 
     }
 
     private void Buscar() {
@@ -138,7 +219,7 @@ public class Controlador_Registros_Clientes implements ActionListener {
             Consultas_Clientes consultas = new Consultas_Clientes();
             if (consultas.create(temp_model)) {
                 lista_clientes.add(temp_model);
-                llenarTabla();
+                llenarTabla(clientes);
             } else {
                 Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se agrego al trabajador");
                 mensaje.setVisible(true);
@@ -180,7 +261,7 @@ public class Controlador_Registros_Clientes implements ActionListener {
                     int index = (lista_clientes.findIdClientes(lista_clientes, id)).getI();
                     lista_clientes.remove(index);
                     lista_clientes.add(index, temp_model);
-                    this.llenarTabla();
+                    this.llenarTabla(clientes);
                     Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se actualizo el registro");
                     mensaje.setVisible(true);
                 } else {
@@ -204,7 +285,7 @@ public class Controlador_Registros_Clientes implements ActionListener {
             Consultas_Clientes consultas = new Consultas_Clientes();
             if (consultas.delete(temp_model)) {
                 lista_clientes.remove(index);
-                llenarTabla();
+                llenarTabla(clientes);
                 Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se elimino el registro");
                 mensaje.setVisible(true);
             } else {
@@ -217,7 +298,7 @@ public class Controlador_Registros_Clientes implements ActionListener {
         }
     }
 
-    private void llenarTabla() {
+    private void llenarTabla(Linked_List<Modelo_Clientes> clientes) {
         DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "DNI", "Nombres y Apellidos", "DNI", 
             "Nombres y Apellidos", "Correo", "Direccion", "Telefono", "Ciudad", "Pais"}, 0) {
             
@@ -246,6 +327,10 @@ public class Controlador_Registros_Clientes implements ActionListener {
         }
         this.panelClientes.jTable1.setModel(model);
 
+    }
+    private void mensaje(String msg){
+        Emergente_Aviso mi_mensaje = new  Emergente_Aviso(ventanaAdmin,true,msg);
+        mi_mensaje.setVisible(true);
     }
 
 }

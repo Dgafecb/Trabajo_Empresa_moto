@@ -30,17 +30,6 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        txfID = new javax.swing.JTextField();
-        txfMarca = new javax.swing.JTextField();
-        txfModelo = new javax.swing.JTextField();
-        txfColor = new javax.swing.JTextField();
-        txfMotor = new javax.swing.JTextField();
-        txfChasis = new javax.swing.JTextField();
-        txfFab = new javax.swing.JTextField();
-        txfGarantia = new javax.swing.JTextField();
-        txfPrecio = new javax.swing.JTextField();
-        txfCantidad = new javax.swing.JTextField();
-        txfAdvertencia = new javax.swing.JTextField();
         cbxVehiculo = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -50,7 +39,30 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         jSeparator6 = new javax.swing.JSeparator();
         jLabel12 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
-        txfDescripicion = new javax.swing.JTextField();
+        pCNombre1 = new javax.swing.JPanel();
+        txfAdvertencia = new custom.CustomTextField();
+        pCNombre2 = new javax.swing.JPanel();
+        txfCantidad = new custom.CustomTextField();
+        pCNombre3 = new javax.swing.JPanel();
+        txfPrecio = new custom.CustomTextField();
+        pCNombre4 = new javax.swing.JPanel();
+        txfGarantia = new custom.CustomTextField();
+        pCNombre5 = new javax.swing.JPanel();
+        txfFab = new custom.CustomTextField();
+        pCNombre6 = new javax.swing.JPanel();
+        txfChasis = new custom.CustomTextField();
+        pCNombre7 = new javax.swing.JPanel();
+        txfMotor = new custom.CustomTextField();
+        pCNombre8 = new javax.swing.JPanel();
+        txfColor = new custom.CustomTextField();
+        pCNombre9 = new javax.swing.JPanel();
+        txfModelo = new custom.CustomTextField();
+        pCNombre10 = new javax.swing.JPanel();
+        txfMarca = new custom.CustomTextField();
+        pCNombre11 = new javax.swing.JPanel();
+        txfDescripicion = new custom.CustomTextField();
+        pCNombre12 = new javax.swing.JPanel();
+        txfID = new custom.CustomTextField();
 
         setBackground(new java.awt.Color(250, 250, 250));
         setLayout(new java.awt.GridBagLayout());
@@ -64,7 +76,6 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(jLabel1, gridBagConstraints);
 
@@ -77,7 +88,6 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(jLabel2, gridBagConstraints);
 
@@ -90,7 +100,6 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(jLabel3, gridBagConstraints);
 
@@ -103,7 +112,6 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(jLabel4, gridBagConstraints);
 
@@ -116,7 +124,6 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(jLabel5, gridBagConstraints);
 
@@ -129,7 +136,6 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(Motor, gridBagConstraints);
 
@@ -142,7 +148,6 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(jLabel6, gridBagConstraints);
 
@@ -155,7 +160,6 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 13;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(jLabel7, gridBagConstraints);
 
@@ -168,7 +172,6 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 14;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(jLabel8, gridBagConstraints);
 
@@ -181,7 +184,6 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 18;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(jLabel9, gridBagConstraints);
 
@@ -194,7 +196,6 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 16;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(jLabel10, gridBagConstraints);
 
@@ -207,141 +208,8 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 19;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(jLabel11, gridBagConstraints);
-
-        txfID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfID.setToolTipText("");
-        txfID.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfID.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfID.setPreferredSize(new java.awt.Dimension(250, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(txfID, gridBagConstraints);
-
-        txfMarca.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfMarca.setToolTipText("");
-        txfMarca.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfMarca.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfMarca.setPreferredSize(new java.awt.Dimension(250, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(txfMarca, gridBagConstraints);
-
-        txfModelo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfModelo.setToolTipText("");
-        txfModelo.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfModelo.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfModelo.setPreferredSize(new java.awt.Dimension(250, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(txfModelo, gridBagConstraints);
-
-        txfColor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfColor.setToolTipText("");
-        txfColor.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfColor.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfColor.setPreferredSize(new java.awt.Dimension(250, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(txfColor, gridBagConstraints);
-
-        txfMotor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfMotor.setToolTipText("");
-        txfMotor.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfMotor.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfMotor.setPreferredSize(new java.awt.Dimension(250, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(txfMotor, gridBagConstraints);
-
-        txfChasis.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfChasis.setToolTipText("");
-        txfChasis.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfChasis.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfChasis.setPreferredSize(new java.awt.Dimension(250, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(txfChasis, gridBagConstraints);
-
-        txfFab.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfFab.setToolTipText("");
-        txfFab.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfFab.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfFab.setPreferredSize(new java.awt.Dimension(250, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(txfFab, gridBagConstraints);
-
-        txfGarantia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfGarantia.setToolTipText("");
-        txfGarantia.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfGarantia.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfGarantia.setPreferredSize(new java.awt.Dimension(250, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(txfGarantia, gridBagConstraints);
-
-        txfPrecio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfPrecio.setToolTipText("");
-        txfPrecio.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfPrecio.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfPrecio.setPreferredSize(new java.awt.Dimension(250, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(txfPrecio, gridBagConstraints);
-
-        txfCantidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfCantidad.setToolTipText("");
-        txfCantidad.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfCantidad.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfCantidad.setPreferredSize(new java.awt.Dimension(250, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 18;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(txfCantidad, gridBagConstraints);
-
-        txfAdvertencia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfAdvertencia.setToolTipText("");
-        txfAdvertencia.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfAdvertencia.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfAdvertencia.setPreferredSize(new java.awt.Dimension(250, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 19;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(txfAdvertencia, gridBagConstraints);
 
         cbxVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "VEHICULO", "REPUESTO" }));
         cbxVehiculo.setFocusable(false);
@@ -420,17 +288,389 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(jSeparator7, gridBagConstraints);
 
+        pCNombre1.setBackground(new java.awt.Color(255, 255, 255));
+        pCNombre1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pCNombre1.setMaximumSize(new java.awt.Dimension(100, 30));
+        pCNombre1.setMinimumSize(new java.awt.Dimension(100, 30));
+        pCNombre1.setPreferredSize(new java.awt.Dimension(100, 30));
+        pCNombre1.setLayout(new java.awt.GridBagLayout());
+
+        txfAdvertencia.setBorder(null);
+        txfAdvertencia.setCaretColor(new java.awt.Color(60, 60, 60));
+        txfAdvertencia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfAdvertencia.setMaximumSize(new java.awt.Dimension(200, 28));
+        txfAdvertencia.setMinimumSize(new java.awt.Dimension(200, 28));
+        txfAdvertencia.setPhColor(new java.awt.Color(60, 60, 60));
+        txfAdvertencia.setPlaceholder("Ingresar cantidad minima");
+        txfAdvertencia.setPreferredSize(new java.awt.Dimension(200, 28));
+        txfAdvertencia.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        pCNombre1.add(txfAdvertencia, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 19;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(pCNombre1, gridBagConstraints);
+
+        pCNombre2.setBackground(new java.awt.Color(255, 255, 255));
+        pCNombre2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pCNombre2.setMaximumSize(new java.awt.Dimension(100, 30));
+        pCNombre2.setMinimumSize(new java.awt.Dimension(100, 30));
+        pCNombre2.setPreferredSize(new java.awt.Dimension(100, 30));
+        pCNombre2.setLayout(new java.awt.GridBagLayout());
+
+        txfCantidad.setBorder(null);
+        txfCantidad.setCaretColor(new java.awt.Color(60, 60, 60));
+        txfCantidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfCantidad.setMaximumSize(new java.awt.Dimension(200, 28));
+        txfCantidad.setMinimumSize(new java.awt.Dimension(200, 28));
+        txfCantidad.setPhColor(new java.awt.Color(60, 60, 60));
+        txfCantidad.setPlaceholder("Ingresar stock disponible");
+        txfCantidad.setPreferredSize(new java.awt.Dimension(200, 28));
+        txfCantidad.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        pCNombre2.add(txfCantidad, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(pCNombre2, gridBagConstraints);
+
+        pCNombre3.setBackground(new java.awt.Color(255, 255, 255));
+        pCNombre3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pCNombre3.setMaximumSize(new java.awt.Dimension(100, 30));
+        pCNombre3.setMinimumSize(new java.awt.Dimension(100, 30));
+        pCNombre3.setPreferredSize(new java.awt.Dimension(100, 30));
+        pCNombre3.setLayout(new java.awt.GridBagLayout());
+
+        txfPrecio.setBorder(null);
+        txfPrecio.setCaretColor(new java.awt.Color(60, 60, 60));
+        txfPrecio.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfPrecio.setMaximumSize(new java.awt.Dimension(200, 28));
+        txfPrecio.setMinimumSize(new java.awt.Dimension(200, 28));
+        txfPrecio.setPhColor(new java.awt.Color(60, 60, 60));
+        txfPrecio.setPlaceholder("Ingresar precio de producto");
+        txfPrecio.setPreferredSize(new java.awt.Dimension(200, 28));
+        txfPrecio.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        pCNombre3.add(txfPrecio, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(pCNombre3, gridBagConstraints);
+
+        pCNombre4.setBackground(new java.awt.Color(255, 255, 255));
+        pCNombre4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pCNombre4.setMaximumSize(new java.awt.Dimension(100, 30));
+        pCNombre4.setMinimumSize(new java.awt.Dimension(100, 30));
+        pCNombre4.setPreferredSize(new java.awt.Dimension(100, 30));
+        pCNombre4.setLayout(new java.awt.GridBagLayout());
+
+        txfGarantia.setBorder(null);
+        txfGarantia.setCaretColor(new java.awt.Color(60, 60, 60));
+        txfGarantia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfGarantia.setMaximumSize(new java.awt.Dimension(200, 28));
+        txfGarantia.setMinimumSize(new java.awt.Dimension(200, 28));
+        txfGarantia.setPhColor(new java.awt.Color(60, 60, 60));
+        txfGarantia.setPlaceholder("Ingresar años de garantia");
+        txfGarantia.setPreferredSize(new java.awt.Dimension(200, 28));
+        txfGarantia.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        pCNombre4.add(txfGarantia, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(pCNombre4, gridBagConstraints);
+
+        pCNombre5.setBackground(new java.awt.Color(255, 255, 255));
+        pCNombre5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pCNombre5.setMaximumSize(new java.awt.Dimension(100, 30));
+        pCNombre5.setMinimumSize(new java.awt.Dimension(100, 30));
+        pCNombre5.setPreferredSize(new java.awt.Dimension(100, 30));
+        pCNombre5.setLayout(new java.awt.GridBagLayout());
+
+        txfFab.setBorder(null);
+        txfFab.setCaretColor(new java.awt.Color(60, 60, 60));
+        txfFab.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfFab.setMaximumSize(new java.awt.Dimension(200, 28));
+        txfFab.setMinimumSize(new java.awt.Dimension(200, 28));
+        txfFab.setPhColor(new java.awt.Color(60, 60, 60));
+        txfFab.setPlaceholder("Ingresar año (ejm. 2019)");
+        txfFab.setPreferredSize(new java.awt.Dimension(200, 28));
+        txfFab.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        pCNombre5.add(txfFab, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(pCNombre5, gridBagConstraints);
+
+        pCNombre6.setBackground(new java.awt.Color(255, 255, 255));
+        pCNombre6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pCNombre6.setMaximumSize(new java.awt.Dimension(100, 30));
+        pCNombre6.setMinimumSize(new java.awt.Dimension(100, 30));
+        pCNombre6.setPreferredSize(new java.awt.Dimension(100, 30));
+        pCNombre6.setLayout(new java.awt.GridBagLayout());
+
+        txfChasis.setBorder(null);
+        txfChasis.setCaretColor(new java.awt.Color(60, 60, 60));
+        txfChasis.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfChasis.setMaximumSize(new java.awt.Dimension(200, 28));
+        txfChasis.setMinimumSize(new java.awt.Dimension(200, 28));
+        txfChasis.setPhColor(new java.awt.Color(60, 60, 60));
+        txfChasis.setPlaceholder("Ingresar chasis");
+        txfChasis.setPreferredSize(new java.awt.Dimension(200, 28));
+        txfChasis.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        pCNombre6.add(txfChasis, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(pCNombre6, gridBagConstraints);
+
+        pCNombre7.setBackground(new java.awt.Color(255, 255, 255));
+        pCNombre7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pCNombre7.setMaximumSize(new java.awt.Dimension(100, 30));
+        pCNombre7.setMinimumSize(new java.awt.Dimension(100, 30));
+        pCNombre7.setPreferredSize(new java.awt.Dimension(100, 30));
+        pCNombre7.setLayout(new java.awt.GridBagLayout());
+
+        txfMotor.setBorder(null);
+        txfMotor.setCaretColor(new java.awt.Color(60, 60, 60));
+        txfMotor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfMotor.setMaximumSize(new java.awt.Dimension(200, 28));
+        txfMotor.setMinimumSize(new java.awt.Dimension(200, 28));
+        txfMotor.setPhColor(new java.awt.Color(60, 60, 60));
+        txfMotor.setPlaceholder("Ingresar motor");
+        txfMotor.setPreferredSize(new java.awt.Dimension(200, 28));
+        txfMotor.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        pCNombre7.add(txfMotor, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(pCNombre7, gridBagConstraints);
+
+        pCNombre8.setBackground(new java.awt.Color(255, 255, 255));
+        pCNombre8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pCNombre8.setMaximumSize(new java.awt.Dimension(100, 30));
+        pCNombre8.setMinimumSize(new java.awt.Dimension(100, 30));
+        pCNombre8.setPreferredSize(new java.awt.Dimension(100, 30));
+        pCNombre8.setLayout(new java.awt.GridBagLayout());
+
+        txfColor.setBorder(null);
+        txfColor.setCaretColor(new java.awt.Color(60, 60, 60));
+        txfColor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfColor.setMaximumSize(new java.awt.Dimension(200, 28));
+        txfColor.setMinimumSize(new java.awt.Dimension(200, 28));
+        txfColor.setPhColor(new java.awt.Color(60, 60, 60));
+        txfColor.setPlaceholder("Ingresar color");
+        txfColor.setPreferredSize(new java.awt.Dimension(200, 28));
+        txfColor.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        pCNombre8.add(txfColor, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(pCNombre8, gridBagConstraints);
+
+        pCNombre9.setBackground(new java.awt.Color(255, 255, 255));
+        pCNombre9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pCNombre9.setMaximumSize(new java.awt.Dimension(100, 30));
+        pCNombre9.setMinimumSize(new java.awt.Dimension(100, 30));
+        pCNombre9.setPreferredSize(new java.awt.Dimension(100, 30));
+        pCNombre9.setLayout(new java.awt.GridBagLayout());
+
+        txfModelo.setBorder(null);
+        txfModelo.setCaretColor(new java.awt.Color(60, 60, 60));
+        txfModelo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfModelo.setMaximumSize(new java.awt.Dimension(200, 28));
+        txfModelo.setMinimumSize(new java.awt.Dimension(200, 28));
+        txfModelo.setPhColor(new java.awt.Color(60, 60, 60));
+        txfModelo.setPlaceholder("Ingresar modelo");
+        txfModelo.setPreferredSize(new java.awt.Dimension(200, 28));
+        txfModelo.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        pCNombre9.add(txfModelo, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(pCNombre9, gridBagConstraints);
+
+        pCNombre10.setBackground(new java.awt.Color(255, 255, 255));
+        pCNombre10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pCNombre10.setMaximumSize(new java.awt.Dimension(100, 30));
+        pCNombre10.setMinimumSize(new java.awt.Dimension(100, 30));
+        pCNombre10.setPreferredSize(new java.awt.Dimension(100, 30));
+        pCNombre10.setLayout(new java.awt.GridBagLayout());
+
+        txfMarca.setBorder(null);
+        txfMarca.setCaretColor(new java.awt.Color(60, 60, 60));
+        txfMarca.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfMarca.setMaximumSize(new java.awt.Dimension(200, 28));
+        txfMarca.setMinimumSize(new java.awt.Dimension(200, 28));
+        txfMarca.setPhColor(new java.awt.Color(60, 60, 60));
+        txfMarca.setPlaceholder("Ingresar marca");
+        txfMarca.setPreferredSize(new java.awt.Dimension(200, 28));
+        txfMarca.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        pCNombre10.add(txfMarca, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(pCNombre10, gridBagConstraints);
+
+        pCNombre11.setBackground(new java.awt.Color(255, 255, 255));
+        pCNombre11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pCNombre11.setMaximumSize(new java.awt.Dimension(100, 30));
+        pCNombre11.setMinimumSize(new java.awt.Dimension(100, 30));
+        pCNombre11.setPreferredSize(new java.awt.Dimension(100, 30));
+        pCNombre11.setLayout(new java.awt.GridBagLayout());
+
+        txfDescripicion.setBorder(null);
+        txfDescripicion.setCaretColor(new java.awt.Color(60, 60, 60));
         txfDescripicion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfDescripicion.setToolTipText("");
-        txfDescripicion.setMaximumSize(new java.awt.Dimension(250, 20));
-        txfDescripicion.setMinimumSize(new java.awt.Dimension(250, 20));
-        txfDescripicion.setPreferredSize(new java.awt.Dimension(250, 20));
+        txfDescripicion.setMaximumSize(new java.awt.Dimension(200, 28));
+        txfDescripicion.setMinimumSize(new java.awt.Dimension(200, 28));
+        txfDescripicion.setPhColor(new java.awt.Color(60, 60, 60));
+        txfDescripicion.setPlaceholder("Ingresar descripcion");
+        txfDescripicion.setPreferredSize(new java.awt.Dimension(200, 28));
+        txfDescripicion.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        pCNombre11.add(txfDescripicion, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(txfDescripicion, gridBagConstraints);
+        add(pCNombre11, gridBagConstraints);
+
+        pCNombre12.setBackground(new java.awt.Color(255, 255, 255));
+        pCNombre12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pCNombre12.setMaximumSize(new java.awt.Dimension(100, 30));
+        pCNombre12.setMinimumSize(new java.awt.Dimension(100, 30));
+        pCNombre12.setPreferredSize(new java.awt.Dimension(100, 30));
+        pCNombre12.setLayout(new java.awt.GridBagLayout());
+
+        txfID.setBorder(null);
+        txfID.setCaretColor(new java.awt.Color(60, 60, 60));
+        txfID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfID.setMaximumSize(new java.awt.Dimension(200, 28));
+        txfID.setMinimumSize(new java.awt.Dimension(200, 28));
+        txfID.setPhColor(new java.awt.Color(60, 60, 60));
+        txfID.setPlaceholder("Ingresar ID de producto");
+        txfID.setPreferredSize(new java.awt.Dimension(200, 28));
+        txfID.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        pCNombre12.add(txfID, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(pCNombre12, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbxVehiculoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxVehiculoItemStateChanged
@@ -477,17 +717,29 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
     public javax.swing.JSeparator jSeparator5;
     public javax.swing.JSeparator jSeparator6;
     public javax.swing.JSeparator jSeparator7;
-    public javax.swing.JTextField txfAdvertencia;
-    public javax.swing.JTextField txfCantidad;
-    public javax.swing.JTextField txfChasis;
-    public javax.swing.JTextField txfColor;
-    public javax.swing.JTextField txfDescripicion;
-    public javax.swing.JTextField txfFab;
-    public javax.swing.JTextField txfGarantia;
-    public javax.swing.JTextField txfID;
-    public javax.swing.JTextField txfMarca;
-    public javax.swing.JTextField txfModelo;
-    public javax.swing.JTextField txfMotor;
-    public javax.swing.JTextField txfPrecio;
+    private javax.swing.JPanel pCNombre1;
+    private javax.swing.JPanel pCNombre10;
+    private javax.swing.JPanel pCNombre11;
+    private javax.swing.JPanel pCNombre12;
+    private javax.swing.JPanel pCNombre2;
+    private javax.swing.JPanel pCNombre3;
+    private javax.swing.JPanel pCNombre4;
+    private javax.swing.JPanel pCNombre5;
+    private javax.swing.JPanel pCNombre6;
+    private javax.swing.JPanel pCNombre7;
+    private javax.swing.JPanel pCNombre8;
+    private javax.swing.JPanel pCNombre9;
+    public custom.CustomTextField txfAdvertencia;
+    public custom.CustomTextField txfCantidad;
+    public custom.CustomTextField txfChasis;
+    public custom.CustomTextField txfColor;
+    public custom.CustomTextField txfDescripicion;
+    public custom.CustomTextField txfFab;
+    public custom.CustomTextField txfGarantia;
+    public custom.CustomTextField txfID;
+    public custom.CustomTextField txfMarca;
+    public custom.CustomTextField txfModelo;
+    public custom.CustomTextField txfMotor;
+    public custom.CustomTextField txfPrecio;
     // End of variables declaration//GEN-END:variables
 }
