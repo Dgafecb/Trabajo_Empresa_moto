@@ -29,26 +29,19 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
 import modelo.Cadenas;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.data.time.Day;
-import org.jfree.data.time.TimeSeries;
-import org.jfree.data.time.TimeSeriesCollection;
-import org.jfree.data.xy.XYDataset;
 
 
 public class Panel_Resumen extends javax.swing.JPanel {
 
-    public JFreeChart grafica;
+   /* public JFreeChart grafica;
     public ChartPanel panelGrafica;
-    public XYDataset database;
+    public XYDataset database;*/
     
     public Panel_Resumen() {
         initComponents();
         this.jScrollPane1.getViewport().setBackground(Color.WHITE);
         configPicker(datePicker1);
-        crearGraficaDeafult();
+        //crearGraficaDeafult();
         this.updateUI();
     }
     
@@ -66,7 +59,7 @@ public class Panel_Resumen extends javax.swing.JPanel {
         datePicker.getSettings();
     }
     
-    private void crearGraficaDeafult(){
+    /*private void crearGraficaDeafult(){
         database = createDatasetDeafult();
         grafica = ChartFactory.createTimeSeriesChart("Grafico de Ventas", "Fecha", "Ventas realizadas", database, true, true, false);
         panelGrafica= new ChartPanel(grafica);
@@ -84,9 +77,9 @@ public class Panel_Resumen extends javax.swing.JPanel {
         constraints.insets= new Insets(5,5,5,5);
         customPanel2.add (panelGrafica, constraints);
         
-    }
+    }*/
 
-    private XYDataset createDatasetDeafult() {
+    /*private XYDataset createDatasetDeafult() {
         LinkedList<String> string = new LinkedList<String>();
         LinkedList<Integer> valor = new LinkedList<Integer>();
         Double valortemp = 0.0 ; 
@@ -131,7 +124,7 @@ public class Panel_Resumen extends javax.swing.JPanel {
         return  dataset;
     }
 
-
+*/
     
 
     @SuppressWarnings("unchecked")
