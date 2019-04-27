@@ -311,14 +311,19 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
             }
         };
         for (int i = 0; i < lista_vehiculos.size(); i++) {
-            String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
+            Integer cantidad = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getCantidad();
+            Integer advertencia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getLimite_advertencia();
+            if(cantidad>advertencia){
+                String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
+                String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getNombre_prod();
 
-            String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getNombre_prod();
+                float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getPrecio();
+                String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMarca();
 
-            float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getPrecio();
-            String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMarca();
-
-            model.addRow(new Object[]{id, descripcion, marca});
+                model.addRow(new Object[]{id, descripcion, marca});
+            }else{
+                continue;
+            }
         }
         this.panelVentas.tAlmacen.setModel(model);
 
