@@ -58,6 +58,8 @@ public class Panel_Registros_Clientes extends javax.swing.JPanel {
 
         pBuscar.setBackground(new java.awt.Color(255, 255, 255));
         pBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pBuscar.setMinimumSize(new java.awt.Dimension(300, 41));
+        pBuscar.setPreferredSize(new java.awt.Dimension(300, 41));
         pBuscar.setLayout(new java.awt.GridBagLayout());
 
         txfBuscar.setBorder(null);
