@@ -560,8 +560,6 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                     llenarTablaAlmacen(listaBusqueda);
                     panelVentas.tAlmacen.setRowSelectionInterval(0, 0);
                 } else {
-                    mensaje("NO SE ENCONTRARON COINCIDENCIAS");
-                    panelVentas.txfAlmacenBuscar.setText("");
                     panelVentas.tAlmacen.clearSelection();
                     llenarTablaAlmacen(lista_vehiculos);
                 }
