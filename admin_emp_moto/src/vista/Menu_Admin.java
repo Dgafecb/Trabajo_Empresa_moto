@@ -27,7 +27,7 @@ public class Menu_Admin extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(60, 60, 60));
         setMinimumSize(new java.awt.Dimension(40, 40));
-        setPreferredSize(new java.awt.Dimension(250, 320));
+        setPreferredSize(new java.awt.Dimension(200, 320));
         setLayout(new java.awt.GridBagLayout());
 
         btnEstadisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(40x40px)btnEstadisticas.png"))); // NOI18N

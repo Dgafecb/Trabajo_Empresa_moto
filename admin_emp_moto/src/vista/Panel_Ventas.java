@@ -23,6 +23,8 @@ public class Panel_Ventas extends javax.swing.JPanel {
         grupoEmision.add(rbContrato);
         grupoEmision.add(rbFactura);
         rbIndefinido.setSelected(true);
+        //Temporal
+        this.jLabel25.setVisible(false);
     }
     
     @SuppressWarnings("unchecked")
@@ -32,6 +34,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
 
         grupoAlmacen = new javax.swing.ButtonGroup();
         grupoEmision = new javax.swing.ButtonGroup();
+        jPanel2 = new javax.swing.JPanel();
         customPanel2 = new custom.CustomPanel();
         lblFactura = new javax.swing.JLabel();
         numeroFactura = new javax.swing.JLabel();
@@ -55,6 +58,37 @@ public class Panel_Ventas extends javax.swing.JPanel {
         btnAlmacenBuscar = new modelo.CustomButtonShaped();
         pContenedor = new javax.swing.JPanel();
         txfAlmacenBuscar = new custom.CustomTextField();
+        jPanel3 = new javax.swing.JPanel();
+        customPanel1 = new custom.CustomPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        lblsgnoMoneda = new javax.swing.JLabel();
+        lblMoneda = new javax.swing.JLabel();
+        customPanel4 = new custom.CustomPanel();
+        lblTipoVenta = new javax.swing.JLabel();
+        lblNombreTrabajador = new javax.swing.JLabel();
+        lblCuotas = new javax.swing.JLabel();
+        lblCuotaInicial = new javax.swing.JLabel();
+        lblDescuento = new javax.swing.JLabel();
+        cbTipoVenta = new javax.swing.JComboBox<>();
+        spnrCuotas = new javax.swing.JSpinner();
+        pVCuotaInicial = new javax.swing.JPanel();
+        txfVCuotaInicial = new custom.CustomTextField();
+        jSlider1 = new javax.swing.JSlider();
+        jLabel1 = new javax.swing.JLabel();
+        pDatosVenta = new custom.CustomPanel();
+        spDatosVentas = new javax.swing.JScrollPane();
+        tDatosVentas = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
         pAdicionalAlmacen = new custom.CustomPanel();
         txfAnhoFab = new javax.swing.JTextField();
         txfCantidad = new javax.swing.JTextField();
@@ -75,21 +109,6 @@ public class Panel_Ventas extends javax.swing.JPanel {
         lblMarca = new javax.swing.JLabel();
         lblModelo = new javax.swing.JLabel();
         lblAnhoFab = new javax.swing.JLabel();
-        customPanel4 = new custom.CustomPanel();
-        lblTipoVenta = new javax.swing.JLabel();
-        lblNombreTrabajador = new javax.swing.JLabel();
-        lblCuotas = new javax.swing.JLabel();
-        lblCuotaInicial = new javax.swing.JLabel();
-        lblDescuento = new javax.swing.JLabel();
-        cbTipoVenta = new javax.swing.JComboBox<>();
-        spnrCuotas = new javax.swing.JSpinner();
-        pVCuotaInicial = new javax.swing.JPanel();
-        txfVCuotaInicial = new custom.CustomTextField();
-        jSlider1 = new javax.swing.JSlider();
-        jLabel1 = new javax.swing.JLabel();
-        pDatosVenta = new custom.CustomPanel();
-        spDatosVentas = new javax.swing.JScrollPane();
-        tDatosVentas = new javax.swing.JTable();
         customPanel3 = new custom.CustomPanel();
         pTipoFactura = new javax.swing.JPanel();
         rbIndefinido = new javax.swing.JRadioButton();
@@ -100,33 +119,20 @@ public class Panel_Ventas extends javax.swing.JPanel {
         customButtonShaped3 = new custom.CustomButtonShaped();
         customButtonShaped4 = new custom.CustomButtonShaped();
         customButtonShaped5 = new custom.CustomButtonShaped();
-        customPanel1 = new custom.CustomPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        lblsgnoMoneda = new javax.swing.JLabel();
-        lblMoneda = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(60, 60, 60));
         setMaximumSize(new java.awt.Dimension(933, 632));
         setMinimumSize(new java.awt.Dimension(933, 632));
         setLayout(new java.awt.GridBagLayout());
 
+        jPanel2.setBackground(new java.awt.Color(60, 60, 60));
+        jPanel2.setLayout(new java.awt.GridBagLayout());
+
         customPanel2.setBackground(new java.awt.Color(250, 250, 250));
         customPanel2.setForeground(new java.awt.Color(60, 60, 60));
-        customPanel2.setMaximumSize(new java.awt.Dimension(300, 55));
-        customPanel2.setMinimumSize(new java.awt.Dimension(300, 55));
+        customPanel2.setMinimumSize(new java.awt.Dimension(200, 55));
         customPanel2.setOpaque(false);
-        customPanel2.setPreferredSize(new java.awt.Dimension(300, 55));
+        customPanel2.setPreferredSize(new java.awt.Dimension(200, 55));
         customPanel2.setLayout(new java.awt.GridBagLayout());
 
         lblFactura.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
@@ -150,14 +156,14 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(customPanel2, gridBagConstraints);
+        jPanel2.add(customPanel2, gridBagConstraints);
 
         pClientes.setBackground(new java.awt.Color(250, 250, 250));
         pClientes.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "CLIENTES", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Monospaced", 0, 18), new java.awt.Color(60, 60, 60))); // NOI18N
         pClientes.setForeground(new java.awt.Color(60, 60, 60));
-        pClientes.setMaximumSize(new java.awt.Dimension(350, 250));
-        pClientes.setMinimumSize(new java.awt.Dimension(350, 250));
+        pClientes.setMinimumSize(new java.awt.Dimension(300, 200));
         pClientes.setOpaque(false);
+        pClientes.setPreferredSize(new java.awt.Dimension(300, 200));
         pClientes.setLayout(new java.awt.GridBagLayout());
 
         pBuscarCliente.setBackground(new java.awt.Color(250, 250, 250));
@@ -188,19 +194,17 @@ public class Panel_Ventas extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
-        jPanel1.setMaximumSize(new java.awt.Dimension(100, 40));
-        jPanel1.setMinimumSize(new java.awt.Dimension(100, 40));
+        jPanel1.setMinimumSize(new java.awt.Dimension(50, 40));
         jPanel1.setPreferredSize(new java.awt.Dimension(100, 40));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         txfBuscar.setBorder(null);
         txfBuscar.setCaretColor(new java.awt.Color(60, 60, 60));
         txfBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfBuscar.setMaximumSize(new java.awt.Dimension(200, 38));
-        txfBuscar.setMinimumSize(new java.awt.Dimension(200, 38));
+        txfBuscar.setMinimumSize(new java.awt.Dimension(50, 38));
         txfBuscar.setPhColor(new java.awt.Color(60, 60, 60));
         txfBuscar.setPlaceholder(Cadenas.CLIENTES_BUSCAR);
-        txfBuscar.setPreferredSize(new java.awt.Dimension(200, 38));
+        txfBuscar.setPreferredSize(new java.awt.Dimension(100, 38));
         txfBuscar.setSelectionColor(new java.awt.Color(60, 60, 60));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -224,30 +228,13 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pClientes.add(pBuscarCliente, gridBagConstraints);
 
-        jScrollPane1.setMaximumSize(new java.awt.Dimension(350, 250));
-        jScrollPane1.setMinimumSize(new java.awt.Dimension(350, 250));
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(350, 250));
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(452, 400));
 
         jTable1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         jTable1.setForeground(new java.awt.Color(60, 60, 60));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -259,12 +246,15 @@ public class Panel_Ventas extends javax.swing.JPanel {
         ));
         jTable1.setFocusable(false);
         jTable1.setSelectionBackground(new java.awt.Color(60, 60, 60));
+        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jTable1);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pClientes.add(jScrollPane1, gridBagConstraints);
 
@@ -273,48 +263,25 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(pClientes, gridBagConstraints);
+        jPanel2.add(pClientes, gridBagConstraints);
 
         pAlmacen.setBackground(new java.awt.Color(250, 250, 250));
         pAlmacen.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "ALMACEN", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Monospaced", 0, 18), new java.awt.Color(60, 60, 60))); // NOI18N
         pAlmacen.setForeground(new java.awt.Color(60, 60, 60));
+        pAlmacen.setMinimumSize(new java.awt.Dimension(300, 200));
         pAlmacen.setOpaque(false);
+        pAlmacen.setPreferredSize(new java.awt.Dimension(300, 200));
         pAlmacen.setLayout(new java.awt.GridBagLayout());
 
-        spAlmacen.setMaximumSize(new java.awt.Dimension(150, 100));
-        spAlmacen.setMinimumSize(new java.awt.Dimension(150, 100));
-        spAlmacen.setPreferredSize(new java.awt.Dimension(150, 100));
+        spAlmacen.setBackground(new java.awt.Color(255, 255, 255));
+        spAlmacen.setMaximumSize(new java.awt.Dimension(32767, 70));
+        spAlmacen.setMinimumSize(new java.awt.Dimension(23, 70));
+        spAlmacen.setPreferredSize(new java.awt.Dimension(2, 70));
 
         tAlmacen.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         tAlmacen.setForeground(new java.awt.Color(60, 60, 60));
         tAlmacen.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -332,7 +299,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
@@ -341,12 +308,11 @@ public class Panel_Ventas extends javax.swing.JPanel {
         pAlmacen.add(spAlmacen, gridBagConstraints);
 
         pBuscarPor.setBackground(new java.awt.Color(250, 250, 250));
-        pBuscarPor.setMaximumSize(new java.awt.Dimension(400, 60));
-        pBuscarPor.setMinimumSize(new java.awt.Dimension(200, 60));
+        pBuscarPor.setMinimumSize(new java.awt.Dimension(250, 60));
         pBuscarPor.setPreferredSize(new java.awt.Dimension(250, 60));
         pBuscarPor.setLayout(new java.awt.GridBagLayout());
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(60, 60, 60));
         jLabel6.setText("Buscar :");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -358,7 +324,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         pBuscarPor.add(jLabel6, gridBagConstraints);
 
         rbCodigo.setBackground(new java.awt.Color(250, 250, 250));
-        rbCodigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        rbCodigo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         rbCodigo.setForeground(new java.awt.Color(60, 60, 60));
         rbCodigo.setText("Codigo");
         rbCodigo.setFocusPainted(false);
@@ -370,7 +336,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         pBuscarPor.add(rbCodigo, gridBagConstraints);
 
         rbDescripcion.setBackground(new java.awt.Color(250, 250, 250));
-        rbDescripcion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        rbDescripcion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         rbDescripcion.setForeground(new java.awt.Color(60, 60, 60));
         rbDescripcion.setText("Descripcion");
         rbDescripcion.setFocusPainted(false);
@@ -382,7 +348,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         pBuscarPor.add(rbDescripcion, gridBagConstraints);
 
         rbMarca.setBackground(new java.awt.Color(250, 250, 250));
-        rbMarca.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        rbMarca.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         rbMarca.setForeground(new java.awt.Color(60, 60, 60));
         rbMarca.setText("Marca");
         rbMarca.setFocusPainted(false);
@@ -397,7 +363,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
@@ -421,19 +387,18 @@ public class Panel_Ventas extends javax.swing.JPanel {
 
         pContenedor.setBackground(new java.awt.Color(255, 255, 255));
         pContenedor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
-        pContenedor.setMaximumSize(new java.awt.Dimension(100, 40));
-        pContenedor.setMinimumSize(new java.awt.Dimension(100, 40));
+        pContenedor.setMaximumSize(new java.awt.Dimension(250, 40));
+        pContenedor.setMinimumSize(new java.awt.Dimension(50, 40));
         pContenedor.setPreferredSize(new java.awt.Dimension(100, 40));
         pContenedor.setLayout(new java.awt.GridBagLayout());
 
         txfAlmacenBuscar.setBorder(null);
         txfAlmacenBuscar.setCaretColor(new java.awt.Color(60, 60, 60));
         txfAlmacenBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfAlmacenBuscar.setMaximumSize(new java.awt.Dimension(200, 38));
-        txfAlmacenBuscar.setMinimumSize(new java.awt.Dimension(200, 38));
+        txfAlmacenBuscar.setMinimumSize(new java.awt.Dimension(50, 38));
         txfAlmacenBuscar.setPhColor(new java.awt.Color(60, 60, 60));
         txfAlmacenBuscar.setPlaceholder(Cadenas.INVENTARIO_BUSCAR);
-        txfAlmacenBuscar.setPreferredSize(new java.awt.Dimension(200, 38));
+        txfAlmacenBuscar.setPreferredSize(new java.awt.Dimension(100, 38));
         txfAlmacenBuscar.setSelectionColor(new java.awt.Color(60, 60, 60));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -465,279 +430,185 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(pAlmacen, gridBagConstraints);
-
-        pAdicionalAlmacen.setBackground(new java.awt.Color(250, 250, 250));
-        pAdicionalAlmacen.setForeground(new java.awt.Color(60, 60, 60));
-        pAdicionalAlmacen.setOpaque(false);
-        pAdicionalAlmacen.setLayout(new java.awt.GridBagLayout());
-
-        txfAnhoFab.setEditable(false);
-        txfAnhoFab.setBackground(new java.awt.Color(245, 245, 245));
-        txfAnhoFab.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfAnhoFab.setForeground(new java.awt.Color(60, 60, 60));
-        txfAnhoFab.setEnabled(false);
-        txfAnhoFab.setMaximumSize(new java.awt.Dimension(100, 20));
-        txfAnhoFab.setMinimumSize(new java.awt.Dimension(100, 20));
-        txfAnhoFab.setPreferredSize(new java.awt.Dimension(100, 20));
-        txfAnhoFab.setSelectionColor(new java.awt.Color(60, 60, 60));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAdicionalAlmacen.add(txfAnhoFab, gridBagConstraints);
-
-        txfCantidad.setEditable(false);
-        txfCantidad.setBackground(new java.awt.Color(245, 245, 245));
-        txfCantidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfCantidad.setForeground(new java.awt.Color(60, 60, 60));
-        txfCantidad.setEnabled(false);
-        txfCantidad.setMaximumSize(new java.awt.Dimension(100, 20));
-        txfCantidad.setMinimumSize(new java.awt.Dimension(100, 20));
-        txfCantidad.setPreferredSize(new java.awt.Dimension(100, 20));
-        txfCantidad.setSelectionColor(new java.awt.Color(60, 60, 60));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 10);
-        pAdicionalAlmacen.add(txfCantidad, gridBagConstraints);
-
-        txfPrecioUnidad.setEditable(false);
-        txfPrecioUnidad.setBackground(new java.awt.Color(245, 245, 245));
-        txfPrecioUnidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfPrecioUnidad.setForeground(new java.awt.Color(60, 60, 60));
-        txfPrecioUnidad.setEnabled(false);
-        txfPrecioUnidad.setMaximumSize(new java.awt.Dimension(100, 20));
-        txfPrecioUnidad.setMinimumSize(new java.awt.Dimension(100, 20));
-        txfPrecioUnidad.setPreferredSize(new java.awt.Dimension(100, 20));
-        txfPrecioUnidad.setSelectionColor(new java.awt.Color(60, 60, 60));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 10);
-        pAdicionalAlmacen.add(txfPrecioUnidad, gridBagConstraints);
-
-        txfDescripcion.setEditable(false);
-        txfDescripcion.setBackground(new java.awt.Color(245, 245, 245));
-        txfDescripcion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfDescripcion.setForeground(new java.awt.Color(60, 60, 60));
-        txfDescripcion.setEnabled(false);
-        txfDescripcion.setMaximumSize(new java.awt.Dimension(100, 20));
-        txfDescripcion.setMinimumSize(new java.awt.Dimension(100, 20));
-        txfDescripcion.setPreferredSize(new java.awt.Dimension(100, 20));
-        txfDescripcion.setSelectionColor(new java.awt.Color(60, 60, 60));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAdicionalAlmacen.add(txfDescripcion, gridBagConstraints);
-
-        txfPrecioMayor.setEditable(false);
-        txfPrecioMayor.setBackground(new java.awt.Color(245, 245, 245));
-        txfPrecioMayor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfPrecioMayor.setForeground(new java.awt.Color(60, 60, 60));
-        txfPrecioMayor.setEnabled(false);
-        txfPrecioMayor.setMaximumSize(new java.awt.Dimension(100, 20));
-        txfPrecioMayor.setMinimumSize(new java.awt.Dimension(100, 20));
-        txfPrecioMayor.setPreferredSize(new java.awt.Dimension(100, 20));
-        txfPrecioMayor.setSelectionColor(new java.awt.Color(60, 60, 60));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 10);
-        pAdicionalAlmacen.add(txfPrecioMayor, gridBagConstraints);
-
-        iconProductDefault.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(80x80px)iconProductDefault.png"))); // NOI18N
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAdicionalAlmacen.add(iconProductDefault, gridBagConstraints);
-
-        txfModelo.setEditable(false);
-        txfModelo.setBackground(new java.awt.Color(245, 245, 245));
-        txfModelo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfModelo.setForeground(new java.awt.Color(60, 60, 60));
-        txfModelo.setEnabled(false);
-        txfModelo.setMaximumSize(new java.awt.Dimension(100, 20));
-        txfModelo.setMinimumSize(new java.awt.Dimension(100, 20));
-        txfModelo.setPreferredSize(new java.awt.Dimension(100, 20));
-        txfModelo.setSelectionColor(new java.awt.Color(60, 60, 60));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAdicionalAlmacen.add(txfModelo, gridBagConstraints);
-
-        txfCategoria.setEditable(false);
-        txfCategoria.setBackground(new java.awt.Color(245, 245, 245));
-        txfCategoria.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfCategoria.setForeground(new java.awt.Color(60, 60, 60));
-        txfCategoria.setEnabled(false);
-        txfCategoria.setMaximumSize(new java.awt.Dimension(100, 20));
-        txfCategoria.setMinimumSize(new java.awt.Dimension(100, 20));
-        txfCategoria.setPreferredSize(new java.awt.Dimension(100, 20));
-        txfCategoria.setSelectionColor(new java.awt.Color(60, 60, 60));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAdicionalAlmacen.add(txfCategoria, gridBagConstraints);
-
-        txfProductoID.setEditable(false);
-        txfProductoID.setBackground(new java.awt.Color(245, 245, 245));
-        txfProductoID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfProductoID.setForeground(new java.awt.Color(60, 60, 60));
-        txfProductoID.setEnabled(false);
-        txfProductoID.setMaximumSize(new java.awt.Dimension(100, 20));
-        txfProductoID.setMinimumSize(new java.awt.Dimension(100, 20));
-        txfProductoID.setPreferredSize(new java.awt.Dimension(100, 20));
-        txfProductoID.setSelectionColor(new java.awt.Color(60, 60, 60));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAdicionalAlmacen.add(txfProductoID, gridBagConstraints);
-
-        txfMarca.setEditable(false);
-        txfMarca.setBackground(new java.awt.Color(245, 245, 245));
-        txfMarca.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfMarca.setForeground(new java.awt.Color(60, 60, 60));
-        txfMarca.setEnabled(false);
-        txfMarca.setMaximumSize(new java.awt.Dimension(100, 20));
-        txfMarca.setMinimumSize(new java.awt.Dimension(100, 20));
-        txfMarca.setPreferredSize(new java.awt.Dimension(100, 20));
-        txfMarca.setSelectionColor(new java.awt.Color(60, 60, 60));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAdicionalAlmacen.add(txfMarca, gridBagConstraints);
-
-        lblCodigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblCodigo.setForeground(new java.awt.Color(60, 60, 60));
-        lblCodigo.setText("Codigo :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAdicionalAlmacen.add(lblCodigo, gridBagConstraints);
-
-        lblCategoria.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblCategoria.setForeground(new java.awt.Color(60, 60, 60));
-        lblCategoria.setText("Categoria :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAdicionalAlmacen.add(lblCategoria, gridBagConstraints);
-
-        lblDescripcion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblDescripcion.setForeground(new java.awt.Color(60, 60, 60));
-        lblDescripcion.setText("Descripcion :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAdicionalAlmacen.add(lblDescripcion, gridBagConstraints);
-
-        lblPrecioxUnidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblPrecioxUnidad.setForeground(new java.awt.Color(60, 60, 60));
-        lblPrecioxUnidad.setText("Precio por unidad:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAdicionalAlmacen.add(lblPrecioxUnidad, gridBagConstraints);
-
-        lblPrecioxMayor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblPrecioxMayor.setForeground(new java.awt.Color(60, 60, 60));
-        lblPrecioxMayor.setText("Precio por mayor:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAdicionalAlmacen.add(lblPrecioxMayor, gridBagConstraints);
-
-        lblCantidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblCantidad.setForeground(new java.awt.Color(60, 60, 60));
-        lblCantidad.setText("Cantidad disponible :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAdicionalAlmacen.add(lblCantidad, gridBagConstraints);
-
-        lblMarca.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblMarca.setForeground(new java.awt.Color(60, 60, 60));
-        lblMarca.setText("Marca :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAdicionalAlmacen.add(lblMarca, gridBagConstraints);
-
-        lblModelo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblModelo.setForeground(new java.awt.Color(60, 60, 60));
-        lblModelo.setText("Modelo :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAdicionalAlmacen.add(lblModelo, gridBagConstraints);
-
-        lblAnhoFab.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblAnhoFab.setForeground(new java.awt.Color(60, 60, 60));
-        lblAnhoFab.setText("Año de Fab. :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pAdicionalAlmacen.add(lblAnhoFab, gridBagConstraints);
+        jPanel2.add(pAlmacen, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weighty = 1.0;
+        add(jPanel2, gridBagConstraints);
+
+        jPanel3.setBackground(new java.awt.Color(60, 60, 60));
+        jPanel3.setLayout(new java.awt.GridBagLayout());
+
+        customPanel1.setBackground(new java.awt.Color(250, 250, 250));
+        customPanel1.setForeground(new java.awt.Color(60, 60, 60));
+        customPanel1.setOpaque(false);
+        customPanel1.setLayout(new java.awt.GridBagLayout());
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(60, 60, 60));
+        jLabel15.setText("Precio sin IGV :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
+        customPanel1.add(jLabel15, gridBagConstraints);
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(60, 60, 60));
+        jLabel16.setText("Precio con IGV :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
+        customPanel1.add(jLabel16, gridBagConstraints);
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(60, 60, 60));
+        jLabel18.setText("TOTAL :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
+        customPanel1.add(jLabel18, gridBagConstraints);
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(60, 60, 60));
+        jLabel20.setText("Precio con dscto :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        customPanel1.add(jLabel20, gridBagConstraints);
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(60, 60, 60));
+        jLabel21.setText("Cuota Mensual :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        customPanel1.add(jLabel21, gridBagConstraints);
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(60, 60, 60));
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText("0.00");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(pAdicionalAlmacen, gridBagConstraints);
+        customPanel1.add(jLabel22, gridBagConstraints);
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(60, 60, 60));
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel23.setText("0.00");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        customPanel1.add(jLabel23, gridBagConstraints);
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(60, 60, 60));
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setText("0.00");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        customPanel1.add(jLabel25, gridBagConstraints);
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(60, 60, 60));
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("0.00");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        customPanel1.add(jLabel26, gridBagConstraints);
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(60, 60, 60));
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel27.setText("0.00");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        customPanel1.add(jLabel27, gridBagConstraints);
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(60, 60, 60));
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("0.00");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        customPanel1.add(jLabel28, gridBagConstraints);
+
+        lblsgnoMoneda.setFont(new java.awt.Font("Tahoma", 0, 32)); // NOI18N
+        lblsgnoMoneda.setForeground(new java.awt.Color(60, 60, 60));
+        lblsgnoMoneda.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblsgnoMoneda.setText("S./");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
+        customPanel1.add(lblsgnoMoneda, gridBagConstraints);
+
+        lblMoneda.setFont(new java.awt.Font("Tahoma", 0, 32)); // NOI18N
+        lblMoneda.setForeground(new java.awt.Color(60, 60, 60));
+        lblMoneda.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblMoneda.setText("SOLES");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        customPanel1.add(lblMoneda, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel3.add(customPanel1, gridBagConstraints);
 
         customPanel4.setBackground(new java.awt.Color(250, 250, 250));
         customPanel4.setForeground(new java.awt.Color(60, 60, 60));
+        customPanel4.setMinimumSize(new java.awt.Dimension(500, 80));
         customPanel4.setOpaque(false);
+        customPanel4.setPreferredSize(new java.awt.Dimension(500, 80));
         customPanel4.setLayout(new java.awt.GridBagLayout());
 
         lblTipoVenta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -753,6 +624,9 @@ public class Panel_Ventas extends javax.swing.JPanel {
         lblNombreTrabajador.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         lblNombreTrabajador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombreTrabajador.setText("SELLER : DEFAULT WORKER");
+        lblNombreTrabajador.setMaximumSize(new java.awt.Dimension(250, 33));
+        lblNombreTrabajador.setMinimumSize(new java.awt.Dimension(250, 33));
+        lblNombreTrabajador.setPreferredSize(new java.awt.Dimension(250, 33));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
@@ -795,9 +669,8 @@ public class Panel_Ventas extends javax.swing.JPanel {
         cbTipoVenta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbTipoVenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EFECTIVO", "CREDITO", "POR MAYOR" }));
         cbTipoVenta.setFocusable(false);
-        cbTipoVenta.setMaximumSize(new java.awt.Dimension(100, 30));
-        cbTipoVenta.setMinimumSize(new java.awt.Dimension(100, 30));
-        cbTipoVenta.setPreferredSize(new java.awt.Dimension(100, 30));
+        cbTipoVenta.setMinimumSize(new java.awt.Dimension(60, 30));
+        cbTipoVenta.setPreferredSize(new java.awt.Dimension(60, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -818,20 +691,18 @@ public class Panel_Ventas extends javax.swing.JPanel {
 
         pVCuotaInicial.setBackground(new java.awt.Color(255, 255, 255));
         pVCuotaInicial.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
-        pVCuotaInicial.setMaximumSize(new java.awt.Dimension(230, 30));
-        pVCuotaInicial.setMinimumSize(new java.awt.Dimension(230, 30));
-        pVCuotaInicial.setPreferredSize(new java.awt.Dimension(230, 30));
+        pVCuotaInicial.setMinimumSize(new java.awt.Dimension(100, 30));
+        pVCuotaInicial.setPreferredSize(new java.awt.Dimension(100, 30));
         pVCuotaInicial.setLayout(new java.awt.GridBagLayout());
 
         txfVCuotaInicial.setBorder(null);
         txfVCuotaInicial.setForeground(new java.awt.Color(60, 60, 60));
         txfVCuotaInicial.setCaretColor(new java.awt.Color(60, 60, 60));
         txfVCuotaInicial.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfVCuotaInicial.setMaximumSize(new java.awt.Dimension(200, 28));
-        txfVCuotaInicial.setMinimumSize(new java.awt.Dimension(200, 28));
+        txfVCuotaInicial.setMinimumSize(new java.awt.Dimension(100, 28));
         txfVCuotaInicial.setPhColor(new java.awt.Color(60, 60, 60));
         txfVCuotaInicial.setPlaceholder(Cadenas.VENTAS_CUOTA_INICIAL);
-        txfVCuotaInicial.setPreferredSize(new java.awt.Dimension(200, 28));
+        txfVCuotaInicial.setPreferredSize(new java.awt.Dimension(100, 28));
         txfVCuotaInicial.setSelectionColor(new java.awt.Color(60, 60, 60));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -853,9 +724,8 @@ public class Panel_Ventas extends javax.swing.JPanel {
         jSlider1.setPaintTicks(true);
         jSlider1.setSnapToTicks(true);
         jSlider1.setFocusable(false);
-        jSlider1.setMaximumSize(new java.awt.Dimension(230, 30));
-        jSlider1.setMinimumSize(new java.awt.Dimension(230, 30));
-        jSlider1.setPreferredSize(new java.awt.Dimension(230, 30));
+        jSlider1.setMinimumSize(new java.awt.Dimension(130, 30));
+        jSlider1.setPreferredSize(new java.awt.Dimension(130, 30));
         jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSlider1StateChanged(evt);
@@ -880,52 +750,28 @@ public class Panel_Ventas extends javax.swing.JPanel {
         customPanel4.add(jLabel1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(customPanel4, gridBagConstraints);
+        jPanel3.add(customPanel4, gridBagConstraints);
 
         pDatosVenta.setBackground(new java.awt.Color(250, 250, 250));
         pDatosVenta.setForeground(new java.awt.Color(60, 60, 60));
         pDatosVenta.setOpaque(false);
         pDatosVenta.setLayout(new java.awt.GridBagLayout());
 
-        tDatosVentas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        spDatosVentas.setBackground(new java.awt.Color(255, 255, 255));
+        spDatosVentas.setMaximumSize(new java.awt.Dimension(32767, 150));
+        spDatosVentas.setMinimumSize(new java.awt.Dimension(23, 150));
+        spDatosVentas.setName(""); // NOI18N
+        spDatosVentas.setPreferredSize(new java.awt.Dimension(2, 150));
+
+        tDatosVentas.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         tDatosVentas.setForeground(new java.awt.Color(60, 60, 60));
         tDatosVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
@@ -941,18 +787,295 @@ public class Panel_Ventas extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         pDatosVenta.add(spDatosVentas, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(pDatosVenta, gridBagConstraints);
+        jPanel3.add(pDatosVenta, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        add(jPanel3, gridBagConstraints);
+
+        jPanel4.setBackground(new java.awt.Color(60, 60, 60));
+        jPanel4.setLayout(new java.awt.GridBagLayout());
+
+        pAdicionalAlmacen.setBackground(new java.awt.Color(250, 250, 250));
+        pAdicionalAlmacen.setForeground(new java.awt.Color(60, 60, 60));
+        pAdicionalAlmacen.setOpaque(false);
+        pAdicionalAlmacen.setLayout(new java.awt.GridBagLayout());
+
+        txfAnhoFab.setEditable(false);
+        txfAnhoFab.setBackground(new java.awt.Color(245, 245, 245));
+        txfAnhoFab.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txfAnhoFab.setForeground(new java.awt.Color(60, 60, 60));
+        txfAnhoFab.setEnabled(false);
+        txfAnhoFab.setMaximumSize(new java.awt.Dimension(100, 25));
+        txfAnhoFab.setMinimumSize(new java.awt.Dimension(70, 15));
+        txfAnhoFab.setPreferredSize(new java.awt.Dimension(100, 15));
+        txfAnhoFab.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAdicionalAlmacen.add(txfAnhoFab, gridBagConstraints);
+
+        txfCantidad.setEditable(false);
+        txfCantidad.setBackground(new java.awt.Color(245, 245, 245));
+        txfCantidad.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txfCantidad.setForeground(new java.awt.Color(60, 60, 60));
+        txfCantidad.setEnabled(false);
+        txfCantidad.setMaximumSize(new java.awt.Dimension(100, 25));
+        txfCantidad.setMinimumSize(new java.awt.Dimension(70, 15));
+        txfCantidad.setPreferredSize(new java.awt.Dimension(100, 15));
+        txfCantidad.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 10);
+        pAdicionalAlmacen.add(txfCantidad, gridBagConstraints);
+
+        txfPrecioUnidad.setEditable(false);
+        txfPrecioUnidad.setBackground(new java.awt.Color(245, 245, 245));
+        txfPrecioUnidad.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txfPrecioUnidad.setForeground(new java.awt.Color(60, 60, 60));
+        txfPrecioUnidad.setEnabled(false);
+        txfPrecioUnidad.setMaximumSize(new java.awt.Dimension(100, 25));
+        txfPrecioUnidad.setMinimumSize(new java.awt.Dimension(70, 15));
+        txfPrecioUnidad.setPreferredSize(new java.awt.Dimension(100, 15));
+        txfPrecioUnidad.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 10);
+        pAdicionalAlmacen.add(txfPrecioUnidad, gridBagConstraints);
+
+        txfDescripcion.setEditable(false);
+        txfDescripcion.setBackground(new java.awt.Color(245, 245, 245));
+        txfDescripcion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txfDescripcion.setForeground(new java.awt.Color(60, 60, 60));
+        txfDescripcion.setEnabled(false);
+        txfDescripcion.setMaximumSize(new java.awt.Dimension(100, 25));
+        txfDescripcion.setMinimumSize(new java.awt.Dimension(70, 15));
+        txfDescripcion.setPreferredSize(new java.awt.Dimension(100, 15));
+        txfDescripcion.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAdicionalAlmacen.add(txfDescripcion, gridBagConstraints);
+
+        txfPrecioMayor.setEditable(false);
+        txfPrecioMayor.setBackground(new java.awt.Color(245, 245, 245));
+        txfPrecioMayor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txfPrecioMayor.setForeground(new java.awt.Color(60, 60, 60));
+        txfPrecioMayor.setEnabled(false);
+        txfPrecioMayor.setMaximumSize(new java.awt.Dimension(100, 25));
+        txfPrecioMayor.setMinimumSize(new java.awt.Dimension(70, 15));
+        txfPrecioMayor.setPreferredSize(new java.awt.Dimension(100, 15));
+        txfPrecioMayor.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 10);
+        pAdicionalAlmacen.add(txfPrecioMayor, gridBagConstraints);
+
+        iconProductDefault.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(80x80px)iconProductDefault.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
+        pAdicionalAlmacen.add(iconProductDefault, gridBagConstraints);
+
+        txfModelo.setEditable(false);
+        txfModelo.setBackground(new java.awt.Color(245, 245, 245));
+        txfModelo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txfModelo.setForeground(new java.awt.Color(60, 60, 60));
+        txfModelo.setEnabled(false);
+        txfModelo.setMaximumSize(new java.awt.Dimension(100, 25));
+        txfModelo.setMinimumSize(new java.awt.Dimension(70, 15));
+        txfModelo.setPreferredSize(new java.awt.Dimension(100, 15));
+        txfModelo.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAdicionalAlmacen.add(txfModelo, gridBagConstraints);
+
+        txfCategoria.setEditable(false);
+        txfCategoria.setBackground(new java.awt.Color(245, 245, 245));
+        txfCategoria.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txfCategoria.setForeground(new java.awt.Color(60, 60, 60));
+        txfCategoria.setEnabled(false);
+        txfCategoria.setMaximumSize(new java.awt.Dimension(100, 25));
+        txfCategoria.setMinimumSize(new java.awt.Dimension(70, 15));
+        txfCategoria.setPreferredSize(new java.awt.Dimension(100, 15));
+        txfCategoria.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAdicionalAlmacen.add(txfCategoria, gridBagConstraints);
+
+        txfProductoID.setEditable(false);
+        txfProductoID.setBackground(new java.awt.Color(245, 245, 245));
+        txfProductoID.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txfProductoID.setForeground(new java.awt.Color(60, 60, 60));
+        txfProductoID.setEnabled(false);
+        txfProductoID.setMaximumSize(new java.awt.Dimension(100, 25));
+        txfProductoID.setMinimumSize(new java.awt.Dimension(70, 15));
+        txfProductoID.setPreferredSize(new java.awt.Dimension(100, 15));
+        txfProductoID.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAdicionalAlmacen.add(txfProductoID, gridBagConstraints);
+
+        txfMarca.setEditable(false);
+        txfMarca.setBackground(new java.awt.Color(245, 245, 245));
+        txfMarca.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txfMarca.setForeground(new java.awt.Color(60, 60, 60));
+        txfMarca.setEnabled(false);
+        txfMarca.setMaximumSize(new java.awt.Dimension(100, 25));
+        txfMarca.setMinimumSize(new java.awt.Dimension(70, 15));
+        txfMarca.setPreferredSize(new java.awt.Dimension(100, 15));
+        txfMarca.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAdicionalAlmacen.add(txfMarca, gridBagConstraints);
+
+        lblCodigo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblCodigo.setForeground(new java.awt.Color(60, 60, 60));
+        lblCodigo.setText("Codigo :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAdicionalAlmacen.add(lblCodigo, gridBagConstraints);
+
+        lblCategoria.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblCategoria.setForeground(new java.awt.Color(60, 60, 60));
+        lblCategoria.setText("Categoria :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAdicionalAlmacen.add(lblCategoria, gridBagConstraints);
+
+        lblDescripcion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblDescripcion.setForeground(new java.awt.Color(60, 60, 60));
+        lblDescripcion.setText("Descripcion :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAdicionalAlmacen.add(lblDescripcion, gridBagConstraints);
+
+        lblPrecioxUnidad.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblPrecioxUnidad.setForeground(new java.awt.Color(60, 60, 60));
+        lblPrecioxUnidad.setText("Precio por unidad:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAdicionalAlmacen.add(lblPrecioxUnidad, gridBagConstraints);
+
+        lblPrecioxMayor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblPrecioxMayor.setForeground(new java.awt.Color(60, 60, 60));
+        lblPrecioxMayor.setText("Precio por mayor:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAdicionalAlmacen.add(lblPrecioxMayor, gridBagConstraints);
+
+        lblCantidad.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblCantidad.setForeground(new java.awt.Color(60, 60, 60));
+        lblCantidad.setText("Cantidad disponible :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAdicionalAlmacen.add(lblCantidad, gridBagConstraints);
+
+        lblMarca.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblMarca.setForeground(new java.awt.Color(60, 60, 60));
+        lblMarca.setText("Marca :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAdicionalAlmacen.add(lblMarca, gridBagConstraints);
+
+        lblModelo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblModelo.setForeground(new java.awt.Color(60, 60, 60));
+        lblModelo.setText("Modelo :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAdicionalAlmacen.add(lblModelo, gridBagConstraints);
+
+        lblAnhoFab.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblAnhoFab.setForeground(new java.awt.Color(60, 60, 60));
+        lblAnhoFab.setText("Año de Fab. :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pAdicionalAlmacen.add(lblAnhoFab, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel4.add(pAdicionalAlmacen, gridBagConstraints);
 
         customPanel3.setBackground(new java.awt.Color(250, 250, 250));
         customPanel3.setForeground(new java.awt.Color(60, 60, 60));
@@ -961,6 +1084,8 @@ public class Panel_Ventas extends javax.swing.JPanel {
 
         pTipoFactura.setBackground(new java.awt.Color(250, 250, 250));
         pTipoFactura.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tipo de Emision", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(60, 60, 60))); // NOI18N
+        pTipoFactura.setMinimumSize(new java.awt.Dimension(132, 100));
+        pTipoFactura.setPreferredSize(new java.awt.Dimension(132, 100));
         pTipoFactura.setLayout(new java.awt.GridBagLayout());
 
         rbIndefinido.setBackground(new java.awt.Color(250, 250, 250));
@@ -1017,31 +1142,43 @@ public class Panel_Ventas extends javax.swing.JPanel {
         customPanel3.add(pTipoFactura, gridBagConstraints);
 
         customButtonShaped1.setText("AGREGAR");
+        customButtonShaped1.setMaximumSize(new java.awt.Dimension(250, 45));
+        customButtonShaped1.setMinimumSize(new java.awt.Dimension(120, 30));
+        customButtonShaped1.setPreferredSize(new java.awt.Dimension(120, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 5);
         customPanel3.add(customButtonShaped1, gridBagConstraints);
 
         customButtonShaped2.setText("QUITAR");
+        customButtonShaped2.setMaximumSize(new java.awt.Dimension(250, 45));
+        customButtonShaped2.setMinimumSize(new java.awt.Dimension(120, 30));
+        customButtonShaped2.setPreferredSize(new java.awt.Dimension(120, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 5);
         customPanel3.add(customButtonShaped2, gridBagConstraints);
 
         customButtonShaped3.setText("REGISTRAR");
+        customButtonShaped3.setMaximumSize(new java.awt.Dimension(250, 45));
+        customButtonShaped3.setMinimumSize(new java.awt.Dimension(120, 30));
+        customButtonShaped3.setPreferredSize(new java.awt.Dimension(120, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 5);
         customPanel3.add(customButtonShaped3, gridBagConstraints);
 
         customButtonShaped4.setText("COTIZAR");
+        customButtonShaped4.setMaximumSize(new java.awt.Dimension(250, 45));
+        customButtonShaped4.setMinimumSize(new java.awt.Dimension(120, 30));
+        customButtonShaped4.setPreferredSize(new java.awt.Dimension(120, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -1050,6 +1187,9 @@ public class Panel_Ventas extends javax.swing.JPanel {
         customPanel3.add(customButtonShaped4, gridBagConstraints);
 
         customButtonShaped5.setText("LIMPIAR");
+        customButtonShaped5.setMaximumSize(new java.awt.Dimension(250, 45));
+        customButtonShaped5.setMinimumSize(new java.awt.Dimension(120, 30));
+        customButtonShaped5.setPreferredSize(new java.awt.Dimension(120, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -1059,184 +1199,18 @@ public class Panel_Ventas extends javax.swing.JPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(customPanel3, gridBagConstraints);
+        jPanel4.add(customPanel3, gridBagConstraints);
 
-        customPanel1.setBackground(new java.awt.Color(250, 250, 250));
-        customPanel1.setForeground(new java.awt.Color(60, 60, 60));
-        customPanel1.setOpaque(false);
-        customPanel1.setLayout(new java.awt.GridBagLayout());
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(60, 60, 60));
-        jLabel15.setText("Precio sin IGV :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
-        customPanel1.add(jLabel15, gridBagConstraints);
-
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(60, 60, 60));
-        jLabel16.setText("Precio con IGV :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
-        customPanel1.add(jLabel16, gridBagConstraints);
-
-        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(60, 60, 60));
-        jLabel18.setText("TOTAL :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 5);
-        customPanel1.add(jLabel18, gridBagConstraints);
-
-        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(60, 60, 60));
-        jLabel19.setText("Precio sin Descuento :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        customPanel1.add(jLabel19, gridBagConstraints);
-
-        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(60, 60, 60));
-        jLabel20.setText("Precio con Descuento :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        customPanel1.add(jLabel20, gridBagConstraints);
-
-        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(60, 60, 60));
-        jLabel21.setText("Cuota Mensual :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        customPanel1.add(jLabel21, gridBagConstraints);
-
-        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(60, 60, 60));
-        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("0.00");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        customPanel1.add(jLabel22, gridBagConstraints);
-
-        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(60, 60, 60));
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText("0.00");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        customPanel1.add(jLabel23, gridBagConstraints);
-
-        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(60, 60, 60));
-        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setText("0.00");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        customPanel1.add(jLabel25, gridBagConstraints);
-
-        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(60, 60, 60));
-        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel26.setText("0.00");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        customPanel1.add(jLabel26, gridBagConstraints);
-
-        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(60, 60, 60));
-        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel27.setText("0.00");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        customPanel1.add(jLabel27, gridBagConstraints);
-
-        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(60, 60, 60));
-        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel28.setText("0.00");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        customPanel1.add(jLabel28, gridBagConstraints);
-
-        lblsgnoMoneda.setFont(new java.awt.Font("Tahoma", 0, 32)); // NOI18N
-        lblsgnoMoneda.setForeground(new java.awt.Color(60, 60, 60));
-        lblsgnoMoneda.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblsgnoMoneda.setText("S./");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.weightx = 1.0;
-        customPanel1.add(lblsgnoMoneda, gridBagConstraints);
-
-        lblMoneda.setFont(new java.awt.Font("Tahoma", 0, 32)); // NOI18N
-        lblMoneda.setForeground(new java.awt.Color(60, 60, 60));
-        lblMoneda.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblMoneda.setText("SOLES");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 1.0;
-        customPanel1.add(lblMoneda, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(customPanel1, gridBagConstraints);
+        gridBagConstraints.weightx = 1.0;
+        add(jPanel4, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
@@ -1265,7 +1239,6 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     public javax.swing.JLabel jLabel22;
@@ -1276,6 +1249,9 @@ public class Panel_Ventas extends javax.swing.JPanel {
     public javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JSlider jSlider1;
     public javax.swing.JTable jTable1;

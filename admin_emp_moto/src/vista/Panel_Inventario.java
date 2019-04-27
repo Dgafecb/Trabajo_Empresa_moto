@@ -62,115 +62,16 @@ public class Panel_Inventario extends javax.swing.JPanel {
         jTable1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jTable1.setFocusable(false);
-        jTable1.setMaximumSize(new java.awt.Dimension(1200, 80));
-        jTable1.setMinimumSize(new java.awt.Dimension(9000, 80));
-        jTable1.setPreferredSize(new java.awt.Dimension(900, 700));
+        jTable1.setMaximumSize(new java.awt.Dimension(2147483647, 600));
+        jTable1.setMinimumSize(new java.awt.Dimension(60, 160));
+        jTable1.setPreferredSize(new java.awt.Dimension(300, 160));
         jTable1.setSelectionBackground(new java.awt.Color(102, 102, 102));
         jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jTable1);
@@ -230,16 +131,18 @@ public class Panel_Inventario extends javax.swing.JPanel {
 
         pBuscar.setBackground(new java.awt.Color(255, 255, 255));
         pBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pBuscar.setMinimumSize(new java.awt.Dimension(200, 40));
+        pBuscar.setPreferredSize(new java.awt.Dimension(200, 40));
         pBuscar.setLayout(new java.awt.GridBagLayout());
 
         txfBuscar.setBorder(null);
         txfBuscar.setForeground(new java.awt.Color(60, 60, 60));
         txfBuscar.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        txfBuscar.setMaximumSize(new java.awt.Dimension(500, 39));
-        txfBuscar.setMinimumSize(new java.awt.Dimension(500, 39));
+        txfBuscar.setMaximumSize(new java.awt.Dimension(500, 38));
+        txfBuscar.setMinimumSize(new java.awt.Dimension(500, 38));
         txfBuscar.setPhColor(new java.awt.Color(60, 60, 60));
         txfBuscar.setPlaceholder(Cadenas.INVENTARIO_BUSCAR);
-        txfBuscar.setPreferredSize(new java.awt.Dimension(500, 39));
+        txfBuscar.setPreferredSize(new java.awt.Dimension(500, 38));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
