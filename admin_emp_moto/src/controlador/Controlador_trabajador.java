@@ -22,29 +22,35 @@ import vista.Ventana_Trabajador;
 public class Controlador_trabajador implements ActionListener {
 
     public Ventana_Trabajador ventanaTrabajador;
-    public Modelo_Trabajadores model_user;
     public Ventana_Login view_login;
+    
+    public Modelo_Trabajadores model_user;
+    public Modelo_Trabajadores modelo_Trabajador_Actual;
+    
     public Consultas_Trabajadores consultas_login;
+    
     public Controlador_login ctrl_login;
     public Controlador_Resumen ctrl_resumen;
-    public Controlador_Almacen_Trabajadores ctrl_almacen;
+    public Controlador_Almacen ctrl_almacen;
     public Controlador_Ventas_Trabajador controlador_Ventas_Trabajador;
+    
     public Panel_Resumen panel_resumen;
     public Panel_Inventario panel_almacen;
-
-    private Panel_Ventas panel_ventas;
-    public Modelo_Trabajadores modelo_Trabajador_Actual;
+    public Panel_Ventas panel_ventas;
+    
 
     public Controlador_trabajador(Ventana_Trabajador ventanaTrabajador, Modelo_Trabajadores model_user) {// Falta instanciar las demas variables a usar
         this.ventanaTrabajador = ventanaTrabajador;
         this.model_user = model_user;
         this.llamarComponentes();
-        //temporal
-        ventanaTrabajador.menuTrabajador.btnInicio.setVisible(false);
         limpiarSpContent();
         panel_almacen = new Panel_Inventario();
-        ctrl_almacen = new Controlador_Almacen_Trabajadores(this, this.ventanaTrabajador);
+        ctrl_almacen = new Controlador_Almacen(this, this.ventanaTrabajador);
         ventanaTrabajador.administrarPanel(this.ventanaTrabajador.spContent, panel_almacen);
+        
+        //temporal
+        ventanaTrabajador.menuTrabajador.btnInicio.setVisible(false);
+       
     }
 
     private void llamarComponentes() {
@@ -159,7 +165,6 @@ public class Controlador_trabajador implements ActionListener {
             String fecha = new SimpleDateFormat("ddMMyyyy").format(Calendar.getInstance().getTime());
             if (verificacionAsistencia(fecha, dni)) {
                 this.ventanaTrabajador.menuNotificaciones.customButtonMarcar2.setMarcarDisp(false);
-                mensaje("Ya marcó asistencia");
             } else {
                 Consultas_Asistencia consultas = new Consultas_Asistencia();
                 String hora_entrada = new SimpleDateFormat("HHmmss").format(Calendar.getInstance().getTime());
@@ -169,10 +174,10 @@ public class Controlador_trabajador implements ActionListener {
                 temp_model.setHora_entrada(hora_entrada);
                 if (consultas.create(temp_model)) {
                     lista_asistencia = consultas.readAll();
-                    mensaje("Logró marcar asistencia");
+                    mensaje("SE MARCO ASISTENCIA CON EXITO");
                     this.ventanaTrabajador.menuNotificaciones.customButtonMarcar2.setMarcarDisp(false);
                 } else {
-                    mensaje("No pudo marcar asistencia");
+                    mensaje("ERROR AL MARCAR ASISTENCIA");
                 }
             }
     }
@@ -184,7 +189,7 @@ public class Controlador_trabajador implements ActionListener {
                 @Override
                 public void run() {
                    marcarAsistencia();
-                    return ;
+                   return ;
                 }
             };
             hilo.start();
@@ -202,7 +207,7 @@ public class Controlador_trabajador implements ActionListener {
         }else if (e.getSource() == ventanaTrabajador.menuTrabajador.btnAlmacen) { // Reinstancia la ventana de login, permitiendo otro inicio de sesion
             limpiarSpContent();
             panel_almacen = new Panel_Inventario();
-            ctrl_almacen = new Controlador_Almacen_Trabajadores(this, this.ventanaTrabajador);
+            ctrl_almacen = new Controlador_Almacen(this, this.ventanaTrabajador);
             ventanaTrabajador.administrarPanel(this.ventanaTrabajador.spContent, panel_almacen);
         } else if (e.getSource() == ventanaTrabajador.menuTrabajador.btnCerrarSesion) { // Reinstancia la ventana de login, permitiendo otro inicio de sesion
             limpiarSpContent();

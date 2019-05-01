@@ -24,10 +24,10 @@ public class Controlador_admin implements ActionListener {
     private Ventana_Admin ventanaAdmin;
 
     /*---------------------PANELES---------------------------*/
-    private Panel_Registros panelRegistros;
-    private Panel_Ventas panelVentas;
-    private Panel_Inventario panelInventario;
-    private Panel_Ajustes panelAjustes;
+    public Panel_Registros panelRegistros;
+    public Panel_Ventas panelVentas;
+    public Panel_Inventario panelInventario;
+    public Panel_Ajustes panelAjustes;
 
     /*---------------------MODELOS---------------------------*/
     private Modelo_Trabajadores model_user;

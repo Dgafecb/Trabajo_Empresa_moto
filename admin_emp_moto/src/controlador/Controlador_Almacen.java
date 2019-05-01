@@ -25,26 +25,38 @@ import vista.Emergente_Aviso;
 import vista.Emergente_Panel_Almacen;
 import vista.Panel_Inventario;
 import vista.Ventana_Admin;
+import vista.Ventana_Trabajador;
 
 public class Controlador_Almacen implements ActionListener {
 
-    private Controlador_admin controladorAdmin;
-    private Ventana_Admin ventanaAdmin;
+    private Controlador_admin controladorA;
+    private Controlador_trabajador controladorT;
+    private Ventana_Admin ventanaA;
+    private Ventana_Trabajador ventanaT;
     private Panel_Inventario panelInventario;
-    private Linked_List<Modelo_Inventario_Vehiculos> vehiculos;
-    private Linked_List<Modelo_Inventario_Repuestos> repuestos;
 
-    public Controlador_Almacen(Controlador_admin controladorAdmin, Ventana_Admin ventanaAdmin) {
-        this.controladorAdmin = controladorAdmin;
-        this.ventanaAdmin = ventanaAdmin;
+
+    public Controlador_Almacen(Controlador_admin controlador, Ventana_Admin ventana) {
+        this.controladorA = controlador;
+        this.ventanaA = ventana;
+        this.iniciarComponentes();
+        this.llamarComponentes();
+    }
+    
+    public Controlador_Almacen(Controlador_trabajador controlador, Ventana_Trabajador ventana) {
+        this.controladorT = controlador;
+        this.ventanaT = ventana;
         this.iniciarComponentes();
         this.llamarComponentes();
     }
 
     private void iniciarComponentes() {
-        this.ventanaAdmin = controladorAdmin.getVentanaAdmin();
-        this.panelInventario = controladorAdmin.getPanelInventario();
-        vehiculos = lista_vehiculos;
+        if(controladorA!=null){
+            this.panelInventario = controladorA.getPanelInventario();
+        }
+        else if(controladorT!=null){
+            this.panelInventario = controladorT.panel_almacen;
+        }
     }
 
     private void llamarComponentes() {
@@ -175,17 +187,21 @@ public class Controlador_Almacen implements ActionListener {
             }
         }
         }else{
-            JOptionPane.showMessageDialog(ventanaAdmin, "No hay datos para exportar","Mensaje de error",JOptionPane.ERROR_MESSAGE);
+             mensaje("NO HAY DATOS PARA EXPORTAR"); 
         }
     }
     
-    
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == this.panelInventario.btnAgregar) {
-            Emergente_Panel_Almacen panel = new Emergente_Panel_Almacen(ventanaAdmin, true);
-            panel.setVisible(true);
-            LinkedList<String> listaAgregar = panel.inventario;
+    private void Agregrar(){
+            LinkedList<String> listaAgregar;
+            Emergente_Panel_Almacen panel=null;
+            if(ventanaA !=null){
+                panel = new Emergente_Panel_Almacen(ventanaA, true);
+                panel.setVisible(true);
+            }else if(ventanaT!=null){
+                panel = new Emergente_Panel_Almacen(ventanaT, true);
+                panel.setVisible(true);
+            }
+            listaAgregar = panel.inventario;
             if (listaAgregar == null) {// caso que presiono cancelar
 
             } else {
@@ -193,8 +209,7 @@ public class Controlador_Almacen implements ActionListener {
                 InventarioTEMP busqueda = lista_vehiculos.findIndexId(lista_vehiculos, id);
 
                 if (busqueda.isFunciona()) {
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "El ID del artículo ya existe, utilize otro ID o actualize el artículo ");
-                    mensaje.setVisible(true);
+                    mensaje("EL ID DEL ARTICULO YA EXISTE");
                 } else {
 
                     String categoria = listaAgregar.get(1);
@@ -229,44 +244,15 @@ public class Controlador_Almacen implements ActionListener {
                         lista_vehiculos.add(temp_model);
                         this.llenarTablaAlmacen(lista_vehiculos);
                     } else {
-                        Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo agregar al inventario");
-                        mensaje.setVisible(true);
+                        mensaje("NO SE PUDO AGREGAR AL INVENTARIO");
                     }
                 }
 
-            }
-
-        }
-
-        if (e.getSource()
-                == this.panelInventario.bntEliminar) {
-            if (this.panelInventario.jTable1.getSelectionModel().isSelectionEmpty() == false) {
-                String temp_id = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 0);
-                int index = lista_vehiculos.findInventario(lista_vehiculos, temp_id);
-                Modelo_Inventario_Vehiculos temp_model = new Modelo_Inventario_Vehiculos();
-                temp_model.setId(((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getId());
-                Consultas_Inventario_Vehiculos consultas = new Consultas_Inventario_Vehiculos();
-                if (consultas.delete(temp_model)) {
-
-                    lista_vehiculos.remove(index);
-                    this.llenarTablaAlmacen(lista_vehiculos);
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se elimino del inventario");
-                    mensaje.setVisible(true);
-                } else {
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se logro eliminar");
-                    mensaje.setVisible(true);
-                }
-
-            } else {
-                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Seleccione una fila a eliminar");
-                mensaje.setVisible(true);
-
-            }
-
-        }
-
-        if (e.getSource() == this.panelInventario.btnModificar) {
-            if (this.panelInventario.jTable1.getSelectionModel().isSelectionEmpty() == false) {
+        } 
+    }
+    
+    private void Modificar(){
+        if (this.panelInventario.jTable1.getSelectionModel().isSelectionEmpty() == false) {
                 if (this.panelInventario.jTable1.isEditing()) {
                     this.panelInventario.jTable1.getCellEditor().stopCellEditing();
                     String id = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 0);
@@ -304,19 +290,47 @@ public class Controlador_Almacen implements ActionListener {
                         lista_vehiculos.remove(index);
                         lista_vehiculos.add(index, temp_model);
                         this.llenarTablaAlmacen(lista_vehiculos);
-                        Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se actualizo el registro");
-                        mensaje.setVisible(true);
+                        mensaje("SE ACTUALIZO EL REGISTRO");
                     } else {
-                        Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se pudo actualizar el registro");
-                        mensaje.setVisible(true);
+                        mensaje("NO SE PUDO ACTUALIZAR REGISTRO");
                     }
                 }
             } else {
-                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Seleccione una fila a modificar");
-                mensaje.setVisible(true);
+                mensaje("SELECCIONE UNA FILA A MODIFICAR");
 
             }
 
+    }
+    
+    private void Eliminar(){
+         if (this.panelInventario.jTable1.getSelectionModel().isSelectionEmpty() == false) {
+                String temp_id = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 0);
+                int index = lista_vehiculos.findInventario(lista_vehiculos, temp_id);
+                Modelo_Inventario_Vehiculos temp_model = new Modelo_Inventario_Vehiculos();
+                temp_model.setId(((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getId());
+                Consultas_Inventario_Vehiculos consultas = new Consultas_Inventario_Vehiculos();
+                if (consultas.delete(temp_model)){
+                    lista_vehiculos.remove(index);
+                    this.llenarTablaAlmacen(lista_vehiculos);
+                    mensaje("OPERACION REALIZADA CON EXITO");
+                }else {
+                    mensaje("NO SE LOGRO ELIMINAR");
+                }
+            } else {
+                mensaje("SELECCIONE UNA FILA A ELIMINAR");
+
+            }
+    }
+    
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == this.panelInventario.btnAgregar) {
+            this.Agregrar();
+        }else if (e.getSource() == this.panelInventario.bntEliminar) {
+           this.Eliminar();
+        }else if (e.getSource() == this.panelInventario.btnModificar) {
+            this.Modificar();
         }else if (e.getSource() == this.panelInventario.btnBuscar) {
             if (this.panelInventario.rbId.isSelected()) {// UNICO ID
                 buscarAlmacen(panelInventario.txfBuscar.getText(), 1);
@@ -330,14 +344,13 @@ public class Controlador_Almacen implements ActionListener {
                     @Override
                     public void run() {
                         Consultas_Inventario_Vehiculos consulta = new Consultas_Inventario_Vehiculos();
-                        vehiculos = consulta.readAll();
-                         llenarTablaAlmacen(vehiculos);
+                        lista_vehiculos = consulta.readAll();
+                        llenarTablaAlmacen(lista_vehiculos);
                         mensaje("OPERACION REALIZADA");
                         return ;
                     }
                 };
             hilo.start();
-            
         }else if(e.getSource() == this.panelInventario.btnExportar){
             exportar(panelInventario.jTable1);
         } 
@@ -379,8 +392,13 @@ public class Controlador_Almacen implements ActionListener {
     }
     
     private void mensaje(String msg) {
-        Emergente_Aviso mensajes = new Emergente_Aviso(ventanaAdmin, true, msg);
-        mensajes.setVisible(true);
+        if(ventanaA !=null){
+            Emergente_Aviso mensajes = new Emergente_Aviso(ventanaA, true, msg);
+            mensajes.setVisible(true);
+        }else if(ventanaT!=null){
+            Emergente_Aviso mensajes = new Emergente_Aviso(ventanaT, true, msg);
+            mensajes.setVisible(true);
+        }
     }
     
     

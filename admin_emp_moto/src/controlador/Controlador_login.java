@@ -84,8 +84,7 @@ public class Controlador_login implements ActionListener, KeyListener {
                     try {
                         view.panelLogin.btnAcceder.setVisible(false);
                         view.panelLogin.loading.setVisible(true);
-                        accionBtnIngresar();
-                        
+                        accionBtnIngresar();              
                         view.panelLogin.btnAcceder.setVisible(true);
                         view.panelLogin.loading.setVisible(false);
                         return;
