@@ -56,6 +56,7 @@ public class Panel_Inventario extends javax.swing.JPanel {
         customPanel1.setOpaque(false);
         customPanel1.setLayout(new java.awt.GridBagLayout());
 
+        jScrollPane1.setBackground(new java.awt.Color(250, 250, 250));
         jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
 
         jTable1.setAutoCreateRowSorter(true);

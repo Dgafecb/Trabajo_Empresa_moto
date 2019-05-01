@@ -10,12 +10,16 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import modelo.Consultas_Inventario_Vehiculos;
-import modelo.CustomRenderAsistencia;
+import modelo.CustomRenderAlmacen;
 import modelo.Exporter;
 import modelo.Linked_List;
 import modelo.Linked_List.InventarioTEMP;
@@ -24,6 +28,7 @@ import modelo.Modelo_Inventario_Vehiculos;
 import vista.Emergente_Aviso;
 import vista.Emergente_Panel_Almacen;
 import vista.Panel_Inventario;
+import vista.Panel_Update;
 import vista.Ventana_Admin;
 import vista.Ventana_Trabajador;
 
@@ -34,6 +39,7 @@ public class Controlador_Almacen implements ActionListener {
     private Ventana_Admin ventanaA;
     private Ventana_Trabajador ventanaT;
     private Panel_Inventario panelInventario;
+    private Panel_Update panelUpdate;
 
 
     public Controlador_Almacen(Controlador_admin controlador, Ventana_Admin ventana) {
@@ -258,16 +264,16 @@ public class Controlador_Almacen implements ActionListener {
                     String id = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 0);
                     String categoria = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 1);
                     String descripcion = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 2);
-                    int cantidad = Integer.valueOf(this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 3).toString());
-                    float precio = Float.valueOf(this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 4).toString());
-                    String marca = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 5);
-                    String modelo = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 6);
-                    String color = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 7);
-                    String motor = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 8);
-                    String chasis = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 9);
-                    String anho_fab = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 10);
-                    String anhos_garantia = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 11);
-                    int advertencia = Integer.valueOf(this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 12).toString());
+                    String marca = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 3);
+                    String modelo = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 4);
+                    String color = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 5);
+                    String motor = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 6);
+                    String chasis = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 7);
+                    String anho_fab = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 8);
+                    String anhos_garantia = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 9);
+                    int cantidad = Integer.valueOf(this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 10).toString());
+                    int advertencia = Integer.valueOf(this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 11).toString());
+                    float precio = Float.valueOf(this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 12).toString());
 
                     Modelo_Inventario_Vehiculos temp_model = new Modelo_Inventario_Vehiculos();
                     temp_model.setId(id);
@@ -322,6 +328,16 @@ public class Controlador_Almacen implements ActionListener {
             }
     }
     
+    private void Update(){
+        panelUpdate = new Panel_Update();
+        panelInventario.jScrollPane1.setViewportView(panelUpdate);
+        Consultas_Inventario_Vehiculos consulta = new Consultas_Inventario_Vehiculos();
+        lista_vehiculos = consulta.readAll();
+        llenarTablaAlmacen(lista_vehiculos);
+        panelInventario.jScrollPane1.setViewportView(panelInventario.jTable1);
+        panelUpdate = null;
+    }
+    
     
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -339,15 +355,12 @@ public class Controlador_Almacen implements ActionListener {
             }else if (this.panelInventario.rbMarca.isSelected()) {
                 buscarAlmacen(panelInventario.txfBuscar.getText(), 3);
             }
-        }else if (e.getSource() == this.panelInventario.btnupdate) {
-                Thread hilo = new Thread(){
-                    @Override
-                    public void run() {
-                        Consultas_Inventario_Vehiculos consulta = new Consultas_Inventario_Vehiculos();
-                        lista_vehiculos = consulta.readAll();
-                        llenarTablaAlmacen(lista_vehiculos);
-                        mensaje("OPERACION REALIZADA");
-                        return ;
+        }else if (e.getSource() == this.panelInventario.btnupdate) { 
+            Thread hilo = new Thread(){
+                @Override
+                public void run() {
+                    Update();
+                    return ;
                     }
                 };
             hilo.start();
@@ -360,8 +373,9 @@ public class Controlador_Almacen implements ActionListener {
 
     private void llenarTablaAlmacen(Linked_List lista_vehiculos) {
 
-        DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Categoria", "Descripcion", "Cantidad", "Precio", "Marca", "Modelo", "Color", "Motor", "Chasis", "Año de Fabricacion",
-            "Años de Garantia", "Advertencia"}, 0){
+        DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "CATEGORIA", "DESCRIPCION", "MARCA",
+            "MODELO", "COLOR", "MOTOR", "CHASIS", "AÑO DE FAB.",
+            "AÑOS DE GARANTIA", "CANTIDAD", "ADVERTENCIA", "PRECIO"}, 0){
             @Override
             public boolean isCellEditable(int row, int column){
                 switch (column) {
@@ -370,25 +384,51 @@ public class Controlador_Almacen implements ActionListener {
                     }
                 }
             };
-        for (int i = 0; i < lista_vehiculos.size(); i++) {
-            String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
-            String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getTipo_vehiculo();
-            String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getNombre_prod();
-            int cantidad = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getCantidad();
-            float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getPrecio();
-            String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMarca();
-            String modelo = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getModelo();
-            String color = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getColor();
-            String motor = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMotor();
-            String chasis = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getChasis();
-            String anho_fab = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getAnho_fab();
-            String anhos_garantia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getAnhos_garantia();
-            int advertencia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getLimite_advertencia();
-            model.addRow(new Object[]{id, categoria, descripcion, cantidad, precio, marca, modelo, color, motor, chasis, anho_fab, anhos_garantia, advertencia});
+        if(lista_vehiculos!=null){
+            for (int i = 0; i < lista_vehiculos.size(); i++) {
+                String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
+                String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getTipo_vehiculo();
+                String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getNombre_prod();
+                int cantidad = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getCantidad();
+                float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getPrecio();
+                String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMarca();
+                String modelo = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getModelo();
+                String color = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getColor();
+                String motor = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMotor();
+                String chasis = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getChasis();
+                String anho_fab = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getAnho_fab();
+                String anhos_garantia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getAnhos_garantia();
+                int advertencia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getLimite_advertencia();
+                model.addRow(new Object[]{id, categoria, descripcion, marca, modelo, color, motor, chasis, anho_fab, anhos_garantia, cantidad, advertencia, precio});
+            }
         }
         
         this.panelInventario.jTable1.setModel(model);
-        this.panelInventario.jTable1.setDefaultRenderer (Object.class, new CustomRenderAsistencia());
+        
+        
+        //CONFIGURACION DE TABLA
+        JTableHeader jtableHeader = new JTableHeader();
+        DefaultTableCellRenderer render = (DefaultTableCellRenderer) panelInventario.jTable1.getTableHeader().getDefaultRenderer();
+        render.setHorizontalAlignment(JLabel.CENTER);
+        jtableHeader.setDefaultRenderer(render);
+        
+        CustomRenderAlmacen tcrCenter = new CustomRenderAlmacen();
+        tcrCenter.setHorizontalAlignment(SwingConstants.CENTER);
+        panelInventario.jTable1.getColumnModel().getColumn(1).setCellRenderer(tcrCenter);
+        panelInventario.jTable1.getColumnModel().getColumn(8).setCellRenderer(tcrCenter);
+        panelInventario.jTable1.getColumnModel().getColumn(9).setCellRenderer(tcrCenter);
+        panelInventario.jTable1.getColumnModel().getColumn(10).setCellRenderer(tcrCenter);
+        panelInventario.jTable1.getColumnModel().getColumn(11).setCellRenderer(tcrCenter);
+        
+        
+
+        
+        CustomRenderAlmacen tcrRight = new CustomRenderAlmacen();
+        tcrRight.setHorizontalAlignment(SwingConstants.RIGHT);
+        panelInventario.jTable1.getColumnModel().getColumn(12).setCellRenderer(tcrRight);
+
+        this.panelInventario.jTable1.setDefaultRenderer (Object.class, new CustomRenderAlmacen());
+        
     }
     
     private void mensaje(String msg) {

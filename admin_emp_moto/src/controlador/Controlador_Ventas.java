@@ -41,13 +41,20 @@ import vista.Panel_Ventas;
 import modelo.Linked_List.Almacenado;
 import modelo.Linked_List.funcionaAlmacenado;
 import vista.Ventana_Admin;
+import vista.Ventana_Trabajador;
 
 public class Controlador_Ventas implements ActionListener, KeyListener {
 
     public static int dscto_maximo;
-    private Controlador_admin controladorAdmin;
-    private Ventana_Admin ventanaAdmin;
+    
+    private Controlador_admin controladorA;
+    private Controlador_trabajador controladorT;
+    
+    private Ventana_Admin ventanaA;
+    private Ventana_Trabajador ventanaT;
+    
     private Panel_Ventas panelVentas;
+
     private Modelo_Inventario_Vehiculos modeloInventario = null;
     private Modelo_Clientes modeloClientes = null;
     private Linked_List<Modelo_Inventario_Vehiculos> objetosAgregados = null;//lista que va a guardar los objetos agregados antes de venderlos
@@ -66,17 +73,29 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
     private float cambio_moneda;
     private Linked_List<Almacenado> temp_list = null;//lista que se almacenara con el id y cantidad temporales de los objetos agregados
 
-    public Controlador_Ventas(Controlador_admin controladorAdmin, Ventana_Admin ventanaAdmin) {
-        this.controladorAdmin = controladorAdmin;
-        this.ventanaAdmin = ventanaAdmin;
+    public Controlador_Ventas(Controlador_admin controladorA, Ventana_Admin ventanaA) {
+        this.controladorA = controladorA;
+        this.ventanaA = ventanaA;
         this.iniciarComponentes();
         this.llamarComponentes();
 
     }
 
+    public Controlador_Ventas(Controlador_trabajador controladorT, Ventana_Trabajador ventanaT) {
+        this.controladorT = controladorT;
+        this.ventanaT = ventanaT;
+        this.iniciarComponentes();
+        this.llamarComponentes();
+    }
+    
+    
+
     private void iniciarComponentes() {
-        this.ventanaAdmin = controladorAdmin.getVentanaAdmin();
-        this.panelVentas = controladorAdmin.getPanelVentas();
+        if(controladorA!=null){
+            this.panelVentas = controladorA.getPanelVentas();
+        }else if(controladorT!=null){
+            this.panelVentas = controladorT.panel_ventas;    
+        } 
         this.setearDsctoMaximo();
         this.setearCuotasBox();
         this.setearCambioMoneda();
@@ -88,8 +107,8 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
 
     private void llamarComponentes() {
 
-        String nombre_trabajador = controladorAdmin.getModel_user().getNombre();
-        nombre_trabajador = "SELLER: " + nombre_trabajador + " " + controladorAdmin.getModel_user().getApellido();
+        String nombre_trabajador = controladorA.getModel_user().getNombre();
+        nombre_trabajador = "SELLER: " + nombre_trabajador + " " + controladorA.getModel_user().getApellido();
         this.panelVentas.lblNombreTrabajador.setText(nombre_trabajador);
         this.llenarTablaAlmacen(lista_vehiculos);
         this.llenarTablaClientes();
@@ -264,6 +283,34 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
             this.panelVentas.lblsgnoMoneda.setText("$");
         }
     }
+    
+    private void setearCuotasBox() {
+        SpinnerModel model = new SpinnerNumberModel(1, 1, 36, 1);
+        this.panelVentas.spnrCuotas.setModel(model);
+    }
+    
+    private void formatPanelInf(Float sin_igv ,Float con_igv ,Float sin_dscto,Float con_dscto,Float cuota_mensual,Float total_ventas){
+        DecimalFormat numberFormat1 = new DecimalFormat("0.00");
+        DecimalFormat numberFormat2 = new DecimalFormat("#.00");
+        if(sin_igv != 0) panelVentas.jLabel22.setText(numberFormat2.format(sin_igv));
+        else panelVentas.jLabel22.setText(numberFormat1.format(sin_igv));
+          
+        if(con_igv != 0) panelVentas.jLabel23.setText(numberFormat2.format(con_igv));
+        else panelVentas.jLabel23.setText(numberFormat1.format(con_igv));
+        
+        if(sin_dscto!= 0) panelVentas.jLabel25.setText(numberFormat2.format(sin_dscto));
+        else panelVentas.jLabel25.setText(numberFormat1.format(sin_dscto));
+        
+        if(con_dscto != 0) panelVentas.jLabel26.setText(numberFormat2.format(con_dscto));
+        else panelVentas.jLabel26.setText(numberFormat1.format(con_dscto));
+            
+        if(cuota_mensual != 0) panelVentas.jLabel27.setText(numberFormat2.format(cuota_mensual));
+        else panelVentas.jLabel27.setText(numberFormat1.format(cuota_mensual));
+        
+        if(total_ventas != 0) panelVentas.jLabel28.setText(numberFormat2.format(total_ventas));
+        else panelVentas.jLabel28.setText(numberFormat1.format(total_ventas));
+        
+    }
 
     private void iniciarTablaVentas() {
         modeloTablaVentas = new DefaultTableModel(new String[]{"Id", "Descripcion", "Cantidad", "Precio unitario", "Precio Total"}, 0);
@@ -272,7 +319,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
     }
 
     private void llenarTablaClientes() {
-        DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos"}, 0){ 
+        DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "CLIENTE", "DNI", "CONTRAYENTE"}, 0){ 
             @Override
             public boolean isCellEditable(int row, int column) {
                 switch (column) {
@@ -297,7 +344,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
 
     private void llenarTablaAlmacen(Linked_List<Modelo_Inventario_Vehiculos> lista_vehiculos) {
 
-        DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "Descripcion", "Marca",}, 0){
+        DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "DESCRIPCION", "MARCA",}, 0){
             
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -328,12 +375,36 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
         this.panelVentas.tAlmacen.setModel(model);
 
     }
+    
+    private void llenar_Tabla_Ventas(String id, String descripcion, String cantidad, Float precio_unitario, Float precio_total) {
+        modeloTablaVentas.addRow(new Object[]{id, descripcion, cantidad, precio_unitario, precio_total});
+        panelVentas.tDatosVentas.setModel(modeloTablaVentas);
+    }
+    
+    private void llenar_Adicional_Ventas(Float precio_total) {
+        this.dscto = this.panelVentas.jSlider1.getValue();
+        this.sin_dscto += precio_total;
+        this.con_dscto = this.sin_dscto * (100 - this.dscto) / 100.f;
+        this.sin_igv = this.con_dscto;
+        this.con_igv = 1.18f * this.sin_igv;
+        this.total_ventas = this.con_igv;
+        this.cuota_mensual = this.total_ventas / (float) cuotas;
+        formatPanelInf(sin_igv ,con_igv ,sin_dscto,con_dscto,cuota_mensual,total_ventas);
+    }
 
-    private void setearCuotasBox() {
+    private void llenar_Adicional_Ventas_2(Float precio_total, int nuevo_tipo) {
 
-        SpinnerModel model = new SpinnerNumberModel(1, 1, 36, 1);
+        this.dscto = this.panelVentas.jSlider1.getValue();
+        //this.sin_dscto = (this.sin_dscto) / (Float.valueOf(this.temp_costo[this.tipo_venta]));
 
-        this.panelVentas.spnrCuotas.setModel(model);
+        this.sin_dscto += precio_total;
+        float temp = this.sin_dscto * Float.valueOf(this.temp_costo[nuevo_tipo]);
+        this.con_dscto = temp * (100 - this.dscto) / 100.f;
+        this.sin_igv = this.con_dscto;
+        this.con_igv = 1.18f * this.sin_igv;
+        this.total_ventas = this.con_igv;
+        this.cuota_mensual = this.total_ventas / (float) cuotas;
+        formatPanelInf(sin_igv ,con_igv ,temp ,con_dscto,cuota_mensual,total_ventas);
 
     }
 
@@ -379,7 +450,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
 
                 Modelo_Ventas temp_model = new Modelo_Ventas();
                 Consultas_Ventas consulta_venta = new Consultas_Ventas();
-                int id_trabajador = this.controladorAdmin.getModel_user().getId();
+                int id_trabajador = this.controladorA.getModel_user().getId();
                 int index = lista_clientes.findClientes(lista_clientes, (String) this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 0)).getTemp().peek();
                 int id_cliente = ((Modelo_Clientes) lista_clientes.get(index)).getId();
                 int logCount = 0;
@@ -498,7 +569,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
 
             }
             if (cantidad_maxima > 0) {
-                Emergente_Panel_Ventas panel_cantidad = new Emergente_Panel_Ventas(this.ventanaAdmin, true, cantidad_maxima);
+                Emergente_Panel_Ventas panel_cantidad = new Emergente_Panel_Ventas(this.ventanaA, true, cantidad_maxima);
                 panel_cantidad.setVisible(true);
 
                 String cantidad = panel_cantidad.getCantidad();
@@ -532,6 +603,37 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
         }
 
     }
+    
+    private void Quitar(){
+        if (this.panelVentas.tDatosVentas.getSelectionModel().isSelectionEmpty() == false) {
+                float temp_total = (float) this.panelVentas.tDatosVentas.getValueAt(this.panelVentas.tDatosVentas.getSelectedRow(), 4);
+                int[] rows = this.panelVentas.tDatosVentas.getSelectedRows();
+                for (int i = 0; i < rows.length; i++) {
+                    modeloTablaVentas.removeRow(rows[i] - i);
+                }
+                this.dscto = this.panelVentas.jSlider1.getValue();
+                this.sin_dscto = this.sin_dscto - temp_total;
+                this.llenar_Adicional_Ventas_2(0.f, tipo_venta);
+                formatPanelInf(sin_igv ,con_igv ,sin_dscto,con_dscto,cuota_mensual,total_ventas);
+            } else {
+                mensaje("SELECCIONE LA FILA QUE DESEA QUITAR");
+
+            }
+    }
+    
+    private void Limpiar(){
+        this.iniciarTablaVentas();
+            total_ventas = 0.00f;
+            sin_igv = 0.00f;
+            con_igv = 0.00f;
+            sin_dscto = 0.00f;
+            con_dscto = 0.00f;
+            cuota_mensual = 0.00f;
+            formatPanelInf(sin_igv ,con_igv ,sin_dscto,con_dscto,cuota_mensual,total_ventas);
+            temp_list = new Linked_List<>();
+    }
+    
+    
 
     private void buscarAlmacen(String referencia, int numero) {
 
@@ -627,103 +729,21 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
 
     }
 
-    private void llenar_Tabla_Ventas(String id, String descripcion, String cantidad, Float precio_unitario, Float precio_total) {
-        modeloTablaVentas.addRow(new Object[]{id, descripcion, cantidad, precio_unitario, precio_total});
-        panelVentas.tDatosVentas.setModel(modeloTablaVentas);
-    }
-
-    private void llenar_Adicional_Ventas(Float precio_total) {
-        this.dscto = this.panelVentas.jSlider1.getValue();
-        this.sin_dscto += precio_total;
-        this.con_dscto = this.sin_dscto * (100 - this.dscto) / 100.f;
-        this.sin_igv = this.con_dscto;
-        this.con_igv = 1.18f * this.sin_igv;
-        this.total_ventas = this.con_igv;
-        this.cuota_mensual = this.total_ventas / (float) cuotas;
-        DecimalFormat numberFormat = new DecimalFormat("#.00");
-        this.panelVentas.jLabel22.setText(numberFormat.format(sin_igv));
-        this.panelVentas.jLabel23.setText(numberFormat.format(con_igv));
-        this.panelVentas.jLabel25.setText(numberFormat.format(sin_dscto));
-        this.panelVentas.jLabel26.setText(numberFormat.format(con_dscto));
-        this.panelVentas.jLabel27.setText(numberFormat.format(cuota_mensual));
-        this.panelVentas.jLabel28.setText(numberFormat.format(this.total_ventas));
-    }
-
-    private void llenar_Adicional_Ventas_2(Float precio_total, int nuevo_tipo) {
-
-        this.dscto = this.panelVentas.jSlider1.getValue();
-        //this.sin_dscto = (this.sin_dscto) / (Float.valueOf(this.temp_costo[this.tipo_venta]));
-
-        this.sin_dscto += precio_total;
-        float temp = this.sin_dscto * Float.valueOf(this.temp_costo[nuevo_tipo]);
-        this.con_dscto = temp * (100 - this.dscto) / 100.f;
-        this.sin_igv = this.con_dscto;
-        this.con_igv = 1.18f * this.sin_igv;
-        this.total_ventas = this.con_igv;
-        this.cuota_mensual = this.total_ventas / (float) cuotas;
-        DecimalFormat numberFormat = new DecimalFormat("#.00");
-        this.panelVentas.jLabel22.setText(numberFormat.format(sin_igv));
-        this.panelVentas.jLabel23.setText(numberFormat.format(con_igv));
-        this.panelVentas.jLabel25.setText(numberFormat.format(temp));
-        this.panelVentas.jLabel26.setText(numberFormat.format(con_dscto));
-        this.panelVentas.jLabel27.setText(numberFormat.format(cuota_mensual));
-        this.panelVentas.jLabel28.setText(numberFormat.format(this.total_ventas));
-
-    }
-
-    private void mensaje(String msg) {
-        Emergente_Aviso mensajes = new Emergente_Aviso(ventanaAdmin, true, msg);
-        mensajes.setVisible(true);
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.panelVentas.customButtonShaped3) {
             this.Registrar();
-        }
-        if (e.getSource() == this.panelVentas.customButtonShaped1) {// boton agregar
+        }else if (e.getSource() == this.panelVentas.customButtonShaped1) {// boton agregar
             this.Agregar();
 
-        }
-        if (e.getSource() == this.panelVentas.customButtonShaped2) {// boton quitar 
-
-            if (this.panelVentas.tDatosVentas.getSelectionModel().isSelectionEmpty() == false) {
-                float temp_total = (float) this.panelVentas.tDatosVentas.getValueAt(this.panelVentas.tDatosVentas.getSelectedRow(), 4);
-                int[] rows = this.panelVentas.tDatosVentas.getSelectedRows();
-                for (int i = 0; i < rows.length; i++) {
-                    modeloTablaVentas.removeRow(rows[i] - i);
-                }
-                this.dscto = this.panelVentas.jSlider1.getValue();
-                this.sin_dscto = this.sin_dscto - temp_total;
-                this.llenar_Adicional_Ventas_2(0.f, tipo_venta);
-            } else {
-                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Seleccione la fila que desea quitar");
-                mensaje.setVisible(true);
-
-            }
-
-        }
-        if (e.getSource() == this.panelVentas.customButtonShaped5) {//boton limpiar
-            this.iniciarTablaVentas();
-            total_ventas = 0.00f;
-            sin_igv = 0.00f;
-            con_igv = 0.00f;
-            sin_dscto = 0.00f;
-            con_dscto = 0.00f;
-            cuota_mensual = 0.00f;
-            DecimalFormat numberFormat = new DecimalFormat("0.00");
-            this.panelVentas.jLabel22.setText(numberFormat.format(sin_igv));
-            this.panelVentas.jLabel23.setText(numberFormat.format(con_igv));
-            this.panelVentas.jLabel25.setText(numberFormat.format(sin_dscto));
-            this.panelVentas.jLabel26.setText(numberFormat.format(con_dscto));
-            this.panelVentas.jLabel27.setText(numberFormat.format(cuota_mensual));
-            this.panelVentas.jLabel28.setText(numberFormat.format(this.total_ventas));
-//            System.out.println(this.panelVentas.tDatosVentas.getRowCount()); 
-            temp_list = new Linked_List<>();
+        }else if (e.getSource() == this.panelVentas.customButtonShaped2) {// boton quitar 
+            this.Quitar();
+        }else if (e.getSource() == this.panelVentas.customButtonShaped5) {//boton limpiar
+            this.Limpiar();
         }
 
         if (e.getSource() == this.panelVentas.btnClienteAgregar) {
-            Emergente_Panel_RClientes panel = new Emergente_Panel_RClientes(ventanaAdmin, true);
+            Emergente_Panel_RClientes panel = new Emergente_Panel_RClientes(ventanaA, true);
             panel.setVisible(true);
             LinkedList<String> lista_agregada = panel.clientes;
             if (lista_agregada == null) {
@@ -751,11 +771,10 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                 temp_model.setCorreo(temp_correo);
                 Consultas_Clientes consultas = new Consultas_Clientes();
                 if (consultas.create(temp_model)) {
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "Se agregó al trabajador");
-                    mensaje.setVisible(true);
+                    mensaje("SE AGREGO CLIENTE");
                     lista_clientes.add(temp_model);
                     //Coloca el cliente agregado como unico en el modelo de tabla
-                    DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos"}, 0);
+                    DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "CLIENTE", "DNI", "CONTRAYENTE"}, 0);
                     int i = (int) lista_clientes.findClientes(lista_clientes, temp_dni).getTemp().peek();
                     String dni = ((Modelo_Clientes) lista_clientes.get(i)).getDni();
                     String nombres_apellido = ((Modelo_Clientes) lista_clientes.get(i)).getNombre_apellido();
@@ -767,8 +786,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                     this.panelVentas.jTable1.setModel(model);
 
                 } else {
-                    Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se agrego al trabajador");
-                    mensaje.setVisible(true);
+                    mensaje("NO SE AGREGO EL CLIENTE");
 
                 }
 
@@ -799,14 +817,18 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                 this.panelVentas.jTable1.setModel(model);
 
             } else {
-                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el DNI");
+                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaA, true, "No se encontro el DNI");
                 mensaje.setVisible(true);
             }
         }
 
         if (e.getSource() == this.panelVentas.btnAlmacenBuscar) {//boton buscar del almacen
             if (panelVentas.rbCodigo.isSelected()) {
-                buscarAlmacen(panelVentas.txfAlmacenBuscar.getText(), 0);
+                buscarAlmacen(panelVentas.txfAlmacenBuscar.getText().toUpperCase(), 1);
+            } else if (panelVentas.rbDescripcion.isSelected()) {
+                buscarAlmacen(panelVentas.txfAlmacenBuscar.getText().toUpperCase(), 2);
+            } else if (panelVentas.rbMarca.isSelected()) {
+                buscarAlmacen(panelVentas.txfAlmacenBuscar.getText().toUpperCase(), 3);
             }
 
         }
@@ -834,5 +856,17 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                 buscarAlmacen(panelVentas.txfAlmacenBuscar.getText().toUpperCase(), 3);
             }
         }
+    }
+    
+    private void mensaje(String msg) {
+        if(ventanaA!=null){
+            Emergente_Aviso mensajes = new Emergente_Aviso(ventanaA, true, msg);
+            mensajes.setVisible(true);
+        }else if(ventanaT!=null){
+            Emergente_Aviso mensajes = new Emergente_Aviso(ventanaT, true, msg);
+            mensajes.setVisible(true);
+        }
+        
+        
     }
 }

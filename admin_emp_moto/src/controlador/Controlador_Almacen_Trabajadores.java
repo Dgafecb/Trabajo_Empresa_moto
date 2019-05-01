@@ -13,7 +13,7 @@ import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import modelo.Consultas_Inventario_Vehiculos;
-import modelo.CustomRenderAsistencia;
+import modelo.CustomRenderAlmacen;
 import modelo.Exporter;
 import modelo.Linked_List;
 import modelo.Modelo_Inventario_Repuestos;
@@ -374,7 +374,7 @@ public class Controlador_Almacen_Trabajadores implements ActionListener {
         }
         
         this.panelInventario.jTable1.setModel(model);
-        this.panelInventario.jTable1.setDefaultRenderer (Object.class, new CustomRenderAsistencia());
+        this.panelInventario.jTable1.setDefaultRenderer (Object.class, new CustomRenderAlmacen());
     }
     
     private void mensaje(String msg) {

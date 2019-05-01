@@ -133,7 +133,7 @@ public class Controlador_login implements ActionListener, KeyListener {
                 }
             };
             hilo2.start();
-            Thread.sleep(4000);
+            Thread.sleep(3500);
             view.setVisible(false);
             view.dispose();
             view_admin = new Ventana_Admin();
@@ -168,7 +168,7 @@ public class Controlador_login implements ActionListener, KeyListener {
                 }
             };
             hilo2.start();
-            Thread.sleep(4000);
+            Thread.sleep(3000);
             view.setVisible(false);
             view.dispose();
             view_trabajador = new Ventana_Trabajador();

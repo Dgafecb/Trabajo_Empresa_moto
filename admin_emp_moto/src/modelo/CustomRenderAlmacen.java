@@ -6,7 +6,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
 
-public class CustomRenderAsistencia extends DefaultTableCellRenderer{
+public class CustomRenderAlmacen extends DefaultTableCellRenderer{
     public Component getTableCellRendererComponent(JTable table,
       Object value,
       boolean isSelected,
@@ -15,8 +15,8 @@ public class CustomRenderAsistencia extends DefaultTableCellRenderer{
       int column)
    {
       super.getTableCellRendererComponent (table, value, isSelected, hasFocus, row, column);
-      int cantidad = Integer.parseInt(table.getModel().getValueAt(row,3).toString());
-      int advertencia = Integer.parseInt(table.getModel().getValueAt(row,12).toString());
+      int cantidad = Integer.parseInt(table.getModel().getValueAt(row,10).toString());
+      int advertencia = Integer.parseInt(table.getModel().getValueAt(row,11).toString());
       if ( cantidad - advertencia <= 2 && cantidad - advertencia > 0 ){
          this.setOpaque(true);
          this.setBackground(Cadenas.COLOR_DEFAULT_YELLOW);
