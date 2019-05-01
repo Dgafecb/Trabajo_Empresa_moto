@@ -648,8 +648,6 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
             temp_list = new Linked_List<>();
     }
     
-    
-
     private void buscarAlmacen(String referencia, int numero) {
 
         String buscar;
