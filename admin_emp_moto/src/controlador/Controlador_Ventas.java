@@ -87,12 +87,10 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
         this.iniciarComponentes();
         this.llamarComponentes();
     }
-    
-    
-
+      
     private void iniciarComponentes() {
         if(controladorA!=null){
-            this.panelVentas = controladorA.getPanelVentas();
+            this.panelVentas = controladorA.panelVentas;
         }else if(controladorT!=null){
             this.panelVentas = controladorT.panel_ventas;    
         } 
@@ -106,9 +104,15 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
     }
 
     private void llamarComponentes() {
-
-        String nombre_trabajador = controladorA.getModel_user().getNombre();
-        nombre_trabajador = "SELLER: " + nombre_trabajador + " " + controladorA.getModel_user().getApellido();
+        String nombre_trabajador = null;
+        if(controladorA!=null){
+            nombre_trabajador = controladorA.getModel_user().getNombre();
+            nombre_trabajador = "SELLER: " + nombre_trabajador + " " + controladorA.getModel_user().getApellido();
+        }else if(controladorT!=null){
+            nombre_trabajador = controladorT.getModel_user().getNombre();  
+            nombre_trabajador = "SELLER: " + nombre_trabajador + " " + controladorT.getModel_user().getApellido();
+        } 
+        
         this.panelVentas.lblNombreTrabajador.setText(nombre_trabajador);
         this.llenarTablaAlmacen(lista_vehiculos);
         this.llenarTablaClientes();
@@ -450,7 +454,13 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
 
                 Modelo_Ventas temp_model = new Modelo_Ventas();
                 Consultas_Ventas consulta_venta = new Consultas_Ventas();
-                int id_trabajador = this.controladorA.getModel_user().getId();
+                int id_trabajador = 0;
+                if(controladorA!=null){
+                    id_trabajador = this.controladorA.getModel_user().getId();
+                }else if(controladorT!=null){
+                    id_trabajador = this.controladorT.getModel_user().getId();  
+                } 
+                
                 int index = lista_clientes.findClientes(lista_clientes, (String) this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 0)).getTemp().peek();
                 int id_cliente = ((Modelo_Clientes) lista_clientes.get(index)).getId();
                 int logCount = 0;
@@ -569,9 +579,14 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
 
             }
             if (cantidad_maxima > 0) {
-                Emergente_Panel_Ventas panel_cantidad = new Emergente_Panel_Ventas(this.ventanaA, true, cantidad_maxima);
-                panel_cantidad.setVisible(true);
-
+                Emergente_Panel_Ventas panel_cantidad = null;
+                if(ventanaA!=null){
+                    panel_cantidad = new Emergente_Panel_Ventas(this.ventanaA, true, cantidad_maxima);
+                    panel_cantidad.setVisible(true);
+                }else if(ventanaT!=null){
+                    panel_cantidad = new Emergente_Panel_Ventas(this.ventanaT, true, cantidad_maxima);
+                    panel_cantidad.setVisible(true);
+                }
                 String cantidad = panel_cantidad.getCantidad();
                 if (!panel_cantidad.getCantidad().equals("0")) {
 
@@ -743,8 +758,15 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
         }
 
         if (e.getSource() == this.panelVentas.btnClienteAgregar) {
-            Emergente_Panel_RClientes panel = new Emergente_Panel_RClientes(ventanaA, true);
-            panel.setVisible(true);
+            Emergente_Panel_RClientes panel=null;
+            if(ventanaA!=null){
+                panel = new Emergente_Panel_RClientes(ventanaA, true);
+                panel.setVisible(true);
+            }else if(ventanaT!=null){
+                panel = new Emergente_Panel_RClientes(ventanaT, true);
+                panel.setVisible(true);
+            }
+            
             LinkedList<String> lista_agregada = panel.clientes;
             if (lista_agregada == null) {
                 //Si se apreto el boton cancelar
@@ -799,7 +821,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
             String dni_leido = this.panelVentas.txfBuscar.getText();
             Linked_List.ResultadoClientes resultado = lista_clientes.findClientes(lista_clientes, dni_leido);
             if (resultado.isFunciona()) {
-                DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos"}, 0);
+                DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "CLIENTE", "DNI", "CONTRAYENTE"}, 0);
                 for (int i = 0; i < resultado.getTemp().size(); i++) {
 
                     String dni = ((Modelo_Clientes) lista_clientes.get(i)).getDni();
@@ -817,8 +839,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                 this.panelVentas.jTable1.setModel(model);
 
             } else {
-                Emergente_Aviso mensaje = new Emergente_Aviso(ventanaA, true, "No se encontro el DNI");
-                mensaje.setVisible(true);
+                mensaje("NO SE ENCONTRO DNI");
             }
         }
 

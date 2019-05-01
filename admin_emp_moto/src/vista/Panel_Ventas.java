@@ -23,8 +23,10 @@ public class Panel_Ventas extends javax.swing.JPanel {
         grupoEmision.add(rbContrato);
         grupoEmision.add(rbFactura);
         rbIndefinido.setSelected(true);
+        this.jSlider1.setValue(0);
         //Temporal
         this.jLabel25.setVisible(false);
+        
     }
     
     @SuppressWarnings("unchecked")

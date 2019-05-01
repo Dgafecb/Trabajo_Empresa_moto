@@ -32,7 +32,7 @@ public class Controlador_trabajador implements ActionListener {
     public Controlador_login ctrl_login;
     public Controlador_Resumen ctrl_resumen;
     public Controlador_Almacen ctrl_almacen;
-    public Controlador_Ventas_Trabajador controlador_Ventas_Trabajador;
+    public Controlador_Ventas controlador_Ventas;
     
     public Panel_Resumen panel_resumen;
     public Panel_Inventario panel_almacen;
@@ -122,12 +122,12 @@ public class Controlador_trabajador implements ActionListener {
         this.ctrl_resumen = ctrl_resumen;
     }
 
-    public Controlador_Ventas_Trabajador getControlador_Ventas_Trabajador() {
-        return controlador_Ventas_Trabajador;
+    public Controlador_Ventas getControlador_Ventas_Trabajador() {
+        return controlador_Ventas;
     }
 
-    public void setControlador_Ventas_Trabajador(Controlador_Ventas_Trabajador controlador_Ventas_Trabajador) {
-        this.controlador_Ventas_Trabajador = controlador_Ventas_Trabajador;
+    public void setControlador_Ventas_Trabajador(Controlador_Ventas controlador_Ventas_Trabajador) {
+        this.controlador_Ventas = controlador_Ventas_Trabajador;
     }
 
     public Panel_Resumen getPanel_resumen() {
@@ -197,7 +197,7 @@ public class Controlador_trabajador implements ActionListener {
         if (e.getSource() == ventanaTrabajador.menuTrabajador.btnVentas) {
             limpiarSpContent();
             panel_ventas = new Panel_Ventas();
-            controlador_Ventas_Trabajador = new Controlador_Ventas_Trabajador(this, this.ventanaTrabajador);
+            controlador_Ventas = new Controlador_Ventas(this, this.ventanaTrabajador);
             ventanaTrabajador.administrarPanel(this.ventanaTrabajador.spContent, panel_ventas);
         } else if (e.getSource() == ventanaTrabajador.menuTrabajador.btnInicio) {
             limpiarSpContent();

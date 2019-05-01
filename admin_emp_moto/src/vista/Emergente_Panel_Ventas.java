@@ -34,6 +34,8 @@ public class Emergente_Panel_Ventas extends javax.swing.JDialog {
         initDialog();
         initPanel();
         llamarComponentes();
+        if(maximo>0) this.slider.setValue(1);
+        else this.slider.setValue(0);
     }
     
 
