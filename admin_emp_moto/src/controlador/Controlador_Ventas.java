@@ -541,17 +541,19 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
             case 1: {
                 listaBusqueda = new Linked_List<Modelo_Inventario_Vehiculos>();
                 int tamanho = lista_vehiculos.size();
+                int casoPerfecto = 0;
                 for (int i = 0; i < tamanho; i++) {
                     int tamanhoRef = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId().length() + 1;
                     String palabra = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
                     for (int j = 1; j < tamanhoRef; j++) {
                         if (referencia.equalsIgnoreCase(palabra)) {
-                            // BUSQUEDA PERFECTA CODIGO AQUI
-                            panelVentas.customButtonShaped1.doClick();
+                            // BUSQUEDA PERFECTA CODIGO AQUI     
                             listaBusqueda.add(lista_vehiculos.get(i));
+                            casoPerfecto = 1;
                             break;
                         } else if (referencia.equalsIgnoreCase(palabra.substring(0, j))) {
                             listaBusqueda.add(lista_vehiculos.get(i));
+                            casoPerfecto = 0;
                             break;
                         }
                     }
@@ -559,6 +561,9 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                 if (listaBusqueda.size() > 0) {
                     llenarTablaAlmacen(listaBusqueda);
                     panelVentas.tAlmacen.setRowSelectionInterval(0, 0);
+                    if(casoPerfecto==1){
+                        panelVentas.customButtonShaped1.doClick();
+                    }
                 } else {
                     panelVentas.tAlmacen.clearSelection();
                     llenarTablaAlmacen(lista_vehiculos);
