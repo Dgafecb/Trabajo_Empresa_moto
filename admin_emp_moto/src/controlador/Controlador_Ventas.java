@@ -24,6 +24,8 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import modelo.Consultas_Clientes;
 import modelo.Consultas_Inventario_Vehiculos;
@@ -46,13 +48,13 @@ import vista.Ventana_Trabajador;
 public class Controlador_Ventas implements ActionListener, KeyListener {
 
     public static int dscto_maximo;
-    
+    private TableModelListener listenerTable;
     private Controlador_admin controladorA;
     private Controlador_trabajador controladorT;
-    
+
     private Ventana_Admin ventanaA;
     private Ventana_Trabajador ventanaT;
-    
+
     private Panel_Ventas panelVentas;
 
     private Modelo_Inventario_Vehiculos modeloInventario = null;
@@ -87,13 +89,13 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
         this.iniciarComponentes();
         this.llamarComponentes();
     }
-      
+
     private void iniciarComponentes() {
-        if(controladorA!=null){
+        if (controladorA != null) {
             this.panelVentas = controladorA.panelVentas;
-        }else if(controladorT!=null){
-            this.panelVentas = controladorT.panel_ventas;    
-        } 
+        } else if (controladorT != null) {
+            this.panelVentas = controladorT.panel_ventas;
+        }
         this.setearDsctoMaximo();
         this.setearCuotasBox();
         this.setearCambioMoneda();
@@ -105,14 +107,14 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
 
     private void llamarComponentes() {
         String nombre_trabajador = null;
-        if(controladorA!=null){
+        if (controladorA != null) {
             nombre_trabajador = controladorA.getModel_user().getNombre();
             nombre_trabajador = "SELLER: " + nombre_trabajador + " " + controladorA.getModel_user().getApellido();
-        }else if(controladorT!=null){
-            nombre_trabajador = controladorT.getModel_user().getNombre();  
+        } else if (controladorT != null) {
+            nombre_trabajador = controladorT.getModel_user().getNombre();
             nombre_trabajador = "SELLER: " + nombre_trabajador + " " + controladorT.getModel_user().getApellido();
-        } 
-        
+        }
+
         this.panelVentas.lblNombreTrabajador.setText(nombre_trabajador);
         this.llenarTablaAlmacen(lista_vehiculos);
         this.llenarTablaClientes();
@@ -125,16 +127,27 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
         this.panelVentas.customButtonShaped2.addActionListener(this);
         this.panelVentas.customButtonShaped5.addActionListener(this);
         this.panelVentas.customButtonShaped3.addActionListener(this);
-        this.panelVentas.jSlider1.addChangeListener(new ChangeListener() {//DESCUENTO
+        listenerTable = new TableModelListener() {//inicia el listener para el modelo
 
             @Override
-            public void stateChanged(ChangeEvent e) {
-                dscto = panelVentas.jSlider1.getValue();
-                System.out.println(dscto);
-                //actualizar el precio con dscto
-                llenar_Adicional_Ventas_2(0.f, tipo_venta);
+            public void tableChanged(TableModelEvent evt) {
+                if (evt.getColumn() == 2 && evt.getColumn() != evt.ALL_COLUMNS && evt.getType() == evt.UPDATE) {
+                    //panelVentas.tDatosVentas.getCellEditor().stopCellEditing();
+                     int cantidad = Integer.valueOf(panelVentas.tDatosVentas.getValueAt(panelVentas.tDatosVentas.getSelectedRow(), 2).toString());
+                     float precio_unitario = Float.valueOf(panelVentas.tDatosVentas.getValueAt(panelVentas.tDatosVentas.getSelectedRow(), 3).toString());
+                     float precio_inicial = Float.valueOf(panelVentas.tDatosVentas.getValueAt(panelVentas.tDatosVentas.getSelectedRow(), 4).toString());
+                     float precio_total = precio_unitario*cantidad;
+                    //actualizo el valor 
+                     DefaultTableModel tempModel = (DefaultTableModel)panelVentas.tDatosVentas.getModel();
+                     tempModel.setValueAt((float)precio_total, panelVentas.tDatosVentas.getSelectedRow(), 4);
+                     llenar_Adicional_Ventas_2(precio_total - precio_inicial, tipo_venta);
+                }
+
             }
-        });
+        };
+
+        this.panelVentas.tDatosVentas.getModel().addTableModelListener(listenerTable);
+
         this.panelVentas.spnrCuotas.addChangeListener(new ChangeListener() {//CUOTAS
 
             @Override
@@ -287,33 +300,51 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
             this.panelVentas.lblsgnoMoneda.setText("$");
         }
     }
-    
+
     private void setearCuotasBox() {
         SpinnerModel model = new SpinnerNumberModel(1, 1, 36, 1);
         this.panelVentas.spnrCuotas.setModel(model);
     }
-    
-    private void formatPanelInf(Float sin_igv ,Float con_igv ,Float sin_dscto,Float con_dscto,Float cuota_mensual,Float total_ventas){
+
+    private void formatPanelInf(Float sin_igv, Float con_igv, Float sin_dscto, Float con_dscto, Float cuota_mensual, Float total_ventas) {
         DecimalFormat numberFormat1 = new DecimalFormat("0.00");
         DecimalFormat numberFormat2 = new DecimalFormat("#.00");
-        if(sin_igv != 0) panelVentas.jLabel22.setText(numberFormat2.format(sin_igv));
-        else panelVentas.jLabel22.setText(numberFormat1.format(sin_igv));
-          
-        if(con_igv != 0) panelVentas.jLabel23.setText(numberFormat2.format(con_igv));
-        else panelVentas.jLabel23.setText(numberFormat1.format(con_igv));
-        
-        if(sin_dscto!= 0) panelVentas.jLabel25.setText(numberFormat2.format(sin_dscto));
-        else panelVentas.jLabel25.setText(numberFormat1.format(sin_dscto));
-        
-        if(con_dscto != 0) panelVentas.jLabel26.setText(numberFormat2.format(con_dscto));
-        else panelVentas.jLabel26.setText(numberFormat1.format(con_dscto));
-            
-        if(cuota_mensual != 0) panelVentas.jLabel27.setText(numberFormat2.format(cuota_mensual));
-        else panelVentas.jLabel27.setText(numberFormat1.format(cuota_mensual));
-        
-        if(total_ventas != 0) panelVentas.jLabel28.setText(numberFormat2.format(total_ventas));
-        else panelVentas.jLabel28.setText(numberFormat1.format(total_ventas));
-        
+        if (sin_igv != 0) {
+            panelVentas.jLabel22.setText(numberFormat2.format(sin_igv));
+        } else {
+            panelVentas.jLabel22.setText(numberFormat1.format(sin_igv));
+        }
+
+        if (con_igv != 0) {
+            panelVentas.jLabel23.setText(numberFormat2.format(con_igv));
+        } else {
+            panelVentas.jLabel23.setText(numberFormat1.format(con_igv));
+        }
+
+        if (sin_dscto != 0) {
+            panelVentas.jLabel25.setText(numberFormat2.format(sin_dscto));
+        } else {
+            panelVentas.jLabel25.setText(numberFormat1.format(sin_dscto));
+        }
+
+        if (con_dscto != 0) {
+            panelVentas.jLabel26.setText(numberFormat2.format(con_dscto));
+        } else {
+            panelVentas.jLabel26.setText(numberFormat1.format(con_dscto));
+        }
+
+        if (cuota_mensual != 0) {
+            panelVentas.jLabel27.setText(numberFormat2.format(cuota_mensual));
+        } else {
+            panelVentas.jLabel27.setText(numberFormat1.format(cuota_mensual));
+        }
+
+        if (total_ventas != 0) {
+            panelVentas.jLabel28.setText(numberFormat2.format(total_ventas));
+        } else {
+            panelVentas.jLabel28.setText(numberFormat1.format(total_ventas));
+        }
+
     }
 
     private void iniciarTablaVentas() {
@@ -323,15 +354,20 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
     }
 
     private void llenarTablaClientes() {
-        DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "CLIENTE", "DNI", "CONTRAYENTE"}, 0){ 
+        DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "CLIENTE", "DNI", "CONTRAYENTE"}, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 switch (column) {
-                    case 0: return false;
-                    case 1: return false;
-                    case 2: return false;
-                    case 3: return false;
-                    default:return true;
+                    case 0:
+                        return false;
+                    case 1:
+                        return false;
+                    case 2:
+                        return false;
+                    case 3:
+                        return false;
+                    default:
+                        return true;
                 }
             }
         };
@@ -348,23 +384,27 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
 
     private void llenarTablaAlmacen(Linked_List<Modelo_Inventario_Vehiculos> lista_vehiculos) {
 
-        DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "DESCRIPCION", "MARCA",}, 0){
-            
+        DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "DESCRIPCION", "MARCA",}, 0) {
+
             @Override
             public boolean isCellEditable(int row, int column) {
                 switch (column) {
-                    case 0: return false;
-                    case 1: return false;
-                    case 2: return false;
- 
-                    default:return true;
+                    case 0:
+                        return false;
+                    case 1:
+                        return false;
+                    case 2:
+                        return false;
+
+                    default:
+                        return true;
                 }
             }
         };
         for (int i = 0; i < lista_vehiculos.size(); i++) {
             Integer cantidad = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getCantidad();
             Integer advertencia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getLimite_advertencia();
-            if(cantidad>advertencia){
+            if (cantidad > advertencia) {
                 String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
                 String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getNombre_prod();
 
@@ -372,19 +412,19 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                 String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMarca();
 
                 model.addRow(new Object[]{id, descripcion, marca});
-            }else{
+            } else {
                 continue;
             }
         }
         this.panelVentas.tAlmacen.setModel(model);
 
     }
-    
+
     private void llenar_Tabla_Ventas(String id, String descripcion, String cantidad, Float precio_unitario, Float precio_total) {
         modeloTablaVentas.addRow(new Object[]{id, descripcion, cantidad, precio_unitario, precio_total});
         panelVentas.tDatosVentas.setModel(modeloTablaVentas);
     }
-    
+
     private void llenar_Adicional_Ventas(Float precio_total) {
         this.dscto = this.panelVentas.jSlider1.getValue();
         this.sin_dscto += precio_total;
@@ -393,7 +433,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
         this.con_igv = 1.18f * this.sin_igv;
         this.total_ventas = this.con_igv;
         this.cuota_mensual = this.total_ventas / (float) cuotas;
-        formatPanelInf(sin_igv ,con_igv ,sin_dscto,con_dscto,cuota_mensual,total_ventas);
+        formatPanelInf(sin_igv, con_igv, sin_dscto, con_dscto, cuota_mensual, total_ventas);
     }
 
     private void llenar_Adicional_Ventas_2(Float precio_total, int nuevo_tipo) {
@@ -408,7 +448,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
         this.con_igv = 1.18f * this.sin_igv;
         this.total_ventas = this.con_igv;
         this.cuota_mensual = this.total_ventas / (float) cuotas;
-        formatPanelInf(sin_igv ,con_igv ,temp ,con_dscto,cuota_mensual,total_ventas);
+        formatPanelInf(sin_igv, con_igv, temp, con_dscto, cuota_mensual, total_ventas);
 
     }
 
@@ -455,12 +495,12 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                 Modelo_Ventas temp_model = new Modelo_Ventas();
                 Consultas_Ventas consulta_venta = new Consultas_Ventas();
                 int id_trabajador = 0;
-                if(controladorA!=null){
+                if (controladorA != null) {
                     id_trabajador = this.controladorA.getModel_user().getId();
-                }else if(controladorT!=null){
-                    id_trabajador = this.controladorT.getModel_user().getId();  
-                } 
-                
+                } else if (controladorT != null) {
+                    id_trabajador = this.controladorT.getModel_user().getId();
+                }
+
                 int index = lista_clientes.findClientes(lista_clientes, (String) this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 0)).getTemp().peek();
                 int id_cliente = ((Modelo_Clientes) lista_clientes.get(index)).getId();
                 int logCount = 0;
@@ -580,10 +620,10 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
             }
             if (cantidad_maxima > 0) {
                 Emergente_Panel_Ventas panel_cantidad = null;
-                if(ventanaA!=null){
+                if (ventanaA != null) {
                     panel_cantidad = new Emergente_Panel_Ventas(this.ventanaA, true, cantidad_maxima);
                     panel_cantidad.setVisible(true);
-                }else if(ventanaT!=null){
+                } else if (ventanaT != null) {
                     panel_cantidad = new Emergente_Panel_Ventas(this.ventanaT, true, cantidad_maxima);
                     panel_cantidad.setVisible(true);
                 }
@@ -618,36 +658,36 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
         }
 
     }
-    
-    private void Quitar(){
-        if (this.panelVentas.tDatosVentas.getSelectionModel().isSelectionEmpty() == false) {
-                float temp_total = (float) this.panelVentas.tDatosVentas.getValueAt(this.panelVentas.tDatosVentas.getSelectedRow(), 4);
-                int[] rows = this.panelVentas.tDatosVentas.getSelectedRows();
-                for (int i = 0; i < rows.length; i++) {
-                    modeloTablaVentas.removeRow(rows[i] - i);
-                }
-                this.dscto = this.panelVentas.jSlider1.getValue();
-                this.sin_dscto = this.sin_dscto - temp_total;
-                this.llenar_Adicional_Ventas_2(0.f, tipo_venta);
-                formatPanelInf(sin_igv ,con_igv ,sin_dscto,con_dscto,cuota_mensual,total_ventas);
-            } else {
-                mensaje("SELECCIONE LA FILA QUE DESEA QUITAR");
 
+    private void Quitar() {
+        if (this.panelVentas.tDatosVentas.getSelectionModel().isSelectionEmpty() == false) {
+            float temp_total = (float) this.panelVentas.tDatosVentas.getValueAt(this.panelVentas.tDatosVentas.getSelectedRow(), 4);
+            int[] rows = this.panelVentas.tDatosVentas.getSelectedRows();
+            for (int i = 0; i < rows.length; i++) {
+                modeloTablaVentas.removeRow(rows[i] - i);
             }
+            this.dscto = this.panelVentas.jSlider1.getValue();
+            this.sin_dscto = this.sin_dscto - temp_total;
+            this.llenar_Adicional_Ventas_2(0.f, tipo_venta);
+            formatPanelInf(sin_igv, con_igv, sin_dscto, con_dscto, cuota_mensual, total_ventas);
+        } else {
+            mensaje("SELECCIONE LA FILA QUE DESEA QUITAR");
+
+        }
     }
-    
-    private void Limpiar(){
+
+    private void Limpiar() {
         this.iniciarTablaVentas();
-            total_ventas = 0.00f;
-            sin_igv = 0.00f;
-            con_igv = 0.00f;
-            sin_dscto = 0.00f;
-            con_dscto = 0.00f;
-            cuota_mensual = 0.00f;
-            formatPanelInf(sin_igv ,con_igv ,sin_dscto,con_dscto,cuota_mensual,total_ventas);
-            temp_list = new Linked_List<>();
+        total_ventas = 0.00f;
+        sin_igv = 0.00f;
+        con_igv = 0.00f;
+        sin_dscto = 0.00f;
+        con_dscto = 0.00f;
+        cuota_mensual = 0.00f;
+        formatPanelInf(sin_igv, con_igv, sin_dscto, con_dscto, cuota_mensual, total_ventas);
+        temp_list = new Linked_List<>();
     }
-    
+
     private void buscarAlmacen(String referencia, int numero) {
 
         String buscar;
@@ -676,7 +716,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                 if (listaBusqueda.size() > 0) {
                     llenarTablaAlmacen(listaBusqueda);
                     panelVentas.tAlmacen.setRowSelectionInterval(0, 0);
-                    if(casoPerfecto==1){
+                    if (casoPerfecto == 1) {
                         panelVentas.customButtonShaped1.doClick();
                     }
                 } else {
@@ -746,25 +786,25 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.panelVentas.customButtonShaped3) {
             this.Registrar();
-        }else if (e.getSource() == this.panelVentas.customButtonShaped1) {// boton agregar
+        } else if (e.getSource() == this.panelVentas.customButtonShaped1) {// boton agregar
             this.Agregar();
 
-        }else if (e.getSource() == this.panelVentas.customButtonShaped2) {// boton quitar 
+        } else if (e.getSource() == this.panelVentas.customButtonShaped2) {// boton quitar 
             this.Quitar();
-        }else if (e.getSource() == this.panelVentas.customButtonShaped5) {//boton limpiar
+        } else if (e.getSource() == this.panelVentas.customButtonShaped5) {//boton limpiar
             this.Limpiar();
         }
 
         if (e.getSource() == this.panelVentas.btnClienteAgregar) {
-            Emergente_Panel_RClientes panel=null;
-            if(ventanaA!=null){
+            Emergente_Panel_RClientes panel = null;
+            if (ventanaA != null) {
                 panel = new Emergente_Panel_RClientes(ventanaA, true);
                 panel.setVisible(true);
-            }else if(ventanaT!=null){
+            } else if (ventanaT != null) {
                 panel = new Emergente_Panel_RClientes(ventanaT, true);
                 panel.setVisible(true);
             }
-            
+
             LinkedList<String> lista_agregada = panel.clientes;
             if (lista_agregada == null) {
                 //Si se apreto el boton cancelar
@@ -876,16 +916,15 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
             }
         }
     }
-    
+
     private void mensaje(String msg) {
-        if(ventanaA!=null){
+        if (ventanaA != null) {
             Emergente_Aviso mensajes = new Emergente_Aviso(ventanaA, true, msg);
             mensajes.setVisible(true);
-        }else if(ventanaT!=null){
+        } else if (ventanaT != null) {
             Emergente_Aviso mensajes = new Emergente_Aviso(ventanaT, true, msg);
             mensajes.setVisible(true);
         }
-        
-        
+
     }
 }
