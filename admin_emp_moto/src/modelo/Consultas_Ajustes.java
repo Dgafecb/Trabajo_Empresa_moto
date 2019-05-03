@@ -12,14 +12,16 @@ public class Consultas_Ajustes extends ConexionSQL {
         Connection con = getConnection();
 
         String query = "INSERT INTO Configuracion "
-                + "( id, marca,valor ) "
-                + "values ( ?, ?,?)";
+                + "( id, marca,valor,titulo,descripcion ) "
+                + "values ( ?, ?,?,?,?)";
 
         try {
             ps = con.prepareStatement(query);
             ps.setInt(1, user.getId());
             ps.setString(2, user.getDato());
             ps.setString(3, user.getValor());
+            ps.setString(4, user.getTitulo());
+            ps.setString(5, user.getDescripcion());
 
             ps.execute();
             ps.close();
@@ -52,6 +54,8 @@ public class Consultas_Ajustes extends ConexionSQL {
             if (rs.next()) {
                 user.setDato(rs.getString("dato"));
                 user.setValor(rs.getString("valor"));
+                user.setTitulo(rs.getString("titulo"));
+                user.setDescripcion(rs.getString("descripcion"));
 
                 return true;
             }
@@ -76,15 +80,16 @@ public class Consultas_Ajustes extends ConexionSQL {
         Connection con = getConnection();
 
         String query = "UPDATE Configuracion SET "
-                + "dato = ?, valor = ?"
+                + "dato = ?, valor = ?,titulo = ?,descripcion = ?"
                 + " WHERE id = ? ";
 
         try {
             ps = con.prepareStatement(query);
             ps.setString(1, user.getDato());
-
             ps.setString(2, user.getValor());
-            ps.setInt(3, user.getId());
+            ps.setString(3, user.getTitulo());
+            ps.setString(4, user.getDescripcion());
+            ps.setInt(5, user.getId());
             ps.execute();
             ps.close();
             return true;
@@ -145,6 +150,8 @@ public class Consultas_Ajustes extends ConexionSQL {
                 ajustes.setId(rs.getInt("id"));
                 ajustes.setDato(rs.getString("dato"));
                 ajustes.setValor(rs.getString("valor"));
+                ajustes.setTitulo(rs.getString("titulo"));
+                ajustes.setDescripcion(rs.getString("descripcion"));
 
                 listausers.add(ajustes);
 

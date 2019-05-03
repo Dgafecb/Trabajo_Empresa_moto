@@ -5,6 +5,7 @@ import java.awt.Color;
 
 public class Cadenas {
 
+    public static final Color COLOR_DEFAULT_BLACK_LIGHT = new Color(150,150,150);
     public static final Color COLOR_DEFAULT_BLACK = new Color(60,60,60);
     public static final Color COLOR_DEFAULT_WHITE = new Color(250,250,250);
     public static final Color COLOR_DEFAULT_RED = new Color(238,59,37);
