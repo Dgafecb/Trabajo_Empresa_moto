@@ -108,7 +108,15 @@ public class Linked_List<T> extends LinkedList {
         System.out.println("No se encontro el dni");
         return 0;
     }
-
+    public int findIDTrabajador(Linked_List<Modelo_Trabajadores> list, String id) {
+        for (int i = 0; i < list.size(); i++) {
+            if (((Modelo_Trabajadores) list.get(i)).getId() == Integer.valueOf(id)) {
+                return i;
+            }
+        }
+        System.out.println("No se encontro el dni");
+        return -1;
+    }
     public int findInventario(Linked_List<Modelo_Inventario_Vehiculos> list, String id) {
         for (int i = 0; i < list.size(); i++) {
             if (((Modelo_Inventario_Vehiculos) list.get(i)).getId().compareTo(id) == 0) {
