@@ -70,9 +70,6 @@ public class Panel_Inventario extends javax.swing.JPanel {
             }
         ));
         jTable1.setFocusable(false);
-        jTable1.setMaximumSize(new java.awt.Dimension(2147483647, 600));
-        jTable1.setMinimumSize(new java.awt.Dimension(60, 160));
-        jTable1.setPreferredSize(new java.awt.Dimension(300, 160));
         jTable1.setSelectionBackground(new java.awt.Color(102, 102, 102));
         jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jTable1);

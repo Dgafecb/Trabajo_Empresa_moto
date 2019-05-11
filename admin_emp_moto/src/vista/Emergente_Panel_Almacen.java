@@ -15,7 +15,7 @@ import modelo.Modelo_Inventario_Repuestos;
 
 public class Emergente_Panel_Almacen extends javax.swing.JDialog {
 
-    private Dimension resolucionDialogo = new Dimension (500,730);
+    private Dimension resolucionDialogo = new Dimension (800,450);
     public Borde_Ventana bordeVentana;
     public CustomButtonShaped btnAceptar,btnCancelar;
     public Panel_Inventario_Agregar pInventarioAgregar;
@@ -109,7 +109,7 @@ public class Emergente_Panel_Almacen extends javax.swing.JDialog {
                 String temp = null;
                 temp = (pInventarioAgregar.txfID.getText().compareTo("") != 0) ? pInventarioAgregar.txfID.getText().toUpperCase() : null;
                 inventario.add(temp);
-                temp = (pInventarioAgregar.cbxVehiculo.getSelectedItem().equals("VEHICULO")) ? "VEHICULO" : "REPUESTO";
+                temp = pInventarioAgregar.cbxVehiculo.getSelectedItem().toString();
                 inventario.add(temp);
                 temp = (pInventarioAgregar.txfDescripicion.getText().compareTo("") != 0) ? pInventarioAgregar.txfDescripicion.getText().toUpperCase() : "DESCONOCIDO";
                 inventario.add(temp);
@@ -132,6 +132,8 @@ public class Emergente_Panel_Almacen extends javax.swing.JDialog {
                 temp = (pInventarioAgregar.txfPrecio.getText().compareTo("") != 0) ? pInventarioAgregar.txfPrecio.getText().toUpperCase() : "0.0";
                 inventario.add(temp);
                 temp = (pInventarioAgregar.txfAdvertencia.getText().compareTo("") != 0) ? pInventarioAgregar.txfAdvertencia.getText().toUpperCase() : "0";
+                inventario.add(temp);
+                temp = (pInventarioAgregar.txfPrecioC.getText().compareTo("") != 0) ? pInventarioAgregar.txfPrecioC.getText().toUpperCase() : "0.0";
                 inventario.add(temp);
                 dispose();
             }

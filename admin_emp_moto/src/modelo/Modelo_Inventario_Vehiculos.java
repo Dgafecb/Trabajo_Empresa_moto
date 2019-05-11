@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
 
-/**
- *
- * @author Dgafecb
- */
+
 public class Modelo_Inventario_Vehiculos {
 
     private String id;
@@ -24,6 +17,7 @@ public class Modelo_Inventario_Vehiculos {
     private int cantidad;
     private float precio;
     private int limite_advertencia;
+    private float precio_compra;
 
     public String getId() {
         return id;
@@ -129,4 +123,13 @@ public class Modelo_Inventario_Vehiculos {
         this.limite_advertencia = limite_advertencia;
     }
 
+    public float getPrecio_compra() {
+        return precio_compra;
+    }
+
+    public void setPrecio_compra(float precio_compra) {
+        this.precio_compra = precio_compra;
+    }
+
+    
 }

@@ -274,7 +274,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
 
     private void setearDsctoMaximo() {
         String max = ((Modelo_Ajustes) lista_ajustes.get(14)).getValor();
-        if (max.endsWith("%")) {
+        if (max.endsWith("l%")) {
             max = max.substring(0, max.length() - 1);
         }
         dscto_maximo = Integer.valueOf(max);
@@ -302,7 +302,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
     }
 
     private void setearCuotasBox() {
-        SpinnerModel model = new SpinnerNumberModel(1, 1, 36, 1);
+        SpinnerModel model = new SpinnerNumberModel(0, 0, 48, 1);
         this.panelVentas.spnrCuotas.setModel(model);
     }
 
@@ -432,7 +432,8 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
         this.sin_igv = this.con_dscto;
         this.con_igv = 1.18f * this.sin_igv;
         this.total_ventas = this.con_igv;
-        this.cuota_mensual = this.total_ventas / (float) cuotas;
+        if(this.cuotas!=0) this.cuota_mensual = this.total_ventas / (float) cuotas;
+        else this.cuota_mensual = 0.00f;
         formatPanelInf(sin_igv, con_igv, sin_dscto, con_dscto, cuota_mensual, total_ventas);
     }
 
@@ -447,7 +448,8 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
         this.sin_igv = this.con_dscto;
         this.con_igv = 1.18f * this.sin_igv;
         this.total_ventas = this.con_igv;
-        this.cuota_mensual = this.total_ventas / (float) cuotas;
+        if(this.cuotas!=0) this.cuota_mensual = this.total_ventas / (float) cuotas;
+        else this.cuota_mensual = 0.00f;
         formatPanelInf(sin_igv, con_igv, temp, con_dscto, cuota_mensual, total_ventas);
 
     }

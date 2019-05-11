@@ -247,6 +247,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
             }
         ));
         jTable1.setFocusable(false);
+        jTable1.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
         jTable1.setSelectionBackground(new java.awt.Color(60, 60, 60));
         jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jTable1);
@@ -294,6 +295,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
             }
         ));
         tAlmacen.setFocusable(false);
+        tAlmacen.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
         tAlmacen.setOpaque(false);
         tAlmacen.setSelectionBackground(new java.awt.Color(60, 60, 60));
         tAlmacen.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);

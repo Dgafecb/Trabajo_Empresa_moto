@@ -222,6 +222,7 @@ public class Controlador_Almacen implements ActionListener {
                     String descripcion = listaAgregar.get(2);
                     int cantidad = Integer.valueOf(listaAgregar.get(10));
                     float precio = Float.valueOf(listaAgregar.get(11));
+                    float precio_compra = Float.valueOf(listaAgregar.get(13));
                     String marca = listaAgregar.get(3);
                     String modelo = listaAgregar.get(4);
                     String color = listaAgregar.get(5);
@@ -244,6 +245,7 @@ public class Controlador_Almacen implements ActionListener {
                     temp_model.setNombre_prod(descripcion);
                     temp_model.setPrecio(precio);
                     temp_model.setTipo_vehiculo(categoria);
+                    temp_model.setPrecio_compra(precio_compra);
 
                     Consultas_Inventario_Vehiculos consultas = new Consultas_Inventario_Vehiculos();
                     if (consultas.create(temp_model)) {
@@ -273,7 +275,8 @@ public class Controlador_Almacen implements ActionListener {
                     String anhos_garantia = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 9);
                     int cantidad = Integer.valueOf(this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 10).toString());
                     int advertencia = Integer.valueOf(this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 11).toString());
-                    float precio = Float.valueOf(this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 12).toString());
+                    float precio = Float.valueOf(this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 13).toString());
+                    float precio_compra = Float.valueOf(this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 12).toString());
 
                     Modelo_Inventario_Vehiculos temp_model = new Modelo_Inventario_Vehiculos();
                     temp_model.setId(id);
@@ -289,6 +292,7 @@ public class Controlador_Almacen implements ActionListener {
                     temp_model.setAnho_fab(anho_fab);
                     temp_model.setAnhos_garantia(anhos_garantia);
                     temp_model.setLimite_advertencia(advertencia);
+                    temp_model.setPrecio_compra(precio_compra);
                     Consultas_Inventario_Vehiculos consultas = new Consultas_Inventario_Vehiculos();
 
                     if (consultas.update(temp_model)) {
@@ -375,7 +379,7 @@ public class Controlador_Almacen implements ActionListener {
 
         DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "CATEGORIA", "DESCRIPCION", "MARCA",
             "MODELO", "COLOR", "MOTOR", "CHASIS", "AÑO DE FAB.",
-            "AÑOS DE GARANTIA", "CANTIDAD", "ADVERTENCIA", "PRECIO"}, 0){
+            "AÑOS DE GARANTIA", "CANTIDAD", "ADVERTENCIA","PRECIO DE COMPRA", "PRECIO DE VENTA"}, 0){
             @Override
             public boolean isCellEditable(int row, int column){
                 switch (column) {
@@ -399,7 +403,9 @@ public class Controlador_Almacen implements ActionListener {
                 String anho_fab = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getAnho_fab();
                 String anhos_garantia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getAnhos_garantia();
                 int advertencia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getLimite_advertencia();
-                model.addRow(new Object[]{id, categoria, descripcion, marca, modelo, color, motor, chasis, anho_fab, anhos_garantia, cantidad, advertencia, precio});
+                float precio_compra = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getPrecio_compra();
+                model.addRow(new Object[]{id, categoria, descripcion, marca, modelo, color, motor, chasis,
+                    anho_fab, anhos_garantia, cantidad, advertencia,precio_compra, precio});
             }
         }
         
@@ -426,7 +432,16 @@ public class Controlador_Almacen implements ActionListener {
         CustomRenderAlmacen tcrRight = new CustomRenderAlmacen();
         tcrRight.setHorizontalAlignment(SwingConstants.RIGHT);
         panelInventario.jTable1.getColumnModel().getColumn(12).setCellRenderer(tcrRight);
-
+        panelInventario.jTable1.getColumnModel().getColumn(13).setCellRenderer(tcrRight);
+        
+        if(this.ventanaT!=null){
+            panelInventario.jTable1.getColumnModel().getColumn(12).setMaxWidth(0);
+            panelInventario.jTable1.getColumnModel().getColumn(12).setMinWidth(0);
+            panelInventario.jTable1.getTableHeader().getColumnModel().getColumn(12).setMaxWidth(0);
+            panelInventario.jTable1.getTableHeader().getColumnModel().getColumn(12).setMinWidth(0);
+        }
+        
+ 
         this.panelInventario.jTable1.setDefaultRenderer (Object.class, new CustomRenderAlmacen());
         
     }
