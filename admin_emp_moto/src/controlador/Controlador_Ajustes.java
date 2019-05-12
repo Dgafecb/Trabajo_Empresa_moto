@@ -3,7 +3,11 @@ package controlador;
 import static controlador.Controlador_login.lista_ajustes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import modelo.Cadenas;
@@ -12,6 +16,7 @@ import modelo.CustomListModel_Ajustes;
 import modelo.CustomRendererAjustes;
 import modelo.Linked_List;
 import modelo.Modelo_Ajustes;
+import vista.Emergente_Ajustes;
 import vista.Emergente_Aviso;
 import vista.Panel_Ajustes;
 import vista.Ventana_Admin;
@@ -20,17 +25,18 @@ import vista.Ventana_Admin;
  *
  * @author Dgafecb
  */
-public class Controlador_Ajustes implements ActionListener {
+public class Controlador_Ajustes implements ActionListener,MouseListener {
 
     private Controlador_admin controladorAdmin;
     private Ventana_Admin ventanaAdmin;
     private Panel_Ajustes panelAjustes;
     private LinkedList<Modelo_Ajustes> ajustes;
-    private JList<Modelo_Ajustes> list;
+    private JList list = new JList();
 
     public Controlador_Ajustes(Controlador_admin controladorAdmin, Ventana_Admin ventanaAdmin) {
         this.controladorAdmin = controladorAdmin;
         this.ventanaAdmin = ventanaAdmin;
+        
         this.iniciarComponentes();
         this.llamarComponentes();
         fillList(lista_ajustes);
@@ -63,7 +69,7 @@ public class Controlador_Ajustes implements ActionListener {
     }
 
     private void llamarComponentes() {
-        /*this.panelAjustes.btnGuardar.addActionListener(this);*/
+        list.addMouseListener(this);
     }
     
     private void fillList(Linked_List<Modelo_Ajustes> ajustes){
@@ -85,7 +91,7 @@ public class Controlador_Ajustes implements ActionListener {
             model.addElement((Modelo_Ajustes) ajustes.get(13));//HORA LIMITE
             
         }
-        JList list = new JList(model);
+        list.setModel(model);
         //CONFIGURAR LIST
         list.setBackground(Cadenas.COLOR_DEFAULT_WHITE);
         list.setSelectionBackground(Cadenas.COLOR_DEFAULT_BLACK_LIGHT);
@@ -96,6 +102,47 @@ public class Controlador_Ajustes implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent me) {
+       if(me.getSource()== list){
+            if (me.getClickCount() == 1){
+                    CustomListModel_Ajustes modelo = (CustomListModel_Ajustes) list.getModel();
+                    int seleccion = list.getSelectedIndex();
+                    Modelo_Ajustes selectedItem = null;
+                    if(seleccion !=-1){
+                        try {
+                            selectedItem = (Modelo_Ajustes) modelo.getAjustes(seleccion);
+                            Emergente_Ajustes panelAjustes =new Emergente_Ajustes(ventanaAdmin,true,selectedItem);
+                            panelAjustes.setVisible(true);
+                        } catch (Exception ex) {
+                            Logger.getLogger(Controlador_Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    
+            } 
+        } 
+    }
+
+    @Override
+    public void mousePressed(MouseEvent me) {
+        
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent me) {
+        
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent me) {
+        
+    }
+
+    @Override
+    public void mouseExited(MouseEvent me) {
+       
     }
 
 }

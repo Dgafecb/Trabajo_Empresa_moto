@@ -30,7 +30,7 @@ public class CustomListModel_Ajustes extends AbstractListModel{
         this.fireIntervalAdded(this, getSize(), getSize()+1);
     }
     
-    public Modelo_Ajustes getCurso(int index){
+    public Modelo_Ajustes getAjustes(int index){
         Modelo_Ajustes a = null;
         try {
             a= (Modelo_Ajustes) lista.get(index);

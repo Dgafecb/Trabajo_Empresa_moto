@@ -9,9 +9,14 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
+import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 import modelo.CustomButtonShaped;
 import modelo.Modelo_Ajustes;
 
@@ -23,26 +28,28 @@ public class Emergente_Ajustes extends javax.swing.JDialog {
 
     public Borde_Ventana bordeVentana;
     public CustomButtonShaped btnAceptar,btnSi,btnNo;
-    public JLabel mensaje;
+    public JLabel descripcion;
+    public JTextField dato;
     private int sizex ;
     private int sizey ;
     
-    private String cambio;
+    public String cambio;
     public Modelo_Ajustes ajustes;
     
     public Emergente_Ajustes(java.awt.Frame parent, boolean modal,Modelo_Ajustes ajustes) {
         super(parent, modal);
         this.ajustes = ajustes;
-        this.mensaje = new JLabel(ajustes.getDescripcion()+ " : ");
-        this.mensaje.setForeground(new Color(60,60,60));
-        this.mensaje.setFont(new Font("Tahoma",Font.PLAIN,14));
-        FontMetrics metrics = getFontMetrics(this.mensaje.getFont());
-        sizex = metrics.stringWidth(ajustes.getDescripcion())+200;
-        sizey = metrics.getHeight()+250;
+        this.descripcion = new JLabel(ajustes.getDescripcion()+ " : ");
+        this.descripcion.setForeground(new Color(60,60,60));
+        this.descripcion.setFont(new Font("Tahoma",Font.PLAIN,14));
+        FontMetrics metrics = getFontMetrics(this.descripcion.getFont());
+        sizex = metrics.stringWidth(ajustes.getDescripcion())+250;
+        sizey = metrics.getHeight()+150;
         initDialog();
-        initComponents();
+        initPanel();
+        llamarComponentes();
     }
-    
+
     private void initDialog(){
         setMinimumSize(new Dimension(sizex , sizey));
         setMaximumSize(new Dimension(sizex , sizey));
@@ -55,8 +62,74 @@ public class Emergente_Ajustes extends javax.swing.JDialog {
         getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(60,60,60)));
     }
 
-    public String getCambio() {
-        return cambio;
+    private void initPanel(){
+        
+        bordeVentana = new Borde_Ventana(this);
+        bordeVentana.moverVentana(true);
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.gridx = 0; // El área de texto empieza en la columna cero
+        constraints.gridy = 0; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 3; // El área de texto ocupa dos columnas
+        constraints.gridheight = 1; // El área de texto ocupa una fila
+        constraints.weightx = 1.0; // La columna se estira
+        constraints.weighty = 1.0; // La fila no se estira
+        constraints.fill = GridBagConstraints.HORIZONTAL;//Estirar los componentes
+        constraints.anchor = GridBagConstraints.NORTH;//Poscion que ocupa el componente
+        constraints.insets= new Insets(0,0,0,0);
+        getContentPane().add (bordeVentana, constraints);
+        
+        descripcion.setHorizontalAlignment(JLabel.LEFT);
+        constraints.gridx = 0; // El área de texto empieza en la columna cero
+        constraints.gridy = 1; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 2; // El área de texto ocupa dos columnas
+        constraints.gridheight = 1; // El área de texto ocupa una fila
+        constraints.weightx = 0.0; // La columna se estira
+        constraints.weighty = 0.0; // La fila no se estira
+        constraints.fill = GridBagConstraints.HORIZONTAL;//Estirar los componentes
+        constraints.anchor = GridBagConstraints.CENTER;//Poscion que ocupa el componente
+        constraints.insets= new Insets(15,15,15,15);
+        getContentPane().add (descripcion, constraints);
+        
+        dato = new JTextField(ajustes.getValor());
+        dato.setSize(100, 30);
+        constraints.gridx = 1; // El área de texto empieza en la columna cero
+        constraints.gridy = 1; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 2; // El área de texto ocupa dos columnas
+        constraints.gridheight = 1; // El área de texto ocupa una fila
+        constraints.weightx = 1.0; // La columna se estira
+        constraints.weighty = 0.0; // La fila no se estira
+        constraints.fill = GridBagConstraints.HORIZONTAL;//Estirar los componentes
+        constraints.anchor = GridBagConstraints.CENTER;//Poscion que ocupa el componente
+        constraints.insets= new Insets(15,15,15,15);
+        getContentPane().add (dato, constraints);
+        
+        
+        btnAceptar = new CustomButtonShaped();
+        btnAceptar.setText("ACEPTAR");
+        btnAceptar.setFocusPainted(false);
+        constraints.gridx = 0; // El área de texto empieza en la columna cero
+        constraints.gridy = 2; // El área de texto empieza en la fila cero
+        constraints.gridwidth = 3; // El área de texto ocupa dos columnas
+        constraints.gridheight = 1; // El área de texto ocupa una fila
+        constraints.weightx = 0.0; // La columna se estira
+        constraints.weighty = 0.0; // La fila no se estira
+        constraints.fill = GridBagConstraints.NONE;//Estirar los componentes
+        constraints.anchor = GridBagConstraints.CENTER;//Poscion que ocupa el componente
+        constraints.insets= new Insets(15,15,15,15);
+        getContentPane().add (btnAceptar, constraints);
+    }
+    
+
+    
+    private void llamarComponentes(){
+         btnAceptar.addActionListener(new ActionListener(){
+             @Override
+             public void actionPerformed(ActionEvent ae) {
+                 cambio = dato.getText();
+                 dispose();
+             }
+
+         });
     }
     
     
