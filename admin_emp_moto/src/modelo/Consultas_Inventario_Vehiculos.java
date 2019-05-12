@@ -14,8 +14,8 @@ public class Consultas_Inventario_Vehiculos extends ConexionSQL {
 
         String query = "INSERT INTO Inventario_vehiculos "
                 + "( id,nombre_prod, tipo_vehiculo, marca,modelo,color,motor,chasis,"
-                + "anho_fab,anhos_garantia,cantidad,precio,limite_advertencia,precio_costo)"
-                + "values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
+                + "anho_fab,anhos_garantia,cantidad,precio,limite_advertencia,precio_costo,comision)"
+                + "values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)";
 
         try {
             ps = con.prepareStatement(query);
@@ -33,6 +33,8 @@ public class Consultas_Inventario_Vehiculos extends ConexionSQL {
             ps.setFloat(12, user.getPrecio());
             ps.setInt(13, user.getLimite_advertencia());
             ps.setFloat(14, user.getPrecio_compra());
+            ps.setInt(15, user.getComision());
+
             ps.execute();
             ps.close();
             return true;
@@ -75,7 +77,7 @@ public class Consultas_Inventario_Vehiculos extends ConexionSQL {
                 user.setPrecio(rs.getFloat("precio"));
                 user.setTipo_vehiculo(rs.getString("tipo_vehiculo"));
                 user.setPrecio_compra(rs.getFloat("precio_costo"));
-
+                user.setComision(rs.getInt("comision"));
                 return true;
             }
 
@@ -101,8 +103,8 @@ public class Consultas_Inventario_Vehiculos extends ConexionSQL {
         String query = "UPDATE Inventario_vehiculos SET "
                 + "nombre_prod = ?,tipo_vehiculo = ?, marca = ?,modelo= ?, color= ?,"
                 + "motor= ?, chasis = ?,anho_fab = ?,anhos_garantia = ?,cantidad = ?,"
-                + "precio = ?, limite_advertencia = ?,precio_costo=? "
-                + "WHERE id = ? ";
+                + "precio = ?, limite_advertencia = ?,precio_costo=? , comision = ? "
+                + " WHERE id = ? ";
 
         try {
             ps = con.prepareStatement(query);
@@ -119,7 +121,9 @@ public class Consultas_Inventario_Vehiculos extends ConexionSQL {
             ps.setFloat(11, user.getPrecio());
             ps.setInt(12, user.getLimite_advertencia());
             ps.setFloat(13, user.getPrecio_compra());
-            ps.setString(14, user.getId());
+            ps.setInt(14, user.getComision());
+            ps.setString(15, user.getId());
+
             ps.execute();
             ps.close();
             return true;
@@ -176,7 +180,7 @@ public class Consultas_Inventario_Vehiculos extends ConexionSQL {
 
             while (rs.next()) {
                 vehiculo = new Modelo_Inventario_Vehiculos();
-                
+
                 vehiculo.setAnho_fab(rs.getString("anho_fab"));
                 vehiculo.setAnhos_garantia(rs.getString("anhos_garantia"));
                 vehiculo.setCantidad(rs.getInt("cantidad"));
@@ -191,6 +195,8 @@ public class Consultas_Inventario_Vehiculos extends ConexionSQL {
                 vehiculo.setPrecio(rs.getFloat("precio"));
                 vehiculo.setTipo_vehiculo(rs.getString("tipo_vehiculo"));
                 vehiculo.setPrecio_compra(rs.getFloat("precio_costo"));
+                vehiculo.setComision(rs.getInt("comision"));
+
                 listaVehiculos.add(vehiculo);
 
             }

@@ -18,6 +18,7 @@ public class Modelo_Inventario_Vehiculos {
     private float precio;
     private int limite_advertencia;
     private float precio_compra;
+    private int comision;
 
     public String getId() {
         return id;
@@ -129,6 +130,14 @@ public class Modelo_Inventario_Vehiculos {
 
     public void setPrecio_compra(float precio_compra) {
         this.precio_compra = precio_compra;
+    }
+
+    public int getComision() {
+        return comision;
+    }
+
+    public void setComision(int comision) {
+        this.comision = comision;
     }
 
     
