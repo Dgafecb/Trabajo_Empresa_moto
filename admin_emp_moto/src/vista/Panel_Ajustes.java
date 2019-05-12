@@ -10,8 +10,8 @@ public class Panel_Ajustes extends javax.swing.JPanel {
 
     public Panel_Ajustes() {
         initComponents();
-        this.jScrollPane3.setBorder(null);
-        this.jScrollPane3.setBackground(Cadenas.COLOR_DEFAULT_WHITE);
+        this.jScrollPane2.setBorder(null);
+        this.jScrollPane2.setBackground(Cadenas.COLOR_DEFAULT_WHITE);
     }
 
 
@@ -21,7 +21,7 @@ public class Panel_Ajustes extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         customPanel5 = new custom.CustomPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
 
         setBackground(new java.awt.Color(60, 60, 60));
         setLayout(new java.awt.GridBagLayout());
@@ -31,13 +31,11 @@ public class Panel_Ajustes extends javax.swing.JPanel {
         customPanel5.setOpaque(false);
         customPanel5.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 2, 5, 2);
-        customPanel5.add(jScrollPane3, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(7, 1, 7, 1);
+        customPanel5.add(jScrollPane2, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -52,6 +50,6 @@ public class Panel_Ajustes extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private custom.CustomPanel customPanel5;
-    public javax.swing.JScrollPane jScrollPane3;
+    public javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

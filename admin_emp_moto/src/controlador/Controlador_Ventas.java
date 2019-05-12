@@ -68,7 +68,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
     private float con_dscto = 0.00f;
     private float cuota_mensual = 0.00f;
     private int dscto = 1;
-    private int cuotas = 1;
+    private int cuotas = 0;
     private int tipo_venta = 0;//0 para efectivo,1 para credito y  2 para por mayor
     private int tipo_temp = 0;
     private String[] temp_costo;
@@ -430,7 +430,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
         this.sin_dscto += precio_total;
         this.con_dscto = this.sin_dscto * (100 - this.dscto) / 100.f;
         this.sin_igv = this.con_dscto;
-        this.con_igv = 1.18f * this.sin_igv;
+        this.con_igv = this.sin_igv;
         this.total_ventas = this.con_igv;
         if(this.cuotas!=0) this.cuota_mensual = this.total_ventas / (float) cuotas;
         else this.cuota_mensual = 0.00f;
@@ -446,7 +446,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
         float temp = this.sin_dscto * Float.valueOf(this.temp_costo[nuevo_tipo]);
         this.con_dscto = temp * (100 - this.dscto) / 100.f;
         this.sin_igv = this.con_dscto;
-        this.con_igv = 1.18f * this.sin_igv;
+        this.con_igv = this.sin_igv;
         this.total_ventas = this.con_igv;
         if(this.cuotas!=0) this.cuota_mensual = this.total_ventas / (float) cuotas;
         else this.cuota_mensual = 0.00f;
@@ -548,7 +548,6 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                     this.dscto = this.panelVentas.jSlider1.getValue();
                     float temp;
                     temp = total * (100 - this.dscto) / 100.f;
-                    temp = temp * 1.18f;
                     temp_model.setTotal(temp);
                     temp_model.setDscto(this.dscto);
                     temp_model.setCuotas(this.cuotas);

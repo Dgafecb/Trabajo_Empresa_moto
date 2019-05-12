@@ -8,6 +8,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import modelo.Cadenas;
 import modelo.Consultas_Ajustes;
+import modelo.CustomListModel_Ajustes;
 import modelo.CustomRendererAjustes;
 import modelo.Linked_List;
 import modelo.Modelo_Ajustes;
@@ -66,7 +67,7 @@ public class Controlador_Ajustes implements ActionListener {
     }
     
     private void fillList(Linked_List<Modelo_Ajustes> ajustes){
-        DefaultListModel<Modelo_Ajustes> model = new DefaultListModel<>();
+        CustomListModel_Ajustes model = new CustomListModel_Ajustes();
         if(ajustes!=null){
             model.addElement((Modelo_Ajustes) ajustes.get(0));//EMPRESA
             model.addElement((Modelo_Ajustes) ajustes.get(3));//RUC
@@ -78,19 +79,18 @@ public class Controlador_Ajustes implements ActionListener {
             model.addElement((Modelo_Ajustes) ajustes.get(6));//VENTA NORMAL
             model.addElement((Modelo_Ajustes) ajustes.get(7));//VENTA CREDITO
             model.addElement((Modelo_Ajustes) ajustes.get(8));//IGV
-            model.addElement((Modelo_Ajustes) ajustes.get(11));//COMISION
             model.addElement((Modelo_Ajustes) ajustes.get(14));//DESCUENTO LIMITE
             
             model.addElement((Modelo_Ajustes) ajustes.get(12));//HORA DE ENTRADA
             model.addElement((Modelo_Ajustes) ajustes.get(13));//HORA LIMITE
             
         }
-
-        list = new JList<Modelo_Ajustes>(model);
+        JList list = new JList(model);
         //CONFIGURAR LIST
+        list.setBackground(Cadenas.COLOR_DEFAULT_WHITE);
         list.setSelectionBackground(Cadenas.COLOR_DEFAULT_BLACK_LIGHT);
         list.setCellRenderer(new CustomRendererAjustes());
-        panelAjustes.jScrollPane3.setViewportView(list);
+        panelAjustes.jScrollPane2.setViewportView(list);
     }
     
     @Override
