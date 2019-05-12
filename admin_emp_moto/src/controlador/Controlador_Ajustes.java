@@ -107,7 +107,7 @@ public class Controlador_Ajustes implements ActionListener,MouseListener {
     @Override
     public void mouseClicked(MouseEvent me) {
        if(me.getSource()== list){
-            if (me.getClickCount() == 1){
+            if (me.getClickCount() == 2){
                     CustomListModel_Ajustes modelo = (CustomListModel_Ajustes) list.getModel();
                     int seleccion = list.getSelectedIndex();
                     Modelo_Ajustes selectedItem = null;

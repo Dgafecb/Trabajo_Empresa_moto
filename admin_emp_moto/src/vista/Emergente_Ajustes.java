@@ -92,9 +92,11 @@ public class Emergente_Ajustes extends javax.swing.JDialog {
         
         dato = new JTextField(ajustes.getValor());
         dato.setSize(100, 30);
-        constraints.gridx = 1; // El área de texto empieza en la columna cero
+        dato.setForeground(new Color(60,60,60));
+        dato.setFont(new Font("Tahoma",Font.PLAIN,14));
+        constraints.gridx = 2; // El área de texto empieza en la columna cero
         constraints.gridy = 1; // El área de texto empieza en la fila cero
-        constraints.gridwidth = 2; // El área de texto ocupa dos columnas
+        constraints.gridwidth = 1; // El área de texto ocupa dos columnas
         constraints.gridheight = 1; // El área de texto ocupa una fila
         constraints.weightx = 1.0; // La columna se estira
         constraints.weighty = 0.0; // La fila no se estira
