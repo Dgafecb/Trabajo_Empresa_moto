@@ -3,13 +3,17 @@ package controlador;
 import static controlador.Controlador_login.lista_trabajadores;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelo.Consultas_Trabajadores;
 
 import modelo.Consultas_Trabajadores_meta;
 
 import modelo.Modelo_Trabajadores_meta;
 import modelo.Modelo_Trabajadores;
+import vista.Emergente_Actualizaciones;
 import vista.Panel_Ajustes;
 import vista.Panel_Inventario;
 import vista.Panel_Registros;
@@ -102,6 +106,7 @@ public class Controlador_admin implements ActionListener {
         ventanaAdmin.menuAdmin.btnVentas.addActionListener(this);
         ventanaAdmin.menuAdmin.btnAlmacen.addActionListener(this);
         ventanaAdmin.menuAdmin.btnAjustes.addActionListener(this);
+        ventanaAdmin.menuNotificaciones.btnActualizacion.addActionListener(this);
         //Agrega el nombre y apellido a la esquina superior derecha
         String nombre_apellido = ((Modelo_Trabajadores) lista_trabajadores.get(lista_trabajadores.findTrabajador(lista_trabajadores, this.model_user.getDni()))).getNombre();
         nombre_apellido = nombre_apellido + " " + ((Modelo_Trabajadores) lista_trabajadores.get(lista_trabajadores.findTrabajador(lista_trabajadores, this.model_user.getDni()))).getApellido();
@@ -136,28 +141,31 @@ public class Controlador_admin implements ActionListener {
             controladorVentas = new Controlador_Ventas(this, this.ventanaAdmin);
             ventanaAdmin.administrarPanel(ventanaAdmin.spContent, panelVentas);
             
-        }
-        if (e.getSource() == ventanaAdmin.menuAdmin.btnRegistros) {
+        }else if (e.getSource() == ventanaAdmin.menuAdmin.btnRegistros) {
             limpiarSpContent();
             panelRegistros = new Panel_Registros();
             controladorRegistros = new Controlador_Registros(this, this.ventanaAdmin);
             ventanaAdmin.administrarPanel(this.ventanaAdmin.spContent, controladorRegistros.getPanelRegistros());
-        }
-        if (e.getSource() == ventanaAdmin.menuAdmin.btnAlmacen) {
+        }else if (e.getSource() == ventanaAdmin.menuAdmin.btnAlmacen) {
             limpiarSpContent();
             panelInventario = new Panel_Inventario();
             controladorAlmacen = new Controlador_Almacen(this,this.ventanaAdmin);
             ventanaAdmin.administrarPanel(ventanaAdmin.spContent, panelInventario);
 
-        }
-        if (e.getSource() == ventanaAdmin.menuAdmin.btnCerrarSesion) {
+        }else if (e.getSource() == ventanaAdmin.menuAdmin.btnCerrarSesion) {
             cerrarSesion();
-        }
-        if (e.getSource() == ventanaAdmin.menuAdmin.btnAjustes) {
+        }else if (e.getSource() == ventanaAdmin.menuAdmin.btnAjustes) {
             limpiarSpContent();
             panelAjustes = new Panel_Ajustes();
             controladorAjustes = new Controlador_Ajustes(this, this.ventanaAdmin);
             ventanaAdmin.administrarPanel(ventanaAdmin.spContent, panelAjustes);
+        }else if(e.getSource() == ventanaAdmin.menuNotificaciones.btnActualizacion ){
+            try {
+                Emergente_Actualizaciones actualizacion = new Emergente_Actualizaciones(ventanaAdmin,true);
+                actualizacion.setVisible(true);
+            } catch (IOException ex) {
+                Logger.getLogger(Controlador_admin.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
     }

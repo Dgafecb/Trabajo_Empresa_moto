@@ -6,6 +6,8 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -33,6 +35,7 @@ public class Emergente_Actualizaciones extends javax.swing.JDialog {
         initDialog();
         initPanel();
         conexHtml();
+        initCallComp();
     }
     
     private void initDialog(){
@@ -75,7 +78,7 @@ public class Emergente_Actualizaciones extends javax.swing.JDialog {
         constraints.weighty = 1.0; 
         constraints.fill = GridBagConstraints.BOTH;
         constraints.anchor = GridBagConstraints.CENTER;
-        constraints.insets= new Insets(15,15,15,15);
+        constraints.insets= new Insets(15,15,0,15);
         getContentPane().add (spanel, constraints);
         
         
@@ -109,6 +112,24 @@ public class Emergente_Actualizaciones extends javax.swing.JDialog {
         }
     }
 
+    private void initCallComp(){
+        bordeVentana.btnCerrar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                dispose();
+            }
+            
+        });
+        this.btnCerrar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                dispose();
+            }
+            
+        });
+        
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

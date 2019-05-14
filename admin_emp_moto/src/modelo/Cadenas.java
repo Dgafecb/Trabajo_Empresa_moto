@@ -11,7 +11,7 @@ public class Cadenas {
     public static final Color COLOR_DEFAULT_RED = new Color(238,59,37);
     public static final Color COLOR_DEFAULT_YELLOW = new Color(255,240,11);
     
-    public static final String INVENTARIO_BUSCAR= "Buscar por descripcion";
+    public static final String INVENTARIO_BUSCAR= "Buscar producto";
     
     //CLIENTES
     public static final String CLIENTES_BUSCAR= "Buscar por DNI";
