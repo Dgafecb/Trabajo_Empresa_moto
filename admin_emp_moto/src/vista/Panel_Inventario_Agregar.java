@@ -39,12 +39,12 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         pCNombre2 = new javax.swing.JPanel();
         txfCantidad = new custom.CustomTextField();
+        pCNombre14 = new javax.swing.JPanel();
+        txfComision = new custom.CustomTextField();
         pCNombre1 = new javax.swing.JPanel();
         txfAdvertencia = new custom.CustomTextField();
-        jLabel6 = new javax.swing.JLabel();
-        pCNombre6 = new javax.swing.JPanel();
-        txfChasis = new custom.CustomTextField();
         jSeparator8 = new javax.swing.JSeparator();
+        jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -70,6 +70,9 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
+        jLabel6 = new javax.swing.JLabel();
+        pCNombre6 = new javax.swing.JPanel();
+        txfChasis = new custom.CustomTextField();
 
         setBackground(new java.awt.Color(250, 250, 250));
         setLayout(new java.awt.GridBagLayout());
@@ -294,13 +297,13 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(60, 60, 60));
-        jLabel11.setText("Cantidad Advertencia :");
+        jLabel11.setText("Comision");
         jLabel11.setMaximumSize(new java.awt.Dimension(150, 20));
         jLabel11.setMinimumSize(new java.awt.Dimension(150, 20));
         jLabel11.setPreferredSize(new java.awt.Dimension(150, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(jLabel11, gridBagConstraints);
@@ -337,6 +340,38 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(pCNombre2, gridBagConstraints);
 
+        pCNombre14.setBackground(new java.awt.Color(255, 255, 255));
+        pCNombre14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pCNombre14.setMaximumSize(new java.awt.Dimension(250, 30));
+        pCNombre14.setMinimumSize(new java.awt.Dimension(250, 30));
+        pCNombre14.setPreferredSize(new java.awt.Dimension(250, 30));
+        pCNombre14.setLayout(new java.awt.GridBagLayout());
+
+        txfComision.setBorder(null);
+        txfComision.setCaretColor(new java.awt.Color(60, 60, 60));
+        txfComision.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfComision.setMaximumSize(new java.awt.Dimension(200, 28));
+        txfComision.setMinimumSize(new java.awt.Dimension(200, 28));
+        txfComision.setPhColor(new java.awt.Color(60, 60, 60));
+        txfComision.setPlaceholder("Ingresar comision");
+        txfComision.setPreferredSize(new java.awt.Dimension(200, 28));
+        txfComision.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        pCNombre14.add(txfComision, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel1.add(pCNombre14, gridBagConstraints);
+
         pCNombre1.setBackground(new java.awt.Color(255, 255, 255));
         pCNombre1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
         pCNombre1.setMaximumSize(new java.awt.Dimension(250, 30));
@@ -368,51 +403,6 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(pCNombre1, gridBagConstraints);
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(60, 60, 60));
-        jLabel6.setText("Chasis :");
-        jLabel6.setMaximumSize(new java.awt.Dimension(150, 20));
-        jLabel6.setMinimumSize(new java.awt.Dimension(150, 20));
-        jLabel6.setPreferredSize(new java.awt.Dimension(150, 20));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel1.add(jLabel6, gridBagConstraints);
-
-        pCNombre6.setBackground(new java.awt.Color(255, 255, 255));
-        pCNombre6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
-        pCNombre6.setMaximumSize(new java.awt.Dimension(250, 30));
-        pCNombre6.setMinimumSize(new java.awt.Dimension(250, 30));
-        pCNombre6.setPreferredSize(new java.awt.Dimension(250, 30));
-        pCNombre6.setLayout(new java.awt.GridBagLayout());
-
-        txfChasis.setBorder(null);
-        txfChasis.setCaretColor(new java.awt.Color(60, 60, 60));
-        txfChasis.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txfChasis.setMaximumSize(new java.awt.Dimension(200, 28));
-        txfChasis.setMinimumSize(new java.awt.Dimension(200, 28));
-        txfChasis.setPhColor(new java.awt.Color(60, 60, 60));
-        txfChasis.setPlaceholder("Ingresar chasis");
-        txfChasis.setPreferredSize(new java.awt.Dimension(200, 28));
-        txfChasis.setSelectionColor(new java.awt.Color(60, 60, 60));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
-        pCNombre6.add(txfChasis, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel1.add(pCNombre6, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -420,6 +410,19 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(jSeparator8, gridBagConstraints);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(60, 60, 60));
+        jLabel14.setText("Cantidad Advertencia :");
+        jLabel14.setMaximumSize(new java.awt.Dimension(150, 20));
+        jLabel14.setMinimumSize(new java.awt.Dimension(150, 20));
+        jLabel14.setPreferredSize(new java.awt.Dimension(150, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel1.add(jLabel14, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -756,6 +759,51 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel2.add(jSeparator4, gridBagConstraints);
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(60, 60, 60));
+        jLabel6.setText("Chasis :");
+        jLabel6.setMaximumSize(new java.awt.Dimension(150, 20));
+        jLabel6.setMinimumSize(new java.awt.Dimension(150, 20));
+        jLabel6.setPreferredSize(new java.awt.Dimension(150, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel2.add(jLabel6, gridBagConstraints);
+
+        pCNombre6.setBackground(new java.awt.Color(255, 255, 255));
+        pCNombre6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pCNombre6.setMaximumSize(new java.awt.Dimension(250, 30));
+        pCNombre6.setMinimumSize(new java.awt.Dimension(250, 30));
+        pCNombre6.setPreferredSize(new java.awt.Dimension(250, 30));
+        pCNombre6.setLayout(new java.awt.GridBagLayout());
+
+        txfChasis.setBorder(null);
+        txfChasis.setCaretColor(new java.awt.Color(60, 60, 60));
+        txfChasis.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfChasis.setMaximumSize(new java.awt.Dimension(200, 28));
+        txfChasis.setMinimumSize(new java.awt.Dimension(200, 28));
+        txfChasis.setPhColor(new java.awt.Color(60, 60, 60));
+        txfChasis.setPlaceholder("Ingresar chasis");
+        txfChasis.setPreferredSize(new java.awt.Dimension(200, 28));
+        txfChasis.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        pCNombre6.add(txfChasis, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel2.add(pCNombre6, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -792,6 +840,7 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
     public javax.swing.JLabel jLabel11;
     public javax.swing.JLabel jLabel12;
     public javax.swing.JLabel jLabel13;
+    public javax.swing.JLabel jLabel14;
     public javax.swing.JLabel jLabel2;
     public javax.swing.JLabel jLabel3;
     public javax.swing.JLabel jLabel4;
@@ -815,6 +864,7 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
     private javax.swing.JPanel pCNombre11;
     private javax.swing.JPanel pCNombre12;
     private javax.swing.JPanel pCNombre13;
+    private javax.swing.JPanel pCNombre14;
     private javax.swing.JPanel pCNombre2;
     private javax.swing.JPanel pCNombre3;
     private javax.swing.JPanel pCNombre4;
@@ -827,6 +877,7 @@ public class Panel_Inventario_Agregar extends javax.swing.JPanel {
     public custom.CustomTextField txfCantidad;
     public custom.CustomTextField txfChasis;
     public custom.CustomTextField txfColor;
+    public custom.CustomTextField txfComision;
     public custom.CustomTextField txfDescripicion;
     public custom.CustomTextField txfFab;
     public custom.CustomTextField txfGarantia;

@@ -92,102 +92,34 @@ public class Controlador_Registros_Clientes implements ActionListener {
         }
     }
 
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == this.panelClientes.btnClienteBuscar) {// boton buscar
-            Buscar();
-        } else if (ae.getSource() == this.panelClientes.jButton9) {//boton agregar
-            Thread hilo = new Thread(){
-                    @Override
-                    public void run() {
-                        Agregar();
-                        mensaje("OPERACION REALIZADA");
-                        return ;
-                    }
-                };
-            hilo.start();
-            
-        } else if (ae.getSource() == this.panelClientes.jButton10) {// boton modificar
-            Thread hilo = new Thread(){
-                    @Override
-                    public void run() {
-                        Modificar();
-                        mensaje("OPERACION REALIZADA");
-                        return ;
-                    }
-                };
-            hilo.start();
-            
-        }else if (ae.getSource() == this.panelClientes.jButton11) {// boton eliminar
-            Thread hilo = new Thread(){
-                    @Override
-                    public void run() {
-                        Eliminar();
-                        mensaje("OPERACION REALIZADA");
-                        return ;
-                    }
-                };
-            hilo.start();
-            
-            
-        }else if (ae.getSource() == this.panelClientes.jButton13) {
-                Thread hilo = new Thread(){
-                    @Override
-                    public void run() {
-                        Consultas_Clientes consulta = new Consultas_Clientes();
-                        clientes = consulta.readAll();
-                        llenarTabla(clientes);
-                        mensaje("OPERACION REALIZADA");
-                        return ;
-                    }
-                };
-            hilo.start();
-            
-            
-            
-        }else if(ae.getSource() == this.panelClientes.jButton12){
-            exportar(this.panelClientes.jTable1);
-        } 
-    }
-
-    private void Buscar() {
-        String dni_leido = this.panelClientes.txfBuscar.getText();
-        ResultadoClientes resultado = lista_clientes.findClientes(lista_clientes, dni_leido);
-        if (resultado.isFunciona()) {
-            DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "DNI", "Nombres y Apellidos", "DNI", "Nombres y Apellidos", "Correo", "Direccion", "Telefono", "Ciudad", "Pais"}, 0) {
-
-                @Override
-                public boolean isCellEditable(int row, int column) {
-                    switch (column) {
-                        case 0:
-                            return false;
-                        default:
-                            return true;
+      
+    private void buscarClientes(String referencia){
+        String buscar;
+        Linked_List<Modelo_Clientes> listaBusqueda;
+        listaBusqueda = new Linked_List<Modelo_Clientes>();
+        int tamanho = lista_clientes.size();
+            for (int i = 0; i < tamanho; i++) {
+                int tamanhoRef = ((Modelo_Clientes) lista_clientes.get(i)).getDni().length() + 1;
+                String palabra = ((Modelo_Clientes) lista_clientes.get(i)).getDni();
+                for (int j = 1; j < tamanhoRef; j++) {
+                   if (referencia.equalsIgnoreCase(palabra.substring(0, j))) {
+                        listaBusqueda.add(lista_clientes.get(i));
+                        break;
                     }
                 }
-            };
-            for (int i = 0; i < resultado.getTemp().size(); i++) {
-                int index = (int)resultado.getTemp().get(i);
-                int id = ((Modelo_Clientes) lista_clientes.get(index)).getId();
-                String dni = ((Modelo_Clientes) lista_clientes.get(index)).getDni();
-                String nombres_apellido = ((Modelo_Clientes) lista_clientes.get(index)).getNombre_apellido();
-                String dni_2 = ((Modelo_Clientes) lista_clientes.get(index)).getDni_2();
-                String nombres_apellido_2 = ((Modelo_Clientes) lista_clientes.get(index)).getNombre_apellido_2();
-                String correo = ((Modelo_Clientes) lista_clientes.get(index)).getCorreo();
-                String direccion = ((Modelo_Clientes) lista_clientes.get(index)).getDireccion();
-                String telefono = ((Modelo_Clientes) lista_clientes.get(index)).getTelefono();
-                String ciudad = ((Modelo_Clientes) lista_clientes.get(index)).getCiudad();
-                String pais = ((Modelo_Clientes) lista_clientes.get(index)).getPais();
-
-                model.addRow(new Object[]{id, dni, nombres_apellido, dni_2, nombres_apellido_2, correo, direccion, telefono, ciudad, pais});
-        }
-        this.panelClientes.jTable1.setModel(model);
-
-        } else {
-            Emergente_Aviso mensaje = new Emergente_Aviso(ventanaAdmin, true, "No se encontro el DNI");
-            mensaje.setVisible(true);
-        }
+            }
+            if (listaBusqueda.size() > 0) {
+                    llenarTabla(listaBusqueda);
+                    panelClientes.jTable1.setRowSelectionInterval(0, 0);
+            } else {
+                    panelClientes.jTable1.clearSelection();
+                    llenarTabla(lista_clientes);
+            }
+                if (referencia.equals("")) {
+                    panelClientes.jTable1.clearSelection();
+                }
     }
+    
 
     private void Agregar() {
         Emergente_Panel_RClientes panel = new Emergente_Panel_RClientes(ventanaAdmin, true);
@@ -333,4 +265,63 @@ public class Controlador_Registros_Clientes implements ActionListener {
         mi_mensaje.setVisible(true);
     }
 
+        @Override
+    public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource() == this.panelClientes.btnClienteBuscar) {// boton buscar
+            String referencia = panelClientes.txfBuscar.getText();
+            buscarClientes(referencia);
+        } else if (ae.getSource() == this.panelClientes.jButton9) {//boton agregar
+            Thread hilo = new Thread(){
+                    @Override
+                    public void run() {
+                        Agregar();
+                        mensaje("OPERACION REALIZADA");
+                        return ;
+                    }
+                };
+            hilo.start();
+            
+        } else if (ae.getSource() == this.panelClientes.jButton10) {// boton modificar
+            Thread hilo = new Thread(){
+                    @Override
+                    public void run() {
+                        Modificar();
+                        mensaje("OPERACION REALIZADA");
+                        return ;
+                    }
+                };
+            hilo.start();
+            
+        }else if (ae.getSource() == this.panelClientes.jButton11) {// boton eliminar
+            Thread hilo = new Thread(){
+                    @Override
+                    public void run() {
+                        Eliminar();
+                        mensaje("OPERACION REALIZADA");
+                        return ;
+                    }
+                };
+            hilo.start();
+            
+            
+        }else if (ae.getSource() == this.panelClientes.jButton13) {
+                Thread hilo = new Thread(){
+                    @Override
+                    public void run() {
+                        Consultas_Clientes consulta = new Consultas_Clientes();
+                        clientes = consulta.readAll();
+                        llenarTabla(clientes);
+                        mensaje("OPERACION REALIZADA");
+                        return ;
+                    }
+                };
+            hilo.start();
+            
+            
+            
+        }else if(ae.getSource() == this.panelClientes.jButton12){
+            exportar(this.panelClientes.jTable1);
+        } 
+    }
+    
 }

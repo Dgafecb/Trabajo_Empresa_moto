@@ -53,6 +53,7 @@ public class Controlador_Almacen implements ActionListener {
         this.ventanaT = ventana;
         this.iniciarComponentes();
         this.llamarComponentes();
+        
     }
 
     private void iniciarComponentes() {
@@ -60,6 +61,9 @@ public class Controlador_Almacen implements ActionListener {
             this.panelInventario = controladorA.getPanelInventario();
         } else if (controladorT != null) {
             this.panelInventario = controladorT.panel_almacen;
+            panelInventario.btnAgregar.setVisible(true);
+            panelInventario.btnModificar.setVisible(false);
+            panelInventario.bntEliminar.setVisible(false);
         }
     }
 
@@ -229,6 +233,8 @@ public class Controlador_Almacen implements ActionListener {
                 String anho_fab = listaAgregar.get(8);
                 String anhos_garantia = listaAgregar.get(9);
                 int advertencia = Integer.valueOf(listaAgregar.get(12));
+                int comision = Integer.valueOf(listaAgregar.get(14));
+                
                 Modelo_Inventario_Vehiculos temp_model = new Modelo_Inventario_Vehiculos();
                 temp_model.setAnho_fab(anho_fab);
                 temp_model.setAnhos_garantia(anhos_garantia);
@@ -244,6 +250,7 @@ public class Controlador_Almacen implements ActionListener {
                 temp_model.setPrecio(precio);
                 temp_model.setTipo_vehiculo(categoria);
                 temp_model.setPrecio_compra(precio_compra);
+                temp_model.setComision(comision);
 
                 Consultas_Inventario_Vehiculos consultas = new Consultas_Inventario_Vehiculos();
                 if (consultas.create(temp_model)) {

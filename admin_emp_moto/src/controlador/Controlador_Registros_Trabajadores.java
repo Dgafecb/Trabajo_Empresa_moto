@@ -95,6 +95,8 @@ public class Controlador_Registros_Trabajadores implements ActionListener, Mouse
                         return false;
                     case 1:
                         return false;
+                    case 5:
+                        return false;
                     case 6:
                         return false;
                     default:

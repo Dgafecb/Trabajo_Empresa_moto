@@ -117,7 +117,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
 
         this.panelVentas.lblNombreTrabajador.setText(nombre_trabajador);
         this.llenarTablaAlmacen(lista_vehiculos);
-        this.llenarTablaClientes();
+        this.llenarTablaClientes(lista_clientes);
         this.iniciarTablaVentas();
         this.panelVentas.txfAlmacenBuscar.addKeyListener(this);
         this.panelVentas.btnAlmacenBuscar.addActionListener(this);
@@ -283,13 +283,10 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
     private void setearTemp_costo() {
         this.temp_costo = new String[3];
         this.temp_costo[0] = ((Modelo_Ajustes) lista_ajustes.get(6)).getValor();
-        temp_costo[0] = temp_costo[0].substring(0, temp_costo[0].length() - 1);
         temp_costo[0] = String.valueOf(Float.valueOf(temp_costo[0]) / 100.f);
         this.temp_costo[1] = ((Modelo_Ajustes) lista_ajustes.get(7)).getValor();
-        temp_costo[1] = temp_costo[1].substring(0, temp_costo[1].length() - 1);
         temp_costo[1] = String.valueOf(Float.valueOf(temp_costo[1]) / 100.f);
         this.temp_costo[2] = ((Modelo_Ajustes) lista_ajustes.get(5)).getValor();
-        temp_costo[2] = temp_costo[2].substring(0, temp_costo[2].length() - 1);
         temp_costo[2] = String.valueOf(Float.valueOf(temp_costo[2]) / 100.f);
     }
 
@@ -371,7 +368,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
 
     }
 
-    private void llenarTablaClientes() {
+    private void llenarTablaClientes(Linked_List lista) {
         DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "CLIENTE", "DNI", "CONTRAYENTE"}, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -389,11 +386,11 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                 }
             }
         };
-        for (int i = 0; i < lista_clientes.size(); i++) {
-            String dni = ((Modelo_Clientes) lista_clientes.get(i)).getDni();
-            String nombres_apellido = ((Modelo_Clientes) lista_clientes.get(i)).getNombre_apellido();
-            String dni_2 = ((Modelo_Clientes) lista_clientes.get(i)).getDni_2();
-            String nombres_apellido_2 = ((Modelo_Clientes) lista_clientes.get(i)).getNombre_apellido_2();
+        for (int i = 0; i < lista.size(); i++) {
+            String dni = ((Modelo_Clientes) lista.get(i)).getDni();
+            String nombres_apellido = ((Modelo_Clientes) lista.get(i)).getNombre_apellido();
+            String dni_2 = ((Modelo_Clientes) lista.get(i)).getDni_2();
+            String nombres_apellido_2 = ((Modelo_Clientes) lista.get(i)).getNombre_apellido_2();
 
             model.addRow(new Object[]{dni, nombres_apellido, dni_2, nombres_apellido_2});
         }
@@ -610,7 +607,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                         lista_clientes = consulta_cliente.readAll();
                         lista_vehiculos = consulta_vehiculo.readAll();
                         llenarTablaAlmacen(lista_vehiculos);
-                        llenarTablaClientes();
+                        llenarTablaClientes(lista_clientes);
 
                         return;
                     }
@@ -774,8 +771,6 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                     llenarTablaAlmacen(listaBusqueda);
                     panelVentas.tAlmacen.setRowSelectionInterval(0, 0);
                 } else {
-                    mensaje("NO SE ENCONTRARON COINCIDENCIAS");
-                    panelVentas.txfAlmacenBuscar.setText("");
                     panelVentas.tAlmacen.clearSelection();
 
                     llenarTablaAlmacen(lista_vehiculos);
@@ -798,8 +793,6 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                     llenarTablaAlmacen(listaBusqueda);
                     panelVentas.tAlmacen.setRowSelectionInterval(0, 0);
                 } else {
-                    mensaje("NO SE ENCONTRARON COINCIDENCIAS");
-                    panelVentas.txfAlmacenBuscar.setText("");
                     panelVentas.tAlmacen.clearSelection();
 
                     llenarTablaAlmacen(lista_vehiculos);
@@ -811,7 +804,34 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
         }
 
     }
-
+    
+    void buscarCliente(String referencia){
+        String buscar;
+        Linked_List<Modelo_Clientes> listaBusqueda;
+        listaBusqueda = new Linked_List<Modelo_Clientes>();
+        int tamanho = lista_clientes.size();
+            for (int i = 0; i < tamanho; i++) {
+                int tamanhoRef = ((Modelo_Clientes) lista_clientes.get(i)).getDni().length() + 1;
+                String palabra = ((Modelo_Clientes) lista_clientes.get(i)).getDni();
+                for (int j = 1; j < tamanhoRef; j++) {
+                   if (referencia.equalsIgnoreCase(palabra.substring(0, j))) {
+                        listaBusqueda.add(lista_clientes.get(i));
+                        break;
+                    }
+                }
+            }
+            if (listaBusqueda.size() > 0) {
+                    llenarTablaClientes(listaBusqueda);
+                    panelVentas.jTable1.setRowSelectionInterval(0, 0);
+            } else {
+                    panelVentas.jTable1.clearSelection();
+                    llenarTablaClientes(lista_clientes);
+            }
+                if (referencia.equals("")) {
+                    panelVentas.jTable1.clearSelection();
+                }
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.panelVentas.customButtonShaped3) {
@@ -885,30 +905,8 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
         }
 
         if (e.getSource() == this.panelVentas.btnClienteBuscar) {
-
-            String dni_leido = this.panelVentas.txfBuscar.getText();
-            Linked_List.ResultadoClientes resultado = lista_clientes.findClientes(lista_clientes, dni_leido);
-            if (resultado.isFunciona()) {
-                DefaultTableModel model = new DefaultTableModel(new String[]{"DNI", "CLIENTE", "DNI", "CONTRAYENTE"}, 0);
-                for (int i = 0; i < resultado.getTemp().size(); i++) {
-
-                    String dni = ((Modelo_Clientes) lista_clientes.get(i)).getDni();
-                    String nombres_apellido = ((Modelo_Clientes) lista_clientes.get(i)).getNombre_apellido();
-                    String dni_2 = ((Modelo_Clientes) lista_clientes.get(i)).getDni_2();
-                    String nombres_apellido_2 = ((Modelo_Clientes) lista_clientes.get(i)).getNombre_apellido_2();
-                    String correo = ((Modelo_Clientes) lista_clientes.get(i)).getCorreo();
-                    String direccion = ((Modelo_Clientes) lista_clientes.get(i)).getDireccion();
-                    String ciudad = ((Modelo_Clientes) lista_clientes.get(i)).getCiudad();
-                    String pais = ((Modelo_Clientes) lista_clientes.get(i)).getPais();
-
-                    model.addRow(new Object[]{dni, nombres_apellido, dni_2, nombres_apellido_2});
-
-                }
-                this.panelVentas.jTable1.setModel(model);
-
-            } else {
-                mensaje("NO SE ENCONTRO DNI");
-            }
+            String referencia = panelVentas.txfBuscar.getText();
+            buscarCliente(referencia);
         }
 
         if (e.getSource() == this.panelVentas.btnAlmacenBuscar) {//boton buscar del almacen

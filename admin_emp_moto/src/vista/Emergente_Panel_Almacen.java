@@ -15,7 +15,7 @@ import modelo.Modelo_Inventario_Repuestos;
 
 public class Emergente_Panel_Almacen extends javax.swing.JDialog {
 
-    private Dimension resolucionDialogo = new Dimension (800,450);
+    private Dimension resolucionDialogo = new Dimension (800,490);
     public Borde_Ventana bordeVentana;
     public CustomButtonShaped btnAceptar,btnCancelar;
     public Panel_Inventario_Agregar pInventarioAgregar;
@@ -134,6 +134,8 @@ public class Emergente_Panel_Almacen extends javax.swing.JDialog {
                 temp = (pInventarioAgregar.txfAdvertencia.getText().compareTo("") != 0) ? pInventarioAgregar.txfAdvertencia.getText().toUpperCase() : "0";
                 inventario.add(temp);
                 temp = (pInventarioAgregar.txfPrecioC.getText().compareTo("") != 0) ? pInventarioAgregar.txfPrecioC.getText().toUpperCase() : "0.0";
+                inventario.add(temp);
+                temp = (pInventarioAgregar.txfComision.getText().compareTo("") != 0) ? pInventarioAgregar.txfComision.getText().toUpperCase() : "0";
                 inventario.add(temp);
                 dispose();
             }
