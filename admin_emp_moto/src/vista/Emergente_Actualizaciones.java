@@ -102,8 +102,10 @@ public class Emergente_Actualizaciones extends javax.swing.JDialog {
         epanel = new JEditorPane();
         epanel.setBackground(Cadenas.COLOR_DEFAULT_WHITE);
         spanel.setViewportView(epanel);
-        URL url = getClass().getResource("/recursos/Actualizacion.html");
-        File rec = new File(url.getPath());
+        /*URL url = getClass().getResource("/recursos/Actualizacion.html");
+        File rec = new File(url.getPath());*/
+        String url = System.getProperty("user.dir")+"\\update\\Actualizacion.html";
+        File rec = new File(url);
         epanel.setEditable(false);
         try {
             epanel.setPage(rec.toURI().toURL());
