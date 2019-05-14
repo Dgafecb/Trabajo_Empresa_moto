@@ -26,6 +26,7 @@ public class Panel_Registros extends javax.swing.JPanel {
         subBtnTrabajadores = new modelo.CustomButton();
         subBtnClientes = new modelo.CustomButton();
         subBtnVentas = new modelo.CustomButton();
+        subBtnGanancias = new modelo.CustomButton();
         jSeparator4 = new javax.swing.JSeparator();
         spContenidoRegistros = new javax.swing.JScrollPane();
 
@@ -79,11 +80,25 @@ public class Panel_Registros extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         pSubMenuRegistros.add(subBtnVentas, gridBagConstraints);
 
+        subBtnGanancias.setText("GANANCIAS");
+        subBtnGanancias.setColorHover(new java.awt.Color(90, 90, 90));
+        subBtnGanancias.setColorNormal(new java.awt.Color(60, 60, 60));
+        subBtnGanancias.setColorPressed(new java.awt.Color(70, 70, 70));
+        subBtnGanancias.setFocusPainted(false);
+        subBtnGanancias.setMaximumSize(new java.awt.Dimension(115, 40));
+        subBtnGanancias.setMinimumSize(new java.awt.Dimension(115, 40));
+        subBtnGanancias.setPreferredSize(new java.awt.Dimension(115, 40));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        pSubMenuRegistros.add(subBtnGanancias, gridBagConstraints);
+
         jSeparator4.setBackground(new java.awt.Color(60, 60, 60));
         jSeparator4.setForeground(new java.awt.Color(60, 60, 60));
         jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -111,6 +126,7 @@ public class Panel_Registros extends javax.swing.JPanel {
     public javax.swing.JPanel pSubMenuRegistros;
     public javax.swing.JScrollPane spContenidoRegistros;
     public modelo.CustomButton subBtnClientes;
+    public modelo.CustomButton subBtnGanancias;
     public modelo.CustomButton subBtnTrabajadores;
     public modelo.CustomButton subBtnVentas;
     // End of variables declaration//GEN-END:variables
