@@ -381,6 +381,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         btnAlmacenBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(35x35)btnBuscar.png"))); // NOI18N
         btnAlmacenBuscar.setToolTipText("");
         btnAlmacenBuscar.setCurve(0);
+        btnAlmacenBuscar.setFocusable(false);
         btnAlmacenBuscar.setMaximumSize(new java.awt.Dimension(40, 40));
         btnAlmacenBuscar.setMinimumSize(new java.awt.Dimension(40, 40));
         btnAlmacenBuscar.setPreferredSize(new java.awt.Dimension(40, 40));

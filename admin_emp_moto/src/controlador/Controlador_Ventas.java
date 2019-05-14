@@ -348,7 +348,25 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
     }
 
     private void iniciarTablaVentas() {
-        modeloTablaVentas = new DefaultTableModel(new String[]{"Id", "Descripcion", "Cantidad", "Precio unitario", "Precio Total"}, 0);
+        modeloTablaVentas = new DefaultTableModel(new String[]{"Id", "Descripcion", "Cantidad", "Precio unitario", "Precio Total"}, 0){
+
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                switch (column) {
+                    case 0:
+                        return false;
+                    case 1:
+                        return false;
+                    case 3:
+                        return false;
+                    case 4:
+                        return false;
+
+                    default:
+                        return true;
+                }
+            }
+        };
         this.panelVentas.tDatosVentas.setModel(modeloTablaVentas);
 
     }
@@ -422,6 +440,8 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
 
     private void llenar_Tabla_Ventas(String id, String descripcion, String cantidad, Float precio_unitario, Float precio_total) {
         modeloTablaVentas.addRow(new Object[]{id, descripcion, cantidad, precio_unitario, precio_total});
+        
+        
         panelVentas.tDatosVentas.setModel(modeloTablaVentas);
     }
 
@@ -629,7 +649,8 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                     panel_cantidad.setVisible(true);
                 }
                 String cantidad = panel_cantidad.getCantidad();
-                if (!panel_cantidad.getCantidad().equals("0")) {
+                if(cantidad!=null){
+                    if (!cantidad.equals("0")) {
 
                     String descripcion = modeloInventario.getNombre_prod();
                     float precio_unitario = modeloInventario.getPrecio();//Falta verificar si la lista_ajustes(10) es distinto de 1 para cambiar ese valor
@@ -649,6 +670,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                     }
                 } else {
                     mensaje("SELECCIONE UNA CANTIDAD VALIDA A AGREGAR");
+                }
                 }
             } else {
                 mensaje("NO HAY STOCK DEL OBJETO SELECCIONADO");
@@ -718,7 +740,14 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                     llenarTablaAlmacen(listaBusqueda);
                     panelVentas.tAlmacen.setRowSelectionInterval(0, 0);
                     if (casoPerfecto == 1) {
-                        panelVentas.customButtonShaped1.doClick();
+                        try {
+                            casoPerfecto =0;
+                            Thread.sleep(500);
+                            panelVentas.txfAlmacenBuscar.transferFocus();
+                            panelVentas.customButtonShaped1.doClick();
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(Controlador_Ventas.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
                 } else {
                     panelVentas.tAlmacen.clearSelection();

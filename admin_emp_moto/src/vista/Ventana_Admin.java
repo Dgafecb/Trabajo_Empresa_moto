@@ -37,8 +37,8 @@ public class Ventana_Admin extends javax.swing.JFrame{
         setUndecorated(true);
         getContentPane().setBackground(new Color(235,235,235));
         getContentPane().setLayout (new GridBagLayout());
-        this.setTitle("Tiendas Q&V App");
-        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/recursos/(256x256px)Logo4.png"));
+        this.setTitle("Pequiva - Admin");
+        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/recursos/(256x256px)Logo3.png"));
         setIconImage(icon);
         
     }

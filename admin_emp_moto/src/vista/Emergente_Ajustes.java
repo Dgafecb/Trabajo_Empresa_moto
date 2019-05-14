@@ -33,7 +33,7 @@ public class Emergente_Ajustes extends javax.swing.JDialog {
     private int sizex ;
     private int sizey ;
     
-    public String cambio;
+    public String cambio = null;
     public Modelo_Ajustes ajustes;
     
     public Emergente_Ajustes(java.awt.Frame parent, boolean modal,Modelo_Ajustes ajustes) {
@@ -43,7 +43,7 @@ public class Emergente_Ajustes extends javax.swing.JDialog {
         this.descripcion.setForeground(new Color(60,60,60));
         this.descripcion.setFont(new Font("Tahoma",Font.PLAIN,14));
         FontMetrics metrics = getFontMetrics(this.descripcion.getFont());
-        sizex = metrics.stringWidth(ajustes.getDescripcion())+250;
+        sizex = metrics.stringWidth(ajustes.getDescripcion())+230;
         sizey = metrics.getHeight()+150;
         initDialog();
         initPanel();
@@ -81,28 +81,28 @@ public class Emergente_Ajustes extends javax.swing.JDialog {
         descripcion.setHorizontalAlignment(JLabel.LEFT);
         constraints.gridx = 0; // El área de texto empieza en la columna cero
         constraints.gridy = 1; // El área de texto empieza en la fila cero
-        constraints.gridwidth = 2; // El área de texto ocupa dos columnas
+        constraints.gridwidth = 1; // El área de texto ocupa dos columnas
         constraints.gridheight = 1; // El área de texto ocupa una fila
         constraints.weightx = 0.0; // La columna se estira
         constraints.weighty = 0.0; // La fila no se estira
         constraints.fill = GridBagConstraints.HORIZONTAL;//Estirar los componentes
         constraints.anchor = GridBagConstraints.CENTER;//Poscion que ocupa el componente
-        constraints.insets= new Insets(15,15,15,15);
+        constraints.insets= new Insets(15,15,15,0);
         getContentPane().add (descripcion, constraints);
         
         dato = new JTextField(ajustes.getValor());
-        dato.setSize(100, 30);
+        dato.setSize(50, 30);
         dato.setForeground(new Color(60,60,60));
         dato.setFont(new Font("Tahoma",Font.PLAIN,14));
-        constraints.gridx = 2; // El área de texto empieza en la columna cero
+        constraints.gridx = 1; // El área de texto empieza en la columna cero
         constraints.gridy = 1; // El área de texto empieza en la fila cero
-        constraints.gridwidth = 1; // El área de texto ocupa dos columnas
+        constraints.gridwidth = 2; // El área de texto ocupa dos columnas
         constraints.gridheight = 1; // El área de texto ocupa una fila
         constraints.weightx = 1.0; // La columna se estira
         constraints.weighty = 0.0; // La fila no se estira
         constraints.fill = GridBagConstraints.HORIZONTAL;//Estirar los componentes
         constraints.anchor = GridBagConstraints.CENTER;//Poscion que ocupa el componente
-        constraints.insets= new Insets(15,15,15,15);
+        constraints.insets= new Insets(15,0,15,15);
         getContentPane().add (dato, constraints);
         
         

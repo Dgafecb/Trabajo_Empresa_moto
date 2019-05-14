@@ -32,6 +32,7 @@ public class Controlador_Ajustes implements ActionListener,MouseListener {
     private Panel_Ajustes panelAjustes;
     private LinkedList<Modelo_Ajustes> ajustes;
     private JList list = new JList();
+    private Modelo_Ajustes selectedItem;
 
     public Controlador_Ajustes(Controlador_admin controladorAdmin, Ventana_Admin ventanaAdmin) {
         this.controladorAdmin = controladorAdmin;
@@ -99,6 +100,13 @@ public class Controlador_Ajustes implements ActionListener,MouseListener {
         panelAjustes.jScrollPane2.setViewportView(list);
     }
     
+    private void mensaje(String msg) {
+        if (ventanaAdmin != null) {
+            Emergente_Aviso mensajes = new Emergente_Aviso(ventanaAdmin, true, msg);
+            mensajes.setVisible(true);
+        }
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         
@@ -108,18 +116,37 @@ public class Controlador_Ajustes implements ActionListener,MouseListener {
     public void mouseClicked(MouseEvent me) {
        if(me.getSource()== list){
             if (me.getClickCount() == 2){
-                    CustomListModel_Ajustes modelo = (CustomListModel_Ajustes) list.getModel();
-                    int seleccion = list.getSelectedIndex();
-                    Modelo_Ajustes selectedItem = null;
-                    if(seleccion !=-1){
-                        try {
-                            selectedItem = (Modelo_Ajustes) modelo.getAjustes(seleccion);
-                            Emergente_Ajustes panelAjustes =new Emergente_Ajustes(ventanaAdmin,true,selectedItem);
-                            panelAjustes.setVisible(true);
-                        } catch (Exception ex) {
+                CustomListModel_Ajustes modelo = (CustomListModel_Ajustes) list.getModel();
+                int seleccion = list.getSelectedIndex();
+                if(seleccion !=-1){
+                    try {
+                        selectedItem = (Modelo_Ajustes) modelo.getAjustes(seleccion);
+                        Emergente_Ajustes panelEmergente =new Emergente_Ajustes(ventanaAdmin,true,selectedItem);
+                        panelEmergente.setVisible(true);
+                        if(!selectedItem.getValor().equals(panelEmergente.cambio)){
+                            if(panelEmergente.cambio!=null){
+                                if(panelEmergente.cambio.length()!=0){
+                                selectedItem.setValor(panelEmergente.cambio);
+                                Thread hilo = new Thread() {
+                                @Override
+                                public void run() {
+                                    Consultas_Ajustes consulta = new Consultas_Ajustes();
+                                    if(consulta.update(selectedItem)){
+                                        mensaje("SE REALIZO CAMBIO CORRECTAMENTE");
+                                    }else{
+                                        mensaje("NO SE REALIZO CAMBIO");
+                                    }
+                                    return;
+                                    }
+                                };
+                                hilo.start();
+                                }
+                            }
+                            }
+                    } catch (Exception ex) {
                             Logger.getLogger(Controlador_Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-                        }
                     }
+                }
                     
             } 
         } 

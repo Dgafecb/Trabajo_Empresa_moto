@@ -24,6 +24,7 @@ public class Emergente_Panel_Ventas extends javax.swing.JDialog {
     public JLabel mensaje;
     public Dimension dmsn  = new Dimension (400,160);
     public JSlider slider ;
+    private String cantidad = null;
     private int maximo;
     
     
@@ -115,6 +116,9 @@ public class Emergente_Panel_Ventas extends javax.swing.JDialog {
         constraints.anchor = GridBagConstraints.CENTER;//Poscion que ocupa el componente
         constraints.insets= new Insets(15,15,15,15);
         getContentPane().add (btnAceptar, constraints);
+        
+        bordeVentana.btnCerrar.setFocusable(false);
+        btnAceptar.setFocusable(false);
     }
     
     private void llamarComponentes(){
@@ -127,16 +131,16 @@ public class Emergente_Panel_Ventas extends javax.swing.JDialog {
     this.btnAceptar.addActionListener(new ActionListener(){
         @Override
         public void actionPerformed(ActionEvent e) {
+            cantidad = mensaje.getText();
             dispose();
         }
     
-    
+        
     });
     
     }
     
     public String getCantidad(){
-        String cantidad = mensaje.getText();
         return cantidad;
     }
     

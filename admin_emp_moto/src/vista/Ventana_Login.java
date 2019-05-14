@@ -35,8 +35,8 @@ public class Ventana_Login extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout (new GridBagLayout());
         getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(60,60,60)));
-        this.setTitle("Tiendas Q&V App");
-        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/recursos/(256x256px)Logo4.png"));
+        this.setTitle("Pequiva - Login");
+        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/recursos/(256x256px)Logo3.png"));
         setIconImage(icon);
         pack();
     }
