@@ -67,7 +67,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
     private float sin_dscto = 0.00f;
     private float con_dscto = 0.00f;
     private float cuota_mensual = 0.00f;
-    private int dscto = 1;
+    private int dscto = 0;
     private int cuotas = 0;
     private int tipo_venta = 0;//0 para efectivo,1 para credito y  2 para por mayor
     private int tipo_temp = 0;
@@ -345,7 +345,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
     }
 
     private void iniciarTablaVentas() {
-        modeloTablaVentas = new DefaultTableModel(new String[]{"Id", "Descripcion", "Cantidad", "Precio unitario", "Precio Total"}, 0){
+        modeloTablaVentas = new DefaultTableModel(new String[]{"Id", "Descripcion", "Cantidad","Descuento", "Precio unitario", "Precio Total"}, 0){
 
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -357,6 +357,8 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                     case 3:
                         return false;
                     case 4:
+                        return false;
+                    case 5:
                         return false;
 
                     default:
@@ -435,8 +437,8 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
 
     }
 
-    private void llenar_Tabla_Ventas(String id, String descripcion, String cantidad, Float precio_unitario, Float precio_total) {
-        modeloTablaVentas.addRow(new Object[]{id, descripcion, cantidad, precio_unitario, precio_total});
+    private void llenar_Tabla_Ventas(String id, String descripcion, String cantidad,int dscto, Float precio_unitario, Float precio_total) {
+        modeloTablaVentas.addRow(new Object[]{id, descripcion, cantidad,dscto,precio_unitario, precio_total});
         
         
         panelVentas.tDatosVentas.setModel(modeloTablaVentas);
@@ -444,8 +446,8 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
 
     private void llenar_Adicional_Ventas(Float precio_total) {
         this.dscto = this.panelVentas.jSlider1.getValue();
-        this.sin_dscto += precio_total;
-        this.con_dscto = this.sin_dscto * (100 - this.dscto) / 100.f;
+        this.sin_dscto += precio_total;//+= precio_total;
+        this.con_dscto = this.sin_dscto ;//* (100 - this.dscto) / 100.f;
         this.sin_igv = this.con_dscto;
         this.con_igv = this.sin_igv;
         this.total_ventas = this.con_igv;
@@ -461,7 +463,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
 
         this.sin_dscto += precio_total;
         float temp = this.sin_dscto * Float.valueOf(this.temp_costo[nuevo_tipo]);
-        this.con_dscto = temp * (100 - this.dscto) / 100.f;
+        this.con_dscto = this.sin_dscto;//temp * (100 - this.dscto) / 100.f;
         this.sin_igv = this.con_dscto;
         this.con_igv = this.sin_igv;
         this.total_ventas = this.con_igv;
@@ -532,11 +534,11 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
 
                     String id_prod = (String) this.panelVentas.tDatosVentas.getValueAt(i, 0);
                     String cantidad = (String) this.panelVentas.tDatosVentas.getValueAt(i, 2);
+                    int dscto = (Integer) panelVentas.tDatosVentas.getValueAt(i, 3);
                     float total = (float) this.panelVentas.tDatosVentas.getValueAt(i, 4);
                     String id_factura = id_prod + Integer.toString(id_trabajador) + Integer.toString(id_cliente);
                     String fecha_hora = new SimpleDateFormat("ddMMyyyy_HHmmss").format(Calendar.getInstance().getTime());
                     float monto_inicial = Float.valueOf(this.panelVentas.txfVCuotaInicial.getText());
-                    this.dscto = this.panelVentas.jSlider1.getValue();
                     temp_model.setId_prod(id_prod);
                     temp_model.setId_factura(id_factura);
                     temp_model.setId_prod(id_prod);
@@ -562,11 +564,10 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                             break;
                     }
 
-                    this.dscto = this.panelVentas.jSlider1.getValue();
                     float temp;
-                    temp = total * (100 - this.dscto) / 100.f;
+                    temp = total * (100 - dscto) / 100.f;
                     temp_model.setTotal(temp);
-                    temp_model.setDscto(this.dscto);
+                    temp_model.setDscto(dscto);
                     temp_model.setCuotas(this.cuotas);
                     if (consulta_venta.create(temp_model)) {
                         System.out.println("Registro de venta " + i + " realizada con exito");
@@ -652,7 +653,14 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                     String descripcion = modeloInventario.getNombre_prod();
                     float precio_unitario = modeloInventario.getPrecio();//Falta verificar si la lista_ajustes(10) es distinto de 1 para cambiar ese valor
                     float precio_total = precio_unitario * Integer.valueOf(cantidad);
-                    llenar_Tabla_Ventas(id, descripcion, cantidad, precio_unitario, precio_total);
+                    int dscto_Actual = this.panelVentas.jSlider1.getValue();
+                    if(dscto_Actual!=100){
+                        llenar_Tabla_Ventas(id, descripcion, cantidad,dscto_Actual, precio_unitario, precio_total);
+                    }else{
+                        precio_total = 0.0f; 
+                        llenar_Tabla_Ventas(id, descripcion, cantidad,dscto_Actual, precio_unitario, precio_total);
+                    }
+                    
                     llenar_Adicional_Ventas_2(precio_total, tipo_venta);
                     Almacenado temp_almacenado = new Almacenado();
                     if (temp_funciona.isFunciona()) {

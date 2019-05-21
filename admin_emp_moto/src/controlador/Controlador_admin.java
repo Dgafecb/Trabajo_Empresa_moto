@@ -4,6 +4,8 @@ import static controlador.Controlador_login.lista_trabajadores;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,6 +16,7 @@ import modelo.Consultas_Trabajadores_meta;
 import modelo.Modelo_Trabajadores_meta;
 import modelo.Modelo_Trabajadores;
 import vista.Emergente_Actualizaciones;
+import vista.Emergente_Aviso;
 import vista.Panel_Ajustes;
 import vista.Panel_Inventario;
 import vista.Panel_Registros;
@@ -107,6 +110,7 @@ public class Controlador_admin implements ActionListener {
         ventanaAdmin.menuAdmin.btnAlmacen.addActionListener(this);
         ventanaAdmin.menuAdmin.btnAjustes.addActionListener(this);
         ventanaAdmin.menuNotificaciones.btnActualizacion.addActionListener(this);
+        ventanaAdmin.menuNotificaciones.btnConexion.addActionListener(this);
         //Agrega el nombre y apellido a la esquina superior derecha
         String nombre_apellido = ((Modelo_Trabajadores) lista_trabajadores.get(lista_trabajadores.findTrabajador(lista_trabajadores, this.model_user.getDni()))).getNombre();
         nombre_apellido = nombre_apellido + " " + ((Modelo_Trabajadores) lista_trabajadores.get(lista_trabajadores.findTrabajador(lista_trabajadores, this.model_user.getDni()))).getApellido();
@@ -131,6 +135,22 @@ public class Controlador_admin implements ActionListener {
         consultasTrabajadores = new Consultas_Trabajadores();
         view_login.setVisible(true);
         Controlador_login controlador_login = new Controlador_login(view_login, trabajador, consultasTrabajadores);
+    }
+    
+    public boolean isInternetAvailable() {
+        boolean conexion = false;
+        String dirWeb = "www.google.com";
+        int puerto = 80;
+        Socket s;
+        try {
+            s = new Socket(dirWeb, puerto);
+            if(s.isConnected()){
+                conexion = true;
+            }
+        } catch (IOException ex) {
+            conexion = false;
+        }
+        return conexion;
     }
 
     @Override
@@ -166,7 +186,24 @@ public class Controlador_admin implements ActionListener {
             } catch (IOException ex) {
                 Logger.getLogger(Controlador_admin.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }else if(e.getSource() == ventanaAdmin.menuNotificaciones.btnConexion){
+                if(isInternetAvailable()){
+                    mensaje("USTED TIENE CONEXION");
+                }else{
+                    mensaje("USTED NO DISPONE DE CONEXION");
+                }
         }
+
+    }
+    
+    private void mensaje(String msg) {
+        if (ventanaAdmin != null) {
+            Emergente_Aviso mensajes = new Emergente_Aviso(ventanaAdmin, true, msg);
+            mensajes.setVisible(true);
+        }/* else if (ventanaT != null) {
+            Emergente_Aviso mensajes = new Emergente_Aviso(ventanaT, true, msg);
+            mensajes.setVisible(true);
+        }*/
 
     }
 

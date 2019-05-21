@@ -25,9 +25,15 @@ public class Panel_Ventas extends javax.swing.JPanel {
         rbIndefinido.setSelected(true);
         this.jSlider1.setValue(0);
         //Temporal
-        this.jLabel25.setVisible(true);
+
+        this.jLabel20.setVisible(false);
+        this.jLabel21.setVisible(false);
         this.jLabel22.setVisible(false);
         this.jLabel23.setVisible(false);
+        this.jLabel24.setVisible(false);
+        this.jLabel25.setVisible(false);
+        this.jLabel26.setVisible(false);
+        this.jLabel27.setVisible(false);
         
     }
     
@@ -734,9 +740,9 @@ public class Panel_Ventas extends javax.swing.JPanel {
         customPanel4.add(jSlider1, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel1.setMaximumSize(new java.awt.Dimension(30, 30));
-        jLabel1.setMinimumSize(new java.awt.Dimension(30, 30));
-        jLabel1.setPreferredSize(new java.awt.Dimension(30, 30));
+        jLabel1.setMaximumSize(new java.awt.Dimension(40, 30));
+        jLabel1.setMinimumSize(new java.awt.Dimension(40, 30));
+        jLabel1.setPreferredSize(new java.awt.Dimension(40, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;

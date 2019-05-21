@@ -96,6 +96,7 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
         perfil_Usuario1 = new vista.Perfil_Usuario();
         customButtonMarcar2 = new custom.CustomButtonMarcar();
         btnActualizacion = new custom.CustomButtonShaped();
+        btnConexion = new custom.CustomButtonShaped();
 
         setBackground(new java.awt.Color(60, 60, 60));
         setLayout(new java.awt.GridBagLayout());
@@ -119,13 +120,13 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
         perfil_Usuario1.setMinimumSize(new java.awt.Dimension(150, 40));
         perfil_Usuario1.setPreferredSize(new java.awt.Dimension(200, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(0, 20, 0, 20);
         add(perfil_Usuario1, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
         add(customButtonMarcar2, gridBagConstraints);
@@ -137,10 +138,23 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
         btnActualizacion.setMinimumSize(new java.awt.Dimension(40, 40));
         btnActualizacion.setPreferredSize(new java.awt.Dimension(40, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         add(btnActualizacion, gridBagConstraints);
+
+        btnConexion.setText("C");
+        btnConexion.setColorBackground(new java.awt.Color(60, 60, 60));
+        btnConexion.setCurve(40);
+        btnConexion.setFont(new java.awt.Font("Tahoma", 1, 32)); // NOI18N
+        btnConexion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnConexion.setMaximumSize(new java.awt.Dimension(40, 40));
+        btnConexion.setMinimumSize(new java.awt.Dimension(40, 40));
+        btnConexion.setPreferredSize(new java.awt.Dimension(40, 40));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        add(btnConexion, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
@@ -150,8 +164,7 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
             } else {
                 mostrarMenuAdmin(true);
             }
-        }
-        if (ventanaTrabajador != null) {
+        }else if (ventanaTrabajador != null) {
             if ("INICIO".equals(ventanaTrabajador.menuTrabajador.btnInicio.getText())) {
                 mostrarMenuTrabajador(false);
             } else {
@@ -163,6 +176,7 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public custom.CustomButtonShaped btnActualizacion;
+    public custom.CustomButtonShaped btnConexion;
     public javax.swing.JButton btnMenu;
     public custom.CustomButtonMarcar customButtonMarcar2;
     public vista.Perfil_Usuario perfil_Usuario1;

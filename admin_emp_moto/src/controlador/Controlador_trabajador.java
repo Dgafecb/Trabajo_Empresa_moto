@@ -4,6 +4,8 @@ import static controlador.Controlador_login.lista_asistencia;
 import static controlador.Controlador_login.lista_trabajadores;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import modelo.Consultas_Asistencia;
@@ -59,6 +61,7 @@ public class Controlador_trabajador implements ActionListener {
         ventanaTrabajador.menuTrabajador.btnVentas.addActionListener(this);
         ventanaTrabajador.menuTrabajador.btnAlmacen.addActionListener(this);
         ventanaTrabajador.menuNotificaciones.customButtonMarcar2.addActionListener(this);
+        ventanaTrabajador.menuNotificaciones.btnConexion.addActionListener(this);
         String dni = this.model_user.getDni();
         String fecha = new SimpleDateFormat("ddMMyyyy").format(Calendar.getInstance().getTime());
         System.out.println(fecha + " " + dni);
@@ -182,6 +185,22 @@ public class Controlador_trabajador implements ActionListener {
             }
     }
     
+    public boolean isInternetAvailable() {
+        boolean conexion = false;
+        String dirWeb = "www.google.com";
+        int puerto = 80;
+        Socket s;
+        try {
+            s = new Socket(dirWeb, puerto);
+            if(s.isConnected()){
+                conexion = true;
+            }
+        } catch (IOException ex) {
+            conexion = false;
+        }
+        return conexion;
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.ventanaTrabajador.menuNotificaciones.customButtonMarcar2) {
@@ -212,6 +231,12 @@ public class Controlador_trabajador implements ActionListener {
         } else if (e.getSource() == ventanaTrabajador.menuTrabajador.btnCerrarSesion) { // Reinstancia la ventana de login, permitiendo otro inicio de sesion
             limpiarSpContent();
             cerrarSesion();
+        }else if(e.getSource() == ventanaTrabajador.menuNotificaciones.btnConexion){
+                if(isInternetAvailable()){
+                    mensaje("USTED TIENE CONEXION");
+                }else{
+                    mensaje("USTED NO DISPONE DE CONEXION");
+                }
         }
 
     }
