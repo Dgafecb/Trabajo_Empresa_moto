@@ -38,6 +38,8 @@ public class Linked_List<T> extends LinkedList {
 
         return temp;
     }
+    
+    
 
     public LinkedList<Integer> findIdCliente(Linked_List<Modelo_Ventas> list, int id) {
         LinkedList<Integer> temp = null;
@@ -97,6 +99,30 @@ public class Linked_List<T> extends LinkedList {
             temp.setI(0);
             return temp;
         }
+    }
+    
+    public Modelo_Inventario_Vehiculos findIdProducto1(Linked_List<Modelo_Inventario_Vehiculos> list, String id) {
+        Modelo_Inventario_Vehiculos temp = null;
+        for (int i = 0; i < list.size(); i++) {
+            if (((Modelo_Inventario_Vehiculos) list.get(i)).getId().equals(id)) {
+                temp = ((Modelo_Inventario_Vehiculos) list.get(i));
+                
+            }
+        }
+
+        return temp;
+    }
+    
+    public Modelo_Inventario_Vehiculos findIdProducto2(Linked_List<Modelo_Inventario_Vehiculos> list, String id) {
+        Modelo_Inventario_Vehiculos temp = null;
+        for (int i = 0; i < list.size(); i++) {
+            if (((Modelo_Inventario_Vehiculos) list.get(i)).getNombre_prod().equalsIgnoreCase(id)) {
+                temp = ((Modelo_Inventario_Vehiculos) list.get(i));
+                
+            }
+        }
+
+        return temp;
     }
 
     public int findTrabajador(Linked_List<Modelo_Trabajadores> list, String dni) {

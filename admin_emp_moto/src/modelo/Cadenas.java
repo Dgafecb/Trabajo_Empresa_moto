@@ -14,7 +14,7 @@ public class Cadenas {
     public static final String INVENTARIO_BUSCAR= "Buscar producto";
     
     //CLIENTES
-    public static final String CLIENTES_BUSCAR= "Buscar por DNI";
+    public static final String CLIENTES_BUSCAR= "Buscar cliente";
     public static final String CLIENTES_NOMBRE1= "Ingresa el nombre del Cliente 1";
     public static final String CLIENTES_NOMBRE2= "Ingresa el nombre del Cliente 2";
     public static final String CLIENTES_DNI1= "Ingresar el DNI del Cliente 1";

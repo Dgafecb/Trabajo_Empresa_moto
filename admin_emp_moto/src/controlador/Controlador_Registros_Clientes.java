@@ -112,8 +112,25 @@ public class Controlador_Registros_Clientes implements ActionListener {
                     llenarTabla(listaBusqueda);
                     panelClientes.jTable1.setRowSelectionInterval(0, 0);
             } else {
+                listaBusqueda = new Linked_List<Modelo_Clientes>();
+                for (int i = 0; i < tamanho; i++) {
+                int tamanhoRef = ((Modelo_Clientes) lista_clientes.get(i)).getNombre_apellido().length() + 1;
+                String palabra = ((Modelo_Clientes) lista_clientes.get(i)).getNombre_apellido();
+                for (int j = 1; j < tamanhoRef; j++) {
+                   if (referencia.equalsIgnoreCase(palabra.substring(0, j))) {
+                        listaBusqueda.add(lista_clientes.get(i));
+                        break;
+                        }
+                    }   
+                }
+                if(listaBusqueda.size() > 0){
+                    llenarTabla(listaBusqueda);
+                    panelClientes.jTable1.setRowSelectionInterval(0, 0);  
+                }else{
                     panelClientes.jTable1.clearSelection();
                     llenarTabla(lista_clientes);
+                }
+                    
             }
                 if (referencia.equals("")) {
                     panelClientes.jTable1.clearSelection();

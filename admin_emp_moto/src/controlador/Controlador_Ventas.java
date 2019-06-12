@@ -535,7 +535,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                     String id_prod = (String) this.panelVentas.tDatosVentas.getValueAt(i, 0);
                     String cantidad = (String) this.panelVentas.tDatosVentas.getValueAt(i, 2);
                     int dscto = (Integer) panelVentas.tDatosVentas.getValueAt(i, 3);
-                    float total = (float) this.panelVentas.tDatosVentas.getValueAt(i, 4);
+                    float total = (float) this.panelVentas.tDatosVentas.getValueAt(i, 5);
                     String id_factura = id_prod + Integer.toString(id_trabajador) + Integer.toString(id_cliente);
                     String fecha_hora = new SimpleDateFormat("ddMMyyyy_HHmmss").format(Calendar.getInstance().getTime());
                     float monto_inicial = Float.valueOf(this.panelVentas.txfVCuotaInicial.getText());
@@ -563,7 +563,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                         default:
                             break;
                     }
-
+                     
                     float temp;
                     temp = total * (100 - dscto) / 100.f;
                     temp_model.setTotal(temp);
@@ -605,8 +605,10 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                     public void run() {
                         Consultas_Inventario_Vehiculos consulta_vehiculo = new Consultas_Inventario_Vehiculos();
                         Consultas_Clientes consulta_cliente = new Consultas_Clientes();
+                        Consultas_Ventas consulta_ventas = new Consultas_Ventas();
                         lista_clientes = consulta_cliente.readAll();
                         lista_vehiculos = consulta_vehiculo.readAll();
+                        lista_ventas = consulta_ventas.readAll();
                         llenarTablaAlmacen(lista_vehiculos);
                         llenarTablaClientes(lista_clientes);
 
@@ -832,8 +834,26 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                     llenarTablaClientes(listaBusqueda);
                     panelVentas.jTable1.setRowSelectionInterval(0, 0);
             } else {
+                listaBusqueda = new Linked_List<Modelo_Clientes>();
+                for (int i = 0; i < tamanho; i++) {
+                int tamanhoRef = ((Modelo_Clientes) lista_clientes.get(i)).getNombre_apellido().length() + 1;
+                String palabra = ((Modelo_Clientes) lista_clientes.get(i)).getNombre_apellido();
+                for (int j = 1; j < tamanhoRef; j++) {
+                   if (referencia.equalsIgnoreCase(palabra.substring(0, j))) {
+                        listaBusqueda.add(lista_clientes.get(i));
+                        break;
+                        }
+                    }   
+                }
+                if (listaBusqueda.size() > 0) {
+                    llenarTablaClientes(listaBusqueda);
+                    panelVentas.jTable1.setRowSelectionInterval(0, 0);
+                }else{
                     panelVentas.jTable1.clearSelection();
-                    llenarTablaClientes(lista_clientes);
+                    llenarTablaClientes(lista_clientes);   
+                } 
+                
+                    
             }
                 if (referencia.equals("")) {
                     panelVentas.jTable1.clearSelection();

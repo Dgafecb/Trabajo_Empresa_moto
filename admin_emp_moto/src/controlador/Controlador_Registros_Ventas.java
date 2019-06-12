@@ -1,6 +1,7 @@
 package controlador;
 
 import static controlador.Controlador_login.lista_ventas;
+import static controlador.Controlador_login.lista_vehiculos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -59,7 +60,7 @@ public class Controlador_Registros_Ventas implements ActionListener{
     
     private void fillTable(Linked_List<Modelo_Ventas> listaVentas){
         DefaultTableModel model = new DefaultTableModel(new String[]{"ID DE VENTA" , 
-            "ID PRODUCTO ", "ID TRABAJADOR", "ID CLIENTE", "FECHA", "HORA", "MONTO INICIAL",
+            "ID PRODUCTO","DESCRIPCION", "ID TRABAJADOR", "ID CLIENTE", "FECHA", "HORA", "MONTO INICIAL",
             "DESCUENTO", "CUOTAS","CANTIDAD","MONTO UNITARIO","MONTO TOTAL"}, 0) {
             
             @Override
@@ -69,6 +70,7 @@ public class Controlador_Registros_Ventas implements ActionListener{
                     case 1: return false;
                     case 2: return false;
                     case 3: return false;
+                    case 4: return false;
                     default:return true;
                 }
             }
@@ -77,6 +79,7 @@ public class Controlador_Registros_Ventas implements ActionListener{
             
             Integer id_venta = ((Modelo_Ventas)listaVentas.get(i)).getId();
             String id_producto = ((Modelo_Ventas) listaVentas.get(i)).getId_prod();
+            String descripcion = lista_vehiculos.findIdProducto1(lista_vehiculos, id_producto).getNombre_prod();
             Integer id_trabajador = ((Modelo_Ventas) listaVentas.get(i)).getId_trabajador();
             Integer id_cliente = ((Modelo_Ventas) listaVentas.get(i)).getId_cliente();
             String fecha_hora = ((Modelo_Ventas) listaVentas.get(i)).getFecha_hora();
@@ -90,7 +93,7 @@ public class Controlador_Registros_Ventas implements ActionListener{
             String fecha = fecha_hora.substring(0,2)+"/"+fecha_hora.substring(2,4)+"/"+fecha_hora.substring(4, 8);
             String hora = fecha_hora.substring(9,11)+":"+fecha_hora.substring(11,13)+":"+fecha_hora.substring(13, 15);
             
-            model.addRow(new Object[]{id_venta, id_producto , id_trabajador, id_cliente, fecha,
+            model.addRow(new Object[]{id_venta, id_producto,descripcion , id_trabajador, id_cliente, fecha,
                 hora, monto_inicial,dscto, cuotas, cantidad, monto_unitario ,monto_total});
         }
         panelVentas.jTable1.setModel(model);
@@ -103,17 +106,17 @@ public class Controlador_Registros_Ventas implements ActionListener{
         
         DefaultTableCellRenderer tcrCenter = new DefaultTableCellRenderer();
         tcrCenter.setHorizontalAlignment(SwingConstants.CENTER);
-        panelVentas.jTable1.getColumnModel().getColumn(4).setCellRenderer(tcrCenter);
         panelVentas.jTable1.getColumnModel().getColumn(5).setCellRenderer(tcrCenter);
-        panelVentas.jTable1.getColumnModel().getColumn(7).setCellRenderer(tcrCenter);
+        panelVentas.jTable1.getColumnModel().getColumn(6).setCellRenderer(tcrCenter);
         panelVentas.jTable1.getColumnModel().getColumn(8).setCellRenderer(tcrCenter);
         panelVentas.jTable1.getColumnModel().getColumn(9).setCellRenderer(tcrCenter);
+        panelVentas.jTable1.getColumnModel().getColumn(10).setCellRenderer(tcrCenter);
         
         DefaultTableCellRenderer tcrRight = new DefaultTableCellRenderer();
         tcrRight.setHorizontalAlignment(SwingConstants.RIGHT);
-        panelVentas.jTable1.getColumnModel().getColumn(6).setCellRenderer(tcrRight);
-        panelVentas.jTable1.getColumnModel().getColumn(10).setCellRenderer(tcrRight);
+        panelVentas.jTable1.getColumnModel().getColumn(7).setCellRenderer(tcrRight);
         panelVentas.jTable1.getColumnModel().getColumn(11).setCellRenderer(tcrRight);
+        panelVentas.jTable1.getColumnModel().getColumn(12).setCellRenderer(tcrRight);
         
         panelVentas.jTable1.getColumnModel().getColumn(0).setMaxWidth(0);
         panelVentas.jTable1.getColumnModel().getColumn(0).setMinWidth(0);
@@ -189,6 +192,30 @@ public class Controlador_Registros_Ventas implements ActionListener{
                 }
                 break;
             }
+            case 4:{
+                listaBusqueda  = new Linked_List<Modelo_Ventas>();
+                int tamanho = lista_ventas.size();
+                for(int i = 0 ;i<tamanho;i++){
+                   buscar = String.valueOf(((Modelo_Ventas)lista_ventas.get(i)).getId_prod());
+                   if(lista_vehiculos.findIdProducto2(lista_vehiculos,referencia)!=null){
+                    String ref = (lista_vehiculos.findIdProducto2(lista_vehiculos,referencia)).getId();
+                    String[] palabras = ref.split("\\s+");
+                        for (String palabra : palabras) {
+                            if (buscar.contains(palabra)) {
+                            listaBusqueda.add(lista_ventas.get(i));
+                        }
+                        }
+                   }
+                }
+                if(listaBusqueda.size()>0){
+                    fillTable(listaBusqueda);
+                }else{
+                    mensaje("NO SE ENCONTRARON COINCIDENCIAS");
+                    fillTable(lista_ventas);
+                    
+                }
+                break;
+            }
             default:{
                 fillTable(lista_ventas);
                 break;
@@ -240,15 +267,15 @@ public class Controlador_Registros_Ventas implements ActionListener{
                 this.panelVentas.jTable1.getCellEditor().stopCellEditing();
                 Integer id_venta = Integer.valueOf(this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 0).toString());
                 String id_producto = (String)this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 1);
-                Integer id_trabajador = Integer.valueOf(this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 2).toString());
-                Integer id_cliente = Integer.valueOf(this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 3).toString());
-                String fecha = (String)this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 4);
-                String hora = (String)this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 5);
-                Float monto_inicial = Float.valueOf(this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 6).toString());
-                Integer dscto =Integer.valueOf(this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 7).toString());
-                Integer cuotas = Integer.valueOf(this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 8).toString());
-                Integer cantidad = Integer.valueOf(this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 9).toString());
-                Float monto_total = Float.valueOf(this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 10).toString());
+                Integer id_trabajador = Integer.valueOf(this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 3).toString());
+                Integer id_cliente = Integer.valueOf(this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 4).toString());
+                String fecha = (String)this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 5);
+                String hora = (String)this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 6);
+                Float monto_inicial = Float.valueOf(this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 7).toString());
+                Integer dscto =Integer.valueOf(this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 8).toString());
+                Integer cuotas = Integer.valueOf(this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 9).toString());
+                Integer cantidad = Integer.valueOf(this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 11).toString());
+                Float monto_total = Float.valueOf(this.panelVentas.jTable1.getValueAt(this.panelVentas.jTable1.getSelectedRow(), 12).toString());
                 String fecha_hora = fecha.substring(0,2)+fecha.substring(3,5)+fecha.substring(6,10)+
                         "_"+hora.substring(0, 2)+hora.substring(3,5)+hora.substring(6, 8);
                 
@@ -347,6 +374,8 @@ public class Controlador_Registros_Ventas implements ActionListener{
                 buscar(panelVentas.txfBuscar.getText(),2);
             }else if(panelVentas.jRadioButton3.isSelected()){
                 buscar(panelVentas.txfBuscar.getText(),3);
+            }else if(panelVentas.jRadioButton4.isSelected()){
+                buscar(panelVentas.txfBuscar.getText(),4);
             }
             
         }else if(ae.getSource()==panelVentas.jButton9){

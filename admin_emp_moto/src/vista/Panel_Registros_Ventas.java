@@ -12,6 +12,7 @@ public class Panel_Registros_Ventas extends javax.swing.JPanel {
         initComponents();
         this.jScrollPane1.getViewport().setBackground(Color.WHITE);
         bgVentas.add(jRadioButton1);
+        bgVentas.add(jRadioButton4);
         bgVentas.add(jRadioButton2);
         bgVentas.add(jRadioButton3);
         jRadioButton1.setSelected(true);
@@ -40,6 +41,7 @@ public class Panel_Registros_Ventas extends javax.swing.JPanel {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -181,6 +183,8 @@ public class Panel_Registros_Ventas extends javax.swing.JPanel {
         jRadioButton2.setText("ID TRABAJADOR");
         jRadioButton2.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(jRadioButton2, gridBagConstraints);
 
@@ -190,10 +194,23 @@ public class Panel_Registros_Ventas extends javax.swing.JPanel {
         jRadioButton3.setText("ID CLIENTE");
         jRadioButton3.setFocusPainted(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(jRadioButton3, gridBagConstraints);
+
+        jRadioButton4.setBackground(new java.awt.Color(250, 250, 250));
+        jRadioButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jRadioButton4.setForeground(new java.awt.Color(60, 60, 60));
+        jRadioButton4.setText("DESCRIPCION");
+        jRadioButton4.setFocusPainted(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel1.add(jRadioButton4, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -251,6 +268,7 @@ public class Panel_Registros_Ventas extends javax.swing.JPanel {
     public javax.swing.JRadioButton jRadioButton1;
     public javax.swing.JRadioButton jRadioButton2;
     public javax.swing.JRadioButton jRadioButton3;
+    public javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jTable1;
     private javax.swing.JPanel pBuscar;
