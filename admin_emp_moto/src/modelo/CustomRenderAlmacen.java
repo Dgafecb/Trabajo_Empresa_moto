@@ -17,11 +17,11 @@ public class CustomRenderAlmacen extends DefaultTableCellRenderer{
       super.getTableCellRendererComponent (table, value, isSelected, hasFocus, row, column);
       int cantidad = Integer.parseInt(table.getModel().getValueAt(row,10).toString());
       int advertencia = Integer.parseInt(table.getModel().getValueAt(row,11).toString());
-      if ( cantidad - advertencia <= 2 && cantidad - advertencia > 0 ){
+      if ( cantidad - advertencia == 0 ){
          this.setOpaque(true);
          this.setBackground(Cadenas.COLOR_DEFAULT_YELLOW);
          this.setForeground(Cadenas.COLOR_DEFAULT_BLACK);
-      }else if ( cantidad - advertencia <=0){
+      }else if ( cantidad - advertencia <0){
          this.setOpaque(true);
          this.setBackground(Cadenas.COLOR_DEFAULT_RED);
          this.setForeground(Color.WHITE);

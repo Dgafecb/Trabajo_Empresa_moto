@@ -365,11 +365,11 @@ public class Controlador_Almacen implements ActionListener {
             this.Modificar();
         } else if (e.getSource() == this.panelInventario.btnBuscar) {
             if (this.panelInventario.rbId.isSelected()) {// UNICO ID
-                buscarAlmacen(panelInventario.txfBuscar.getText(), 1);
+                buscarAlmacen(panelInventario.txfBuscar.getText().toUpperCase(), 1);
             } else if (this.panelInventario.rbDescripcion.isSelected()) { // DESCRIPCION
-                buscarAlmacen(panelInventario.txfBuscar.getText(), 2);
+                buscarAlmacen(panelInventario.txfBuscar.getText().toUpperCase(), 2);
             } else if (this.panelInventario.rbMarca.isSelected()) {
-                buscarAlmacen(panelInventario.txfBuscar.getText(), 3);
+                buscarAlmacen(panelInventario.txfBuscar.getText().toUpperCase(), 3);
             }
         } else if (e.getSource() == this.panelInventario.btnupdate) {
             Thread hilo = new Thread() {

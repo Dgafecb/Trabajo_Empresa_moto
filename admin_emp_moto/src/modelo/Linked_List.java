@@ -101,11 +101,11 @@ public class Linked_List<T> extends LinkedList {
         }
     }
     
-    public Modelo_Inventario_Vehiculos findIdProducto1(Linked_List<Modelo_Inventario_Vehiculos> list, String id) {
-        Modelo_Inventario_Vehiculos temp = null;
+    public int findIdProductoIndex(Linked_List<Modelo_Inventario_Vehiculos> list, Modelo_Inventario_Vehiculos miv) {
+        int temp  = 0;
         for (int i = 0; i < list.size(); i++) {
-            if (((Modelo_Inventario_Vehiculos) list.get(i)).getId().equals(id)) {
-                temp = ((Modelo_Inventario_Vehiculos) list.get(i));
+            if (((Modelo_Inventario_Vehiculos) list.get(i)).equals(miv)) {
+                temp = i;
                 
             }
         }
@@ -113,7 +113,23 @@ public class Linked_List<T> extends LinkedList {
         return temp;
     }
     
-    public Modelo_Inventario_Vehiculos findIdProducto2(Linked_List<Modelo_Inventario_Vehiculos> list, String id) {
+    public Modelo_Inventario_Vehiculos findIdProductoxID(Linked_List<Modelo_Inventario_Vehiculos> list, String id) {
+        Modelo_Inventario_Vehiculos temp = null;
+        for (int i = 0; i < list.size(); i++) {
+            if (((Modelo_Inventario_Vehiculos) list.get(i)).getId().equals(id)) {
+                temp = ((Modelo_Inventario_Vehiculos) list.get(i));
+                
+            }
+        }
+        if(temp == null){
+            temp = new Modelo_Inventario_Vehiculos();
+            temp.setNombre_prod("NO DISPONIBLE");
+        }
+
+        return temp;
+    }
+    
+    public Modelo_Inventario_Vehiculos findIdProductoxDescripcion(Linked_List<Modelo_Inventario_Vehiculos> list, String id) {
         Modelo_Inventario_Vehiculos temp = null;
         for (int i = 0; i < list.size(); i++) {
             if (((Modelo_Inventario_Vehiculos) list.get(i)).getNombre_prod().equalsIgnoreCase(id)) {

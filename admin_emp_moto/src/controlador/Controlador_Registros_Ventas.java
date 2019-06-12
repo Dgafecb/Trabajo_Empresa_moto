@@ -1,7 +1,7 @@
 package controlador;
 
-import static controlador.Controlador_login.lista_ventas;
 import static controlador.Controlador_login.lista_vehiculos;
+import static controlador.Controlador_login.lista_ventas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -16,9 +16,11 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import modelo.Consultas_Inventario_Vehiculos;
 import modelo.Consultas_Ventas;
 import modelo.Exporter;
 import modelo.Linked_List;
+import modelo.Modelo_Inventario_Vehiculos;
 import modelo.Modelo_Ventas;
 import vista.Emergente_Aviso;
 import vista.Emergente_Panel_RVentas;
@@ -79,7 +81,7 @@ public class Controlador_Registros_Ventas implements ActionListener{
             
             Integer id_venta = ((Modelo_Ventas)listaVentas.get(i)).getId();
             String id_producto = ((Modelo_Ventas) listaVentas.get(i)).getId_prod();
-            String descripcion = lista_vehiculos.findIdProducto1(lista_vehiculos, id_producto).getNombre_prod();
+            String descripcion = lista_vehiculos.findIdProductoxID(lista_vehiculos, id_producto).getNombre_prod();
             Integer id_trabajador = ((Modelo_Ventas) listaVentas.get(i)).getId_trabajador();
             Integer id_cliente = ((Modelo_Ventas) listaVentas.get(i)).getId_cliente();
             String fecha_hora = ((Modelo_Ventas) listaVentas.get(i)).getFecha_hora();
@@ -197,8 +199,8 @@ public class Controlador_Registros_Ventas implements ActionListener{
                 int tamanho = lista_ventas.size();
                 for(int i = 0 ;i<tamanho;i++){
                    buscar = String.valueOf(((Modelo_Ventas)lista_ventas.get(i)).getId_prod());
-                   if(lista_vehiculos.findIdProducto2(lista_vehiculos,referencia)!=null){
-                    String ref = (lista_vehiculos.findIdProducto2(lista_vehiculos,referencia)).getId();
+                   if(lista_vehiculos.findIdProductoxDescripcion(lista_vehiculos,referencia)!=null){
+                    String ref = (lista_vehiculos.findIdProductoxDescripcion(lista_vehiculos,referencia)).getId();
                     String[] palabras = ref.split("\\s+");
                         for (String palabra : palabras) {
                             if (buscar.contains(palabra)) {
@@ -318,13 +320,24 @@ public class Controlador_Registros_Ventas implements ActionListener{
         boolean state = false;
         if (panelVentas.jTable1.getSelectionModel().isSelectionEmpty() == false) {
         int temp_id = Integer.parseInt( panelVentas.jTable1.getValueAt(panelVentas.jTable1.getSelectedRow(), 0).toString());
+        String id_producto = panelVentas.jTable1.getValueAt(panelVentas.jTable1.getSelectedRow(), 1).toString();
+        int cantidad = Integer.parseInt( panelVentas.jTable1.getValueAt(panelVentas.jTable1.getSelectedRow(), 10).toString());
         int index = lista_ventas.findIdVentas(lista_ventas, temp_id);
         Modelo_Ventas temp_model = new Modelo_Ventas();
-        temp_model.setId(((Modelo_Ventas) lista_ventas.get(index)).getId());
-        Consultas_Ventas consultas = new Consultas_Ventas();
-            if (consultas.delete(temp_model)) {
+        temp_model.setId(((Modelo_Ventas) lista_ventas.get(index)).getId()); 
+        Consultas_Ventas cv = new Consultas_Ventas();
+        Consultas_Inventario_Vehiculos civ = new Consultas_Inventario_Vehiculos();
+            if (cv.delete(temp_model)) {
                 lista_ventas.remove(index);
                 fillTable(listaVentas);
+                Modelo_Inventario_Vehiculos miv = lista_vehiculos.findIdProductoxID(lista_vehiculos, id_producto);
+                miv.setCantidad(miv.getCantidad()+cantidad);
+                civ.update(miv);
+                int index_vehiculo = lista_vehiculos.findIdProductoIndex(lista_vehiculos, miv);
+                lista_vehiculos.remove(index_vehiculo);
+                lista_vehiculos.add(index_vehiculo, miv);
+                
+                
                 state = true;
             }else{
                 state = false;
