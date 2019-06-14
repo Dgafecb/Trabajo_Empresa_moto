@@ -74,7 +74,7 @@ public class Panel_Registros_Ventas extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         pCRUD.add(jButton10, gridBagConstraints);
 
-        jButton11.setText("BORRAR");
+        jButton11.setText("DESHACER");
         jButton11.setMinimumSize(new java.awt.Dimension(100, 35));
         jButton11.setPreferredSize(new java.awt.Dimension(120, 35));
         gridBagConstraints = new java.awt.GridBagConstraints();

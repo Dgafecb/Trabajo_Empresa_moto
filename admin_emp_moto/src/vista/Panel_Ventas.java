@@ -47,7 +47,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         customPanel2 = new custom.CustomPanel();
         lblFactura = new javax.swing.JLabel();
-        numeroFactura = new javax.swing.JLabel();
+        nroVenta = new javax.swing.JLabel();
         pClientes = new custom.CustomPanel();
         pBuscarCliente = new javax.swing.JPanel();
         btnClienteBuscar = new modelo.CustomButtonShaped();
@@ -146,21 +146,21 @@ public class Panel_Ventas extends javax.swing.JPanel {
 
         lblFactura.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         lblFactura.setForeground(new java.awt.Color(60, 60, 60));
-        lblFactura.setText("Nro. Factura :");
+        lblFactura.setText("Nro. Venta:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         customPanel2.add(lblFactura, gridBagConstraints);
 
-        numeroFactura.setBackground(new java.awt.Color(255, 255, 255));
-        numeroFactura.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
-        numeroFactura.setForeground(new java.awt.Color(60, 60, 60));
-        numeroFactura.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        numeroFactura.setText("0");
+        nroVenta.setBackground(new java.awt.Color(255, 255, 255));
+        nroVenta.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        nroVenta.setForeground(new java.awt.Color(60, 60, 60));
+        nroVenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nroVenta.setText("0000000");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        customPanel2.add(numeroFactura, gridBagConstraints);
+        customPanel2.add(nroVenta, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -1271,7 +1271,7 @@ public class Panel_Ventas extends javax.swing.JPanel {
     private javax.swing.JLabel lblPrecioxUnidad;
     private javax.swing.JLabel lblTipoVenta;
     public javax.swing.JLabel lblsgnoMoneda;
-    private javax.swing.JLabel numeroFactura;
+    public javax.swing.JLabel nroVenta;
     private custom.CustomPanel pAdicionalAlmacen;
     private custom.CustomPanel pAlmacen;
     private javax.swing.JPanel pAlmacenBuscar;

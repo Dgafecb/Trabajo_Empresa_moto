@@ -100,6 +100,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
         this.setearCuotasBox();
         this.setearCambioMoneda();
         this.setearTemp_costo();
+        this.panelVentas.nroVenta.setText(((Modelo_Ajustes)lista_ajustes.get(1)).getValor());
         this.panelVentas.jSlider1.setMaximum(controlador.Controlador_Ventas.dscto_maximo);
         this.panelVentas.jSlider1.setMinimum(0);
         temp_list = new Linked_List<>();
@@ -529,6 +530,8 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                 while (rowCount <= 0) {
                     rowCount = panelVentas.tDatosVentas.getRowCount();
                 }
+                String fecha_hora = new SimpleDateFormat("ddMMyyyy_HHmmss").format(Calendar.getInstance().getTime());
+                String id_factura = ((Modelo_Ajustes)lista_ajustes.get(1)).getValor();
                 for (int i = 0; i < rowCount; i++) {//Recorre toda la tabla de ventas
                     // creamos el registro de ventas para cada producto distinto
 
@@ -536,8 +539,8 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                     String cantidad = (String) this.panelVentas.tDatosVentas.getValueAt(i, 2);
                     int dscto = (Integer) panelVentas.tDatosVentas.getValueAt(i, 3);
                     float total = (float) this.panelVentas.tDatosVentas.getValueAt(i, 5);
-                    String id_factura = id_prod + Integer.toString(id_trabajador) + Integer.toString(id_cliente);
-                    String fecha_hora = new SimpleDateFormat("ddMMyyyy_HHmmss").format(Calendar.getInstance().getTime());
+                    
+                    
                     float monto_inicial = Float.valueOf(this.panelVentas.txfVCuotaInicial.getText());
                     temp_model.setId_prod(id_prod);
                     temp_model.setId_factura(id_factura);

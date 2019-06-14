@@ -138,7 +138,7 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
         btnActualizacion.setMinimumSize(new java.awt.Dimension(40, 40));
         btnActualizacion.setPreferredSize(new java.awt.Dimension(40, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
         add(btnActualizacion, gridBagConstraints);
@@ -152,7 +152,7 @@ public class Menu_Notificaciones extends javax.swing.JPanel {
         btnConexion.setMinimumSize(new java.awt.Dimension(40, 40));
         btnConexion.setPreferredSize(new java.awt.Dimension(40, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         add(btnConexion, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents

@@ -47,19 +47,29 @@ public class CustomRendererVentas extends JPanel implements ListCellRenderer<Lin
             montoTotal += mv.getTotal();
         }
         if(e.get(0)!=null){
-            plv.lblID.setText(((Modelo_Ventas)e.get(0)).getId_factura());
+            plv.lblID.setText("#"+((Modelo_Ventas)e.get(0)).getId_factura());
             plv.lblGanancia.setText("S/. " +String.valueOf(ganancia)+ " +");
             plv.lblTotal.setText("S/. " +String.valueOf(montoTotal));
             String fecha=((Modelo_Ventas)e.get(0)).getFecha_hora();
+            String hora = "NO DISPONIBLE";
             if(fecha.length()==15){
                 String dd = fecha.substring(0, 2);
                 String mm = fecha.substring(2, 4);
                 String aa = fecha.substring(4, 8);
+                
+                
+                String hh = fecha.substring(9, 11);
+                String mi = fecha.substring(11, 13);
+                String ss = fecha.substring(13, 15);;
+                
                 fecha = dd + "/" + mm + "/" + aa;
+                hora = hh + ":" + mi + ":" + ss;
+                
             }else{
                 fecha = "NO DISPONIBLE";
             }
             plv.lblFecha.setText(fecha);
+            plv.lblHora.setText(hora);
         }
         
         return this;

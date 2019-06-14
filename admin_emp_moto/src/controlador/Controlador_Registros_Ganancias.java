@@ -26,10 +26,24 @@ public class Controlador_Registros_Ganancias implements ActionListener {
     }
 
     private void fillList(Linked_List<Modelo_Ventas> lista){
-        LinkedList<Modelo_Ventas> listaVenta = new LinkedList<Modelo_Ventas>();
-        listaVenta.add((Modelo_Ventas)lista.get(0));
         CustomListModel_Ventas model = new CustomListModel_Ventas();
-        model.addElement(listaVenta);
+        LinkedList<Modelo_Ventas> listaVenta = new LinkedList<Modelo_Ventas>();
+        for(int i = 0;i< lista.size()-1;i++){
+            Modelo_Ventas mv1 = (Modelo_Ventas) lista.get(i);
+            Modelo_Ventas mv2 = (Modelo_Ventas) lista.get(i+1);
+            if(mv1.getId_factura().equalsIgnoreCase(mv2.getId_factura())){
+                listaVenta.add(mv1);
+            }else{
+                listaVenta.add(mv1);
+                model.addElement(listaVenta);
+                listaVenta = new LinkedList<Modelo_Ventas>();
+            }
+            
+            
+        }
+        
+        
+        
         list = new JList();
         
         list.setModel(model);
