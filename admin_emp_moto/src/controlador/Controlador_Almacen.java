@@ -1,6 +1,7 @@
 package controlador;
 
 import static controlador.Controlador_login.lista_vehiculos;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -18,6 +19,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import javax.swing.table.TableCellRenderer;
 import modelo.Consultas_Inventario_Vehiculos;
 import modelo.CustomRenderAlmacen;
 import modelo.Exporter;
@@ -387,6 +389,7 @@ public class Controlador_Almacen implements ActionListener {
     }
 
     private void llenarTablaAlmacen(Linked_List lista_vehiculos) {
+        
 
         DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "CATEGORIA", "DESCRIPCION", "MARCA",
             "MODELO", "COLOR", "MOTOR", "CHASIS", "AÑO DE FAB.",
@@ -423,7 +426,9 @@ public class Controlador_Almacen implements ActionListener {
                     anho_fab, anhos_garantia, cantidad, advertencia, precio_compra, precio, pcomision});
             }
         }
-
+        
+        //this.panelInventario.jTable1.setAutoCreateRowSorter(false);
+        
         this.panelInventario.jTable1.setModel(model);
 
         //CONFIGURACION DE TABLA
@@ -454,6 +459,8 @@ public class Controlador_Almacen implements ActionListener {
         }
 
         this.panelInventario.jTable1.setDefaultRenderer(Object.class, new CustomRenderAlmacen());
+        
+        
 
     }
 
