@@ -17,28 +17,28 @@ public class CustomListModel_Ventas extends AbstractListModel{
 
     @Override
     public Object getElementAt(int i) {
-        Modelo_Ventas mv = null;
+        LinkedList<Modelo_Ventas> mv = null;
         try {
-            mv = (Modelo_Ventas) lista.get(i);
+            mv = (LinkedList<Modelo_Ventas>) lista.get(i);
         } catch (Exception ex) {
             Logger.getLogger(CustomListModel_Ajustes.class.getName()).log(Level.SEVERE, null, ex);
         }
         return mv;
     }
     
-    /*public void addElement(Modelo_Ventas mv){
+    public void addElement(LinkedList mv){
         lista.add(mv);
         this.fireIntervalAdded(this, getSize(), getSize()+1);
     }
     
-    public Modelo_Ventas getVenta(int index){
-        Modelo_Ventas a = null;
+    public LinkedList getVenta(int index){
+        LinkedList<Modelo_Ventas> mv = null;
         try {
-            a= (Modelo_Ventas) lista.get(index);
+            mv= (LinkedList<Modelo_Ventas>)lista.get(index);
         } catch (Exception ex) {
             Logger.getLogger(CustomListModel_Ajustes.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return a;
-    }*/
+        return mv;
+    }
     
 }

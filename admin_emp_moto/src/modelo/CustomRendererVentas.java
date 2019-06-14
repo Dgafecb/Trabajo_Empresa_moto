@@ -12,134 +12,25 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
+import vista.Panel_List_Ventas;
 
 
 public class CustomRendererVentas extends JPanel implements ListCellRenderer<LinkedList<Modelo_Ventas>>{
     
     
-    private JLabel lblID;
-    private JLabel txtTotal;
-    private JLabel lblTotal;
-    private JLabel txtGanancia;
-    private JLabel lblGanancia;
-    
-    private JPanel pInfo;
-    private JPanel pDetalles;
-    
-    private GridBagLayout gblPrincipal;
-    private GridBagLayout gblInfo;
+
     private JList lDetalles;
+    
+    private Panel_List_Ventas plv;
     
     
     public CustomRendererVentas(){
-        gblPrincipal = new GridBagLayout();
-        
-        lblID = new JLabel();
-        GridBagConstraints constraints = new GridBagConstraints();
-        constraints.gridx = 0; 
-        constraints.gridy = 0; 
-        constraints.gridwidth = 1; 
-        constraints.gridheight = 1;
-        constraints.weightx = 0.0;
-        constraints.weighty = 0.0; 
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.anchor = GridBagConstraints.NORTH;
-        constraints.insets= new Insets(0,0,0,0);
-        this.add(lblID, constraints);
-        
-        pInfo = new JPanel();
-        constraints.gridx = 1; 
-        constraints.gridy = 0; 
-        constraints.gridwidth = 1; 
-        constraints.gridheight = 1;
-        constraints.weightx = 0.0;
-        constraints.weighty = 0.0; 
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.anchor = GridBagConstraints.NORTH;
-        constraints.insets= new Insets(0,0,0,0);
-        this.add(pInfo , constraints);
-        
-        pDetalles = new JPanel();
-        constraints.gridx = 1; 
-        constraints.gridy = 1; 
-        constraints.gridwidth = 1; 
-        constraints.gridheight = 1;
-        constraints.weightx = 0.0;
-        constraints.weighty = 0.0; 
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.anchor = GridBagConstraints.NORTH;
-        constraints.insets= new Insets(0,0,0,0);
-        this.add(pDetalles , constraints);
-        
-        this.setLayout(gblPrincipal);
-        initpInfo();
+        this.setLayout(new BorderLayout(5, 5));
+        plv = new Panel_List_Ventas();
+        add(plv, BorderLayout.CENTER);
     }
     
-    private void initpInfo(){
-        gblInfo = gblPrincipal = new GridBagLayout();
-        pInfo.setLayout(gblInfo);
-        
-        txtGanancia= new JLabel("Ganancias: ");
-        txtGanancia.setForeground(Color.GREEN);
-        GridBagConstraints constraints = new GridBagConstraints();
-        constraints.gridx = 0; 
-        constraints.gridy = 0; 
-        constraints.gridwidth = 1; 
-        constraints.gridheight = 1;
-        constraints.weightx = 0.0;
-        constraints.weighty = 0.0; 
-        constraints.ipadx = 0;
-        constraints.ipady = 0;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.anchor = GridBagConstraints.NORTH;
-        constraints.insets= new Insets(0,0,0,0);
-        this.add(txtGanancia, constraints);
-        
-        lblGanancia= new JLabel();
-        constraints.gridx = 0; 
-        constraints.gridy = 1; 
-        constraints.gridwidth = 1; 
-        constraints.gridheight = 1;
-        constraints.weightx = 0.0;
-        constraints.weighty = 0.0; 
-        constraints.ipadx = 0;
-        constraints.ipady = 0;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.anchor = GridBagConstraints.NORTH;
-        constraints.insets= new Insets(0,0,0,0);
-        this.add(lblGanancia, constraints);
-        
-        txtTotal= new JLabel("Total: ");
-        constraints.gridx = 0; 
-        constraints.gridy = 2; 
-        constraints.gridwidth = 1; 
-        constraints.gridheight = 1;
-        constraints.weightx = 0.0;
-        constraints.weighty = 0.0; 
-        constraints.ipadx = 0;
-        constraints.ipady = 0;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.anchor = GridBagConstraints.NORTH;
-        constraints.insets= new Insets(0,0,0,0);
-        this.add(txtTotal, constraints);
-        
-        lblTotal= new JLabel();
-        lblTotal.setForeground(Color.BLUE);
-        constraints.gridx = 0; 
-        constraints.gridy = 3; 
-        constraints.gridwidth = 1; 
-        constraints.gridheight = 1;
-        constraints.weightx = 0.0;
-        constraints.weighty = 0.0; 
-        constraints.ipadx = 0;
-        constraints.ipady = 0;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.anchor = GridBagConstraints.NORTH;
-        constraints.insets= new Insets(0,0,0,0);
-        this.add(lblTotal, constraints);
-        
-        
-    }
+
     
     @Override
     public Component getListCellRendererComponent(JList<? extends LinkedList<Modelo_Ventas>> jlist, LinkedList<Modelo_Ventas> e, int i, boolean bln, boolean bln1) {
@@ -155,6 +46,22 @@ public class CustomRendererVentas extends JPanel implements ListCellRenderer<Lin
             ganancia = ganancia + (miv.getPrecio()-miv.getPrecio_compra())*mv.getCantidad();
             montoTotal += mv.getTotal();
         }
+        if(e.get(0)!=null){
+            plv.lblID.setText(((Modelo_Ventas)e.get(0)).getId_factura());
+            plv.lblGanancia.setText("S/. " +String.valueOf(ganancia)+ " +");
+            plv.lblTotal.setText("S/. " +String.valueOf(montoTotal));
+            String fecha=((Modelo_Ventas)e.get(0)).getFecha_hora();
+            if(fecha.length()==15){
+                String dd = fecha.substring(0, 2);
+                String mm = fecha.substring(2, 4);
+                String aa = fecha.substring(4, 8);
+                fecha = dd + "/" + mm + "/" + aa;
+            }else{
+                fecha = "NO DISPONIBLE";
+            }
+            plv.lblFecha.setText(fecha);
+        }
+        
         return this;
     }
     
