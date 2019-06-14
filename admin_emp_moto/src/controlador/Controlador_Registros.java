@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import modelo.Consultas_Trabajadores;
 import vista.Panel_Registros;
 import vista.Panel_Registros_Clientes;
+import vista.Panel_Registros_Ganancias;
 import vista.Panel_Registros_Trabajadores;
 import vista.Panel_Registros_Ventas;
 import vista.Ventana_Admin;
@@ -18,6 +19,7 @@ public class Controlador_Registros implements ActionListener {
     private Panel_Registros_Trabajadores panelRegistrosTrabajadores;
     private Panel_Registros_Clientes panelRegistrosClientes;
     private Panel_Registros_Ventas panelRegistrosVentas;
+    private Panel_Registros_Ganancias panelRegistrosGanancias;
     
     /*------------------CONSULTAS--------------------------*/
     private Consultas_Trabajadores consultasTrabajadores;
@@ -52,6 +54,7 @@ public class Controlador_Registros implements ActionListener {
         this.panelRegistros.subBtnTrabajadores.addActionListener(this);
         this.panelRegistros.subBtnClientes.addActionListener(this);
         this.panelRegistros.subBtnVentas.addActionListener(this);
+        this.panelRegistros.subBtnGanancias.addActionListener(this);
 
     }
 
@@ -59,6 +62,7 @@ public class Controlador_Registros implements ActionListener {
         this.panelRegistrosTrabajadores = null;
         this.panelRegistrosClientes = null;
         this.panelRegistrosVentas = null;
+        this.panelRegistrosGanancias = null;
     }
 
     @Override
@@ -79,6 +83,11 @@ public class Controlador_Registros implements ActionListener {
             panelRegistrosVentas = new Panel_Registros_Ventas();
             Controlador_Registros_Ventas ctrl_Reg_Ventas = new Controlador_Registros_Ventas(this.controladorAdmin,this.ventanaAdmin,this.panelRegistrosVentas);
             panelRegistros.administrarPanel(panelRegistros.spContenidoRegistros, panelRegistrosVentas);
+        }else if(ae.getSource() == panelRegistros.subBtnGanancias){
+            limpiarSpContenido();
+            panelRegistrosGanancias = new Panel_Registros_Ganancias();
+            Controlador_Registros_Ganancias ctrl_Reg_Ganancias = new Controlador_Registros_Ganancias(this.controladorAdmin,this.ventanaAdmin,this.panelRegistrosGanancias);
+            panelRegistros.administrarPanel(panelRegistros.spContenidoRegistros, panelRegistrosGanancias);
         }
     }
 }
