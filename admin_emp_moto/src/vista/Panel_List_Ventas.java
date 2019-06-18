@@ -30,6 +30,7 @@ public class Panel_List_Ventas extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         lblID = new javax.swing.JLabel();
+        lblNumero = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lblGanancia = new javax.swing.JLabel();
@@ -40,7 +41,7 @@ public class Panel_List_Ventas extends javax.swing.JPanel {
         lblFecha = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         lblHora = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(250, 250, 250));
         setLayout(new java.awt.GridBagLayout());
@@ -57,6 +58,16 @@ public class Panel_List_Ventas extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel1.add(lblID, gridBagConstraints);
+
+        lblNumero.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        lblNumero.setText("NO ASIGNADO");
+        lblNumero.setMaximumSize(new java.awt.Dimension(150, 20));
+        lblNumero.setMinimumSize(new java.awt.Dimension(150, 20));
+        lblNumero.setPreferredSize(new java.awt.Dimension(150, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel1.add(lblNumero, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -171,25 +182,14 @@ public class Panel_List_Ventas extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(jPanel2, gridBagConstraints);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(jPanel3, gridBagConstraints);
+        add(jSeparator1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -201,11 +201,12 @@ public class Panel_List_Ventas extends javax.swing.JPanel {
     public javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JSeparator jSeparator1;
     public javax.swing.JLabel lblFecha;
     public javax.swing.JLabel lblGanancia;
     public javax.swing.JLabel lblHora;
     public javax.swing.JLabel lblID;
+    public javax.swing.JLabel lblNumero;
     public javax.swing.JLabel lblTotal;
     // End of variables declaration//GEN-END:variables
 }

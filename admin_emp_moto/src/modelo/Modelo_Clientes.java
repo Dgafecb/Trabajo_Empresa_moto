@@ -20,6 +20,7 @@ public class Modelo_Clientes {
     private String telefono;
     private String ciudad;
     private String pais;
+    private String facebook;
 
     public int getId() {
         return id;
@@ -99,6 +100,14 @@ public class Modelo_Clientes {
 
     public void setPais(String pais) {
         this.pais = pais;
+    }
+
+    public String getFacebook() {
+        return facebook;
+    }
+
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
     }
         
     

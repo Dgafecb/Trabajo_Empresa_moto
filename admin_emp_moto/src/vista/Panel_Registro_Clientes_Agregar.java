@@ -2,6 +2,7 @@
 package vista;
 
 import java.awt.event.ItemEvent;
+import javax.swing.JComboBox;
 import modelo.Cadenas;
 
 
@@ -11,56 +12,335 @@ public class Panel_Registro_Clientes_Agregar extends javax.swing.JPanel {
     
     public Panel_Registro_Clientes_Agregar() {
         initComponents();
-        llenarCiudad(0);
+        llenarDepartamento();
+        llenarProvincia(-1);
         
     }
     
-    private void llenarCiudad(int i){
-        cbCiudad.removeAllItems();
+    private void llenarDepartamento(){
+        cbDepartamento.removeAllItems();
+        cbDepartamento.addItem("AMAZONAS");
+        cbDepartamento.addItem("ÁNCASH");
+        cbDepartamento.addItem("APURIMAC");
+        cbDepartamento.addItem("AREQUIPA");
+        cbDepartamento.addItem("AYACUCHO");
+        cbDepartamento.addItem("CAJAMARCA");
+        cbDepartamento.addItem("CALLAO");
+        cbDepartamento.addItem("CUSCO");
+        cbDepartamento.addItem("HUANCAVELICA");
+        cbDepartamento.addItem("HUÁNUCO");
+        cbDepartamento.addItem("ICA");
+        cbDepartamento.addItem("JUNÍN");
+        cbDepartamento.addItem("LA LIBERTAD");
+        cbDepartamento.addItem("LAMBAYEQUE");
+        cbDepartamento.addItem("LIMA");
+        cbDepartamento.addItem("LORETO");
+        cbDepartamento.addItem("MADRE DE DIOS");
+        cbDepartamento.addItem("MOQUEGUA");
+        cbDepartamento.addItem("PASCO");
+        cbDepartamento.addItem("PIURA");
+        cbDepartamento.addItem("PUNO");
+        cbDepartamento.addItem("PASCO");
+        cbDepartamento.addItem("SAN MARTÍN");
+        cbDepartamento.addItem("TACNA"); 
+        cbDepartamento.addItem("TUMBES");
+        cbDepartamento.addItem("UCAYALI");
+    }
+    
+    
+    private void llenarProvincia(int i){
+        cbProvincia.removeAllItems();
         switch (i) {
             case 0:{
-                cbCiudad.addItem("AMAZONAS");
-                cbCiudad.addItem("ÁNCASH");
-                cbCiudad.addItem("APURIMAC");
-                cbCiudad.addItem("AREQUIPA");
-                cbCiudad.addItem("AYACUCHO");
-                cbCiudad.addItem("CAJAMARCA");
-                cbCiudad.addItem("CALLAO");
-                cbCiudad.addItem("CUSCO");
-                cbCiudad.addItem("HUANCAVELICA");
-                cbCiudad.addItem("HUÁNUCO");
-                cbCiudad.addItem("ICA");
-                cbCiudad.addItem("JUNÍN");
-                cbCiudad.addItem("LA LIBERTAD");
-                cbCiudad.addItem("LAMBAYEQUE");
-                cbCiudad.addItem("LIMA");
-                cbCiudad.addItem("LORETO");
-                cbCiudad.addItem("MADRE DE DIOS");
-                cbCiudad.addItem("MOQUEGUA");
-                cbCiudad.addItem("PASCO");
-                cbCiudad.addItem("PIURA");
-                cbCiudad.addItem("PUNO");
-                cbCiudad.addItem("PASCO");
-                cbCiudad.addItem("SAN MARTÍN");
-                cbCiudad.addItem("TACNA"); 
-                cbCiudad.addItem("TUMBES");
-                cbCiudad.addItem("UCAYALI");
-                break;
-                }
-            case 1:
-                break;
-            case 2:
-                break;
-            default:cbCiudad.addItem("INGRESA PAIS");
+                cbProvincia.addItem("BAGUA");
+                cbProvincia.addItem("BONGARA");
+                cbProvincia.addItem("CHACHAPOYAS");
+                cbProvincia.addItem("CONDORCANQUI");
+                cbProvincia.addItem("LUYA");
+                cbProvincia.addItem("RODRIGUEZ DE MENDOZA");
+                cbProvincia.addItem("UTCUBAMBA");                      
+                break;}
+            case 1:{
+                cbProvincia.addItem("HUARAZ");
+                cbProvincia.addItem("CARHUAZ");
+                cbProvincia.addItem("CASMA");
+                cbProvincia.addItem("HUARI");
+                cbProvincia.addItem("HUAYLAS");
+                cbProvincia.addItem("RECUAY");
+                cbProvincia.addItem("YUNGAY");
+                cbProvincia.addItem("HUARMEY");
+                cbProvincia.addItem("PALLASCA");
+                cbProvincia.addItem("CORONGO");
+                cbProvincia.addItem("SIHUAS");
+                cbProvincia.addItem("SANTA");
+                cbProvincia.addItem("POMABAMBA");
+                cbProvincia.addItem("MARISCAL LUZURIAGA");
+                cbProvincia.addItem("CARLOS FERMIN F.");
+                cbProvincia.addItem("ANTONIO RAYMONDI");
+                cbProvincia.addItem("ASUNCION");
+                cbProvincia.addItem("AIJA");
+                cbProvincia.addItem("BOLOGNESI");
+                cbProvincia.addItem("OCROS");
+                break;}
+            case 2:{
+                cbProvincia.addItem("ABANCAY");
+                cbProvincia.addItem("ANDAHUAYLAS");
+                cbProvincia.addItem("ANTABAMBA");
+                cbProvincia.addItem("AYMARAES");
+                cbProvincia.addItem("CHINCHEROS");
+                cbProvincia.addItem("COTABAMBAS");
+                cbProvincia.addItem("GRAU");
+                break;}
+            case 3:{
+                cbProvincia.addItem("AREQUIPA");
+                cbProvincia.addItem("CAMANA");
+                cbProvincia.addItem("CARAVELI");
+                cbProvincia.addItem("APLAO");
+                cbProvincia.addItem("CHIVAY");
+                cbProvincia.addItem("CHUQUIBAMBA");
+                cbProvincia.addItem("MOLLENDO");
+                cbProvincia.addItem("COTAHUASI");
+                break;}
+            case 4:{
+                cbProvincia.addItem("CANGALLO");
+                cbProvincia.addItem("HUAMANDA");
+                cbProvincia.addItem("HUANCA SANCOS");
+                cbProvincia.addItem("HUANTA");
+                cbProvincia.addItem("LA MAR");
+                cbProvincia.addItem("LUCANAS");
+                cbProvincia.addItem("PARINACOCHAS");
+                cbProvincia.addItem("PAUCAR DEL SARA SARA");
+                cbProvincia.addItem("SUCRE");
+                cbProvincia.addItem("VICTOR FAJARDO");
+                cbProvincia.addItem("VILCASHUAMAN");
+                break;}
+            case 5:{
+                cbProvincia.addItem("CAJAMARCA");
+                cbProvincia.addItem("CAJABAMBA");
+                cbProvincia.addItem("CELENDIN");
+                cbProvincia.addItem("CONTUMAZA");
+                cbProvincia.addItem("CUTERVO");
+                cbProvincia.addItem("CHOTA");
+                cbProvincia.addItem("HUALGAYOC");
+                cbProvincia.addItem("JAEN");
+                cbProvincia.addItem("SANTA CRUZ");
+                cbProvincia.addItem("SAN MIGUEL");
+                cbProvincia.addItem("SAN IGNACIO");
+                cbProvincia.addItem("SAN MARCOS");
+                cbProvincia.addItem("SAN PABLO");
+                break;}
+            case 6:{
+                //CALLAO
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                break;}
+            case 7:{
+                //CUSCO
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                break;}
+            case 8:{
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                break;}
+            case 9:{
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                break;}
+            case 10:{
+                cbProvincia.addItem("CHINCHA");
+                cbProvincia.addItem("ICA");
+                cbProvincia.addItem("PALPA");
+                cbProvincia.addItem("PISCO");
+                cbProvincia.addItem("NAZCA");
+                break;}
+            case 11:{
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                break;}
+            case 12:{
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                break;}
+            case 13:{
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                break;}
+            case 14:{
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                break;}
+            case 15:{
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                break;}
+            case 16:{
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                break;}
+            case 17:{
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                break;}
+            case 18:{
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                break;}
+            case 19:{
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                break;}
+            case 20:{ 
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                break;}
+            case 21:{ 
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                cbProvincia.addItem("");
+                break;}
+                
+            default:cbProvincia.addItem("INGRESA DEPARTAMENTO");
                 break;
         }
     }
 
     private void evaluarPais(String item){
         switch (item) {
-            case "PERU": llenarCiudad(0);
+            case "AMAZONAS": llenarProvincia(0);
                 break;
-            default: llenarCiudad(-1);
+            case "ÁNCASH": llenarProvincia(1);
+                break;
+            case "APURIMAC": llenarProvincia(2);
+                break;
+            case "AREQUIPA": llenarProvincia(3);
+                break;
+            case "AYACUCHO": llenarProvincia(4);
+                break;
+            case "CAJAMARCA": llenarProvincia(5);
+                break;
+            case "CALLAO": llenarProvincia(6);
+                break;
+            case "CUSCO": llenarProvincia(7);
+                break;
+            case "HUANCAVELICA": llenarProvincia(8);
+                break;
+            case "HUÁNUCO": llenarProvincia(9);
+                break;
+            case "ICA": llenarProvincia(10);
+                break;
+            case "JUNÍN": llenarProvincia(11);
+                break;
+            case "LA LIBERTAD": llenarProvincia(12);
+                break;
+            case "LAMBAYEQUE": llenarProvincia(13);
+                break;
+            case "MOQUEGUA": llenarProvincia(14);
+                break;
+            case "LORETO": llenarProvincia(15);
+                break;
+            case "MADRE DE DIOS": llenarProvincia(16);
+                break;
+            case "PASCO": llenarProvincia(17);
+                break;
+            case "SAN MARTÍN": llenarProvincia(18);
+                break;
+            case "TACNA": llenarProvincia(19);
+                break;
+            case "TUMBES": llenarProvincia(20);
+                break;
+            case "UCAYALI": llenarProvincia(21);
+                break;
+            default: llenarProvincia(-1);
                 break;
         }
     }
@@ -80,6 +360,8 @@ public class Panel_Registro_Clientes_Agregar extends javax.swing.JPanel {
         pCNombre2 = new javax.swing.JPanel();
         txfCNombre2 = new custom.CustomTextField();
         jSeparator5 = new javax.swing.JSeparator();
+        pCCorreo1 = new javax.swing.JPanel();
+        txfCFacebook = new custom.CustomTextField();
         pCCorreo = new javax.swing.JPanel();
         txfCCorreo = new custom.CustomTextField();
         pCDNI1 = new javax.swing.JPanel();
@@ -92,14 +374,16 @@ public class Panel_Registro_Clientes_Agregar extends javax.swing.JPanel {
         pDireccion = new javax.swing.JPanel();
         lblCiudad = new javax.swing.JLabel();
         lblPais = new javax.swing.JLabel();
-        cbCiudad = new javax.swing.JComboBox<>();
-        cbPais = new javax.swing.JComboBox<>();
+        cbProvincia = new javax.swing.JComboBox<>();
+        cbDepartamento = new javax.swing.JComboBox<>();
         jSeparator6 = new javax.swing.JSeparator();
         lblNombreApellido = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(250, 250, 250));
         setLayout(new java.awt.GridBagLayout());
@@ -188,7 +472,7 @@ public class Panel_Registro_Clientes_Agregar extends javax.swing.JPanel {
         jLabel3.setText("Direccion :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         customPanel5.add(jLabel3, gridBagConstraints);
@@ -234,6 +518,38 @@ public class Panel_Registro_Clientes_Agregar extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         customPanel5.add(jSeparator5, gridBagConstraints);
+
+        pCCorreo1.setBackground(new java.awt.Color(255, 255, 255));
+        pCCorreo1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        pCCorreo1.setMaximumSize(new java.awt.Dimension(100, 30));
+        pCCorreo1.setMinimumSize(new java.awt.Dimension(100, 30));
+        pCCorreo1.setPreferredSize(new java.awt.Dimension(100, 30));
+        pCCorreo1.setLayout(new java.awt.GridBagLayout());
+
+        txfCFacebook.setBorder(null);
+        txfCFacebook.setCaretColor(new java.awt.Color(60, 60, 60));
+        txfCFacebook.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txfCFacebook.setMaximumSize(new java.awt.Dimension(200, 28));
+        txfCFacebook.setMinimumSize(new java.awt.Dimension(200, 28));
+        txfCFacebook.setPhColor(new java.awt.Color(60, 60, 60));
+        txfCFacebook.setPlaceholder("facebook.com/");
+        txfCFacebook.setPreferredSize(new java.awt.Dimension(200, 28));
+        txfCFacebook.setSelectionColor(new java.awt.Color(60, 60, 60));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+        pCCorreo1.add(txfCFacebook, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        customPanel5.add(pCCorreo1, gridBagConstraints);
 
         pCCorreo.setBackground(new java.awt.Color(255, 255, 255));
         pCCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
@@ -367,7 +683,7 @@ public class Panel_Registro_Clientes_Agregar extends javax.swing.JPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
@@ -378,7 +694,7 @@ public class Panel_Registro_Clientes_Agregar extends javax.swing.JPanel {
 
         lblCiudad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblCiudad.setForeground(new java.awt.Color(60, 60, 60));
-        lblCiudad.setText("Ciudad :");
+        lblCiudad.setText("Provincia :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
@@ -388,7 +704,7 @@ public class Panel_Registro_Clientes_Agregar extends javax.swing.JPanel {
 
         lblPais.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblPais.setForeground(new java.awt.Color(60, 60, 60));
-        lblPais.setText("Pais :");
+        lblPais.setText("Departamento:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -396,29 +712,28 @@ public class Panel_Registro_Clientes_Agregar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pDireccion.add(lblPais, gridBagConstraints);
 
-        cbCiudad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cbCiudad.setForeground(new java.awt.Color(60, 60, 60));
-        cbCiudad.setFocusable(false);
-        cbCiudad.setMaximumSize(new java.awt.Dimension(150, 30));
-        cbCiudad.setMinimumSize(new java.awt.Dimension(150, 30));
-        cbCiudad.setPreferredSize(new java.awt.Dimension(150, 30));
+        cbProvincia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbProvincia.setForeground(new java.awt.Color(60, 60, 60));
+        cbProvincia.setFocusable(false);
+        cbProvincia.setMaximumSize(new java.awt.Dimension(180, 30));
+        cbProvincia.setMinimumSize(new java.awt.Dimension(180, 30));
+        cbProvincia.setPreferredSize(new java.awt.Dimension(180, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDireccion.add(cbCiudad, gridBagConstraints);
+        pDireccion.add(cbProvincia, gridBagConstraints);
 
-        cbPais.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cbPais.setForeground(new java.awt.Color(60, 60, 60));
-        cbPais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PERU", "VENEZUELA" }));
-        cbPais.setFocusable(false);
-        cbPais.setMaximumSize(new java.awt.Dimension(100, 30));
-        cbPais.setMinimumSize(new java.awt.Dimension(100, 30));
-        cbPais.setPreferredSize(new java.awt.Dimension(100, 30));
-        cbPais.addItemListener(new java.awt.event.ItemListener() {
+        cbDepartamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbDepartamento.setForeground(new java.awt.Color(60, 60, 60));
+        cbDepartamento.setFocusable(false);
+        cbDepartamento.setMaximumSize(new java.awt.Dimension(100, 30));
+        cbDepartamento.setMinimumSize(new java.awt.Dimension(100, 30));
+        cbDepartamento.setPreferredSize(new java.awt.Dimension(100, 30));
+        cbDepartamento.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cbPaisItemStateChanged(evt);
+                cbDepartamentoItemStateChanged(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -426,7 +741,7 @@ public class Panel_Registro_Clientes_Agregar extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pDireccion.add(cbPais, gridBagConstraints);
+        pDireccion.add(cbDepartamento, gridBagConstraints);
 
         jSeparator6.setBackground(new java.awt.Color(250, 250, 250));
         jSeparator6.setForeground(new java.awt.Color(250, 250, 250));
@@ -440,7 +755,7 @@ public class Panel_Registro_Clientes_Agregar extends javax.swing.JPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 15;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -470,10 +785,10 @@ public class Panel_Registro_Clientes_Agregar extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(60, 60, 60));
-        jLabel1.setText("Correo :");
+        jLabel1.setText("Facebook :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         customPanel5.add(jLabel1, gridBagConstraints);
@@ -498,6 +813,26 @@ public class Panel_Registro_Clientes_Agregar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         customPanel5.add(jSeparator4, gridBagConstraints);
 
+        jSeparator7.setForeground(new java.awt.Color(200, 200, 200));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        customPanel5.add(jSeparator7, gridBagConstraints);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(60, 60, 60));
+        jLabel4.setText("Correo :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        customPanel5.add(jLabel4, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -507,31 +842,34 @@ public class Panel_Registro_Clientes_Agregar extends javax.swing.JPanel {
         add(customPanel5, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbPaisItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbPaisItemStateChanged
+    private void cbDepartamentoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbDepartamentoItemStateChanged
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             Object item = evt.getItem();
             evaluarPais(item.toString());
         }
-    }//GEN-LAST:event_cbPaisItemStateChanged
+    }//GEN-LAST:event_cbDepartamentoItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JComboBox<String> cbCiudad;
-    public javax.swing.JComboBox<String> cbPais;
+    public javax.swing.JComboBox<String> cbDepartamento;
+    public javax.swing.JComboBox<String> cbProvincia;
     private custom.CustomPanel customPanel5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
     private javax.swing.JLabel lblCiudad;
     private javax.swing.JLabel lblDNI;
     private javax.swing.JLabel lblNombreApellido;
     private javax.swing.JLabel lblPais;
     private javax.swing.JPanel pCCorreo;
+    private javax.swing.JPanel pCCorreo1;
     private javax.swing.JPanel pCDNI1;
     private javax.swing.JPanel pCDNI2;
     private javax.swing.JPanel pCDireccion;
@@ -543,6 +881,7 @@ public class Panel_Registro_Clientes_Agregar extends javax.swing.JPanel {
     public custom.CustomTextField txfCDNI1;
     public custom.CustomTextField txfCDNI2;
     public custom.CustomTextField txfCDireccion;
+    public custom.CustomTextField txfCFacebook;
     public custom.CustomTextField txfCNombre1;
     public custom.CustomTextField txfCNombre2;
     public custom.CustomTextField txfCTelefono;

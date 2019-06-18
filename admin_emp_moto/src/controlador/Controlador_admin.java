@@ -61,6 +61,7 @@ public class Controlador_admin implements ActionListener {
         panelInventario = new Panel_Inventario();
         controladorAlmacen = new Controlador_Almacen(this,this.ventanaAdmin);
         ventanaAdmin.administrarPanel(ventanaAdmin.spContent, panelInventario);
+        ventanaAdmin.menuNotificaciones.customButtonMarcar2.setVisible(false);
     }
 
     public Panel_Inventario getPanelInventario() {

@@ -25,8 +25,8 @@ public class Panel_Registros extends javax.swing.JPanel {
         pSubMenuRegistros = new javax.swing.JPanel();
         subBtnTrabajadores = new modelo.CustomButton();
         subBtnClientes = new modelo.CustomButton();
-        subBtnVentas = new modelo.CustomButton();
         subBtnGanancias = new modelo.CustomButton();
+        subBtnVentas = new modelo.CustomButton();
         jSeparator4 = new javax.swing.JSeparator();
         spContenidoRegistros = new javax.swing.JScrollPane();
 
@@ -66,21 +66,7 @@ public class Panel_Registros extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         pSubMenuRegistros.add(subBtnClientes, gridBagConstraints);
 
-        subBtnVentas.setText("VENTAS");
-        subBtnVentas.setColorHover(new java.awt.Color(90, 90, 90));
-        subBtnVentas.setColorNormal(new java.awt.Color(60, 60, 60));
-        subBtnVentas.setColorPressed(new java.awt.Color(70, 70, 70));
-        subBtnVentas.setFocusPainted(false);
-        subBtnVentas.setMaximumSize(new java.awt.Dimension(115, 40));
-        subBtnVentas.setMinimumSize(new java.awt.Dimension(115, 40));
-        subBtnVentas.setPreferredSize(new java.awt.Dimension(115, 40));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
-        pSubMenuRegistros.add(subBtnVentas, gridBagConstraints);
-
-        subBtnGanancias.setText("GANANCIAS");
+        subBtnGanancias.setText("VENTAS");
         subBtnGanancias.setColorHover(new java.awt.Color(90, 90, 90));
         subBtnGanancias.setColorNormal(new java.awt.Color(60, 60, 60));
         subBtnGanancias.setColorPressed(new java.awt.Color(70, 70, 70));
@@ -89,10 +75,24 @@ public class Panel_Registros extends javax.swing.JPanel {
         subBtnGanancias.setMinimumSize(new java.awt.Dimension(115, 40));
         subBtnGanancias.setPreferredSize(new java.awt.Dimension(115, 40));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
         pSubMenuRegistros.add(subBtnGanancias, gridBagConstraints);
+
+        subBtnVentas.setText("VENTAS(ANTIGUO)");
+        subBtnVentas.setColorHover(new java.awt.Color(90, 90, 90));
+        subBtnVentas.setColorNormal(new java.awt.Color(60, 60, 60));
+        subBtnVentas.setColorPressed(new java.awt.Color(70, 70, 70));
+        subBtnVentas.setFocusPainted(false);
+        subBtnVentas.setMaximumSize(new java.awt.Dimension(150, 40));
+        subBtnVentas.setMinimumSize(new java.awt.Dimension(150, 40));
+        subBtnVentas.setPreferredSize(new java.awt.Dimension(150, 40));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        pSubMenuRegistros.add(subBtnVentas, gridBagConstraints);
 
         jSeparator4.setBackground(new java.awt.Color(60, 60, 60));
         jSeparator4.setForeground(new java.awt.Color(60, 60, 60));

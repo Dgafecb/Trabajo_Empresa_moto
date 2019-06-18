@@ -156,6 +156,7 @@ public class Controlador_Registros_Clientes implements ActionListener {
             String temp_telefono = (String) lista_agregada.get(6);
             String temp_ciudad = (String) lista_agregada.get(7);
             String temp_pais = (String) lista_agregada.get(8);
+            String temp_facebook = (String) lista_agregada.get(9);
             temp_model.setNombre_apellido(temp_nombre);
             temp_model.setNombre_apellido_2(temp_nombre_2);
             temp_model.setDni(temp_dni);
@@ -165,6 +166,7 @@ public class Controlador_Registros_Clientes implements ActionListener {
             temp_model.setPais(temp_pais);
             temp_model.setCiudad(temp_ciudad);
             temp_model.setCorreo(temp_correo);
+            temp_model.setFacebook(temp_facebook);
             Consultas_Clientes consultas = new Consultas_Clientes();
             if (consultas.create(temp_model)) {
                 lista_clientes.add(temp_model);
@@ -190,8 +192,9 @@ public class Controlador_Registros_Clientes implements ActionListener {
                 String temp_correo = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 5);
                 String temp_direccion = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 6);
                 String temp_telefono = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 7);
-                String temp_ciudad = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 8);
-                String temp_pais = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 9);
+                String temp_ciudad = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 9);
+                String temp_pais = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 10);
+                String temp_facebook = (String) this.panelClientes.jTable1.getValueAt(this.panelClientes.jTable1.getSelectedRow(), 8);
 
                 Modelo_Clientes temp_model = new Modelo_Clientes();
                 temp_model.setNombre_apellido(temp_nombre);
@@ -203,6 +206,7 @@ public class Controlador_Registros_Clientes implements ActionListener {
                 temp_model.setPais(temp_pais);
                 temp_model.setCiudad(temp_ciudad);
                 temp_model.setCorreo(temp_correo);
+                temp_model.setFacebook(temp_facebook);
                 temp_model.setId(id);
                 Consultas_Clientes consultas = new Consultas_Clientes();
                 if (consultas.update(temp_model)) {
@@ -249,7 +253,7 @@ public class Controlador_Registros_Clientes implements ActionListener {
 
     private void llenarTabla(Linked_List<Modelo_Clientes> clientes) {
         DefaultTableModel model = new DefaultTableModel(new String[]{"ID", "DNI", "Nombres y Apellidos", "DNI", 
-            "Nombres y Apellidos", "Correo", "Direccion", "Telefono", "Ciudad", "Pais"}, 0) {
+            "Nombres y Apellidos", "Correo", "Direccion", "Telefono","facebook", "Provincia", "Departamento"}, 0) {
             
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -272,7 +276,8 @@ public class Controlador_Registros_Clientes implements ActionListener {
             String direccion = ((Modelo_Clientes) clientes.get(i)).getDireccion();
             String ciudad = ((Modelo_Clientes) clientes.get(i)).getCiudad();
             String pais = ((Modelo_Clientes) clientes.get(i)).getPais();
-            model.addRow(new Object[]{id, dni, nombres_apellido, dni_2, nombres_apellido_2, correo, direccion, telefono, ciudad, pais});
+            String facebook = ((Modelo_Clientes) clientes.get(i)).getFacebook();
+            model.addRow(new Object[]{id, dni, nombres_apellido, dni_2, nombres_apellido_2, correo, direccion, telefono,facebook, ciudad, pais});
         }
         this.panelClientes.jTable1.setModel(model);
 
@@ -303,7 +308,6 @@ public class Controlador_Registros_Clientes implements ActionListener {
                     @Override
                     public void run() {
                         Modificar();
-                        mensaje("OPERACION REALIZADA");
                         return ;
                     }
                 };
@@ -314,7 +318,6 @@ public class Controlador_Registros_Clientes implements ActionListener {
                     @Override
                     public void run() {
                         Eliminar();
-                        mensaje("OPERACION REALIZADA");
                         return ;
                     }
                 };
@@ -328,7 +331,6 @@ public class Controlador_Registros_Clientes implements ActionListener {
                         Consultas_Clientes consulta = new Consultas_Clientes();
                         clientes = consulta.readAll();
                         llenarTabla(clientes);
-                        mensaje("OPERACION REALIZADA");
                         return ;
                     }
                 };

@@ -81,12 +81,12 @@ public class Controlador_Registros implements ActionListener {
         }else if(ae.getSource() == panelRegistros.subBtnVentas){
             limpiarSpContenido();
             panelRegistrosVentas = new Panel_Registros_Ventas();
-            Controlador_Registros_Ventas ctrl_Reg_Ventas = new Controlador_Registros_Ventas(this.controladorAdmin,this.ventanaAdmin,this.panelRegistrosVentas);
+            Controlador_Registros_Ventas_old ctrl_Reg_Ventas = new Controlador_Registros_Ventas_old(this.controladorAdmin,this.ventanaAdmin,this.panelRegistrosVentas);
             panelRegistros.administrarPanel(panelRegistros.spContenidoRegistros, panelRegistrosVentas);
         }else if(ae.getSource() == panelRegistros.subBtnGanancias){
             limpiarSpContenido();
             panelRegistrosGanancias = new Panel_Registros_Ganancias();
-            Controlador_Registros_Ganancias ctrl_Reg_Ganancias = new Controlador_Registros_Ganancias(this.controladorAdmin,this.ventanaAdmin,this.panelRegistrosGanancias);
+            Controlador_Registros_Ventas ctrl_Reg_Ganancias = new Controlador_Registros_Ventas(this.controladorAdmin,this.ventanaAdmin,this.panelRegistrosGanancias);
             panelRegistros.administrarPanel(panelRegistros.spContenidoRegistros, panelRegistrosGanancias);
         }
     }

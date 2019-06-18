@@ -26,7 +26,7 @@ import modelo.Exporter;
 import modelo.Linked_List;
 import modelo.Linked_List.InventarioTEMP;
 import modelo.Modelo_Inventario_Repuestos;
-import modelo.Modelo_Inventario_Vehiculos;
+import modelo.Modelo_Almacen;
 import vista.Emergente_Aviso;
 import vista.Emergente_Panel_Almacen;
 import vista.Panel_Inventario;
@@ -82,14 +82,14 @@ public class Controlador_Almacen implements ActionListener {
     private void buscarAlmacen(String referencia, int numero) {
 
         String buscar;
-        Linked_List<Modelo_Inventario_Vehiculos> listaBusqueda;
+        Linked_List<Modelo_Almacen> listaBusqueda;
         switch (numero) {
             case 1: {
-                listaBusqueda = new Linked_List<Modelo_Inventario_Vehiculos>();
+                listaBusqueda = new Linked_List<Modelo_Almacen>();
                 int tamanho = lista_vehiculos.size();
                 for (int i = 0; i < tamanho; i++) {
-                    int tamanhoRef = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId().length() + 1;
-                    String palabra = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
+                    int tamanhoRef = ((Modelo_Almacen) lista_vehiculos.get(i)).getId().length() + 1;
+                    String palabra = ((Modelo_Almacen) lista_vehiculos.get(i)).getId();
                     for (int j = 1; j < tamanhoRef; j++) {
                         if (referencia.equalsIgnoreCase(palabra)) {
                             // BUSQUEDA PERFECTA CODIGO AQUI
@@ -116,10 +116,10 @@ public class Controlador_Almacen implements ActionListener {
                 break;
             }
             case 2: {
-                listaBusqueda = new Linked_List<Modelo_Inventario_Vehiculos>();
+                listaBusqueda = new Linked_List<Modelo_Almacen>();
                 int tamanho = lista_vehiculos.size();
                 for (int i = 0; i < tamanho; i++) {
-                    buscar = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getNombre_prod();
+                    buscar = ((Modelo_Almacen) lista_vehiculos.get(i)).getNombre_prod();
                     String[] palabras = referencia.split("\\s+");
                     for (String palabra : palabras) {
                         if (buscar.contains(palabra)) {
@@ -140,11 +140,11 @@ public class Controlador_Almacen implements ActionListener {
                 break;
             }
             case 3: {
-                listaBusqueda = new Linked_List<Modelo_Inventario_Vehiculos>();
+                listaBusqueda = new Linked_List<Modelo_Almacen>();
                 int tamanho = lista_vehiculos.size();
                 for (int i = 0; i < tamanho; i++) {
-                    int tamanhoRef = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMarca().length() + 1;
-                    String palabra = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMarca();
+                    int tamanhoRef = ((Modelo_Almacen) lista_vehiculos.get(i)).getMarca().length() + 1;
+                    String palabra = ((Modelo_Almacen) lista_vehiculos.get(i)).getMarca();
                     for (int j = 1; j < tamanhoRef; j++) {
                         if (referencia.equalsIgnoreCase(palabra)) {
                             // BUSQUEDA PERFECTA CODIGO AQUI
@@ -237,7 +237,7 @@ public class Controlador_Almacen implements ActionListener {
                 int advertencia = Integer.valueOf(listaAgregar.get(12));
                 int comision = Integer.valueOf(listaAgregar.get(14));
                 
-                Modelo_Inventario_Vehiculos temp_model = new Modelo_Inventario_Vehiculos();
+                Modelo_Almacen temp_model = new Modelo_Almacen();
                 temp_model.setAnho_fab(anho_fab);
                 temp_model.setAnhos_garantia(anhos_garantia);
                 temp_model.setCantidad(cantidad);
@@ -292,7 +292,7 @@ public class Controlador_Almacen implements ActionListener {
                     comision = Integer.valueOf(pcomision);
 
                 }
-                Modelo_Inventario_Vehiculos temp_model = new Modelo_Inventario_Vehiculos();
+                Modelo_Almacen temp_model = new Modelo_Almacen();
                 temp_model.setId(id);
                 temp_model.setTipo_vehiculo(categoria);
                 temp_model.setNombre_prod(descripcion);
@@ -331,8 +331,8 @@ public class Controlador_Almacen implements ActionListener {
         if (this.panelInventario.jTable1.getSelectionModel().isSelectionEmpty() == false) {
             String temp_id = (String) this.panelInventario.jTable1.getValueAt(this.panelInventario.jTable1.getSelectedRow(), 0);
             int index = lista_vehiculos.findInventario(lista_vehiculos, temp_id);
-            Modelo_Inventario_Vehiculos temp_model = new Modelo_Inventario_Vehiculos();
-            temp_model.setId(((Modelo_Inventario_Vehiculos) lista_vehiculos.get(index)).getId());
+            Modelo_Almacen temp_model = new Modelo_Almacen();
+            temp_model.setId(((Modelo_Almacen) lista_vehiculos.get(index)).getId());
             Consultas_Inventario_Vehiculos consultas = new Consultas_Inventario_Vehiculos();
             if (consultas.delete(temp_model)) {
                 lista_vehiculos.remove(index);
@@ -406,21 +406,21 @@ public class Controlador_Almacen implements ActionListener {
         };
         if (lista_vehiculos != null) {
             for (int i = 0; i < lista_vehiculos.size(); i++) {
-                String id = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getId();
-                String categoria = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getTipo_vehiculo();
-                String descripcion = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getNombre_prod();
-                int cantidad = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getCantidad();
-                float precio = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getPrecio();
-                String marca = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMarca();
-                String modelo = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getModelo();
-                String color = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getColor();
-                String motor = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getMotor();
-                String chasis = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getChasis();
-                String anho_fab = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getAnho_fab();
-                String anhos_garantia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getAnhos_garantia();
-                int advertencia = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getLimite_advertencia();
-                float precio_compra = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getPrecio_compra();
-                int comision = ((Modelo_Inventario_Vehiculos) lista_vehiculos.get(i)).getComision();
+                String id = ((Modelo_Almacen) lista_vehiculos.get(i)).getId();
+                String categoria = ((Modelo_Almacen) lista_vehiculos.get(i)).getTipo_vehiculo();
+                String descripcion = ((Modelo_Almacen) lista_vehiculos.get(i)).getNombre_prod();
+                int cantidad = ((Modelo_Almacen) lista_vehiculos.get(i)).getCantidad();
+                float precio = ((Modelo_Almacen) lista_vehiculos.get(i)).getPrecio();
+                String marca = ((Modelo_Almacen) lista_vehiculos.get(i)).getMarca();
+                String modelo = ((Modelo_Almacen) lista_vehiculos.get(i)).getModelo();
+                String color = ((Modelo_Almacen) lista_vehiculos.get(i)).getColor();
+                String motor = ((Modelo_Almacen) lista_vehiculos.get(i)).getMotor();
+                String chasis = ((Modelo_Almacen) lista_vehiculos.get(i)).getChasis();
+                String anho_fab = ((Modelo_Almacen) lista_vehiculos.get(i)).getAnho_fab();
+                String anhos_garantia = ((Modelo_Almacen) lista_vehiculos.get(i)).getAnhos_garantia();
+                int advertencia = ((Modelo_Almacen) lista_vehiculos.get(i)).getLimite_advertencia();
+                float precio_compra = ((Modelo_Almacen) lista_vehiculos.get(i)).getPrecio_compra();
+                int comision = ((Modelo_Almacen) lista_vehiculos.get(i)).getComision();
                 String pcomision = String.valueOf(comision) + "%";
                 model.addRow(new Object[]{id, categoria, descripcion, marca, modelo, color, motor, chasis,
                     anho_fab, anhos_garantia, cantidad, advertencia, precio_compra, precio, pcomision});

@@ -8,7 +8,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 
 public class Consultas_Inventario_Vehiculos extends ConexionSQL {
 
-    public boolean create(Modelo_Inventario_Vehiculos user) {
+    public boolean create(Modelo_Almacen user) {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
@@ -51,7 +51,7 @@ public class Consultas_Inventario_Vehiculos extends ConexionSQL {
         }
     }
 
-    public boolean read(Modelo_Inventario_Vehiculos user) {
+    public boolean read(Modelo_Almacen user) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection con = getConnection();
@@ -96,7 +96,7 @@ public class Consultas_Inventario_Vehiculos extends ConexionSQL {
         }
     }
 
-    public boolean update(Modelo_Inventario_Vehiculos user) {
+    public boolean update(Modelo_Almacen user) {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
@@ -140,7 +140,7 @@ public class Consultas_Inventario_Vehiculos extends ConexionSQL {
         }
     }
 
-    public boolean delete(Modelo_Inventario_Vehiculos user) {
+    public boolean delete(Modelo_Almacen user) {
         PreparedStatement ps = null;
         Connection con = getConnection();
 
@@ -166,8 +166,8 @@ public class Consultas_Inventario_Vehiculos extends ConexionSQL {
     }
 
     public Linked_List readAll() {
-        Linked_List<Modelo_Inventario_Vehiculos> listaVehiculos = new Linked_List();
-        Modelo_Inventario_Vehiculos vehiculo = null;
+        Linked_List<Modelo_Almacen> listaVehiculos = new Linked_List();
+        Modelo_Almacen vehiculo = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection con = getConnection();
@@ -179,7 +179,7 @@ public class Consultas_Inventario_Vehiculos extends ConexionSQL {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                vehiculo = new Modelo_Inventario_Vehiculos();
+                vehiculo = new Modelo_Almacen();
 
                 vehiculo.setAnho_fab(rs.getString("anho_fab"));
                 vehiculo.setAnhos_garantia(rs.getString("anhos_garantia"));
@@ -206,7 +206,7 @@ public class Consultas_Inventario_Vehiculos extends ConexionSQL {
 
         } catch (SQLException e) {
             System.err.println(e);
-            vehiculo = new Modelo_Inventario_Vehiculos();
+            vehiculo = new Modelo_Almacen();
             vehiculo.setNombre_prod("0");
 
             listaVehiculos.add(vehiculo);

@@ -101,10 +101,10 @@ public class Linked_List<T> extends LinkedList {
         }
     }
     
-    public int findIdProductoIndex(Linked_List<Modelo_Inventario_Vehiculos> list, Modelo_Inventario_Vehiculos miv) {
+    public int findIdProductoIndex(Linked_List<Modelo_Almacen> list, Modelo_Almacen miv) {
         int temp  = 0;
         for (int i = 0; i < list.size(); i++) {
-            if (((Modelo_Inventario_Vehiculos) list.get(i)).equals(miv)) {
+            if (((Modelo_Almacen) list.get(i)).equals(miv)) {
                 temp = i;
                 
             }
@@ -113,27 +113,27 @@ public class Linked_List<T> extends LinkedList {
         return temp;
     }
     
-    public Modelo_Inventario_Vehiculos findIdProductoxID(Linked_List<Modelo_Inventario_Vehiculos> list, String id) {
-        Modelo_Inventario_Vehiculos temp = null;
+    public Modelo_Almacen findIdProductoxID(Linked_List<Modelo_Almacen> list, String id) {
+        Modelo_Almacen temp = null;
         for (int i = 0; i < list.size(); i++) {
-            if (((Modelo_Inventario_Vehiculos) list.get(i)).getId().equals(id)) {
-                temp = ((Modelo_Inventario_Vehiculos) list.get(i));
+            if (((Modelo_Almacen) list.get(i)).getId().equals(id)) {
+                temp = ((Modelo_Almacen) list.get(i));
                 
             }
         }
         if(temp == null){
-            temp = new Modelo_Inventario_Vehiculos();
+            temp = new Modelo_Almacen();
             temp.setNombre_prod("NO DISPONIBLE");
         }
 
         return temp;
     }
     
-    public Modelo_Inventario_Vehiculos findIdProductoxDescripcion(Linked_List<Modelo_Inventario_Vehiculos> list, String id) {
-        Modelo_Inventario_Vehiculos temp = null;
+    public Modelo_Almacen findIdProductoxDescripcion(Linked_List<Modelo_Almacen> list, String id) {
+        Modelo_Almacen temp = null;
         for (int i = 0; i < list.size(); i++) {
-            if (((Modelo_Inventario_Vehiculos) list.get(i)).getNombre_prod().equalsIgnoreCase(id)) {
-                temp = ((Modelo_Inventario_Vehiculos) list.get(i));
+            if (((Modelo_Almacen) list.get(i)).getNombre_prod().equalsIgnoreCase(id)) {
+                temp = ((Modelo_Almacen) list.get(i));
                 
             }
         }
@@ -159,21 +159,21 @@ public class Linked_List<T> extends LinkedList {
         System.out.println("No se encontro el dni");
         return -1;
     }
-    public int findInventario(Linked_List<Modelo_Inventario_Vehiculos> list, String id) {
+    public int findInventario(Linked_List<Modelo_Almacen> list, String id) {
         for (int i = 0; i < list.size(); i++) {
-            if (((Modelo_Inventario_Vehiculos) list.get(i)).getId().compareTo(id) == 0) {
+            if (((Modelo_Almacen) list.get(i)).getId().compareTo(id) == 0) {
                 return i;
             }
         }
         return 0;
     }
 
-    public InventarioTEMP findIndexId(Linked_List<Modelo_Inventario_Vehiculos> list, String id) {
+    public InventarioTEMP findIndexId(Linked_List<Modelo_Almacen> list, String id) {
         InventarioTEMP TEMP = new InventarioTEMP();
         LinkedList<Integer> temp = new LinkedList<>();
 
         for (int i = 0; i < list.size(); i++) {
-            if (((Modelo_Inventario_Vehiculos) list.get(i)).getId().equalsIgnoreCase(id) == true) {
+            if (((Modelo_Almacen) list.get(i)).getId().equalsIgnoreCase(id) == true) {
                 temp.add(i);
             }
         }
@@ -191,12 +191,12 @@ public class Linked_List<T> extends LinkedList {
 
     }
 
-    public InventarioTEMP findIndexNombre(Linked_List<Modelo_Inventario_Vehiculos> list, String nombre) {
+    public InventarioTEMP findIndexNombre(Linked_List<Modelo_Almacen> list, String nombre) {
         InventarioTEMP TEMP = new InventarioTEMP();
         LinkedList<Integer> temp = new LinkedList<>();
 
         for (int i = 0; i < list.size(); i++) {
-            if (((Modelo_Inventario_Vehiculos) list.get(i)).getNombre_prod().equalsIgnoreCase(nombre) == true) {
+            if (((Modelo_Almacen) list.get(i)).getNombre_prod().equalsIgnoreCase(nombre) == true) {
                 temp.add(i);
             }
         }
@@ -214,12 +214,12 @@ public class Linked_List<T> extends LinkedList {
 
     }
 
-    public InventarioTEMP findIndexMarca(Linked_List<Modelo_Inventario_Vehiculos> list, String marca) {
+    public InventarioTEMP findIndexMarca(Linked_List<Modelo_Almacen> list, String marca) {
         InventarioTEMP TEMP = new InventarioTEMP();
         LinkedList<Integer> temp = new LinkedList<>();
 
         for (int i = 0; i < list.size(); i++) {
-            if (((Modelo_Inventario_Vehiculos) list.get(i)).getMarca().equalsIgnoreCase(marca) == true) {
+            if (((Modelo_Almacen) list.get(i)).getMarca().equalsIgnoreCase(marca) == true) {
                 temp.add(i);
             }
         }
@@ -300,6 +300,33 @@ public class Linked_List<T> extends LinkedList {
             resultado.setTemp(temp);
             return resultado;
         }
+    }
+    
+    public int findIndexTrabajador(Linked_List<Modelo_Trabajadores> list, int ID){
+        for (int i = 0 ; i<list.size() ;i++){
+            if(((Modelo_Trabajadores)list.get(i)).getId()==ID){
+                return i;
+            }
+        }
+        return -1;
+    }
+    
+    public int findindexCliente(Linked_List<Modelo_Clientes> list,int ID){
+        for (int i = 0 ; i<list.size() ;i++){
+            if(((Modelo_Clientes)list.get(i)).getId()==ID){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int findIndexAlmacen(Linked_List<Modelo_Almacen> list, String id) {
+        for (int i = 0 ; i<list.size() ;i++){
+            if(((Modelo_Almacen)list.get(i)).getId().equals(id)){
+                return i;
+            }
+        }
+        return -1;
     }
 
     public static class funcionaClientes {

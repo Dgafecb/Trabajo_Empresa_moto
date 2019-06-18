@@ -7,34 +7,73 @@ import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.LinkedList;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
+import javax.swing.SwingUtilities;
+import vista.Emergente_Detalle_Ventas;
 import vista.Panel_List_Ventas;
+import vista.Ventana_Admin;
 
 
 public class CustomRendererVentas extends JPanel implements ListCellRenderer<LinkedList<Modelo_Ventas>>{
     
     
 
-    private JList lDetalles;
+    private JList list;
     
     private Panel_List_Ventas plv;
     
     
-    public CustomRendererVentas(){
+    public CustomRendererVentas(JList list,Ventana_Admin frame){
+        this.list = list;
         this.setLayout(new BorderLayout(5, 5));
         plv = new Panel_List_Ventas();
         add(plv, BorderLayout.CENTER);
+        list.addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseReleased ( MouseEvent e ){
+              if ( SwingUtilities.isLeftMouseButton ( e ) ){
+                    int index = list.locationToIndex ( e.getPoint () );
+                    if ( index != -1 && list.isSelectedIndex ( index ) )
+                    {
+                        Rectangle rect = list.getCellBounds ( index, index );
+                        Point pointWithinCell = new Point ( e.getX () - rect.x, e.getY () - rect.y );
+                        Rectangle crossRect = new Rectangle ( 775 , 36 , 100, 30 );
+                        System.out.println(rect.height+"-"+rect.width);
+                        System.out.println(pointWithinCell.x+"-"+pointWithinCell.y);
+                        System.out.println(index);
+                        if ( crossRect.contains ( pointWithinCell ) )
+                        {
+                           LinkedList<Modelo_Ventas> lista_detalle = ((CustomListModel_Ventas)list.getModel()).getVenta(index);
+                           if(lista_detalle!=null){
+                               Emergente_Detalle_Ventas detalle = new Emergente_Detalle_Ventas(frame,true,lista_detalle);
+                               detalle.show(true);
+                           }
+                           
+                        }
+                    }
+                }
+            }
+
+
+        });
+        
     }
     
 
     
     @Override
     public Component getListCellRendererComponent(JList<? extends LinkedList<Modelo_Ventas>> jlist, LinkedList<Modelo_Ventas> e, int i, boolean bln, boolean bln1) {
-        Modelo_Inventario_Vehiculos miv;
+        Modelo_Almacen miv;
         Double montoTotal = 0.0;
         Double ganancia = 0.0;
         String idProducto;
@@ -71,6 +110,7 @@ public class CustomRendererVentas extends JPanel implements ListCellRenderer<Lin
             plv.lblFecha.setText(fecha);
             plv.lblHora.setText(hora);
         }
+        
         
         return this;
     }

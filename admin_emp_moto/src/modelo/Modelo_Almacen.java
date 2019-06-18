@@ -2,7 +2,7 @@
 package modelo;
 
 
-public class Modelo_Inventario_Vehiculos {
+public class Modelo_Almacen {
 
     private String id;
     private String nombre_prod;

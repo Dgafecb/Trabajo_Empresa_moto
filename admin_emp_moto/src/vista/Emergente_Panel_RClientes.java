@@ -14,7 +14,7 @@ import modelo.CustomButtonShaped;
 
 public class Emergente_Panel_RClientes extends javax.swing.JDialog {
 
-    private Dimension resolucionDialogo = new Dimension (500,530);
+    private Dimension resolucionDialogo = new Dimension (570,560);
     public Borde_Ventana bordeVentana;
     public CustomButtonShaped btnAceptar,btnCancelar;
     public Panel_Registro_Clientes_Agregar pClientesRegistrosAgregar;
@@ -120,9 +120,11 @@ public class Emergente_Panel_RClientes extends javax.swing.JDialog {
                 clientes.add(temp);
                 temp = (pClientesRegistrosAgregar.txfCTelefono.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCTelefono.getText().toUpperCase() : "DESCONOCIDO";
                 clientes.add(temp);
-                temp = pClientesRegistrosAgregar.cbCiudad.getSelectedItem().toString();
+                temp = pClientesRegistrosAgregar.cbProvincia.getSelectedItem().toString();
                 clientes.add(temp);
-                temp = pClientesRegistrosAgregar.cbPais.getSelectedItem().toString();
+                temp = pClientesRegistrosAgregar.cbDepartamento.getSelectedItem().toString();
+                clientes.add(temp);
+                temp = (pClientesRegistrosAgregar.txfCFacebook.getText().compareTo("") != 0) ? pClientesRegistrosAgregar.txfCFacebook.getText() : "DESCONOCIDO";
                 clientes.add(temp);
                 dispose();
             }

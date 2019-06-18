@@ -24,7 +24,7 @@ import modelo.Modelo_Ajustes;
 import modelo.Modelo_Asistencia;
 import modelo.Modelo_Clientes;
 import modelo.Modelo_Inventario_Repuestos;
-import modelo.Modelo_Inventario_Vehiculos;
+import modelo.Modelo_Almacen;
 import modelo.Modelo_Marcas;
 import modelo.Modelo_Ventas;
 import vista.Emergente_Aviso;
@@ -38,7 +38,7 @@ public class Controlador_login implements ActionListener, KeyListener {
     public static Linked_List<Modelo_Trabajadores> lista_trabajadores;
     public static Linked_List<Modelo_Asistencia> lista_asistencia;
     public static Linked_List<Modelo_Marcas> lista_marcas;
-    public static Linked_List<Modelo_Inventario_Vehiculos> lista_vehiculos;
+    public static Linked_List<Modelo_Almacen> lista_vehiculos;
     public static Linked_List<Modelo_Inventario_Repuestos> lista_repuestos;
     public static Linked_List<Modelo_Ajustes> lista_ajustes;
     public static Linked_List<Modelo_Clientes> lista_clientes;

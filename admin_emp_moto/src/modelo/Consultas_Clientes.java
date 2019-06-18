@@ -22,8 +22,8 @@ public class Consultas_Clientes extends ConexionSQL {
         Connection con = getConnection();
 
         String query = "INSERT INTO Clientes"
-                + "(nombre_apellido,nombre_apellido_2,dni,dni_2, correo, direccion, telefono, ciudad, pais)"
-                + "VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + "(nombre_apellido,nombre_apellido_2,dni,dni_2, correo, direccion, telefono, ciudad, pais,facebook)"
+                + "VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 
         try {
             ps = con.prepareStatement(query);
@@ -36,6 +36,7 @@ public class Consultas_Clientes extends ConexionSQL {
             ps.setString(7, cliente.getTelefono());
             ps.setString(8, cliente.getCiudad());
             ps.setString(9, cliente.getPais());
+            ps.setString(10, cliente.getFacebook());
             ps.execute();
             ps.close();
             return true;
@@ -81,6 +82,7 @@ public class Consultas_Clientes extends ConexionSQL {
                 cliente.setTelefono(rs.getString("telefono"));
                 cliente.setCiudad(rs.getString("ciudad"));
                 cliente.setPais(rs.getString("pais"));
+                cliente.setFacebook(rs.getString("facebook"));
                 return true;
             }
 
@@ -104,7 +106,7 @@ public class Consultas_Clientes extends ConexionSQL {
         Connection con = getConnection();
 
         String query = "UPDATE Clientes SET "
-                + "nombre_apellido = ? , nombre_apellido_2 = ?,dni = ?,dni_2=?, correo= ?, direccion=?,telefono=?,ciudad=?,pais=? "
+                + "nombre_apellido = ? , nombre_apellido_2 = ?,dni = ?,dni_2=?, correo= ?, direccion=?,telefono=?,ciudad=?,pais=?,facebook=? "
                 + "WHERE id = ? ";
 
         try {
@@ -118,7 +120,8 @@ public class Consultas_Clientes extends ConexionSQL {
             ps.setString(7, cliente.getTelefono());
             ps.setString(8, cliente.getCiudad());
             ps.setString(9, cliente.getPais());
-            ps.setInt(10, cliente.getId());
+             ps.setString(10, cliente.getFacebook());
+            ps.setInt(11, cliente.getId());
             ps.execute();
             ps.close();
             return true;
@@ -185,6 +188,7 @@ public class Consultas_Clientes extends ConexionSQL {
                 cliente.setTelefono(rs.getString("telefono"));
                 cliente.setCiudad(rs.getString("ciudad"));
                 cliente.setPais(rs.getString("pais"));
+                cliente.setFacebook(rs.getString("facebook"));
                 listaClientes.add(cliente);
 
             }
