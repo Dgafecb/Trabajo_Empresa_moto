@@ -67,6 +67,7 @@ public class Panel_Registros_Ganancias extends javax.swing.JPanel {
         txfBuscar.setMaximumSize(new java.awt.Dimension(500, 39));
         txfBuscar.setMinimumSize(new java.awt.Dimension(500, 39));
         txfBuscar.setPhColor(new java.awt.Color(150, 150, 150));
+        txfBuscar.setPlaceholder("Buscar venta");
         txfBuscar.setPreferredSize(new java.awt.Dimension(500, 39));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -81,7 +82,7 @@ public class Panel_Registros_Ganancias extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 0);
+        gridBagConstraints.insets = new java.awt.Insets(20, 5, 5, 0);
         customPanel1.add(pBuscar, gridBagConstraints);
 
         btnClienteBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/(35x35)btnBuscar.png"))); // NOI18N
@@ -92,7 +93,7 @@ public class Panel_Registros_Ganancias extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 5);
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 5, 5);
         customPanel1.add(btnClienteBuscar, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
