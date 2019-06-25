@@ -13,7 +13,7 @@ import modelo.Consultas_Ajustes;
 import modelo.Consultas_Asistencia;
 import modelo.Consultas_Clientes;
 import modelo.Consultas_Inventario_Repuestos;
-import modelo.Consultas_Inventario_Vehiculos;
+import modelo.Consultas_Almacen;
 import modelo.Consultas_Marca;
 
 import modelo.Modelo_Trabajadores;
@@ -125,7 +125,7 @@ public class Controlador_login implements ActionListener, KeyListener {
                 public void run() {
                     Consultas_Clientes consultas_clientes = new Consultas_Clientes();
                     lista_clientes = consultas_clientes.readAll();
-                    Consultas_Inventario_Vehiculos consultas_vehiculos = new Consultas_Inventario_Vehiculos();
+                    Consultas_Almacen consultas_vehiculos = new Consultas_Almacen();
                     lista_vehiculos = consultas_vehiculos.readAll();
                     Consultas_Ajustes consultas_ajustes = new Consultas_Ajustes();
                     lista_ajustes = consultas_ajustes.readAll();
@@ -160,7 +160,7 @@ public class Controlador_login implements ActionListener, KeyListener {
                 public void run() {
                     Consultas_Clientes consultas_clientes = new Consultas_Clientes();
                     lista_clientes = consultas_clientes.readAll();
-                    Consultas_Inventario_Vehiculos consultas_vehiculos = new Consultas_Inventario_Vehiculos();
+                    Consultas_Almacen consultas_vehiculos = new Consultas_Almacen();
                     lista_vehiculos = consultas_vehiculos.readAll();
                     Consultas_Ajustes consultas_ajustes = new Consultas_Ajustes();
                     lista_ajustes = consultas_ajustes.readAll();

@@ -29,7 +29,7 @@ import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import modelo.Consultas_Ajustes;
 import modelo.Consultas_Clientes;
-import modelo.Consultas_Inventario_Vehiculos;
+import modelo.Consultas_Almacen;
 import modelo.Consultas_Ventas;
 import modelo.Linked_List;
 import modelo.Modelo_Ajustes;
@@ -486,7 +486,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
             if (this.modeloClientes != null) {
                 // actualizar inventario y crear registro de la venta
 
-                Consultas_Inventario_Vehiculos consultas_inventario = new Consultas_Inventario_Vehiculos();
+                Consultas_Almacen consultas_inventario = new Consultas_Almacen();
                 Thread hilo = new Thread() {// hilo para actualizar la cantidad de cada elemento del inventario
                     @Override
                     public void run() {
@@ -609,7 +609,7 @@ public class Controlador_Ventas implements ActionListener, KeyListener {
                 Thread hilo2 = new Thread() {// hilo para actualizar las listas y volver a llenar las tablas
                     @Override
                     public void run() {
-                        Consultas_Inventario_Vehiculos consulta_vehiculo = new Consultas_Inventario_Vehiculos();
+                        Consultas_Almacen consulta_vehiculo = new Consultas_Almacen();
                         Consultas_Clientes consulta_cliente = new Consultas_Clientes();
                         Consultas_Ventas consulta_ventas = new Consultas_Ventas();
                         Consultas_Ajustes ca = new Consultas_Ajustes();

@@ -4,17 +4,22 @@ package vista;
 import static controlador.Controlador_login.lista_clientes;
 import static controlador.Controlador_login.lista_trabajadores;
 import static controlador.Controlador_login.lista_vehiculos;
+import static controlador.Controlador_login.lista_ventas;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import modelo.CustomListModel_Ventas;
 import modelo.CustomRenderAlmacen;
 import modelo.Modelo_Almacen;
 import modelo.Modelo_Clientes;
@@ -29,9 +34,13 @@ public class Emergente_Detalle_Ventas extends javax.swing.JDialog {
     private LinkedList<Modelo_Ventas> lista;
     private Panel_Detalle_Ventas panel ;
     private Dimension res = new Dimension (600,600);
+    private JList jlist ;
+    private int pos;
     
-    public Emergente_Detalle_Ventas(java.awt.Frame parent, boolean modal, LinkedList<Modelo_Ventas> lista) {
+    public Emergente_Detalle_Ventas(java.awt.Frame parent, boolean modal, LinkedList<Modelo_Ventas> lista,JList jlist,int pos) {
         super(parent, modal);
+        this.pos = pos;
+        this.jlist = jlist;
         this.lista = lista;
         initDialog();
         initPanel();
@@ -155,7 +164,33 @@ public class Emergente_Detalle_Ventas extends javax.swing.JDialog {
         panel.jTable1.getTableHeader().getColumnModel().getColumn(3).setMaxWidth(100);
         panel.jTable1.getTableHeader().getColumnModel().getColumn(3).setMinWidth(100);
 
-        
+        panel.btnAnular.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                int tamanho = lista.size();
+                if(tamanho!=0){
+                    for(int i = 0 ;i<tamanho ;i++){
+                        Modelo_Ventas temp_v = lista.get(i);
+                        int index_almacen = lista_vehiculos.findIndexAlmacen(lista_vehiculos, temp_v.getId_prod());
+                        if(index_almacen !=-1){
+                            Modelo_Almacen temp_a = (Modelo_Almacen) lista_vehiculos.get(index_almacen) ;
+                            //AQUI SE RESTAURA TODO
+                            temp_a.setCantidad(temp_a.getCantidad()+temp_v.getCantidad());
+                            lista_vehiculos.remove(index_almacen);
+                            lista_vehiculos.add(index_almacen, temp_a);
+                            int index_venta = lista_ventas.findIndexVenta(lista_ventas, temp_v.getId());
+                            lista_ventas.remove(index_venta);
+                             
+                            dispose();
+                            //NUEVO HILO PARA BORRAR DE LA BASE DE DATOS
+                        }
+                        
+                    }
+                }
+                //System.out.println("prueba");
+            }
+            
+        });
         
     }
     

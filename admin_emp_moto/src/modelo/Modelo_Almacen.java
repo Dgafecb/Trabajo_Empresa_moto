@@ -19,6 +19,8 @@ public class Modelo_Almacen {
     private int limite_advertencia;
     private float precio_compra;
     private int comision;
+    private int cant_init;
+    private String fecha_ingreso;
 
     public String getId() {
         return id;
@@ -139,6 +141,24 @@ public class Modelo_Almacen {
     public void setComision(int comision) {
         this.comision = comision;
     }
+
+    public int getCant_init() {
+        return cant_init;
+    }
+
+    public void setCant_init(int cant_init) {
+        this.cant_init = cant_init;
+    }
+
+    public String getFecha_ingreso() {
+        return fecha_ingreso;
+    }
+
+    public void setFecha_ingreso(String fecha_ingreso) {
+        this.fecha_ingreso = fecha_ingreso;
+    }
+    
+    
 
     
 }

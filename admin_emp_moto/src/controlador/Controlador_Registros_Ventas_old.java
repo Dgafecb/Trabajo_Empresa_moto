@@ -16,7 +16,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import modelo.Consultas_Inventario_Vehiculos;
+import modelo.Consultas_Almacen;
 import modelo.Consultas_Ventas;
 import modelo.Exporter;
 import modelo.Linked_List;
@@ -326,7 +326,7 @@ public class Controlador_Registros_Ventas_old implements ActionListener{
         Modelo_Ventas temp_model = new Modelo_Ventas();
         temp_model.setId(((Modelo_Ventas) lista_ventas.get(index)).getId()); 
         Consultas_Ventas cv = new Consultas_Ventas();
-        Consultas_Inventario_Vehiculos civ = new Consultas_Inventario_Vehiculos();
+        Consultas_Almacen civ = new Consultas_Almacen();
             if (cv.delete(temp_model)) {
                 lista_ventas.remove(index);
                 fillTable(listaVentas);

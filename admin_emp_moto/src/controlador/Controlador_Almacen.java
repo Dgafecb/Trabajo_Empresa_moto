@@ -5,7 +5,9 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
@@ -20,7 +22,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellRenderer;
-import modelo.Consultas_Inventario_Vehiculos;
+import modelo.Consultas_Almacen;
 import modelo.CustomRenderAlmacen;
 import modelo.Exporter;
 import modelo.Linked_List;
@@ -236,6 +238,8 @@ public class Controlador_Almacen implements ActionListener {
                 String anhos_garantia = listaAgregar.get(9);
                 int advertencia = Integer.valueOf(listaAgregar.get(12));
                 int comision = Integer.valueOf(listaAgregar.get(14));
+                int cant_init = cantidad;
+                String fecha_ingreso = new SimpleDateFormat("ddMMyyyy_HHmmss").format(Calendar.getInstance().getTime());
                 
                 Modelo_Almacen temp_model = new Modelo_Almacen();
                 temp_model.setAnho_fab(anho_fab);
@@ -253,8 +257,10 @@ public class Controlador_Almacen implements ActionListener {
                 temp_model.setTipo_vehiculo(categoria);
                 temp_model.setPrecio_compra(precio_compra);
                 temp_model.setComision(comision);
+                temp_model.setCant_init(cant_init);
+                temp_model.setFecha_ingreso(fecha_ingreso);
 
-                Consultas_Inventario_Vehiculos consultas = new Consultas_Inventario_Vehiculos();
+                Consultas_Almacen consultas = new Consultas_Almacen();
                 if (consultas.create(temp_model)) {
                     lista_vehiculos.add(temp_model);
                     this.llenarTablaAlmacen(lista_vehiculos);
@@ -308,7 +314,7 @@ public class Controlador_Almacen implements ActionListener {
                 temp_model.setLimite_advertencia(advertencia);
                 temp_model.setPrecio_compra(precio_compra);
                 temp_model.setComision(comision);
-                Consultas_Inventario_Vehiculos consultas = new Consultas_Inventario_Vehiculos();
+                Consultas_Almacen consultas = new Consultas_Almacen();
 
                 if (consultas.update(temp_model)) {
                     int index = (lista_vehiculos.findIndexId(lista_vehiculos, id).getTemp()).peek();
@@ -333,7 +339,7 @@ public class Controlador_Almacen implements ActionListener {
             int index = lista_vehiculos.findInventario(lista_vehiculos, temp_id);
             Modelo_Almacen temp_model = new Modelo_Almacen();
             temp_model.setId(((Modelo_Almacen) lista_vehiculos.get(index)).getId());
-            Consultas_Inventario_Vehiculos consultas = new Consultas_Inventario_Vehiculos();
+            Consultas_Almacen consultas = new Consultas_Almacen();
             if (consultas.delete(temp_model)) {
                 lista_vehiculos.remove(index);
                 this.llenarTablaAlmacen(lista_vehiculos);
@@ -350,7 +356,7 @@ public class Controlador_Almacen implements ActionListener {
     private void Update() {
         panelUpdate = new Panel_Update();
         panelInventario.jScrollPane1.setViewportView(panelUpdate);
-        Consultas_Inventario_Vehiculos consulta = new Consultas_Inventario_Vehiculos();
+        Consultas_Almacen consulta = new Consultas_Almacen();
         lista_vehiculos = consulta.readAll();
         llenarTablaAlmacen(lista_vehiculos);
         panelInventario.jScrollPane1.setViewportView(panelInventario.jTable1);

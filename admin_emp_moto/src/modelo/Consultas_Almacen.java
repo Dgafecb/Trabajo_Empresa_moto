@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
-public class Consultas_Inventario_Vehiculos extends ConexionSQL {
+public class Consultas_Almacen extends ConexionSQL {
 
     public boolean create(Modelo_Almacen user) {
         PreparedStatement ps = null;
@@ -14,8 +14,8 @@ public class Consultas_Inventario_Vehiculos extends ConexionSQL {
 
         String query = "INSERT INTO Inventario_vehiculos "
                 + "( id,nombre_prod, tipo_vehiculo, marca,modelo,color,motor,chasis,"
-                + "anho_fab,anhos_garantia,cantidad,precio,limite_advertencia,precio_costo,comision)"
-                + "values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)";
+                + "anho_fab,anhos_garantia,cantidad,precio,limite_advertencia,precio_costo,comision,cant_init,fecha_ingreso)"
+                + "values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?)";
 
         try {
             ps = con.prepareStatement(query);
@@ -34,6 +34,8 @@ public class Consultas_Inventario_Vehiculos extends ConexionSQL {
             ps.setInt(13, user.getLimite_advertencia());
             ps.setFloat(14, user.getPrecio_compra());
             ps.setInt(15, user.getComision());
+            ps.setInt(16, user.getCant_init());
+            ps.setString(17, user.getFecha_ingreso());
 
             ps.execute();
             ps.close();

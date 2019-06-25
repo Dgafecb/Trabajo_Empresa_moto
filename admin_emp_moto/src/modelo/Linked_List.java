@@ -328,6 +328,15 @@ public class Linked_List<T> extends LinkedList {
         }
         return -1;
     }
+    
+    public int findIndexVenta(Linked_List<Modelo_Ventas> list, int id) {
+        for (int i = 0 ; i<list.size() ;i++){
+            if(((Modelo_Ventas)list.get(i)).getId()==id){
+                return i;
+            }
+        }
+        return -1;
+    }
 
     public static class funcionaClientes {
 

@@ -48,14 +48,14 @@ public class CustomRendererVentas extends JPanel implements ListCellRenderer<Lin
                         Rectangle rect = list.getCellBounds ( index, index );
                         Point pointWithinCell = new Point ( e.getX () - rect.x, e.getY () - rect.y );
                         Rectangle crossRect = new Rectangle ( 775 , 36 , 100, 30 );
-                        System.out.println(rect.height+"-"+rect.width);
-                        System.out.println(pointWithinCell.x+"-"+pointWithinCell.y);
+                        /*System.out.println(rect.height+"-"+rect.width);
+                        System.out.println(pointWithinCell.x+"-"+pointWithinCell.y);*/
                         System.out.println(index);
                         if ( crossRect.contains ( pointWithinCell ) )
                         {
                            LinkedList<Modelo_Ventas> lista_detalle = ((CustomListModel_Ventas)list.getModel()).getVenta(index);
                            if(lista_detalle!=null){
-                               Emergente_Detalle_Ventas detalle = new Emergente_Detalle_Ventas(frame,true,lista_detalle);
+                               Emergente_Detalle_Ventas detalle = new Emergente_Detalle_Ventas(frame,true,lista_detalle,list,index);
                                detalle.show(true);
                            }
                            

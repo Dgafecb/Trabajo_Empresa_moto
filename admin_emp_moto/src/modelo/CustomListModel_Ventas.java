@@ -41,4 +41,10 @@ public class CustomListModel_Ventas extends AbstractListModel{
         return mv;
     }
     
+    public void removeElement(int i){
+        Linked_List<LinkedList<Modelo_Ventas>> temp = lista;
+        temp.remove(i);
+        lista = temp;
+    }
+    
 }
